@@ -1,0 +1,305 @@
+:root {
+  --green: rgba(139, 196, 67, 0.9);
+}
+
+body{
+    font-family: 'Montserrat';
+}
+
+/* Navbar
+/* ------------------------------------------------------------------ */
+#btn-nav {
+    font-weight: 500;
+    background-color: var(--green);
+    color: white!important;
+    border-radius: 0.25rem;
+    margin-left: auto;
+    width: 95%;
+    margin-right: auto
+}
+
+#btn-nav:hover{
+    color: var(--green)!important;
+    background-color: white;
+    border: var(--green);
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 0.25rem;
+}
+
+.mr-right{
+    margin-right: 0.2em;
+}
+/* Header
+/* ------------------------------------------------------------------ */
+.title {
+	font-size: 3rem;
+	font-weight: 500;
+	line-height: 3.5rem;
+}
+
+.bg-info{
+    background-color: var(--green);
+    opacity: 0.91;
+}
+
+header {
+    padding-top: 7.5rem;
+    padding-bottom: 5rem;
+}
+
+section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+/* Typewriter
+/* ------------------------------------------------------------------ */
+
+.typewriter h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid var(--green); /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation:
+    typing 3.5s steps(30, end),
+    blink-caret .5s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--green); }
+}
+
+/* Timeline
+/* ------------------------------------------------------------------ */
+.timeline {
+  border-left: 1px solid hsl(0, 0%, 90%);
+  position: relative;
+  list-style: none;
+}
+
+.timeline .timeline-item {
+  position: relative;
+}
+
+
+.timeline .timeline-item:before {
+  position: absolute;
+  display: block;
+  top: 0;
+}
+
+.timeline .timeline-item:before {
+  background-color: var(--green);
+  left: -38px;
+  border-radius: 50%;
+  height: 11px;
+  width: 11px;
+  content: "";
+}
+
+/* Project coordinators
+/* ------------------------------------------------------------------ */
+
+.media {
+    min-height: 135px;
+    padding: 7.5px;
+    border: 1px solid lightgray;
+    background-color: #f8f9fa;
+    border-radius: 7.5px;
+    margin-top: 10px;
+}
+
+.media {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.media-body {
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 1.3rem;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.inst {
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 1.0rem;
+    min-height: 35px;
+}
+
+.contact {
+    height: 30px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.media > img {
+    height: 120px;
+    margin-right: 15px;
+    border-radius: 7.5px;
+    overflow: hidden;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-sm {
+    padding: 4px;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.btn-contact{
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    color: #ffffff;
+    border: 1.5pt solid #f8f9fa;
+    background-color: var(--green);
+    padding: 0em;
+    display: inline-block;
+    border-radius: 0.25rem;
+    font-weight: 100;
+}
+
+.btn-contact:hover{
+    color: var(--green);
+    background-color: white;
+    border: 1.5pt solid var(--green);
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+/* Frequently asked questions
+/* ------------------------------------------------------------------ */
+.hash {
+    font-weight: 800;
+    padding-right: 5px;
+}
+
+.accordion-item {
+    margin-bottom: 0.5em;
+    border: 1px solid rgba(0, 0, 0, 0.125) !important;
+}
+
+/* Consent
+/* ------------------------------------------------------------------ */
+.consent-header {
+    text-align: center;
+    color: black;
+    padding-bottom: 0.5em;
+}
+
+.consent {
+    text-align: center;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+    font-size: 1.2em;
+    font-weight: 450;
+}
+
+input[type=checkbox] {
+    -ms-transform: scale(1.25);
+    -moz-transform: scale(1.25);
+    -webkit-transform: scale(1.25);
+    -o-transform: scale(1.25);
+    margin-right: 0.5rem;
+}
+
+.hr-consent {
+    margin-bottom: 1.5em;
+    color: var(--green);
+}
+
+
+/* Sign up section
+/* ------------------------------------------------------------------ */
+.sign-up-header {
+    text-align: center;
+    color: white;
+    padding-bottom: 0.5em;
+}
+
+.required{
+    font-weight: 800;
+}
+
+.sign-up-field {
+    padding-bottom: 1.5em;
+}
+
+.btn-sign-up{
+    font-weight: 450;
+    font-size: 1.4em;
+    width:200px;
+    height: 50px
+}
+
+
+/* Button to join
+/* ------------------------------------------------------------------ */
+.btn-join {
+    padding: 17.5px 7.5px;
+    color: #ffffff;
+    border: 1.5pt solid #f8f9fa;
+    background-color: var(--green);
+    border-radius: 7.5px;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+}
+
+.btn-join:hover {
+    color: var(--green);
+    background-color: white;
+    border: 1.5pt solid var(--green);
+}
+
+
+/* confirmation
+/* ------------------------------------------------------------------ */
+.check-icon {
+    font-size: 6em;
+    font-weight: 600;
+    margin-bottom: 0.2em;
+}
+
+.response {
+    font-size: 2em;
+    font-weight: 300;
+}
+
+/* Footer
+/* ------------------------------------------------------------------ */
+.py-5 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
