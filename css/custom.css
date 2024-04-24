@@ -4,6 +4,23 @@
 
 body{
     font-family: 'Montserrat';
+    text-align: justify;
+}
+
+.highlight{
+    color: var(--green)!important;
+    font-weight: bold;
+}
+
+.research-question {
+    text-align: center;
+    color: var(--green)!important;
+    font-size: x-large;
+    font-style: italic;
+}
+
+.hyperlink {
+    color: var(--green)!important;
 }
 
 /* Navbar
@@ -52,6 +69,7 @@ section {
     padding-top: 5rem;
     padding-bottom: 5rem;
 }
+
 
 /* Typewriter
 /* ------------------------------------------------------------------ */
@@ -205,10 +223,61 @@ img {
     padding-right: 5px;
 }
 
+.accordion{
+    --bs-accordion-active-bg: #41871914;
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(139, 196, 67, 0.3);
+}
+
 .accordion-item {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.0em;
     border: 1px solid rgba(0, 0, 0, 0.125) !important;
 }
+
+.accordion-button:not(.collapsed) {
+    color: rgba(139, 196, 67, 0.9);
+}
+
+.accordion-button:focus {
+    z-index: 3;
+    border-color: var(--bs-accordion-btn-focus-border-color);
+    outline: 0;
+    box-shadow: var(--bs-accordion-btn-focus-box-shadow);
+}
+
+
+/* Nav pills
+/* ------------------------------------------------------------------ */
+
+
+table{
+    border-collapse: unset;
+}
+
+th, td {
+    padding: 5px; /* Adjust this value to increase or decrease space */
+    padding-top: 0px;
+  }
+
+.nav-link-submission{
+    color: #8BC443E5;
+}
+
+.nav-link-submission:hover{
+    color: #8BC443E5;
+}
+
+.nav-pills{
+    --bs-nav-pills-link-active-bg: #8BC443E5;
+    width: 27%;
+}
+
+
+
+    .form-select, #specificationField {
+        width: 100%; /* Ensures the select and input take the full width of the td */
+        margin-top: 5px;
+    }
+
 
 /* Consent
 /* ------------------------------------------------------------------ */
@@ -281,6 +350,27 @@ input[type=checkbox] {
     color: var(--green);
     background-color: white;
     border: 1.5pt solid var(--green);
+}
+
+/* Button to join small
+/* ------------------------------------------------------------------ */
+.btn-outline-success-submission {
+    --bs-btn-color: var(--green);
+    --bs-btn-border-color: var(--green);
+    --bs-btn-hover-color: #fff;
+    color: white;
+    background-color: var(--green);;
+    --bs-btn-hover-bg: var(--green);
+    --bs-btn-hover-border-color: var(--green);
+    --bs-btn-focus-shadow-rgb: 25, 135, 84;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--green);
+    --bs-btn-active-border-color: var(--green);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: var(--green);
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: var(--green);
+    --bs-gradient: none;
 }
 
 
