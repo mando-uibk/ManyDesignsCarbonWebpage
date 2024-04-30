@@ -1,3 +1,6 @@
+/* Option 2: Import via CSS */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
 :root {
   --green: rgba(139, 196, 67, 0.9);
 }
@@ -77,10 +80,46 @@ header {
 }
 
 section {
-    padding-top: 5rem;
+    padding-top: 1rem;
     padding-bottom: 5rem;
 }
 
+.zoom {
+  padding: 50px;
+  transition: transform .5s; /* Animation */
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    z-index: 99;
+}
+
+.form-check-input:checked {
+    background-color: var(--green);
+    border-color: var(--green);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(139, 196, 67, 0.56);
+}
+
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 }
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom {
+  from{ bottom:-100px; opacity:0 }
+  to{ bottom:0; opacity:1 }
+}
 
 /* Typewriter
 /* ------------------------------------------------------------------ */
@@ -404,3 +443,4 @@ input[type=checkbox] {
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
 }
+
