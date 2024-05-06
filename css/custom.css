@@ -2,7 +2,7 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 
 :root {
-  --green: rgba(139, 196, 67, 0.9);
+  --green: rgba(139, 196, 67, 1.0);
 }
 
 body{
@@ -421,6 +421,7 @@ input[type=checkbox] {
     --bs-btn-disabled-bg: transparent;
     --bs-btn-disabled-border-color: var(--green);
     --bs-gradient: none;
+    z-index: 999;
 }
 
 
