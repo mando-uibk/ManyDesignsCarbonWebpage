@@ -16,13 +16,13 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800'
           rel='stylesheet' type='text/css'>
     <!-- Option 1: Include in HTML -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="wrapper">
     <!-- Sidebar -->
-    <aside id="sidebar" class="bg-dark">
+    <aside class="bg-dark" id="sidebar">
         <div class="h-100 position-fixed">
             <div class="sidebar-logo">
                 <a href="index.html">#ManyDesignsCarbon</a>
@@ -30,24 +30,24 @@
             <!-- Sidebar Navigation -->
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="index.html" class="sidebar-link">
+                    <a class="sidebar-link" href="index.html">
                         <i class="bi bi-info-circle"></i>
                         About
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="schedule.html" class="sidebar-link">
+                    <a class="sidebar-link" href="schedule.html">
                         <i class="bi bi-calendar3"></i> Schedule
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="coordinators.html" class="sidebar-link">
+                    <a class="sidebar-link" href="coordinators.html">
                         <i class="bi bi-people-fill"></i>
                         Project Coordinators
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="faqs.html" class="sidebar-link">
+                    <a class="sidebar-link" href="faqs.html">
                         <i class="bi bi-question-circle"></i>
                         FAQ
                     </a>
@@ -73,7 +73,7 @@
     <div class="main">
         <nav class="navbar navbar-expand px-3 bg-light position-fixed bg-transparent">
             <!-- Button for sidebar toggle -->
-            <button class="btn btn-outline-success-submission" id="toggler" type="button" data-bs-theme="dark">
+            <button class="btn btn-outline-success-submission" data-bs-theme="dark" id="toggler" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </nav>
@@ -84,18 +84,19 @@
 
             <section class="bg-light" id="topSection">
                 <div class="animate-bottom text-start">
-                    <h1>
+                    <h1 id="title_desktop">
                         #ManyDesignsCarbon
                     </h1>
+                    <h1 id="title_mobile">#Many Designs Carbon</h1>
                     <h4>A crowd many-designs project!</h4>
                 </div>
 
                 <a href="#about">
                     <button id="scroll-down-button" onclick="toggler.click()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                             class="bi bi-arrow-down" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                  d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"/>
+                        <svg class="bi bi-arrow-down" fill="currentColor" height="30" viewBox="0 0 16 16"
+                             width="30" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"
+                                  fill-rule="evenodd"/>
                         </svg>
                     </button>
                 </a>
@@ -110,24 +111,29 @@
                             <h2 class="pt-3">About the project</h2>
 
                             <p>
-                                with <b>#ManyDesignsCarbon</b> we are running <span class="highlight">a crowd-sourced project in fighting climate change!</span>
+                                with <b>#ManyDesignsCarbon</b> we are running <span class="highlight">a crowd-sourced project in environmental sciences!</span>
                             </p>
 
                             <p>
                                 In research teams (RTs) of up to two, everyone – from PhD student to full professor from
-                                around the world – will have the possibility to propose an experimental research design, all assessing
+                                around the world – will have the possibility to propose an experimental research design,
+                                all assessing
                                 the same research question:
                             </p>
 
                             <div class="research-question mb-4 mt-4">
-                                What is the impact of behavioral interventions on real-world support for a social price of carbon?
+                                What is the impact of behavioral interventions on real-world support for a social price
+                                of carbon?
                             </div>
 
                             <p>
-                                The project coordinators (PCs) will use the results of #ManyDesignsCarbon to learn about the
-                                scientific process and which behavioral intervention is most promising in enhancing support
+                                The project coordinators (PCs) will use the results of #ManyDesignsCarbon to learn about
+                                the
+                                scientific process and which behavioral intervention is most promising in enhancing
+                                support
                                 for the social price of carbon. They will study the variation in design choices
-                                and results, and write a metascience paper on the topic where all contributors whose design
+                                and results, and write a metascience paper on the topic where all contributors whose
+                                design
                                 proposals were run will also be included as co-authors.
                             </p>
 
@@ -135,7 +141,7 @@
                     </div>
                 </div>
             </section>
-            <section id="procedure" class="bg-light">
+            <section class="bg-light" id="procedure">
                 <div class="container px-3">
                     <div class="row gx-4 justify-content-center">
                         <div class="col-lg-12 pt-5">
@@ -145,11 +151,12 @@
 
                             <p>
                                 With successful registration, there are six stages in #ManyDesignsCarbon: registration,
-                                submission of design proposals via a pre-registration, peer assessment, implementation of the experiment,
+                                submission of design proposals via a pre-registration, peer assessment, implementation
+                                of the experiment,
                                 data analysis, and writing of the paper.
                             </p>
 
-                            <ol class="ms-5" type="1">
+                            <ol class="ms-1" type="1">
                                 <li class="fw-bold">Registration</li>
                                 <ol type="i">
                                     <li>Research teams (RTs) sign up for taking part in this study (without yet
@@ -157,7 +164,8 @@
                                     </li>
                                     <li>Project coordinators (PCs) pre-screen applications for adherence with the <a
                                             class="hyperlink" href="#eligibility">eligibility conditions</a> and
-                                        invite all eligible RTs to submit a pre-registration outlining their design proposal.
+                                        invite all eligible RTs to submit a pre-registration outlining their design
+                                        proposal.
                                     </li>
                                 </ol>
 
@@ -168,8 +176,9 @@
                                     <li>Invited RTs submit a <a class="hyperlink" href="pre-registration-template.pdf">pre-registration</a>
                                         outlining their research proposal. Additionally, RTs will fill out a survey
                                         asking RTs about their beliefs about standardized effect sizes of their
-                                        design (Cohen’s d or Cohen’s h) the meta-analytical effect size across all designs,
-                                        and  their belief of design heterogeneity.
+                                        design (Cohen’s d or Cohen’s h) the meta-analytical effect size across all
+                                        designs,
+                                        and their belief of design heterogeneity.
                                     </li>
                                     <li>PCs pre-screen all submitted designs for adherence with the <a class="hyperlink"
                                                                                                        href="#design_conditions">design
@@ -183,19 +192,24 @@
                                 </br>
 
                                 <li class="fw-bold">Peer assessment</li>
-                                RTs will assess 10 other RT's design proposals. Specifically, RTs will be asked to assess:
+                                RTs will assess 10 other RT's design proposals. Specifically, RTs will be asked to
+                                assess:
                                 <ul style="list-style-type:circle;">
-                                    <li>how informative the proposed research design is on a Likert scale from 0 (not at all
-                                        informative) to 10 (very informative) with the following question: <i>"What is the impact of
-                                        behavioral interventions on real-world support for a social price of carbon?"</i>
+                                    <li>how informative the proposed research design is on a Likert scale from 0 (not at
+                                        all
+                                        informative) to 10 (very informative) with the following question: <i>"What is
+                                            the impact of
+                                            behavioral interventions on real-world support for a social price of
+                                            carbon?"</i>
                                     </li>
-                                    <li>under which type of behavioral intervention a project using this design would be classified (open endend).
+                                    <li>under which type of behavioral intervention a project using this design would be
+                                        classified (open endend).
                                     </li>
-                                    <li>the standardized effect size of the design (Cohen's d or Cohen's h depending on how the dependent veriable
+                                    <li>the standardized effect size of the design (Cohen's d or Cohen's h depending on
+                                        how the dependent veriable
                                         of the design is constructed).
                                     </li>
                                 </ul>
-
 
 
                                 </br>
@@ -203,11 +217,13 @@
                                 <li class="fw-bold">Experimental implementation</li>
 
                                 <ul style="list-style-type:circle;">
-                                    <li>All selected designs will be implemented as online experiments following this <a>experimental protocol</a> using <a
-                                            class="hyperlink" href="https://www.Prolific.com">Prolific</a>, payed for by the PCs.
+                                    <li>All selected designs will be implemented as online experiments following this
+                                        <a class="hyperlink" href="#experimental_protocol">experimental protocol</a> using <a
+                                                class="hyperlink" href="https://www.Prolific.com">Prolific</a>, payed
+                                        for by the PCs (i.e., 350 observations per implemented design).
                                     </li>
                                     <li>All selected RTs program the experimental software for their design proposal
-                                        themselves.
+                                        themselves (including instructions).
                                     </li>
                                     <li>All selected RTs host the experimental software for their design proposal on
                                         their own servers.
@@ -219,46 +235,57 @@
                                 <li class="fw-bold">Analysis</li>
 
                                 <ul style="list-style-type:circle;">
-                                    <li>RTs will submit their raw data and give PCs access to the server on which the
-                                        experiment is hosted.
+                                    <li>When submitting the design proposals, RTs have to specify that the main treatment effect is
+                                        estimated using ordinary least squares (OLS) or a logit model (depending on the level
+                                        of measurement of the outcome variable), with real-world support for the social price
+                                        of carbon as the dependent variable and a dummy variable equal to 1 for observations
+                                        from the POLICY treatment (and 0 otherwise).
                                     </li>
-                                    <li>PCs will analyze the data as specified in RTs' respective pre-registrations.
+                                    <li>RTs will submit their raw data and give PCs access to the server on which the
+                                        experiment is hosted. Additionally, RTs will provide PCs ex ante with a code
+                                        book that explains all incoming variables and data points.
                                     </li>
                                     <li>PCs will analyze the data as specified in the PCs' pre-analysis plan.</li>
                                 </ul>
 
                                 </br>
 
-                                <li class="fw-bold">PCs will write a metascience paper; all members of selected RTs will be
+                                <li class="fw-bold">PCs will write a metascience paper; all members of selected RTs will
+                                    be
                                     co-authors.
                                 </li>
                             </ol>
 
                             <p>
                                 <b>Project coordinators.</b> The project will be coordinated by researchers from the
-                                University of Innsbruck. <a class="hyperlink" href="coordinators.html">Meet the project coordinators.</a>
+                                University of Innsbruck. <a class="hyperlink" href="coordinators.html">Meet the project
+                                coordinators.</a>
                             </p>
 
                             <p>
                                 <b>Pre-analysis plan.</b> Before inviting RTs to the study a pre-analysis plan (PAP) was
-                                uploaded outlining the design of the study. This frozen "pre-analysis plan" was uploaded to the
-                                <a class="hyperlink" href="https://osf.io/ujvdn/">Open Science Framework</a> on May 13, 2024. Once all RTs
+                                uploaded outlining the design of the study. This frozen "pre-analysis plan" was uploaded
+                                to the
+                                <a class="hyperlink" href="https://osf.io/ujvdn/">Open Science Framework</a> on May 13,
+                                2024. Once all RTs
                                 have submitted their pre-registrations of their designs, but before the data collection
                                 starts, we will specify a standardized way to analyze the data and
                                 the exact hypotheses and tests as an addendum to the initial PAP.
                             </p>
 
                             <p>
-                                <b>Questions.</b> We have set up a detailed <a class="hyperlink" href="coordinators.html">FAQ</a>
+                                <b>Questions.</b> We have set up a detailed <a class="hyperlink"
+                                                                               href="coordinators.html">FAQ</a>
                                 with commonly asked question. Of course, feel free to contact us
-                                via <a class="hyperlink" href="mailto:rene.schwaiger@uibk.ac.at;%20armando.holzknecht@uibk.ac.at?subject=ManyDesignsCarbon">mail</a>.
+                                via <a class="hyperlink"
+                                       href="mailto:rene.schwaiger@uibk.ac.at;%20armando.holzknecht@uibk.ac.at?subject=ManyDesignsCarbon">mail</a>.
                             </p>
 
                         </div>
                     </div>
                 </div>
             </section>
-            <section id="why" >
+            <section id="why">
                 <div class="container px-3">
                     <div class="row gx-4 justify-content-center">
                         <div class="col-lg-12 pt-5">
@@ -266,26 +293,32 @@
                             <h2 class="pb-2">Why participate?</h2>
 
 
-                        <ul style="list-style-type:circle;">
-                            <li>In addition to being part of a fascinating project, you will get the chance to satisfy
-                                the curiosity of the academic in you, hungry for answers to a highly relevant
-                                research question.
-                            </li>
-                            <li>For the proposals selected for implementation, the project coordinators will cover the costs for
-                                participant payments.
-                            </li>
-                            <li>If your proposal is selected for implementation, you will become co-author on the paper
-                                that targets publication in a top scientific journal. Two of the PCs previously organized a
-                                similar many-designs project on "Competition and Moral behavior", published in PNAS in 2023 (see
-                                <a class="hyperlink" href="https://doi.org/10.1073/pnas.2215572120">Huber et al., 2023</a>).
-                            </li>
-                        </ul>
+                            <ul style="list-style-type:circle;">
+                                <li>In addition to being part of a fascinating project, you will get the chance to
+                                    satisfy
+                                    the curiosity of the academic in you, hungry for answers to a highly relevant
+                                    research question.
+                                </li>
+                                <li>For the proposals selected for implementation, the project coordinators will cover
+                                    the costs for
+                                    participant payments.
+                                </li>
+                                <li>If your proposal is selected for implementation, you will become co-author on the
+                                    paper
+                                    that targets publication in a top scientific journal. Two of the PCs previously
+                                    organized a
+                                    similar many-designs project on "Competition and Moral behavior", published in PNAS
+                                    in 2023 (see
+                                    <a class="hyperlink" href="https://doi.org/10.1073/pnas.2215572120">Huber et al.,
+                                        2023</a>).
+                                </li>
+                            </ul>
 
                         </div>
                     </div>
                 </div>
             </section>
-            <section id="eligibility" class="bg-light">
+            <section class="bg-light" id="eligibility">
                 <div class="container px-3">
                     <div class="row gx-4 justify-content-center">
                         <div class="col-lg-12 pt-5">
@@ -301,8 +334,10 @@
                             <ul style="list-style-type:circle;">
                                 <li>maximum of two people per RT
                                 </li>
-                                <li>at least one team member needs a PhD in Economics, Psychology or a related field</li>
-                                <li>at least one team member needs one experimental study that is either published (accepted
+                                <li>at least one team member needs a PhD in Economics, Psychology or a related field
+                                </li>
+                                <li>at least one team member needs one experimental study that is either published
+                                    (accepted
                                     for
                                     publication) or a working paper
                                 </li>
@@ -322,150 +357,179 @@
                 </div>
             </section>
             <section id="experimental_protocol">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-12 pt-5">
+                <div class="container px-4">
+                    <div class="row gx-4 justify-content-center">
+                        <div class="col-lg-12 pt-5">
 
-                        <h2>Experimental protocol</h2>
+                            <h2>Experimental protocol</h2>
 
 
-                        <div>
-                             <svg width="75%" height="75%" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-    <!-- Nodes -->
-    <rect class="RC" x="5" y="3" width="10" height="10" stroke="black" rx="3" ry="3"/>
-    <text x="20" y="12" font-size="10">provided by RCs</text>
-    <rect class="RT" x="5" y="18" width="10" height="10" stroke="black" rx="3" ry="3"/>
-    <text x="20" y="27" font-size="10">provided by RTs</text>
+                            <div>
+                                <svg class="flowchart" viewBox="0 0 400 200"  xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Nodes -->
+                                    <rect class="RC" height="10" rx="3" ry="3" stroke="black" width="10" x="5" y="3"/>
+                                    <text font-size="10" x="20" y="12">provided by PCs</text>
+                                    <rect class="RT" height="10" rx="3" ry="3" stroke="black" width="10" x="5" y="18"/>
+                                    <text font-size="10" x="20" y="27">provided by RTs</text>
 
-    <rect class="RC" x="10" y="50" width="70" height="50" fill="lightblue" stroke="black" rx="10" ry="10"/>
-    <text x="20" y="80"  font-size="15">INTRO</text>
+                                    <rect class="RC" fill="lightblue" height="50" rx="10" ry="10" stroke="black"
+                                          width="70" x="10" y="50"/>
+                                    <text font-size="15" x="20" y="80">INTRO</text>
 
-    <rect class="RT"  x="110" y="50" width="70" height="50" fill="lightblue" stroke="black" rx="10" ry="10"/>
-    <text x="125" y="72"  font-size="13" fill="white">INTER-</text>
-    <text x="116" y="87"  font-size="13" fill="white">VENTION</text>
+                                    <rect class="RT" fill="lightblue" height="50" rx="10" ry="10" stroke="black"
+                                          width="70" x="110" y="50"/>
+                                    <text fill="white" font-size="13" x="125" y="72">INTER-</text>
+                                    <text fill="white" font-size="13" x="116" y="87">VENTION</text>
 
-    <rect class="RT" x="70" y="130.1" width="70" height="50" fill="lightblue" stroke="black" rx="10" ry="10"/>
-    <text x="72" y="160"  font-size="13" fill="white">CONTROL</text>
+                                    <rect class="RT" fill="lightblue" height="50" rx="10" ry="10" stroke="black"
+                                          width="70" x="70" y="130.1"/>
+                                    <text fill="white" font-size="13" x="72" y="160">CONTROL</text>
 
-    <rect class="RT" x="160" y="130" width="70" height="50" fill="lightblue" stroke="black" rx="10" ry="10"/>
-    <text x="171" y="160" font-size="13" fill="white">POLICY</text>
+                                    <rect class="RT" fill="lightblue" height="50" rx="10" ry="10" stroke="black"
+                                          width="70" x="160" y="130"/>
+                                    <text fill="white" font-size="13" x="171" y="160">POLICY</text>
 
-    <rect class="RC" x="210" y="50" width="70" height="50" fill="lightblue" stroke="black" rx="10" ry="10"/>
-    <text x="224" y="70"  font-size="10">EX-POST</text>
-    <text x="215" y="85" font-size="10">QUESTIONS</text>
+                                    <rect class="RC" fill="lightblue" height="50" rx="10" ry="10" stroke="black"
+                                          width="70" x="210" y="50"/>
+                                    <text font-size="10" x="224" y="70">EX-POST</text>
+                                    <text font-size="10" x="215" y="85">QUESTIONS</text>
 
-    <rect class="RC" x="310" y="50" width="70" height="50" fill="lightblue" stroke="black" rx="10" ry="10"/>
-    <text x="330" y="80"font-size="15">END</text>
+                                    <rect class="RC" fill="lightblue" height="50" rx="10" ry="10" stroke="black"
+                                          width="70" x="310" y="50"/>
+                                    <text font-size="15" x="330" y="80">END</text>
 
-    <!-- Arrows -->
-    <line x1="80" y1="75" x2="110" y2="75" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
-    <line x1="180" y1="75" x2="210" y2="75" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
-    <line x1="280" y1="75" x2="310" y2="75" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
-    <!-- Branch Arrows -->
-    <line x1="145" y1="100" x2="100" y2="130" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
-    <line x1="145" y1="100" x2="195" y2="130" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
-</svg>
+                                    <!-- Arrows -->
+                                    <line marker-end="url(#arrowhead)" stroke="black" stroke-width="2" x1="80" x2="110" y1="75"
+                                          y2="75"/>
+                                    <line marker-end="url(#arrowhead)" stroke="black" stroke-width="2" x1="180" x2="210" y1="75"
+                                          y2="75"/>
+                                    <line marker-end="url(#arrowhead)" stroke="black" stroke-width="2" x1="280" x2="310" y1="75"
+                                          y2="75"/>
+                                    <!-- Branch Arrows -->
+                                    <line marker-end="url(#arrowhead)" stroke="black" stroke-width="1" x1="145" x2="100" y1="100"
+                                          y2="130"/>
+                                    <line marker-end="url(#arrowhead)" stroke="black" stroke-width="1" x1="145" x2="195" y1="100"
+                                          y2="130"/>
+                                </svg>
+                            </div>
+
+                            <p>
+                                In general the experiment follows the protocol shown in the illustration above - parts
+                                of experiment shown in white are provided by
+                                the project coordinators (PCs); green parts are submitted by selected research teams
+                                (RTs) in their proposals. In total the experiment
+                                is estimated to last 15 minutes, where 7-8 minutes are attributed to the intervention.
+                            </p>
+
+                            <p>
+                                <b>INTRO:</b> Participants will go through an general introduction of the experiment
+                                including a given consent and
+                                a CAPTCHA task.
+                            </p>
+
+                            <p>
+                                <b>INTERVENTION:</b> After the general introduction
+                                participants are randomly forwarded to one of two treatment conditions
+                                (i.e., either CONTROL or POLICY) of the 42 selected designs, where also the measure for
+                                real-world support for the social price of carbon
+                                (also proposed by the RTs in their design)
+                                is elicited. The proposed design by the RTs have to adhere to the <a class="hyperlink"
+                                                                                                     href="#design_conditions">design
+                                conditions</a>.
+                            </p>
+
+                            <p><b>EX-POST QUESTIONS:</b>
+                                Following that, participants fill out an ex-post questionnaire provided by the PCs (RTs
+                                get the otree app or qualtrics instance to incorporate
+                                the ex-post questionnaire into their software from the PCs). The particular questions
+                                included can be seen in the pre-analysis plan on
+                                <a class="hyperlink" href="https://osf.io/ujvdn/">Open Science Framework</a>.
+                            </p>
+
+                            <p>
+                                <b>END:</b> Having answered the ex-post questionnaire, participants are at the end
+                                of the experiment and will get their payout
+                                (i.e., flat fee of 1.50 GBP plus a potential bonus of max. 1.50 GBP; the latter is up to
+                                the RTs).
+                            </p>
+
+
+                            <h4 id="design_conditions">Design conditions</h4>
+
+
+                            <p>
+                                To be included in this project, the submitted pre-registration has to adhere to the
+                                following <span
+                                    class="highlight">design conditions</span>:
+
+                            </p>
+
+                            <ul style="list-style-type:circle;">
+                                <li>Design is implemented as an online experiment to be run on Prolific with 350
+                                    observations:
+                                    <ul style="list-style-type:square;">
+                                        <li>The experiment needs to be administered online on <a class="hyperlink"
+                                                                                                 href="www.prolific.com">Prolific</a>.
+                                        </li>
+                                        <li>Design adheres to Prolific's <a class="hyperlink"
+                                                                            href="https://prolific.notion.site/Researcher-Terms-7787f102f0c541bdbe2c04b5d3285acb">terms
+                                            & conditions for researchers</a>.
+                                        </li>
+                                        <li>The intervention should not exceed 7-8 minutes (including the elicitation of the dependent variable).</li>
+                                    </ul>
+                                </li>
+                                <li>Employ a between-subjects treatment design with two equally sized
+                                    treatments/conditions:
+                                    <ul style="list-style-type:square;">
+                                        <li>One control condition without intervention (CONTROL).</li>
+                                        <li>One treatment condition with intervention (POLICY).</li>
+                                        <li>RTs should be able to provide PCs with two links, one for each condition
+                                            (either two links
+                                            on otree or qualtrics, depending on which software is used).
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Incentive compatible payments for subjects that cover at least the opportunity cost
+                                    of
+                                    time
+                                    (Prolific implements the requirement of GBP 5 per hour as minimum payment), and are
+                                    not
+                                    negative
+                                    (losses).
+                                </li>
+                                <li>Define a clear measure of real-world support for the social price of carbon.
+                                </li>
+                                <li>No deception of subjects.
+                                </li>
+                                <li>Subject anonymity regarding who is interacting with whom during the experiment.
+                                </li>
+                                <li>No measurements of physical state (e.g., saliva samples, blood samples) and no
+                                    physical
+                                    or
+                                    psychological harm.
+                                </li>
+                                <li>Clear information for subjects regarding the experiment’s duration, repetitions,
+                                    interactions,
+                                    and random processes (like lotteries) that are relevant for subjects, and which
+                                    information is
+                                    common knowledge to other (groups of) subjects.
+                                </li>
+                                <li>Design clearly defines randomization procedures across treatments.
+                                </li>
+                            </ul>
+
+
+                            <p>
+                                All submitted proposals will be pre-screened by the project coordinators (PCs) to
+                                eliminate
+                                studies that do not fit the above-mentioned criteria. Borderline criteria will be voted
+                                on
+                                by the project coordinators (majority rule).
+                            </p>
                         </div>
-
-                        <p>
-                            In general the experiment follows the protocol shown in the illustration above - parts of experiment shown in white are provided by
-                        the project coordinators (PCs); green parts are submitted by selected research teams (RTs) in their proposals. In total the experiment
-                            is estimated to last 15 minutes, where 7-8 minutes are attributed to the intervention.
-                        </p>
-
-                        <p>
-                            <b>INTRO:</b> Participants will go through an general introduction of the experiment including a given consent and
-                            a CAPTCHA task.
-                        </p>
-
-                        <p>
-                           <b>INTERVENTION:</b> After the general introduction
-                            participants are randomly forwarded to one of two treatment conditions
-                            (i.e., either CONTROL or POLICY) of the 42 selected designs, where also the measure for real-world support for the social price of carbon
-                            (also proposed by the RTs in their desing)
-                            is elicited. The proposed design by the RTs have to adhere to the <a class="hyperlink" href="#design_conditions">design conditions</a>.
-                        </p>
-
-                        <p> <b>EX-POST QUESTIONS:</b>
-                            Following that, participants fill out an ex-post questionnaire provided by the PCs (RTs get the otree app or qualtrics instance to incorporate
-                            the ex-post questionnaire into their software from the PCs). The particular questions included can be seen in the pre-analysis plan on
-                            <a class="hyperlink" href="https://osf.io/ujvdn/">Open Science Framework</a>.
-                        </p>
-
-                        <p>
-                            <b>END:</b> Having answered the ex-post questionnaire, participants are reached the end of the experiment and will get their payout
-                            (i.e., flat fee of 1.50 GBP plus a potential bonus of max. 1.50 GBP; the latter is up to the RTs).
-                        </p>
-
-
-                         <h4 id="design_conditions">Design conditions</h4>
-
-
-                        <p>
-                            To be included in this project, the submitted pre-registration has to adhere to the
-                            following <span
-                                class="highlight">design conditions</span>:
-
-                        </p>
-
-                        <ul style="list-style-type:circle;">
-                            <li>Design is implemented as an online experiment to be run on Prolific with 350
-                                observations:
-                                <ul style="list-style-type:square;">
-                                    <li>The experiment needs to be administered online on <a class="hyperlink"
-                                                                                             href="www.prolific.com">Prolific</a>.
-                                    </li>
-                                    <li>Design adheres to Prolific's <a class="hyperlink"
-                                                                        href="https://prolific.notion.site/Researcher-Terms-7787f102f0c541bdbe2c04b5d3285acb">terms
-                                        & conditions for researchers</a>.
-                                    </li>
-                                    <li>The intervention should not exceed 7-8 minutes.</li>
-                                </ul>
-                            </li>
-                            <li>Employ a between-subjects treatment design with two equally sized treatments/conditions:
-                                <ul style="list-style-type:square;">
-                                    <li>One control condition without intervention.</li>
-                                    <li>One treatment condition with intervention.</li>
-                                    <li>RTs should be able to provide PCs with two links, one for each condition (either two links
-                                    on otree or qualtrics, depending on which software is used). </li>
-                                </ul>
-                            </li>
-                            <li>Incentive compatible payments for subjects that cover at least the opportunity cost of
-                                time
-                                (Prolific implements the requirement of GBP 5 per hour as minimum payment), and are not
-                                negative
-                                (losses).
-                            </li>
-                            <li>Define a clear measure of real-world support for the social price of carbon.
-                            </li>
-                            <li>No deception of subjects.
-                            </li>
-                            <li>Subject anonymity regarding who is interacting with whom during the experiment.
-                            </li>
-                            <li>No measurements of physical state (e.g., saliva samples, blood samples) and no physical
-                                or
-                                psychological harm.
-                            </li>
-                            <li>Clear information for subjects regarding the experiment’s duration, repetitions,
-                                interactions,
-                                and random processes (like lotteries) that are relevant for subjects, and which
-                                information is
-                                common knowledge to other (groups of) subjects.
-                            </li>
-                            <li>Design clearly defines randomization procedures across treatments.
-                            </li>
-                        </ul>
-
-
-                        <p>
-                            All submitted proposals will be pre-screened by the project coordinators (PCs) to eliminate
-                            studies that do not fit the above-mentioned criteria. Borderline criteria will be voted on
-                            by the project coordinators (majority rule).
-                        </p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
         </main>
     </div>
 

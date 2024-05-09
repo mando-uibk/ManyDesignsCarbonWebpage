@@ -171,11 +171,19 @@ a.sidebar-link {
 
     #topSection h1 {
         font-size: 4rem;
-        padding-left: 30px;
+        padding-left: 0px;
     }
 
     #topSection h4 {
-         padding-left: 30px;
+         padding-left: 0px;
+    }
+
+    #title_desktop{
+        display: none;
+    }
+
+    #title_mobile{
+        display: flex;
     }
 }
 
