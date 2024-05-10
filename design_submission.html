@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <title>ManyDesignsCarbon</title>
+    <link href="assets/clipboard2-pulse.svg" rel="icon" type="image/x-icon"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <!-- Custom CSS theme-->
+    <link href="css/custom.css" rel="stylesheet"/>
+    <link href="css/sidebar.css" rel="stylesheet"/>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800'
+          rel='stylesheet' type='text/css'>
+    <!-- Option 1: Include in HTML -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="bg-dark">
+        <div class="h-100 position-fixed">
+            <div class="sidebar-logo">
+                <a href="index.html">#ManyDesignsCarbon</a>
+            </div>
+            <!-- Sidebar Navigation -->
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="index.html" class="sidebar-link">
+                        <i class="bi bi-info-circle"></i>
+                        About
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="schedule.html" class="sidebar-link">
+                        <i class="bi bi-calendar3"></i> Schedule
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="pre_reg_template.html">
+                        <i class="bi bi-file-text"></i> Pre-registration
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="coordinators.html" class="sidebar-link">
+                        <i class="bi bi-people-fill"></i>
+                        Project Coordinators
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="faqs.html" class="sidebar-link">
+                        <i class="bi bi-question-circle"></i>
+                        FAQ
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link"
+                       href="mailto:rene.schwaiger@uibk.ac.at;%20armando.holzknecht@uibk.ac.at?subject=ManyDesignsCarbon"><i
+                            class="bi bi-envelope"></i> Contact</a>
+                </li>
+
+                <li class="sidebar-item pt-2">
+                    <ul><a class="btn btn-outline-success-submission" href="submit.html"
+                           style="width: 85%">Sign-up</a>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+
+    </aside>
+
+
+
+    <!-- Main Component -->
+    <div class="main animate-bottom">
+        <nav class="navbar navbar-expand px-3 bg-light position-fixed bg-transparent">
+            <!-- Button for sidebar toggle -->
+            <button class="btn btn-outline-success-submission" id="toggler" type="button" data-bs-theme="dark">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+
+
+
+        <!-- Submission section-->
+        <section id="Submission">
+            <div class="container px-4 pt-5">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-11">
+                        <h2 class="mb-3 pt-3">Submission design proposals</h2>
+
+                        <p>
+                            Before submitting your design, be sure that the design your team is going to propose
+                            adheres to the <a class="hyperlink" href="index.html#design_conditions">design conditions</a>. For more details,
+                            you can also take a look into the <a class="hyperlink" href="faqs.html">FAQ</a>.
+                        </p>
+
+
+
+                        <iframe id="hidden_iframe" name="hidden_iframe"
+                                onload="if(submitted) {window.location='confirmation.html';}"
+                                style="display:none;"></iframe>
+
+                        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScfVV4BU34b1qVM79jwcXpdInh4-tz92JD33qooMbtiQTYkIg/formResponse"
+                              class="form"
+                              id="myForm"
+                              method="post" target="hidden_iframe">
+
+                            <div class="d-flex align-items-start">
+                                <div aria-orientation="vertical" class="nav nav-pills" id="v-pills-tab" role="tablist">
+
+                                    <button aria-controls="v-pills-design" aria-selected="true"
+                                            class="nav-link nav-link-submission active"
+                                            data-bs-target="#v-pills-rt-id" data-bs-toggle="pill"
+                                            id="v-pills-rt-id-tab"
+                                            role="tab" type="button">Research Team
+                                    </button>
+
+                                    <button aria-controls="v-pills-design" aria-selected="true"
+                                            class="nav-link nav-link-submission"
+                                            data-bs-target="#v-pills-design" data-bs-toggle="pill"
+                                            id="v-pills-design-tab"
+                                            role="tab" type="button">Research Design
+                                    </button>
+
+
+                                    <button aria-controls="v-pills-beliefs" aria-selected="false"
+                                            class="nav-link nav-link-submission"
+                                            data-bs-target="#v-pills-beliefs" data-bs-toggle="pill"
+                                            id="v-pills-beliefs-tab"
+                                            role="tab" type="button">Beliefs
+                                    </button>
+
+                                </div>
+                                <div class="tab-content w-100" id="v-pills-tabContent">
+
+                                    <!-- RT ID section-->
+                                    <div aria-labelledby="v-pills-rt-id-tab" class="tab-pane fade show active"
+                                         id="v-pills-rt-id"
+                                         role="tabpanel">
+
+                                        <div class="table table-border align-content-center justify-content-center d-flex"
+                                             style="width: 100%">
+                                            <table style="width: 85%">
+                                                <tbody>
+
+                                                <tr>
+                                                    <td>
+                                                        What is the ID of your research team?
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="pb-1"><input class="form-control"
+                                                                            id="ResearchtTeamID"
+                                                                            name="entry.54173686"
+                                                                            placeholder="" required type="text">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2"><small class="form-text text-muted" id="RThelp">
+                                                        Your ID you received with the notification for eligibility.
+                                                    </small></td>
+                                                </tr>
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Design section-->
+
+                                    <div aria-labelledby="v-pills-design-tab" class="tab-pane fade" id="v-pills-design"
+                                         role="tabpanel">
+
+                                        <div class="table table-border align-content-center justify-content-center d-flex"
+                                             style="width: 100%">
+                                            <table style="width: 85%">
+                                                <tbody>
+                                                <tr>
+                                                    <td>Detailed description of the design including the control
+                                                        treatment and
+                                                        the
+                                                        POLICY treatment. Please particularly outline the intervention
+                                                        in the
+                                                        POLICY
+                                                        treatment in detail.
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="pb-4">
+                                             <textarea class="form-control" id="DesignDescription"
+                                                       name="entry.1225191307" required rows="3"></textarea>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Detailed description of the outcome variable “real-world support
+                                                        for a
+                                                        social price of carbon” and especially its
+                                                        real-world impact.
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="pb-4">
+                                                        <div class="form-group">
+                                                <textarea class="form-control" id="DesignOutcome"
+                                                          name="entry.823694304" required rows="3"></textarea>
+                                                            <small class="form-text text-muted" id="OutcomeHelp">Regardless
+                                                                of
+                                                                the
+                                                                chosen format, research teams must ensure that the
+                                                                outcome
+                                                                variable
+                                                                is measured on an individual level and not only on the
+                                                                group
+                                                                level.</small>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Is the treatment effect identifiable using an ordinary least
+                                                        squares
+                                                        (OLS),
+                                                        a probit/logit, or an ordered-logit?
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" id="RadioIdentificationYes"
+                                                                   name="entry.459091406"
+                                                                   required type="radio" value="Yes">
+                                                            <label class="form-check-label"
+                                                                   for="RadioIdentificationYes">Yes</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" id="RadioIdentificationNo"
+                                                                   name="entry.459091406"
+                                                                   type="radio" value="No">
+                                                            <label class="form-check-label" for="RadioIdentificationNo"
+                                                                   required>No</label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="pt-4">
+                                                        Estimated length of the experiment (max. 8 minutes, excluding
+                                                        the
+                                                        policy
+                                                        survey).
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="pb-4">
+                                                        <div class="input-group mb-3">
+                                                            <input class="form-control" id="DesignTime"
+                                                                   name="entry.942833836" min="0" max="10"
+                                                                   type="number">
+                                                            <span class="input-group-text" id="addon-minutes"
+                                                                  required>minutes</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Remember, that on top of the flat payment of GBP 1.50 to each subject (as
+                                                        required
+                                                        by
+                                                        Prolific) every team has the possibility to use up to GBP 3.00
+                                                        per
+                                                        participant for their proposed intervention. Is your proposal
+                                                        using
+                                                        incentives?
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="pb-4">
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" id="RadioPaymentYes"
+                                                                   name="entry.1104205145"
+                                                                   required type="radio" value="Yes">
+                                                            <label class="form-check-label"
+                                                                   for="RadioPaymentYes">Yes</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" id="RadioPaymentNo"
+                                                                   name="entry.1104205145"
+                                                                   required type="radio" value="No">
+                                                            <label class="form-check-label"
+                                                                   for="RadioPaymentNo">No</label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        Please specify your incentive structure.
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="pb-4">
+                                                        <div class="form-group">
+                                                <textarea class="form-control" id="DesignIncentiveStructure"
+                                                          name="entry.1712031265"
+                                                          rows="3"></textarea>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        How high is the average payment that the incentives entail per
+                                                        participant?
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="pb-4">
+                                                        <div class="input-group mb-3">
+                                                            <input class="form-control" id="DesignUSD" min="0"
+                                                                   name="entry.148480168" required type="number">
+                                                            <span class="input-group-text" id="addon-usd">GBP</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        Expected bonus payment per subject (on top of GBP 1.50 show-up
+                                                        fee);
+                                                        must
+                                                        not exceed GBP 3.00.
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="pb-4">
+                                                        <div class="input-group mb-3">
+                                                            <input class="form-control" id="DesignGBP" min="0"
+                                                                   name="entry.1045629148" required type="number">
+                                                            <span class="input-group-text" id="addon-GBP">GBP</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Experimental software you plan to use (oTree or Qualtrics).
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="pb-4">
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" id="RadioSoftwareOtree"
+                                                                   name="entry.719349040"
+                                                                   required type="radio" value="oTree">
+                                                            <label class="form-check-label"
+                                                                   for="RadioSoftwareOtree">oTree</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" id="RadioSoftwareQualtrics"
+                                                                   name="entry.719349040"
+                                                                   type="radio" value="Qualtrics">
+                                                            <label class="form-check-label"
+                                                                   for="RadioSoftwareQualtrics"
+                                                                   required>Qualtrics</label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        Please indicate in 3-5 sentences whether and why the conditions
+                                                        for the
+                                                        shortcut IRB (see <a class="hyperlink">here</a>) apply to your experiment.
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="pb-4">
+                                                        <div class="form-group">
+                                                <textarea class="form-control" id="DesignIRB" name="entry.111109269"
+                                                          required rows="3"></textarea>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Beliefs section-->
+
+                                    <div aria-labelledby="v-pills-beliefs-tab" class="tab-pane fade"
+                                         id="v-pills-beliefs"
+                                         role="tabpanel">
+
+                                        <div class="table table-border align-content-center justify-content-center d-flex"
+                                             style="width: 100%">
+                                            <table style="width: 85%">
+                                                <tbody>
+
+                                                <tr>
+                                                    <td>
+                                                        How large do you expect to be the effect size of the
+                                                        interventions that
+                                                        you
+                                                        propose:
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="pb-4"><input class="form-control"
+                                                                            id="BeliefsOwnEffectsize"
+                                                                            name="entry.31716854"
+                                                                            placeholder="" required type="text">
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        How large do you expect to be meta-analytic effect size of the entire
+                                                        #ManyDesignsCarbon project to be (average effect size of all designs)?
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><input class="form-control" id="BeliefsMetaEffect"
+                                                               name="entry.475005695" placeholder=""
+                                                               required type="text">
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="justify-content-center pt-3"><input
+                                                            class="btn btn-outline-success-submission" id="submitButton"
+                                                            type="submit" value="Submit proposal"></td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- redirect after submit-->
+        <script type="text/javascript"> var submitted = false </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const form = document.getElementById('myForm');
+                const submitButton = document.getElementById('submitButton');
+
+                submitButton.addEventListener('click', function (event) {
+                    // Prevent the form from submitting by default
+                    event.preventDefault();
+
+                    // Call the function to check if all required fields are filled
+                    if (areRequiredFieldsFilled('myForm')) {
+                        console.log('All required fields are filled.');
+                        // Proceed with form submission if validation passes
+                        submitted = true
+                        form.submit();
+                    } else {
+                        console.log('Please fill in all required fields.');
+                        // Optionally, alert the user to fill all required fields
+                        alert('Please fill in all required fields.');
+                    }
+                });
+            });
+
+            function areRequiredFieldsFilled(formId) {
+                const form = document.getElementById(formId);
+                const requiredInputs = form.querySelectorAll('input[required], textarea[required], select[required]');
+
+                for (const input of requiredInputs) {
+                    if (input.value.trim() === '') {
+                        return false;
+                    }
+                }
+
+                // If all required fields are filled, return true
+                return true;
+            }
+        </script>
+
+
+    </div>
+</div>
+
+<!-- Bootstrap core JS-->
+<script src="js/bootstrap.bundle.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+<script src="js/sidebar.js"></script>
+</body>
+</html>

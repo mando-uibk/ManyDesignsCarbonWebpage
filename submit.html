@@ -40,6 +40,11 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a class="sidebar-link" href="pre_reg_template.html">
+                        <i class="bi bi-file-text"></i> Pre-registration
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a href="coordinators.html" class="sidebar-link">
                         <i class="bi bi-people-fill"></i>
                         Project Coordinators
@@ -89,10 +94,10 @@
                         <h2 class="mb-3 pt-3">Sign-up</h2>
 
                         <p>
-                            Before signing-up for participation be sure to be have read the
+                            Before signing-up for participation be sure to have read the
                         <a class="hyperlink" href="index.html#eligibility">eligibility conditions</a>,
                         <a class="hyperlink" href="index.html#procedure">procedure</a> and the
-                        <a class="hyperlink" href="index.html#experimental_protocol">experimental protocol</a> For more details,
+                        <a class="hyperlink" href="index.html#experimental_protocol">experimental protocol</a>. For more details,
                         you can also take a look into the <a class="hyperlink" href="faqs.html">FAQ</a>.
                         </p>
 
@@ -128,19 +133,6 @@
                                             data-bs-target="#v-pills-experience" data-bs-toggle="pill"
                                             id="v-pills-experience-tab"
                                             role="tab" type="button">Previous Experience
-                                    </button>
-                                    <button aria-controls="v-pills-design" aria-selected="false"
-                                            class="nav-link nav-link-submission"
-                                            data-bs-target="#v-pills-design" data-bs-toggle="pill"
-                                            id="v-pills-design-tab"
-                                            role="tab" type="button">Research Design
-                                    </button>
-
-                                    <button aria-controls="v-pills-beliefs" aria-selected="false"
-                                            class="nav-link nav-link-submission"
-                                            data-bs-target="#v-pills-beliefs" data-bs-toggle="pill"
-                                            id="v-pills-beliefs-tab"
-                                            role="tab" type="button">Beliefs
                                     </button>
 
                                 </div>
@@ -318,7 +310,7 @@
                                                 <tr>
                                                     <td>Please tell us briefly why you consider yourself qualified to
                                                         participate in
-                                                        #ManyDesignsCarbon
+                                                        #ManyDesignsCarbon.
                                                     </td>
                                                 </tr>
 
@@ -330,350 +322,12 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-
-                                    <!-- Design section-->
-
-                                    <div aria-labelledby="v-pills-design-tab" class="tab-pane fade" id="v-pills-design"
-                                         role="tabpanel">
-
-                                        <div class="table table-border align-content-center justify-content-center d-flex"
-                                             style="width: 100%">
-                                            <table style="width: 85%">
-                                                <tbody>
-                                                <tr>
-                                                    <td>Detailed description of the design including the control
-                                                        treatment and
-                                                        the
-                                                        POLICY treatment. Please particularly outline the intervention
-                                                        in the
-                                                        POLICY
-                                                        treatment in detail.
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="pb-4">
-                                             <textarea class="form-control" id="DesignDescription"
-                                                       name="entry.1897847549" required rows="3"></textarea>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>Detailed description of the outcome variable “real-world support
-                                                        for a
-                                                        social price of carbon” and especially particularly its
-                                                        real-world
-                                                        relevance.
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="pb-4">
-                                                        <div class="form-group">
-                                                <textarea class="form-control" id="DesignOutcome"
-                                                          name="entry.1231374200" required rows="3"></textarea>
-                                                            <small class="form-text text-muted" id="OutcomeHelp">Regardless
-                                                                of
-                                                                the
-                                                                chosen format, research teams must ensure that the
-                                                                outcome
-                                                                variable
-                                                                is measured on an individual level and not only on the
-                                                                group
-                                                                level.</small>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>Is the treatment effect identifiable using an ordinary least
-                                                        squares
-                                                        (OLS),
-                                                        a probit/logit, or an ordered-logit?
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" id="RadioIdentificationYes"
-                                                                   name="entry.161499569"
-                                                                   required type="radio" value="Yes">
-                                                            <label class="form-check-label"
-                                                                   for="RadioIdentificationYes">Yes</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" id="RadioIdentificationNo"
-                                                                   name="entry.161499569"
-                                                                   type="radio" value="No">
-                                                            <label class="form-check-label" for="RadioIdentificationNo"
-                                                                   required>No</label>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="pb-4">
-                                                        <div class="form-group">
-                                                            <small class="form-text text-muted" id="OLSHelp">
-                                                                Please be reminded that this being feasible is a
-                                                                condition for consideration of the proposal as part of
-                                                                the
-                                                                study.
-                                                            </small>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>Exact empirical specification to test for a potential effect of
-                                                        the
-                                                        policy
-                                                        treatment on real-world support for a social price of carbon by
-                                                        using an
-                                                        ordinary least squares (OLS), a probit/logit, or an
-                                                        ordered-logit
-                                                        OLS regression with a treatment dummy (what fits your data
-                                                        best).
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="pb-4">
-                                                        <div class="form-group">
-                                                <textarea class="form-control" id="DesignExactSpecification"
-                                                          name="entry.1114665874" required
-                                                          rows="3"></textarea>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        Please specify any exclusion criteria of your analysis sample
-                                                        (if you
-                                                        use
-                                                        the full sample then enter “FULL SAMPLE”).
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="pb-4">
-                                                        <div class="form-group">
-                                                <textarea class="form-control" id="DesignExclusionCriteria"
-                                                          name="entry.2000949200"
-                                                          required rows="1"></textarea>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        Estimated length of the experiment (max. 15 minutes, excluding
-                                                        the
-                                                        policy
-                                                        survey).
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="pb-4">
-                                                        <div class="input-group mb-3">
-                                                            <input class="form-control" id="DesignTime"
-                                                                   name="entry.887339167"
-                                                                   type="number">
-                                                            <span class="input-group-text" id="addon-minutes"
-                                                                  required>minutes</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>Remember, that on top of the flat payment to each subject (as
-                                                        required
-                                                        by
-                                                        Prolific) every team has the possibility to use up to X Dollars
-                                                        per
-                                                        participant for their proposed intervention. Is your proposal
-                                                        using
-                                                        incentives?
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="pb-4">
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" id="RadioPaymentYes"
-                                                                   name="entry.1797035353"
-                                                                   required type="radio" value="Yes">
-                                                            <label class="form-check-label"
-                                                                   for="RadioPaymentYes">Yes</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" id="RadioPaymentNo"
-                                                                   name="entry.1797035353"
-                                                                   required type="radio" value="No">
-                                                            <label class="form-check-label"
-                                                                   for="RadioPaymentNo">No</label>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        Please specify your incentive structure.
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="pb-4">
-                                                        <div class="form-group">
-                                                <textarea class="form-control" id="DesignIncentiveStructure"
-                                                          name="entry.1962425558"
-                                                          rows="3"></textarea>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        How high is the average payment that the incentives entail per
-                                                        participant?
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="pb-4">
-                                                        <div class="input-group mb-3">
-                                                            <input class="form-control" id="DesignUSD" min="0"
-                                                                   name="entry.1232524714" required type="number">
-                                                            <span class="input-group-text" id="addon-usd">US $</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        Expected bonus payment per subject (on top of GBP 1.50 show-up
-                                                        fee);
-                                                        must
-                                                        not exceed GBP 3.
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="pb-4">
-                                                        <div class="input-group mb-3">
-                                                            <input class="form-control" id="DesignGBP" min="0"
-                                                                   name="entry.1328379829" required type="number">
-                                                            <span class="input-group-text" id="addon-GBP">GBP</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>Experimental software you plan to use (oTree or Qualtrics).
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="pb-4">
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" id="RadioSoftwareOtree"
-                                                                   name="entry.1182831541"
-                                                                   required type="radio" value="oTree">
-                                                            <label class="form-check-label"
-                                                                   for="RadioSoftwareOtree">oTree</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" id="RadioSoftwareQualtrics"
-                                                                   name="entry.1182831541"
-                                                                   type="radio" value="Qualtrics">
-                                                            <label class="form-check-label"
-                                                                   for="RadioSoftwareQualtrics"
-                                                                   required>Qualtrics</label>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        Please indicate in 3-5 sentences whether and why the conditions
-                                                        for the
-                                                        shortcut IRB (see Appendix C) apply to your experiment.
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="pb-4">
-                                                        <div class="form-group">
-                                                <textarea class="form-control" id="DesignIRB" name="entry.879455669"
-                                                          required rows="3"></textarea>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                    </div>
-
-                                    <!-- Beliefs section-->
-
-                                    <div aria-labelledby="v-pills-beliefs-tab" class="tab-pane fade"
-                                         id="v-pills-beliefs"
-                                         role="tabpanel">
-
-                                        <div class="table table-border align-content-center justify-content-center d-flex"
-                                             style="width: 100%">
-                                            <table style="width: 85%">
-                                                <tbody>
-
-                                                <tr>
-                                                    <td>
-                                                        How large do you expect to be the effect size of the
-                                                        interventions that
-                                                        you
-                                                        propose:
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td class="pb-4"><input class="form-control"
-                                                                            id="BeliefsOwnEffectsize"
-                                                                            name="entry.1058980144"
-                                                                            placeholder="" required type="text">
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td>
-                                                        How large do you expect to be the effect size of the
-                                                        interventions that
-                                                        you
-                                                        propose:
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td><input class="form-control" id="BeliefsMetaEffect"
-                                                               name="entry.609751065" placeholder=""
-                                                               required type="text">
-                                                    </td>
-                                                </tr>
 
                                                 <tr>
                                                     <td class="justify-content-center pt-3"><input
                                                             class="btn btn-outline-success-submission" id="submitButton"
-                                                            type="submit" value="Submit proposal"></td>
+                                                            type="submit" value="Sign-up!"></td>
                                                 </tr>
-
                                                 </tbody>
                                             </table>
                                         </div>
