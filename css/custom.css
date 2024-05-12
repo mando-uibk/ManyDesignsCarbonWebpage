@@ -13,13 +13,13 @@ body {
 .titlebar {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;  /* Align text to the start for better control */
+    align-items: flex-start; /* Align text to the start for better control */
     justify-content: center;
     text-align: left;
-    width: 93%;  /* Adjust this to match the width of your main content if different */
+    width: 93%; /* Adjust this to match the width of your main content if different */
     margin-left: auto;
     margin-right: auto;
-    padding-left: 15px;  /* Align these paddings to match other content */
+    padding-left: 15px; /* Align these paddings to match other content */
     padding-right: 15px;
 }
 
@@ -30,8 +30,8 @@ body {
 .text-container h1, .text-container h4 {
     margin: 0;
     padding: 10px;
-    word-break: break-all;  /* Forces breaking of words at any character */
-    hyphens: auto;  /* Allows hyphenation to aid in breaking words at appropriate spots */
+    word-break: break-all; /* Forces breaking of words at any character */
+    hyphens: auto; /* Allows hyphenation to aid in breaking words at appropriate spots */
 }
 
 .image-container img {
@@ -67,6 +67,25 @@ body {
     #title_mobile, .text-container h4 {
         font-size: 4.5vw; /* Smaller, more responsive font size for mobile */
         line-height: 1.3; /* Improves readability */
+    }
+}
+
+/* Height-specific media query */
+@media (max-height: 600px) {
+    .titlebar {
+        padding-top: 5px; /* Reduced padding */
+        padding-bottom: 5px; /* Reduced padding */
+    }
+
+    .text-container h1, .text-container h4 {
+        font-size: 3.5vw; /* Smaller font size when height is constrained */
+        line-height: 1.2; /* Adjust line spacing for tight spaces */
+        padding: 5px; /* Reduced padding */
+    }
+
+    .image-container img {
+        max-height: 50vh; /* Using vh unit to make it responsive based on viewport height */
+        object-fit: contain; /* Ensures the image fits within the dimensions without cropping */
     }
 }
 
