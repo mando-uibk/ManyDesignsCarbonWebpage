@@ -2,45 +2,76 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 
 :root {
-  --green: rgba(139, 196, 67, 1.0);
+    --green: rgba(139, 196, 67, 1.0);
 }
 
-body{
+body {
     font-family: 'Montserrat';
     text-align: justify;
 }
 
-#title_mobile{
-    display: none;
+.titlebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-.highlight{
-    color: var(--green)!important;
+.text-container h1, .text-container h4 {
+    margin: 0;
+    padding: 10px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Desktop-specific styles */
+@media (min-width: 768px) {
+    .titlebar {
+        flex-direction: row;
+    }
+
+    #title_mobile {
+        display: none;
+    }
+}
+
+/* Mobile-specific styles */
+@media (max-width: 767px) {
+    #title_desktop {
+        display: none;
+    }
+}
+
+.highlight {
+    color: var(--green) !important;
     font-weight: bold;
 }
 
-.form-control:focus{
+.form-control:focus {
     border: var(--green);
-      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(139, 196, 67, 0.56);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(139, 196, 67, 0.56);
 }
 
-.form-select:focus{
+.form-select:focus {
     border: var(--green);
-      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(139, 196, 67, 0.56);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(139, 196, 67, 0.56);
 
 }
 
 .research-question {
     text-align: center;
-    color: var(--green)!important;
+    color: var(--green) !important;
     font-size: x-large;
     font-style: italic;
 }
 
 .hyperlink {
-    color: var(--green)!important;
+    color: var(--green) !important;
 }
-
 
 
 /* Navbar
@@ -48,15 +79,15 @@ body{
 #btn-nav {
     font-weight: 500;
     background-color: var(--green);
-    color: white!important;
+    color: white !important;
     border-radius: 0.25rem;
     margin-left: auto;
     width: 95%;
     margin-right: auto
 }
 
-#btn-nav:hover{
-    color: var(--green)!important;
+#btn-nav:hover {
+    color: var(--green) !important;
     background-color: white;
     border: var(--green);
     margin-right: auto;
@@ -64,18 +95,19 @@ body{
     border-radius: 0.25rem;
 }
 
-.mr-right{
+.mr-right {
     margin-right: 0.2em;
 }
+
 /* Header
 /* ------------------------------------------------------------------ */
 .title {
-	font-size: 3rem;
-	font-weight: 500;
-	line-height: 3.5rem;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 3.5rem;
 }
 
-.bg-info{
+.bg-info {
     background-color: var(--green);
     opacity: 0.91;
 }
@@ -90,19 +122,19 @@ section {
     padding-bottom: 5rem;
 }
 
-.flowchart{
+.flowchart {
     width: 75%;
     height: 75%;
 }
 
 .zoom {
-  padding: 50px;
-  transition: transform .5s; /* Animation */
-  margin: 0 auto;
+    padding: 50px;
+    transition: transform .5s; /* Animation */
+    margin: 0 auto;
 }
 
 .zoom:hover {
-  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
     z-index: 99;
 }
 
@@ -115,75 +147,94 @@ section {
 
 /* Add animation to "page content" */
 .animate-bottom {
-  position: relative;
-  -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 1s;
-  animation-name: animatebottom;
-  animation-duration: 1s
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
 }
 
 @-webkit-keyframes animatebottom {
-  from { bottom:-100px; opacity:0 }
-  to { bottom:0px; opacity:1 }
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+    to {
+        bottom: 0px;
+        opacity: 1
+    }
 }
 
 @keyframes animatebottom {
-  from{ bottom:-100px; opacity:0 }
-  to{ bottom:0; opacity:1 }
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
 }
 
 /* Typewriter
 /* ------------------------------------------------------------------ */
 
 .typewriter h1 {
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid var(--green); /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
-  animation:
-    typing 3.5s steps(30, end),
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid var(--green); /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: typing 3.5s steps(30, end),
     blink-caret .5s step-end infinite;
 }
 
 /* The typing effect */
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+    from {
+        width: 0
+    }
+    to {
+        width: 100%
+    }
 }
 
 /* The typewriter cursor effect */
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: var(--green); }
+    from, to {
+        border-color: transparent
+    }
+    50% {
+        border-color: var(--green);
+    }
 }
 
 /* Timeline
 /* ------------------------------------------------------------------ */
 .timeline {
-  border-left: 1px solid hsl(0, 0%, 90%);
-  position: relative;
-  list-style: none;
+    border-left: 1px solid hsl(0, 0%, 90%);
+    position: relative;
+    list-style: none;
 }
 
 .timeline .timeline-item {
-  position: relative;
+    position: relative;
 }
 
 
 .timeline .timeline-item:before {
-  position: absolute;
-  display: block;
-  top: 0;
+    position: absolute;
+    display: block;
+    top: 0;
 }
 
 .timeline .timeline-item:before {
-  background-color: var(--green);
-  left: -38px;
-  border-radius: 50%;
-  height: 11px;
-  width: 11px;
-  content: "";
+    background-color: var(--green);
+    left: -38px;
+    border-radius: 50%;
+    height: 11px;
+    width: 11px;
+    content: "";
 }
 
 /* Project coordinators
@@ -254,7 +305,7 @@ img {
     line-height: 1;
 }
 
-.btn-contact{
+.btn-contact {
     width: 35px;
     height: 35px;
     font-size: 20px;
@@ -267,7 +318,7 @@ img {
     font-weight: 100;
 }
 
-.btn-contact:hover{
+.btn-contact:hover {
     color: var(--green);
     background-color: white;
     border: 1.5pt solid var(--green);
@@ -284,7 +335,7 @@ img {
     padding-right: 5px;
 }
 
-.accordion{
+.accordion {
     --bs-accordion-active-bg: #41871914;
     --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(139, 196, 67, 0.3);
 }
@@ -310,34 +361,33 @@ img {
 /* ------------------------------------------------------------------ */
 
 
-table{
+table {
     border-collapse: unset;
 }
 
 th, td {
     padding: 5px; /* Adjust this value to increase or decrease space */
     padding-top: 0px;
-  }
+}
 
-.nav-link-submission{
+.nav-link-submission {
     color: #8BC443E5;
 }
 
-.nav-link-submission:hover{
+.nav-link-submission:hover {
     color: #8BC443E5;
 }
 
-.nav-pills{
+.nav-pills {
     --bs-nav-pills-link-active-bg: #8BC443E5;
     width: 27%;
 }
 
 
-
-    .form-select, #specificationField {
-        width: 100%; /* Ensures the select and input take the full width of the td */
-        margin-top: 5px;
-    }
+.form-select, #specificationField {
+    width: 100%; /* Ensures the select and input take the full width of the td */
+    margin-top: 5px;
+}
 
 
 /* Consent
@@ -378,7 +428,7 @@ input[type=checkbox] {
     padding-bottom: 0.5em;
 }
 
-.required{
+.required {
     font-weight: 800;
 }
 
@@ -386,10 +436,10 @@ input[type=checkbox] {
     padding-bottom: 1.5em;
 }
 
-.btn-sign-up{
+.btn-sign-up {
     font-weight: 450;
     font-size: 1.4em;
-    width:200px;
+    width: 200px;
     height: 50px
 }
 
@@ -460,7 +510,7 @@ input[type=checkbox] {
 /* Responsive */
 
 @media (max-width: 768px) {
-    .flowchart{
+    .flowchart {
         width: 100%;
         height: 100%;
     }
