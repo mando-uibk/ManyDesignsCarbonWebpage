@@ -41,6 +41,10 @@ body{
     color: var(--green)!important;
 }
 
+.animate-bottom text-start {
+	margin-left: 20px;
+}
+
 /* Navbar
 /* ------------------------------------------------------------------ */
 #btn-nav {
