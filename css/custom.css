@@ -62,7 +62,7 @@ body {
     .titlebar {
         min-height: 100px; /* Ensuring minimum height to prevent too much shrinkage */
         max-height: 75vh; /* Limiting maximum height relative to the viewport */
-        overflow: hidden; /* Enable scrolling within the titlebar if needed */
+        overflow: auto; /* Enable scrolling within the titlebar if needed */
     }
 }
 
