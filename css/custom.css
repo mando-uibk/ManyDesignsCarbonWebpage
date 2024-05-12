@@ -21,9 +21,15 @@ body {
     margin-right: auto;
 }
 
+.text-container {
+    width: 100%; /* Ensures full width utilization within the .titlebar */
+}
+
 .text-container h1, .text-container h4 {
     margin: 0;
     padding: 10px;
+    word-wrap: break-word; /* Allows words to break and wrap onto the next line */
+    overflow-wrap: break-word; /* Ensures words break to prevent overflow */
 }
 
 .image-container img {
@@ -38,7 +44,7 @@ body {
     }
 
     .image-container {
-        max-width: 70%;
+        max-width: 70%; /* Consistent with .titlebar width */
     }
 
     #title_desktop {
@@ -53,15 +59,16 @@ body {
     }
 
     #title_mobile {
-        font-size: 18px; /* Adjust font size for mobile devices */
+        font-size: 18px; /* Adjust if necessary to fit your design needs */
         line-height: 1.2; /* Enhances readability by adjusting the line spacing */
     }
 
     .text-container h4 {
-        font-size: 14px; /* Consistent scaling for the subtitle */
-        line-height: 1.2; /* Maintain consistent line spacing */
+        font-size: 14px; /* Smaller font size for the subtitle */
+        line-height: 1.2;
     }
 }
+
 
 .highlight {
     color: var(--green) !important;
