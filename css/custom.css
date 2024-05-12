@@ -59,22 +59,28 @@ body {
     }
 }
 
-/* Mobile-specific styles */
+/* Enhanced settings for mobile responsiveness */
 @media (max-width: 767px) {
     #title_desktop {
         display: none;
     }
 
     #title_mobile, .text-container h4 {
-        font-size: 4.5vw; /* Smaller, more responsive font size for mobile */
-        line-height: 1.3; /* Improves readability */
+        font-size: 4.5vw;  /* Adjustable font size for space management */
+        line-height: 1.3;  /* Optimized line height for readability */
     }
 
     .titlebar {
-        justify-content: flex-start; /* Ensures content is aligned at the top, preventing downward shift */
+        min-height: 150px;  /* Set a minimum height to prevent too much shrinkage */
+        max-height: 30vh;  /* Set a maximum height as a percentage of the viewport height */
+        overflow: hidden;  /* Hide overflow to prevent pushing content */
+    }
+
+    .image-container {
+        max-height: 50px;  /* Limit the image height to maintain layout */
+        overflow: hidden;  /* Prevent image overflow */
     }
 }
-
 
 .highlight {
     color: var(--green) !important;
