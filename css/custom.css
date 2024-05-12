@@ -41,10 +41,6 @@ body{
     color: var(--green)!important;
 }
 
-.titlebar {
-	margin-left: 20px;
-}
-
 /* Navbar
 /* ------------------------------------------------------------------ */
 #btn-nav {
