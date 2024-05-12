@@ -83,13 +83,13 @@ body {
     .titlebar {
         min-height: 150px; /* Set a minimum height to accommodate title and image */
         max-height: 40vh; /* Increased max-height to provide more space for content */
-        overflow: visible; /* Allows content to overflow if needed, better than cutting off */
+        overflow: hidden; /* Allows content to overflow if needed, better than cutting off */
         padding: 10px 15px; /* Increase padding for better spacing */
     }
 
     .image-container {
         max-height: 40vh; /* Provide more vertical space for the image */
-        overflow: visible; /* Ensure the image is not cut off */
+        overflow: hidden; /* Ensure the image is not cut off */
     }
 
     .image-container img {
