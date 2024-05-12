@@ -13,15 +13,10 @@ body {
 .titlebar {
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Center aligning other elements */
+    align-items: center;
     justify-content: center;
-    text-align: center;  /* Centering text for other elements if necessary */
-    width: 100%; /* Ensure the titlebar takes full width */
-}
-
-.text-container {
-    width: 100%;  /* Full width to control alignment */
-    text-align: left;  /* Aligning text to the left */
+    text-align: left;
+    width: 80%;
 }
 
 .text-container h1, .text-container h4 {
@@ -32,8 +27,6 @@ body {
 .image-container img {
     max-width: 100%;
     height: auto;
-    display: block;  /* Ensure the image is centered if necessary */
-    margin: 0 auto;  /* Centering the image */
 }
 
 /* Desktop-specific styles */
@@ -43,7 +36,7 @@ body {
     }
 
     .image-container {
-        max-width: 60%;  /* Adjust this value based on desired image size */
+        max-width: 70%;
     }
 
     #title_desktop {
