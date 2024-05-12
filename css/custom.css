@@ -30,16 +30,12 @@ body {
 
 /* Desktop-specific styles */
 @media (min-width: 768px) {
-    .titlebar {
-        flex-direction: row;
-    }
-
     #title_mobile {
         display: none;
     }
 
     .image-container {
-        max-width: 50%;  /* Adjust this value based on desired image size */
+        max-width: 80%;
     }
 }
 
