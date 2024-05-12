@@ -75,30 +75,34 @@ body {
     }
 
     #title_mobile, .text-container h4 {
-        font-size: 4.5vw; /* May adjust to smaller if still too large */
-        line-height: 1.3; /* Ensures proper line spacing */
-        padding: 5px 0; /* Adjust padding to ensure it fits within the titlebar */
+        font-size: 3.5vw; /* Adjusted to smaller to prevent overflow */
+        line-height: 1.2; /* Tighter line spacing for small screens */
+        padding: 5px 0; /* Minimal padding to save space */
     }
 
     .titlebar {
-        min-height: 150px; /* Set a minimum height to accommodate title and image */
-        max-height: 40vh; /* Increased max-height to provide more space for content */
-        overflow: hidden; /* Allows content to overflow if needed, better than cutting off */
-        padding: 10px 15px; /* Increase padding for better spacing */
+        min-height: 150px; /* Minimum height to ensure visibility */
+        padding: 10px 15px; /* Adequate padding for touch interaction */
+        display: flex; /* Ensures flex layout to adapt content */
+        flex-direction: column; /* Stacks content vertically */
+        justify-content: flex-start; /* Aligns content to the top */
+        overflow: auto; /* Allows scrolling within titlebar if content overflows */
+        max-height: 50vh; /* Maximum height to limit the titlebar expansion */
     }
 
     .image-container {
-        max-height: 40vh; /* Provide more vertical space for the image */
-        overflow: hidden; /* Ensure the image is not cut off */
+        height: auto; /* Allows the image to adjust based on available space */
+        max-height: 30vh; /* Adjusts maximum height for the image */
+        overflow: visible; /* Allows parts of the image to remain visible */
     }
 
     .image-container img {
-        max-width: 100%; /* Full width within its container */
-        max-height: 30vh; /* Adjust max height to allow better fit */
-        height: auto; /* Maintain aspect ratio */
-        object-fit: cover; /* Cover can be switched to contain if aspect ratio needs preserving */
+        width: 100%; /* Full width within its container */
+        max-height: 100%; /* Image should not exceed its container's height */
+        object-fit: contain; /* Ensures the image fits without distortion */
     }
 }
+
 
 
 .highlight {
