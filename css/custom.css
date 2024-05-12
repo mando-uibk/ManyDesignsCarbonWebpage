@@ -16,11 +16,11 @@ body {
     align-items: center;
     justify-content: center;
     text-align: left;
-    width: 90%; /* Adjust this to match the width of your main content if different */
+    width: 100%; /* Adjust this to match the width of your main content if different */
     margin-left: auto;
     margin-right: auto;
-    padding-left: 15px; /* Adjust these paddings to match other content */
-    padding-right: 15px; /* Typically, the padding used on the main container */
+    padding-left: 0px; /* Adjust these paddings to match other content */
+    padding-right: 0px; /* Typically, the padding used on the main container */
 }
 
 .text-container {
@@ -29,7 +29,7 @@ body {
 
 .text-container h1, .text-container h4 {
     margin: 0;
-    padding: 10px;
+    padding: 0px;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
