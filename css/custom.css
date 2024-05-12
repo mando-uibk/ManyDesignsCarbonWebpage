@@ -81,13 +81,13 @@ body {
     }
 
     .titlebar {
-        min-height: 300px; /* Minimum height to ensure visibility */
+        min-height: 400px; /* Minimum height to ensure visibility */
         padding: 10px 15px; /* Adequate padding for touch interaction */
         display: flex; /* Ensures flex layout to adapt content */
         flex-direction: column; /* Stacks content vertically */
         justify-content: flex-start; /* Aligns content to the top */
         overflow: auto; /* Allows scrolling within titlebar if content overflows */
-        max-height: 50vh; /* Maximum height to limit the titlebar expansion */
+        max-height: 500px; /* Maximum height to limit the titlebar expansion */
     }
 
     .image-container {
