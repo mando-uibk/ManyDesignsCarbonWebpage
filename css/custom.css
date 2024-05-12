@@ -56,13 +56,13 @@ body {
     }
 
     .text-container h1 {
-        font-size: calc(1vw + 1vh); /* Responsive font size based on viewport width and height */
+        font-size: 1.5vw; /* Responsive font size */
     }
 
     .titlebar {
         min-height: 100px; /* Ensuring minimum height to prevent too much shrinkage */
         max-height: 75vh; /* Limiting maximum height relative to the viewport */
-        overflow: visible; /* Change to visible to prevent scrolling */
+        overflow: hidden; /* Enable scrolling within the titlebar if needed */
     }
 }
 
@@ -73,19 +73,19 @@ body {
     }
 
     #title_mobile, .text-container h4 {
-        font-size: calc(3.5vw + 1vh); /* Adjust font size dynamically based on viewport */
+        font-size: 4.5vw; /* Adjustable font size for space management */
         line-height: 1.3; /* Optimized line height for readability */
     }
 
     .titlebar {
         min-height: 150px; /* Set a minimum height to prevent too much shrinkage */
         max-height: 30vh; /* Set a maximum height as a percentage of the viewport height */
-        overflow: visible; /* Change to visible to prevent scrolling */
+        overflow: hidden; /* Hide overflow to prevent pushing content */
     }
 
     .image-container {
-        max-height: 10vh; /* Adjusted to a percentage of the viewport height */
-        overflow: visible; /* Change to visible to prevent scrolling */
+        max-height: 50px; /* Limit the image height to maintain layout */
+        overflow: hidden; /* Prevent image overflow */
     }
 }
 
