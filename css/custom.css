@@ -21,7 +21,6 @@ body {
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
-    overflow: hidden; /* Prevent content from overflowing */
 }
 
 .text-container {
@@ -57,12 +56,6 @@ body {
 
     .text-container h1 {
         font-size: 1.5vw; /* Responsive font size */
-    }
-
-    .titlebar {
-        min-height: 100px; /* Ensuring minimum height to prevent too much shrinkage */
-        max-height: 75vh; /* Limiting maximum height relative to the viewport */
-        overflow: auto; /* Enable scrolling within the titlebar if needed */
     }
 }
 
