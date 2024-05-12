@@ -13,13 +13,13 @@ body {
 .titlebar {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align text to the start for better control */
+    align-items: flex-start;  /* Align text to the start for better control */
     justify-content: center;
     text-align: left;
-    width: 70%; /* Adjust this to match the width of your main content if different */
+    width: 70%;  /* Adjust this to match the width of your main content if different */
     margin-left: auto;
     margin-right: auto;
-    padding-left: 15px; /* Align these paddings to match other content */
+    padding-left: 15px;  /* Align these paddings to match other content */
     padding-right: 15px;
 }
 
@@ -30,9 +30,8 @@ body {
 .text-container h1, .text-container h4 {
     margin: 0;
     padding: 10px;
-    word-wrap: break-word;
-    overflow-wrap: break-word; /* Ensures proper breaking of words */
-    hyphens: auto; /* Allows hyphenation to aid in breaking words at appropriate spots */
+    word-break: break-all;  /* Forces breaking of words at any character */
+    hyphens: auto;  /* Allows hyphenation to aid in breaking words at appropriate spots */
 }
 
 .image-container img {
