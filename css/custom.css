@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;  /* Align content to the top of the container */
+    justify-content: flex-start; /* Align content to the top of the container */
     text-align: left;
     width: 93%;
     margin-left: auto;
@@ -22,6 +22,7 @@ body {
     padding-left: 15px;
     padding-right: 15px;
 }
+
 
 .text-container {
     width: 100%;
@@ -58,28 +59,37 @@ body {
     }
 }
 
-/* Enhanced settings for mobile responsiveness */
+/* Mobile-specific styles */
 @media (max-width: 767px) {
     #title_desktop {
         display: none;
     }
 
     #title_mobile, .text-container h4 {
-        font-size: 4.5vw; /* Adjustable font size for space management */
-        line-height: 1.3; /* Optimized line height for readability */
-    }
-
-    .titlebar {
-        min-height: 150px; /* Set a minimum height to prevent too much shrinkage */
-        max-height: 30vh; /* Set a maximum height as a percentage of the viewport height */
-        overflow: hidden; /* Hide overflow to prevent pushing content */
-    }
-
-    .image-container {
-        max-height: 50px; /* Limit the image height to maintain layout */
-        overflow: hidden; /* Prevent image overflow */
+        font-size: 4.5vw; /* Smaller, more responsive font size for mobile */
+        line-height: 1.3; /* Improves readability */
     }
 }
+
+/* Height-specific media query */
+@media (max-height: 600px) {
+    .titlebar {
+        padding-top: 5px; /* Reduced padding */
+        padding-bottom: 5px; /* Reduced padding */
+    }
+
+    .text-container h1, .text-container h4 {
+        font-size: 3.5vw; /* Smaller font size when height is constrained */
+        line-height: 1.2; /* Adjust line spacing for tight spaces */
+        padding: 5px; /* Reduced padding */
+    }
+
+    .image-container img {
+        max-height: 50vh; /* Using vh unit to make it responsive based on viewport height */
+        object-fit: contain; /* Ensures the image fits within the dimensions without cropping */
+    }
+}
+
 
 .highlight {
     color: var(--green) !important;
