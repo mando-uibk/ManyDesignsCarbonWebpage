@@ -41,7 +41,7 @@ body{
     color: var(--green)!important;
 }
 
-.animate-bottom text-start {
+.titlebar {
 	margin-left: 20px;
 }
 
