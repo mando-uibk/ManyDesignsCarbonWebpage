@@ -81,13 +81,13 @@ body {
     }
 
     .titlebar {
-        min-height: 650px;
+        min-height: 600px;
         padding: 10px 15px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         overflow: auto;
-        max-height: 750px;
+        max-height: 700px;
     }
 
     .image-container {
