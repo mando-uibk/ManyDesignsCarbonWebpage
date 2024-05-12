@@ -81,7 +81,7 @@ body {
     }
 
     .titlebar {
-        min-height: 150px; /* Minimum height to ensure visibility */
+        min-height: 200px; /* Minimum height to ensure visibility */
         padding: 10px 15px; /* Adequate padding for touch interaction */
         display: flex; /* Ensures flex layout to adapt content */
         flex-direction: column; /* Stacks content vertically */
