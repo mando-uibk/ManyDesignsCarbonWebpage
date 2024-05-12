@@ -37,6 +37,10 @@ body {
     #title_mobile {
         display: none;
     }
+
+    .image-container {
+        max-width: 50%;  /* Adjust this value based on desired image size */
+    }
 }
 
 /* Mobile-specific styles */
