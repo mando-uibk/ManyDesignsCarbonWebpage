@@ -75,25 +75,28 @@ body {
     }
 
     #title_mobile, .text-container h4 {
-        font-size: 4.5vw; /* Adjustable font size for space management */
-        line-height: 1.3; /* Optimized line height for readability */
+        font-size: 4.5vw; /* May adjust to smaller if still too large */
+        line-height: 1.3; /* Ensures proper line spacing */
+        padding: 5px 0; /* Adjust padding to ensure it fits within the titlebar */
     }
 
     .titlebar {
-        min-height: 150px; /* Set a minimum height to prevent too much shrinkage */
-        max-height: 30vh; /* Adjust max-height if necessary to accommodate image */
-        overflow: visible; /* Change to visible to allow the image to be shown */
+        min-height: 150px; /* Set a minimum height to accommodate title and image */
+        max-height: 40vh; /* Increased max-height to provide more space for content */
+        overflow: visible; /* Allows content to overflow if needed, better than cutting off */
+        padding: 10px 15px; /* Increase padding for better spacing */
     }
 
     .image-container {
-        max-height: 30vh; /* Adjust max-height to be a reasonable proportion of the viewport */
-        overflow: visible; /* Allow the image to show even if it exceeds this max-height */
+        max-height: 40vh; /* Provide more vertical space for the image */
+        overflow: visible; /* Ensure the image is not cut off */
     }
 
     .image-container img {
         max-width: 100%; /* Full width within its container */
-        height: auto; /* Height auto for natural aspect ratio */
-        object-fit: contain; /* Ensure the image fits nicely within its bounding box */
+        max-height: 30vh; /* Adjust max height to allow better fit */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover; /* Cover can be switched to contain if aspect ratio needs preserving */
     }
 }
 
