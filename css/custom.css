@@ -51,6 +51,16 @@ body {
     #title_desktop {
         display: none;
     }
+
+    #title_mobile {
+        font-size: 18px; /* Adjust font size for mobile devices */
+        line-height: 1.2; /* Enhances readability by adjusting the line spacing */
+    }
+
+    .text-container h4 {
+        font-size: 14px; /* Consistent scaling for the subtitle */
+        line-height: 1.2; /* Maintain consistent line spacing */
+    }
 }
 
 .highlight {
