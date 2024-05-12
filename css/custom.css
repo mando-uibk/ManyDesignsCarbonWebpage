@@ -13,16 +13,15 @@ body {
 .titlebar {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start; /* Align content to the top of the container */
+    align-items: flex-start; /* Keep text aligned to the start */
+    justify-content: flex-start; /* Keep content aligned at the top */
     text-align: left;
-    width: 93%;
+    width: 93%; /* Match the width to main content width */
     margin-left: auto;
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
 }
-
 
 .text-container {
     width: 100%;
@@ -30,14 +29,15 @@ body {
 
 .text-container h1, .text-container h4 {
     margin: 0;
-    padding: 10px;
-    word-break: break-all; /* Forces breaking of words at any character */
-    hyphens: auto; /* Allows hyphenation to aid in breaking words at appropriate spots */
+    padding: 5px; /* Slightly reduced padding for mobile */
+    word-break: break-all; /* Ensure words can break anywhere */
+    hyphens: auto; /* Enable automatic hyphenation */
 }
 
 .image-container img {
     max-width: 100%;
     height: auto;
+    object-fit: contain; /* Ensures that the image is scaled properly within its container */
 }
 
 /* Desktop-specific styles */
@@ -66,27 +66,19 @@ body {
     }
 
     #title_mobile, .text-container h4 {
-        font-size: 4.5vw; /* Smaller, more responsive font size for mobile */
-        line-height: 1.3; /* Improves readability */
+        font-size: 4.5vw; /* Adjustable font size for space management */
+        line-height: 1.3; /* Optimized line height for readability */
     }
-}
 
-/* Height-specific media query */
-@media (max-height: 600px) {
     .titlebar {
-        padding-top: 5px; /* Reduced padding */
-        padding-bottom: 5px; /* Reduced padding */
+        min-height: 150px; /* Set a minimum height to prevent too much shrinkage */
+        max-height: 30vh; /* Set a maximum height as a percentage of the viewport height */
+        overflow: hidden; /* Hide overflow to prevent pushing content */
     }
 
-    .text-container h1, .text-container h4 {
-        font-size: 3.5vw; /* Smaller font size when height is constrained */
-        line-height: 1.2; /* Adjust line spacing for tight spaces */
-        padding: 5px; /* Reduced padding */
-    }
-
-    .image-container img {
-        max-height: 50vh; /* Using vh unit to make it responsive based on viewport height */
-        object-fit: contain; /* Ensures the image fits within the dimensions without cropping */
+    .image-container {
+        max-height: 50px; /* Limit the image height to maintain layout */
+        overflow: hidden; /* Prevent image overflow */
     }
 }
 
