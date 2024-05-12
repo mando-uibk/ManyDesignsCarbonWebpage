@@ -13,14 +13,14 @@ body {
 .titlebar {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* Align text to the start for better control */
     justify-content: center;
     text-align: left;
-    width: 100%; /* Adjust this to match the width of your main content if different */
+    width: 70%; /* Adjust this to match the width of your main content if different */
     margin-left: auto;
     margin-right: auto;
-    padding-left: 0px; /* Adjust these paddings to match other content */
-    padding-right: 0px; /* Typically, the padding used on the main container */
+    padding-left: 15px; /* Align these paddings to match other content */
+    padding-right: 15px;
 }
 
 .text-container {
@@ -29,9 +29,10 @@ body {
 
 .text-container h1, .text-container h4 {
     margin: 0;
-    padding: 0px;
+    padding: 10px;
     word-wrap: break-word;
-    overflow-wrap: break-word;
+    overflow-wrap: break-word; /* Ensures proper breaking of words */
+    hyphens: auto; /* Allows hyphenation to aid in breaking words at appropriate spots */
 }
 
 .image-container img {
@@ -52,6 +53,10 @@ body {
     #title_desktop {
         display: block;
     }
+
+    .text-container h1 {
+        font-size: 1.5vw; /* Responsive font size */
+    }
 }
 
 /* Mobile-specific styles */
@@ -60,14 +65,9 @@ body {
         display: none;
     }
 
-    #title_mobile {
-        font-size: 18px;
-        line-height: 1.2;
-    }
-
-    .text-container h4 {
-        font-size: 14px;
-        line-height: 1.2;
+    #title_mobile, .text-container h4 {
+        font-size: 4.5vw; /* Smaller, more responsive font size for mobile */
+        line-height: 1.3; /* Improves readability */
     }
 }
 
