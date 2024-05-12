@@ -75,34 +75,33 @@ body {
     }
 
     #title_mobile, .text-container h4 {
-        font-size: 3.5vw; /* Adjusted to smaller to prevent overflow */
-        line-height: 1.2; /* Tighter line spacing for small screens */
-        padding: 5px 0; /* Minimal padding to save space */
+        font-size: 3.5vw;
+        line-height: 1.2;
+        padding: 5px 0;
     }
 
     .titlebar {
-        min-height: 600px; /* Minimum height to ensure visibility */
-        padding: 10px 15px; /* Adequate padding for touch interaction */
-        display: flex; /* Ensures flex layout to adapt content */
-        flex-direction: column; /* Stacks content vertically */
-        justify-content: flex-start; /* Aligns content to the top */
-        overflow: auto; /* Allows scrolling within titlebar if content overflows */
-        max-height: 700px; /* Maximum height to limit the titlebar expansion */
+        min-height: 650px;
+        padding: 10px 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow: auto;
+        max-height: 750px;
     }
 
     .image-container {
-        height: auto; /* Allows the image to adjust based on available space */
-        max-height: 30vh; /* Adjusts maximum height for the image */
-        overflow: visible; /* Allows parts of the image to remain visible */
+        height: auto;
+        max-height: 30vh;
+        overflow: visible;
     }
 
     .image-container img {
-        width: 100%; /* Full width within its container */
-        max-height: 100%; /* Image should not exceed its container's height */
-        object-fit: contain; /* Ensures the image fits without distortion */
+        width: 100%;
+        max-height: 100%;
+        object-fit: contain;
     }
 }
-
 
 
 .highlight {
