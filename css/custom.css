@@ -13,15 +13,15 @@ body {
 .titlebar {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Keep text aligned to the start */
-    justify-content: flex-start; /* Keep content aligned at the top */
+    align-items: flex-start;
+    justify-content: flex-start;
     text-align: left;
-    width: 93%; /* Match the width to main content width */
+    width: 93%;
     margin-left: auto;
     margin-right: auto;
     padding-left: 15px;
     padding-right: 15px;
-    overflow: hidden; /* Prevent content from overflowing */
+    overflow: hidden;
 }
 
 .text-container {
@@ -30,17 +30,17 @@ body {
 
 .text-container h1, .text-container h4 {
     margin: 0;
-    padding: 5px; /* Slightly reduced padding for mobile */
-    word-break: break-all; /* Ensure words can break anywhere */
-    hyphens: auto; /* Enable automatic hyphenation */
+    padding: 5px;
+    word-break: break-all;
+    hyphens: auto;
 }
 
 .image-container img {
-    width: auto;  /* Let the browser calculate the width based on the height to maintain aspect ratio */
-    max-width: 100%;  /* Ensures image does not exceed its container */
-    height: auto;  /* Height can adjust based on width */
-    max-height: 500px;  /* Fixed maximum height for all viewport sizes */
-    object-fit: contain; /* Ensures that the image is scaled properly within its container */
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
 }
 
 /* Desktop-specific styles */
@@ -58,13 +58,13 @@ body {
     }
 
     .text-container h1 {
-        font-size: 1.5vw; /* Responsive font size */
+        font-size: 1.5vw;
     }
 
     .titlebar {
-        min-height: 100px; /* Ensuring minimum height to prevent too much shrinkage */
-        max-height: 75vh; /* Limiting maximum height relative to the viewport */
-        overflow: auto; /* Enable scrolling within the titlebar if needed */
+        min-height: 100px;
+        max-height: 75vh;
+        overflow: auto;
     }
 }
 
@@ -75,19 +75,19 @@ body {
     }
 
     #title_mobile, .text-container h4 {
-        font-size: 4.5vw; /* Adjustable font size for space management */
-        line-height: 1.3; /* Optimized line height for readability */
+        font-size: 4.5vw;
+        line-height: 1.3;
     }
 
     .titlebar {
-        min-height: 150px; /* Set a minimum height to prevent too much shrinkage */
-        max-height: 30vh; /* Set a maximum height as a percentage of the viewport height */
-        overflow: hidden; /* Hide overflow to prevent pushing content */
+        min-height: 150px;
+        max-height: 30vh;
+        overflow: hidden;
     }
 
     .image-container {
-        max-height: 50px; /* Limit the image height to maintain layout */
-        overflow: hidden; /* Prevent image overflow */
+        max-height: 50px;
+        overflow: hidden;
     }
 }
 
