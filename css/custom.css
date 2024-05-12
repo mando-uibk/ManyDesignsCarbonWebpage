@@ -16,20 +16,22 @@ body {
     align-items: center;
     justify-content: center;
     text-align: left;
-    width: 70%;
+    width: 70%; /* Adjust this to match the width of your main content if different */
     margin-left: auto;
     margin-right: auto;
+    padding-left: 15px; /* Adjust these paddings to match other content */
+    padding-right: 15px; /* Typically, the padding used on the main container */
 }
 
 .text-container {
-    width: 100%; /* Ensures full width utilization within the .titlebar */
+    width: 100%;
 }
 
 .text-container h1, .text-container h4 {
     margin: 0;
     padding: 10px;
-    word-wrap: break-word; /* Allows words to break and wrap onto the next line */
-    overflow-wrap: break-word; /* Ensures words break to prevent overflow */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .image-container img {
@@ -44,7 +46,7 @@ body {
     }
 
     .image-container {
-        max-width: 70%; /* Consistent with .titlebar width */
+        max-width: 70%;
     }
 
     #title_desktop {
@@ -59,12 +61,12 @@ body {
     }
 
     #title_mobile {
-        font-size: 18px; /* Adjust if necessary to fit your design needs */
-        line-height: 1.2; /* Enhances readability by adjusting the line spacing */
+        font-size: 18px;
+        line-height: 1.2;
     }
 
     .text-container h4 {
-        font-size: 14px; /* Smaller font size for the subtitle */
+        font-size: 14px;
         line-height: 1.2;
     }
 }
