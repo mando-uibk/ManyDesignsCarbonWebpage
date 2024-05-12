@@ -13,27 +13,28 @@ body {
 .titlebar {
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Center aligning other elements */
+    align-items: center; /* Center aligning other elements */
     justify-content: center;
-    text-align: center;  /* Centering text for other elements if necessary */
+    text-align: center; /* Centering text for other elements if necessary */
     width: 100%; /* Ensure the titlebar takes full width */
 }
 
 .text-container {
-    width: 100%;  /* Full width to control alignment */
-    text-align: left;  /* Aligning text to the left */
+    width: 100%; /* Full width to control alignment */
+    text-align: left; /* Aligning text to the left */
 }
 
 .text-container h1, .text-container h4 {
     margin: 0;
     padding: 10px;
+    word-wrap: break-word; /* Ensures that the text can break to avoid overflow */
 }
 
 .image-container img {
     max-width: 100%;
     height: auto;
-    display: block;  /* Ensure the image is centered if necessary */
-    margin: 0 auto;  /* Centering the image */
+    display: block; /* Ensure the image is centered if necessary */
+    margin: 0 auto; /* Centering the image */
 }
 
 /* Desktop-specific styles */
@@ -43,7 +44,7 @@ body {
     }
 
     .image-container {
-        max-width: 60%;  /* Adjust this value based on desired image size */
+        max-width: 60%; /* Adjust this value based on desired image size */
     }
 
     #title_desktop {
@@ -55,6 +56,16 @@ body {
 @media (max-width: 767px) {
     #title_desktop {
         display: none;
+    }
+
+    #title_mobile {
+        font-size: 18px; /* Adjust font size for mobile devices */
+        line-height: 1.2; /* Enhances readability by adjusting the line spacing */
+    }
+
+    .text-container h4 {
+        font-size: 14px; /* Consistent scaling for the subtitle */
+        line-height: 1.2; /* Maintain consistent line spacing */
     }
 }
 
