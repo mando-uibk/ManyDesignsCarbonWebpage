@@ -16,6 +16,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    width: 80%;
 }
 
 .text-container h1, .text-container h4 {
@@ -35,7 +36,11 @@ body {
     }
 
     .image-container {
-        max-width: 80%;
+        max-width: 60%;
+    }
+
+    #title_desktop {
+        display: block;
     }
 }
 
