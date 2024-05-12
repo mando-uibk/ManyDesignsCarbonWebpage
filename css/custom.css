@@ -39,7 +39,7 @@ body {
     width: auto;  /* Let the browser calculate the width based on the height to maintain aspect ratio */
     max-width: 100%;  /* Ensures image does not exceed its container */
     height: auto;  /* Height can adjust based on width */
-    max-height: 1000px;  /* Fixed maximum height for all viewport sizes */
+    max-height: 900px;  /* Fixed maximum height for all viewport sizes */
     object-fit: contain; /* Ensures that the image is scaled properly within its container */
 }
 
