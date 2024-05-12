@@ -13,16 +13,16 @@ body {
 .titlebar {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;  /* Align content to the top of the container */
+    align-items: flex-start; /* Align text to the start for better control */
+    justify-content: flex-start; /* Ensure content is aligned at the top */
     text-align: left;
-    width: 93%;
+    width: 93%; /* Adjust this to match the width of your main content if different */
     margin-left: auto;
     margin-right: auto;
-    padding-left: 15px;
+    padding-left: 15px; /* Align these paddings to match other content */
     padding-right: 15px;
+    min-height: 200px; /* Optional: Ensures a minimum height for better layout control */
 }
-
 
 .text-container {
     width: 100%;
@@ -69,24 +69,9 @@ body {
         font-size: 4.5vw; /* Smaller, more responsive font size for mobile */
         line-height: 1.3; /* Improves readability */
     }
-}
 
-/* Height-specific media query */
-@media (max-height: 600px) {
     .titlebar {
-        padding-top: 5px; /* Reduced padding */
-        padding-bottom: 5px; /* Reduced padding */
-    }
-
-    .text-container h1, .text-container h4 {
-        font-size: 3.5vw; /* Smaller font size when height is constrained */
-        line-height: 1.2; /* Adjust line spacing for tight spaces */
-        padding: 5px; /* Reduced padding */
-    }
-
-    .image-container img {
-        max-height: 50vh; /* Using vh unit to make it responsive based on viewport height */
-        object-fit: contain; /* Ensures the image fits within the dimensions without cropping */
+        justify-content: flex-start; /* Ensures content is aligned at the top, preventing downward shift */
     }
 }
 
