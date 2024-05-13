@@ -16,6 +16,8 @@
           rel='stylesheet' type='text/css'>
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
 
@@ -172,7 +174,8 @@
                                                     <td>In which field do you hold a PhD?</td>
                                                     <td><select class="form-select"
                                                                 id="MemberOneField" name="entry.252665492" required>
-                                                        <option disabled selected value="">Open this select menu</option>
+                                                        <option disabled selected value="">Open this select menu
+                                                        </option>
                                                         <option value="Economics">Economics</option>
                                                         <option value="Finance">Finance</option>
                                                         <option value="Natural Sciences">Natural Sciences</option>
@@ -242,7 +245,8 @@
                                                     <td>In which field do you hold a PhD?</td>
                                                     <td><select class="form-select"
                                                                 id="MemberTwoField" name="entry.1183976067">
-                                                        <option disabled selected value="">Open this select menu</option>
+                                                        <option disabled selected value="">Open this select menu
+                                                        </option>
                                                         <option value="Economics">Economics</option>
                                                         <option value="Finance">Finance</option>
                                                         <option value="Natural Sciences">Natural Sciences</option>
@@ -340,7 +344,8 @@
                                                                 publication, all data will be freely available under a
                                                                 CC-BY license. This includes anonymized
                                                                 pre-registrations, software codes, and all original
-                                                                data, which will be hosted on the project’s <a class="hyperlink"
+                                                                data, which will be hosted on the project’s <a
+                                                                        class="hyperlink"
                                                                         href="https://osf.io/ujvdn/">OSF
                                                                     repository</a>.</p>
                                                             <p><strong>Data Anonymization:</strong> To ensure privacy,
@@ -370,10 +375,11 @@
                                                             </p>
 
                                                             <label>
-                                                                <input type="checkbox" name="consent" id="consent-check">
+                                                                <input type="checkbox" name="consent"
+                                                                       id="consent-check">
                                                                 We acknowledge these terms and conditions
                                                                 to participate in #ManyDesignsCarbon.
-                                                                </label>
+                                                            </label>
 
                                                         </fieldset>
                                                     </td>
@@ -417,7 +423,13 @@
                     } else {
                         console.log('Please fill in all required fields and consent.');
                         // Optionally, alert the user to fill all required fields
-                        alert('Please fill in all required fields and consent.');
+                        Swal.fire({
+                            title: 'Error!',
+                            confirmButtonColor: "#8BC443",
+                            text: 'Please fill in all required fields and consent.',
+                            icon: 'error',
+                            confirmButtonText: 'Ok'
+                        })
                     }
                 });
             });
@@ -433,7 +445,7 @@
                     }
                 }
 
-                if(!checkbox.checked) {
+                if (!checkbox.checked) {
                     return false
                 }
 
