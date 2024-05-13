@@ -55,6 +55,7 @@ body {
 
     #title_desktop {
         display: block;
+        font-size: 4rem
     }
 
     .text-container h1 {
