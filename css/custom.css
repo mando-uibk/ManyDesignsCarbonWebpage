@@ -122,14 +122,12 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        overflow: auto;
         max-height: 650px;
     }
 
     .image-container {
         height: auto;
         max-height: 100vh;
-        overflow: visible;
     }
 
     .image-container img {
