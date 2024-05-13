@@ -28,6 +28,14 @@ body {
     width: 100%;
 }
 
+#consent-check{
+    accent-color: #699332FF
+}
+
+#consent-check:after{
+    border: solid white;
+}
+
 .text-container h1, .text-container h4 {
     margin: 0;
     padding: 5px;
@@ -50,7 +58,8 @@ body {
     }
 
     .image-container {
-        max-width: 70%;
+        /*max-width: 70%;*/
+        width: 100%;
     }
 
     #title_desktop {
@@ -67,6 +76,10 @@ body {
         max-height: 75vh;
         overflow: auto;
     }
+
+    #topSection h1 {
+        font-size: 5rem;
+    }
 }
 
 /* Mobile-specific styles */
@@ -82,7 +95,7 @@ body {
     }
 
     .titlebar {
-        min-height: 550px;
+        min-height: 300px;
         padding: 10px 15px;
         display: flex;
         flex-direction: column;
@@ -573,4 +586,18 @@ input[type=checkbox] {
         width: 100%;
         height: 100%;
     }
+
+    .pdf-iframe {
+        position: absolute;
+        width: 100%;
+        height:100%;
+        display: none;
+    }
+
+    /*#myForm{*/
+    /*    width: 500px;*/
+    /*    overflow:auto;*/
+    /*}*/
+
+
 }

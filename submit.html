@@ -6,7 +6,7 @@
     <meta content="" name="description"/>
     <meta content="" name="author"/>
     <title>ManyDesignsCarbon</title>
-    <link href="assets/clipboard2-pulse.svg" rel="icon" type="image/x-icon"/>
+    <link href="img/favicon.png" rel="icon" type="image/x-icon"/>
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/bootstrap.css" rel="stylesheet"/>
     <!-- Custom CSS theme-->
@@ -14,7 +14,7 @@
     <link href="css/sidebar.css" rel="stylesheet"/>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800'
           rel='stylesheet' type='text/css'>
-    <!-- Option 1: Include in HTML -->
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 <body>
@@ -24,18 +24,18 @@
     <aside id="sidebar" class="bg-dark">
         <div class="h-100 position-fixed">
             <div class="sidebar-logo">
-                <a href="index.html">#ManyDesignsCarbon</a>
+                <a href="index">#ManyDesignsCarbon</a>
             </div>
             <!-- Sidebar Navigation -->
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="index.html" class="sidebar-link">
+                    <a href="index" class="sidebar-link">
                         <i class="bi bi-info-circle"></i>
                         About
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="schedule.html" class="sidebar-link">
+                    <a href="schedule" class="sidebar-link">
                         <i class="bi bi-calendar3"></i> Schedule
                     </a>
                 </li>
@@ -45,13 +45,13 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="coordinators.html" class="sidebar-link">
+                    <a href="coordinators" class="sidebar-link">
                         <i class="bi bi-people-fill"></i>
                         Project Coordinators
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="faqs.html" class="sidebar-link">
+                    <a href="faqs" class="sidebar-link">
                         <i class="bi bi-question-circle"></i>
                         FAQ
                     </a>
@@ -63,7 +63,7 @@
                 </li>
 
                 <li class="sidebar-item pt-2">
-                    <ul><a class="btn btn-outline-success-submission" href="submit.html"
+                    <ul><a class="btn btn-outline-success-submission" href="submit"
                            style="width: 85%">Sign-up</a>
                     </ul>
                 </li>
@@ -93,11 +93,11 @@
 
                         <p>
                             Before signing-up for participation be sure to have read the
-                            <a class="hyperlink" href="index.html#eligibility">eligibility conditions</a>,
-                            <a class="hyperlink" href="index.html#procedure">procedure</a> and the
-                            <a class="hyperlink" href="index.html#experimental_protocol">experimental protocol</a>. For
+                            <a class="hyperlink" href="index#eligibility">eligibility conditions</a>,
+                            <a class="hyperlink" href="index#procedure">procedure</a> and the
+                            <a class="hyperlink" href="index#experimental_protocol">experimental protocol</a>. For
                             more details,
-                            you can also take a look into the <a class="hyperlink" href="faqs.html">FAQ</a>.
+                            you can also take a look into the <a class="hyperlink" href="faqs">FAQ</a>.
                         </p>
 
 
@@ -170,9 +170,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td>In which field do you hold a PhD?</td>
-                                                    <td><select aria-label="Default select example" class="form-select"
+                                                    <td><select class="form-select"
                                                                 id="MemberOneField" name="entry.252665492" required>
-                                                        <option disabled selected>Open this select menu</option>
+                                                        <option disabled selected value="">Open this select menu</option>
                                                         <option value="Economics">Economics</option>
                                                         <option value="Finance">Finance</option>
                                                         <option value="Natural Sciences">Natural Sciences</option>
@@ -240,9 +240,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td>In which field do you hold a PhD?</td>
-                                                    <td><select aria-label="Default select example" class="form-select"
+                                                    <td><select class="form-select"
                                                                 id="MemberTwoField" name="entry.1183976067">
-                                                        <option disabled selected>Open this select menu</option>
+                                                        <option disabled selected value="">Open this select menu</option>
                                                         <option value="Economics">Economics</option>
                                                         <option value="Finance">Finance</option>
                                                         <option value="Natural Sciences">Natural Sciences</option>
@@ -340,9 +340,8 @@
                                                                 publication, all data will be freely available under a
                                                                 CC-BY license. This includes anonymized
                                                                 pre-registrations, software codes, and all original
-                                                                data, which will be hosted on the project’s <a
-                                                                        href="https://osf.io/ujvdn/?view_only=c4d3f9d9f19143a79b8537255a13b7eb"
-                                                                        target="_blank">OSF
+                                                                data, which will be hosted on the project’s <a class="hyperlink"
+                                                                        href="https://osf.io/ujvdn/">OSF
                                                                     repository</a>.</p>
                                                             <p><strong>Data Anonymization:</strong> To ensure privacy,
                                                                 the dataset will be cleaned to remove identifiers,
@@ -369,11 +368,13 @@
                                                                 the obligation to cover any additional costs will fall
                                                                 to the respective research teams.</p>
                                                             </p>
+
                                                             <label>
-                                                                <input type="checkbox" name="consent" required>
+                                                                <input type="checkbox" name="consent" id="consent-check">
                                                                 We acknowledge these terms and conditions
                                                                 to participate in #ManyDesignsCarbon.
-                                                            </label>
+                                                                </label>
+
                                                         </fieldset>
                                                     </td>
                                                 </tr>
@@ -414,9 +415,9 @@
                         submitted = true
                         form.submit();
                     } else {
-                        console.log('Please fill in all required fields.');
+                        console.log('Please fill in all required fields and consent.');
                         // Optionally, alert the user to fill all required fields
-                        alert('Please fill in all required fields.');
+                        alert('Please fill in all required fields and consent.');
                     }
                 });
             });
@@ -424,11 +425,16 @@
             function areRequiredFieldsFilled(formId) {
                 const form = document.getElementById(formId);
                 const requiredInputs = form.querySelectorAll('input[required], textarea[required], select[required]');
+                const checkbox = document.getElementById('consent-check')
 
                 for (const input of requiredInputs) {
                     if (input.value.trim() === '') {
                         return false;
                     }
+                }
+
+                if(!checkbox.checked) {
+                    return false
                 }
 
                 // If all required fields are filled, return true
