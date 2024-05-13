@@ -10,6 +10,7 @@ body {
     text-align: justify;
 }
 
+
 .titlebar {
     display: flex;
     flex-direction: column;
@@ -37,14 +38,20 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #ffffff; /* White color for text, adjust if your image is light */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Black shadow makes text more readable */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
     width: 100%;
+    background: rgba(139, 196, 67, 0.11);
 }
 
 .title-overlay h1, .title-overlay h4 {
-    margin: 0;
-    padding: 0.5em 0; /* Adjust padding as needed */
+    color: white; /* Ensures text is white */
+    text-shadow:
+            -1px -1px 0 #000,  /* top left */
+            1px -1px 0 #000,   /* top right */
+            -1px 1px 0 #000,   /* bottom left */
+            1px 1px 0 #000;    /* bottom right */
 }
+
 
 .text-container {
     width: 100%;
@@ -85,6 +92,7 @@ body {
 
     #title_desktop {
         display: block;
+        z-index: 99;
     }
 
     .text-container h1 {
@@ -94,6 +102,7 @@ body {
     .titlebar {
         min-height: 100px;
         max-height: 100vh;
+        z-index: 99;
     }
 
     #topSection h1 {
@@ -125,7 +134,7 @@ body {
 
     .image-container {
         height: auto;
-        max-height: 30vh;
+        max-height: 100vh;
         overflow: visible;
     }
 
