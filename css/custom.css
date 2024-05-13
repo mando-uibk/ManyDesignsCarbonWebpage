@@ -75,6 +75,10 @@ body {
         max-height: 75vh;
         overflow: auto;
     }
+
+    #topSection h1 {
+        font-size: 5rem;
+    }
 }
 
 /* Mobile-specific styles */
@@ -586,5 +590,13 @@ input[type=checkbox] {
         position: absolute;
         width: 100%;
         height:100%;
+        display: none;
     }
+
+    /*#myForm{*/
+    /*    width: 500px;*/
+    /*    overflow:auto;*/
+    /*}*/
+
+
 }
