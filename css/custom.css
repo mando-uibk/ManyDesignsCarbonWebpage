@@ -10,6 +10,9 @@ body {
     text-align: justify;
 }
 
+.bg-light{
+    background-color: #fafdf0; !important;
+}
 
 .titlebar {
     display: flex;
@@ -17,11 +20,8 @@ body {
     align-items: flex-start;
     justify-content: flex-start;
     text-align: center;
-    width: 93%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    width: 100%;
+    margin-top: 5%;
     overflow: hidden;
     position: relative;
     color: white; /* Change color based on what suits best with your image */
