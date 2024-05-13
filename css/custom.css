@@ -97,7 +97,6 @@ body {
     .titlebar {
         min-height: 100px;
         max-height: 100vh;
-        z-index: 99;
     }
 
     #topSection h1 {
