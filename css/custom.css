@@ -22,17 +22,39 @@ body {
     padding-left: 15px;
     padding-right: 15px;
     overflow: hidden;
+    position: relative;
+    color: white; /* Change color based on what suits best with your image */
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+}
+
+.title-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff; /* White color for text, adjust if your image is light */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Black shadow makes text more readable */
+    width: 100%;
+}
+
+.title-overlay h1, .title-overlay h4 {
+    margin: 0;
+    padding: 0.5em 0; /* Adjust padding as needed */
 }
 
 .text-container {
     width: 100%;
 }
 
-#consent-check{
+#consent-check {
     accent-color: #699332FF
 }
 
-#consent-check:after{
+#consent-check:after {
     border: solid white;
 }
 
@@ -47,7 +69,6 @@ body {
     width: auto;
     max-width: 100%;
     height: auto;
-    max-height: 500px;
     object-fit: contain;
 }
 
@@ -72,8 +93,7 @@ body {
 
     .titlebar {
         min-height: 100px;
-        max-height: 75vh;
-        overflow: auto;
+        max-height: 100vh;
     }
 
     #topSection h1 {
@@ -589,7 +609,7 @@ input[type=checkbox] {
     .pdf-iframe {
         position: absolute;
         width: 100%;
-        height:100%;
+        height: 100%;
         display: none;
     }
 
