@@ -152,6 +152,7 @@ a.sidebar-link {
     border-color: transparent;
     cursor: pointer;
     animation: example 1.5s infinite;
+    z-index: 99;
 }
 
 @keyframes example {

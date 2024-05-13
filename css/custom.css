@@ -30,6 +30,7 @@ body {
 .image-container {
     position: relative;
     width: 100%;
+
 }
 
 .title-overlay {
@@ -37,19 +38,13 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #ffffff; /* White color for text, adjust if your image is light */
+    color: white; /* White color for text, adjust if your image is light */
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
     width: 100%;
-    background: rgba(139, 196, 67, 0.11);
+    background: rgba(139, 196, 67, 0.39);
 }
 
 .title-overlay h1, .title-overlay h4 {
-    color: white; /* Ensures text is white */
-    text-shadow:
-            -1px -1px 0 #000,  /* top left */
-            1px -1px 0 #000,   /* top right */
-            -1px 1px 0 #000,   /* bottom left */
-            1px 1px 0 #000;    /* bottom right */
 }
 
 
