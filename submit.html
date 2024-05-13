@@ -170,9 +170,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td>In which field do you hold a PhD?</td>
-                                                    <td><select aria-label="Default select example" class="form-select"
+                                                    <td><select class="form-select"
                                                                 id="MemberOneField" name="entry.252665492" required>
-                                                        <option disabled selected>Open this select menu</option>
+                                                        <option disabled selected value="">Open this select menu</option>
                                                         <option value="Economics">Economics</option>
                                                         <option value="Finance">Finance</option>
                                                         <option value="Natural Sciences">Natural Sciences</option>
@@ -240,9 +240,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td>In which field do you hold a PhD?</td>
-                                                    <td><select aria-label="Default select example" class="form-select"
+                                                    <td><select class="form-select"
                                                                 id="MemberTwoField" name="entry.1183976067">
-                                                        <option disabled selected>Open this select menu</option>
+                                                        <option disabled selected value="">Open this select menu</option>
                                                         <option value="Economics">Economics</option>
                                                         <option value="Finance">Finance</option>
                                                         <option value="Natural Sciences">Natural Sciences</option>
@@ -340,7 +340,7 @@
                                                                 publication, all data will be freely available under a
                                                                 CC-BY license. This includes anonymized
                                                                 pre-registrations, software codes, and all original
-                                                                data, which will be hosted on the project’s <a
+                                                                data, which will be hosted on the project’s <a class="hyperlink"
                                                                         href="https://osf.io/ujvdn/?view_only=c4d3f9d9f19143a79b8537255a13b7eb"
                                                                         target="_blank">OSF
                                                                     repository</a>.</p>
@@ -369,11 +369,13 @@
                                                                 the obligation to cover any additional costs will fall
                                                                 to the respective research teams.</p>
                                                             </p>
+
                                                             <label>
-                                                                <input type="checkbox" name="consent" required>
+                                                                <input type="checkbox" name="consent" id="consent-check">
                                                                 We acknowledge these terms and conditions
                                                                 to participate in #ManyDesignsCarbon.
-                                                            </label>
+                                                                </label>
+
                                                         </fieldset>
                                                     </td>
                                                 </tr>
@@ -414,9 +416,9 @@
                         submitted = true
                         form.submit();
                     } else {
-                        console.log('Please fill in all required fields.');
+                        console.log('Please fill in all required fields and consent.');
                         // Optionally, alert the user to fill all required fields
-                        alert('Please fill in all required fields.');
+                        alert('Please fill in all required fields and consent.');
                     }
                 });
             });
@@ -424,11 +426,16 @@
             function areRequiredFieldsFilled(formId) {
                 const form = document.getElementById(formId);
                 const requiredInputs = form.querySelectorAll('input[required], textarea[required], select[required]');
+                const checkbox = document.getElementById('consent-check')
 
                 for (const input of requiredInputs) {
                     if (input.value.trim() === '') {
                         return false;
                     }
+                }
+
+                if(!checkbox.checked) {
+                    return false
                 }
 
                 // If all required fields are filled, return true
