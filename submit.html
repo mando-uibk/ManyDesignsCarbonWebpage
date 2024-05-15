@@ -428,9 +428,9 @@
                         Swal.fire({
                             title: 'Error!',
                             confirmButtonColor: "#8BC443",
-                            text: 'Please fill in all required fields and consent.',
+                            text: note,
                             icon: 'error',
-                            confirmButtonText: 'Ok'
+                            confirmButtonText: 'OK'
                         })
                     }
                 });
@@ -443,11 +443,18 @@
 
                 for (const input of requiredInputs) {
                     if (input.value.trim() === '') {
+                        note = 'Please fill in all required fields.'
                         return false;
+                    }
+
+                    if (input.type==='email' && (typeof input.checkValidity === 'function' ? !input.checkValidity() : /\S+@\S+\.\S+/.test(input.value))){
+                        note = "Please enter a valid email address"
+                        return false
                     }
                 }
 
                 if (!checkbox.checked) {
+                    note = 'Please consent.'
                     return false
                 }
 
