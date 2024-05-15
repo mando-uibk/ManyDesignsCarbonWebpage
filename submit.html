@@ -104,7 +104,7 @@
 
 
                         <iframe id="hidden_iframe" name="hidden_iframe"
-                                onload="if(submitted) {window.location='confirmation.html';}"
+                                onload="if(submitted) {window.location='confirmation';}"
                                 style="display:none;"></iframe>
 
                         <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScgvdhkh2Hl-6TvG2fMflJsAuZQtLaB1ZGqSwVmtw0bE6l09Q/formResponse"
@@ -404,7 +404,9 @@
         </section>
 
         <!-- redirect after submit-->
-        <script type="text/javascript"> var submitted = false </script>
+        <script type="text/javascript">
+            var submitted = false
+        </script>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 const form = document.getElementById('myForm');
