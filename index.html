@@ -86,10 +86,11 @@
         <!----Content!---->
 
         <main>
-            <section class="animate-bottom" id="topSection"
-                     style="position: relative; height: 100vh">
+            <section class="animate-bottom" id="topSection" style="background-color: #fafdf0">
                 <div class="titlebar text-center">
-                    <div class="image-container" style="position: relative; z-index: 1;">
+                    <div class="image-container">
+                        <img src="img/projectlogo9.png" alt="Project Logo"
+                             style="width: 100%; height: auto; opacity: 0.6;">
                         <div class="title-overlay">
                             <h1 id="title_desktop">#ManyDesignsCarbon</h1>
                             <h1 id="title_mobile">#ManyDesignsCarbon</h1>
@@ -98,21 +99,18 @@
                     </div>
                 </div>
 
+
                 <a href="#about">
-                    <button id="scroll-down-button" onclick="toggler.click()"
-                            style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1;">
-                        <svg class="bi bi-arrow-down" fill="currentColor" height="30" viewBox="0 0 16 16" width="30"
-                             xmlns="http://www.w3.org/2000/svg">
+                    <button id="scroll-down-button" onclick="toggler.click()">
+                        <svg class="bi bi-arrow-down" fill="currentColor" height="30" viewBox="0 0 16 16"
+                             width="30" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"
                                   fill-rule="evenodd"/>
                         </svg>
                     </button>
                 </a>
 
-                <!-- Pseudo-element for background image with opacity -->
-                <div style="background-image: url('img/projectlogo10.png'); background-size: cover; background-position: center; opacity: 0.3; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;"></div>
             </section>
-
 
             <section id="about">
                 <div class="container px-3">
@@ -139,11 +137,8 @@
                             <p>The spirit of the project is to tackle the introduction or substantial increase in the
                                 price of carbon,
                                 aiming to advance towards social carbon pricing. Following the <a
-                                        class="hyperlink"
-                                        href="https://www.epa.gov/system/files/documents/2023-12/epa_scghg_2023_report_final.pdf">U.S.
-                                    Environmental
-                                    Protection Agency (2023)</a> a lower-bound estimate of the carbon price that
-                                incorporates
+                                            class="hyperlink" href="https://www.epa.gov/system/files/documents/2023-12/epa_scghg_2023_report_final.pdf">U.S. Environmental
+                                Protection Agency (2023)</a> a lower-bound estimate of the carbon price that incorporates
                                 all social costs is $120 per tonne of CO2,
                                 which would equal about $1.00 per gallon of gasoline.</p>
 
@@ -206,6 +201,7 @@
                                             href="#design_conditions">design
                                         conditions</a>.
                                     </li>
+
 
 
                                 </ol>
@@ -468,8 +464,7 @@
                             <p>
                                 <b>INTERVENTION:</b> Following the introduction, Prolific participants are randomly
                                 assigned to
-                                one of two conditions—BEHAVIORAL INTERVENTION or CONTROL—across the 42 selected designs.
-                                This phase
+                                one of two conditions—BEHAVIORAL INTERVENTION or CONTROL—across the 42 selected designs. This phase
                                 is followed by the measurement of real-world support for a price of carbon, as outlined
                                 by the RTs in their proposals. ''Real-world support'' implies that actions of the
                                 Prolific
