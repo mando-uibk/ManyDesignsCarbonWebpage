@@ -335,24 +335,26 @@
                                                                 Coordinators (PCs)
                                                                 will have access to the data from the study. RTs must
                                                                 refrain from
-                                                                sharing or discussing findings until the first draft of
-                                                                the
-                                                                #ManyDesignsCarbon paper is published (expected to be in
+                                                                sharing or discussing findings until the
+                                                                #ManyDesignsCarbon paper is published in a journal
+                                                                (expected to be in
                                                                 summer 2025).
                                                             </p>
                                                             <p><strong>Post-Publication Access:</strong> After
-                                                                publication, all data will be freely available under a
-                                                                CC-BY license. This includes anonymized
-                                                                pre-registrations, software codes, and all original
-                                                                data, which will be hosted on the project’s <a
-                                                                        class="hyperlink"
-                                                                        href="https://osf.io/ujvdn/">OSF
-                                                                    repository</a>.</p>
+                                                                publication in a journal, the projects OSF repository
+                                                                will be made public under a
+                                                                CC-BY license. The repository will include the
+                                                                pre-registration of the project and its addendum,
+                                                                the anonymized
+                                                                pre-registrations by the RTs, software codes, and all
+                                                                original
+                                                                data.</p>
                                                             <p><strong>Data Anonymization:</strong> To ensure privacy,
-                                                                the dataset will be cleaned to remove identifiers,
+                                                                the dataset and software codes will be cleaned to remove
+                                                                identifiers,
                                                                 making it impossible to trace data back to individual
                                                                 contributors.</p>
-                                                            <p><strong>Co-authorship Eligibility for Research Team
+                                                            <p><strong>Co-Authorship Eligibility for Research Team
                                                                 Members:</strong> Co-authorship will be extended to all
                                                                 members
                                                                 of each Research Team (RT). Eligibility for authorship,
@@ -447,7 +449,7 @@
                         return false;
                     }
 
-                    if (input.type==='email' && (typeof input.checkValidity === 'function' ? !input.checkValidity() : /\S+@\S+\.\S+/.test(input.value))){
+                    if (input.type === 'email' && (typeof input.checkValidity === 'function' ? !input.checkValidity() : /\S+@\S+\.\S+/.test(input.value))) {
                         note = "Please enter a valid email address"
                         return false
                     }
