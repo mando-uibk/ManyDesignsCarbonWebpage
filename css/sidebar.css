@@ -143,6 +143,7 @@ a.sidebar-link {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    z-index:1;
 }
 
 #scroll-down-button {
@@ -180,7 +181,7 @@ a.sidebar-link {
     }
 
     #topSection h4 {
-         padding-left: 0px;
+         padding-left: 0;
     }
 
     #title_desktop{
