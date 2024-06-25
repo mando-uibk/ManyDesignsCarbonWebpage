@@ -63,10 +63,18 @@
                             class="bi bi-envelope"></i> Contact</a>
                 </li>
 
-                <li class="sidebar-item pt-2">
+                <li class="sidebar-item pt-2 d-none">
                     <ul><a class="btn btn-outline-success-submission" href="submit"
                            style="width: 85%">Sign-up</a>
                     </ul>
+                </li>
+
+                <li>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-success-submission d-none" data-bs-toggle="modal"
+                            data-bs-target="#Modal" id="modalbutton">
+                        Modal
+                    </button>
                 </li>
 
             </ul>
@@ -84,6 +92,85 @@
         </nav>
 
         <!----Content!---->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="Modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-2" id="ModalLabel">News (June 2024)!</h1>
+
+                    </div>
+                    <div class="modal-body">
+
+                        <p>
+                            The sign-up phase is over and by now every research team (RT), which signed-up for the project,
+                            should
+                            have received an email outlining the further procedure. In case your RT did not
+                            receive a notification,
+                            <a class="hyperlink"
+                               href="mailto:rene.schwaiger@uibk.ac.at;%20armando.holzknecht@uibk.ac.at?subject=ManyDesignsCarbon">get in contact with us!</a>
+                        </p>
+
+                        <p>Furthermore, we have updated the pre-analysis plan with an Addendum A on OSF, extending
+                        the procedure of selecting the research teams, whereby in addition to the pre-registered
+                        selection of 42 RTs, we randomly selected additional 25 RTs.
+                        There are two reasons for this:
+                        </p>
+
+                        <ol type="i">
+                                    <li>There was an overwhelming positive
+                        reception of the call with <span class="highlight">137 applications of RTs</span>, and <span class="highlight">124 of those were eligible
+                                            applications.</span>
+                                    </li>
+                                    <li>There was a request by some RTs to consider <span class="highlight"> including additional studies </span> to be funded by
+                        the RT, if this would enhance the feasible number of studies
+                        being part of the project.
+                                    </li>
+                                </ol>
+
+                        <p>
+                            Therefore, we have decided to <span class="highlight">pre-register another random draw of
+                            25 additional RTs in Addendum A to the PAP</span>. Those RTs have to fund the experiment
+                        themselves with EUR 2,300 each. The reasons for not adding more than 25 additional RTs are
+                        limitations on Prolific regarding the available subject pool and previous experience from the
+                        #ManyDesigns project with the participation of more than 20,000 subjects, showing limits to the
+                        simultaneous enrollment to the experiment when allowing for
+                        group decision making. Thus, the now selected sample makes us confident of the
+                        feasibility of an ambitious total sample size of at max 23,450 participants
+                        (close to 25% of all eligible participants in Prolific for the USA meeting the
+                        criteria of English fluency and approval rate of 90%, as outlined in our PAP).
+                        </p>
+
+
+                        <p>
+                            We would like to thank all again for the huge interest in the project
+                            and we are looking forward to the next steps.
+                        </p>
+
+                        <p>
+                            <i>
+                                The Porject Cooridnators
+                                <br>Esther Blanco
+                                <br>Armando Holzknecht
+                                <br>Jürgen Huber
+                                <br>Michael Kirchler
+                                <br>Rene Schwaiger
+                            </i>
+                        </p>
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-success-submission" data-bs-dismiss="modal">Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <main>
             <section class="animate-bottom" id="topSection" style="background-color: #fafdf0">
@@ -292,7 +379,9 @@
                                 methods and exact hypotheses will follow after design registration but before data
                                 collection commences. The entire OSF repository with the pre-registered analysis plan of
                                 the project,
-                                its addendum, the pre-analysis plans of the RTs (<a class="hyperlink" href="pre_reg_template">see Pre-registration</a>), the data and the experimental software
+                                its addendum, the pre-analysis plans of the RTs (<a class="hyperlink"
+                                                                                    href="pre_reg_template">see
+                                Pre-registration</a>), the data and the experimental software
                                 packages will be
                                 made publicly available after the publication of the paper.
                             </p>

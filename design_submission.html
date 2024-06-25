@@ -16,6 +16,7 @@
           rel='stylesheet' type='text/css'>
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
@@ -62,7 +63,7 @@
                             class="bi bi-envelope"></i> Contact</a>
                 </li>
 
-                <li class="sidebar-item pt-2">
+                <li class="sidebar-item pt-2 d-none">
                     <ul><a class="btn btn-outline-success-submission" href="submit"
                            style="width: 85%">Sign-up</a>
                     </ul>
@@ -96,7 +97,8 @@
                         <p>
                             Before submitting your design, be sure that the design your team is going to propose
                             adheres to the <a class="hyperlink" href="index.html#design_conditions">design conditions</a>. For more details,
-                            you can also take a look into the <a class="hyperlink" href="faqs.html">FAQ</a>.
+                            you can also take a look into the <a class="hyperlink" href="faqs.html">FAQ</a>. In case you want to update your
+                            proposed design until September 20th 2024, just resubmit this form. We will refer to the latest proposed design to be the final one.
                         </p>
 
 
@@ -374,11 +376,10 @@
                                                         </div>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" id="RadioSoftwareQualtrics"
-                                                                   name="entry.719349040"
+                                                                   name="entry.719349040" required
                                                                    type="radio" value="Qualtrics">
                                                             <label class="form-check-label"
-                                                                   for="RadioSoftwareQualtrics"
-                                                                   required>Qualtrics</label>
+                                                                   for="RadioSoftwareQualtrics">Qualtrics</label>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -387,7 +388,7 @@
                                                     <td>
                                                         Please indicate in 3-5 sentences whether and why the conditions
                                                         for the
-                                                        shortcut IRB (see <a class="hyperlink">here</a>) apply to your experiment.
+                                                        shortcut IRB (see <a class="hyperlink" href="irb.pdf">here</a>) apply to your experiment.
                                                     </td>
                                                 </tr>
 
@@ -421,9 +422,9 @@
                                                 <tr>
                                                     <td>
                                                         How large do you expect to be the effect size of the
-                                                        interventions that
+                                                        intervention that
                                                         you
-                                                        propose:
+                                                        propose?
                                                     </td>
                                                 </tr>
 
@@ -485,9 +486,15 @@
                         submitted = true
                         form.submit();
                     } else {
-                        console.log('Please fill in all required fields.');
+                        console.log('Please fill in all required fields and consent.');
                         // Optionally, alert the user to fill all required fields
-                        alert('Please fill in all required fields.');
+                        Swal.fire({
+                            title: 'Error!',
+                            confirmButtonColor: "#8BC443",
+                            text: note,
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        })
                     }
                 });
             });
@@ -498,6 +505,7 @@
 
                 for (const input of requiredInputs) {
                     if (input.value.trim() === '') {
+                        note = 'Please fill in all required fields.'
                         return false;
                     }
                 }
@@ -514,7 +522,6 @@
 <!-- Bootstrap core JS-->
 <script src="js/bootstrap.bundle.js"></script>
 <!-- Core theme JS-->
-<script src="js/scripts.js"></script>
 <script src="js/sidebar.js"></script>
 </body>
 </html>
