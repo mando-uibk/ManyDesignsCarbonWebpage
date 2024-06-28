@@ -265,9 +265,10 @@
                                                     </td>
                                                 </tr>
 
+
                                                 <tr>
-                                                    <td class="pb-4">
-                                                        <div class="input-group mb-3">
+                                                    <td>
+                                                        <div class="input-group">
                                                             <input class="form-control" id="DesignTime"
                                                                    name="entry.942833836" min="0" max="10"
                                                                    type="number">
@@ -275,6 +276,12 @@
                                                                   required>minutes</span>
                                                         </div>
                                                     </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="pb-4" colspan="2"><small class="form-text text-muted" id="Minuteshelp">
+                                                      Use "." to indicate decimals.
+                                                    </small></td>
                                                 </tr>
 
                                                 <tr>
@@ -332,13 +339,18 @@
                                                 </tr>
 
                                                 <tr>
-                                                    <td class="pb-4">
-                                                        <div class="input-group mb-3">
+                                                    <td>
+                                                        <div class="input-group">
                                                             <input class="form-control" id="DesignUSD" min="0"
                                                                    name="entry.148480168" required type="number">
                                                             <span class="input-group-text" id="addon-usd">GBP</span>
                                                         </div>
                                                     </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="pb-4" colspan="2"><small class="form-text text-muted" id="PayoffOnehelp">
+                                                     Use "." to indicate decimals.
+                                                    </small></td>
                                                 </tr>
 
                                                 <tr>
@@ -351,13 +363,19 @@
                                                 </tr>
 
                                                 <tr>
-                                                    <td class="pb-4">
-                                                        <div class="input-group mb-3">
+                                                    <td>
+                                                        <div class="input-group">
                                                             <input class="form-control" id="DesignGBP" min="0"
                                                                    name="entry.1045629148" required type="number">
                                                             <span class="input-group-text" id="addon-GBP">GBP</span>
                                                         </div>
                                                     </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="pb-4" colspan="2"><small class="form-text text-muted" id="PayoffTwohelp">
+                                                     Use "." to indicate decimals.
+                                                    </small></td>
                                                 </tr>
 
                                                 <tr>
@@ -429,7 +447,7 @@
                                                 </tr>
 
                                                 <tr>
-                                                    <td class="pb-4"><input class="form-control"
+                                                    <td class="pb-1"><input class="form-control"
                                                                             id="BeliefsOwnEffectsize"
                                                                             name="entry.31716854"
                                                                             placeholder="" required type="text">
@@ -437,17 +455,9 @@
                                                 </tr>
 
                                                 <tr>
-                                                    <td>
-                                                        How large do you expect to be meta-analytic effect size of the entire
-                                                        #ManyDesignsCarbon project to be (average effect size of all designs)?
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td><input class="form-control" id="BeliefsMetaEffect"
-                                                               name="entry.475005695" placeholder=""
-                                                               required type="text">
-                                                    </td>
+                                                    <td colspan="2"><small class="form-text text-muted" id="EShelp">
+                                                     Cohen's D for continuous/ordinal variables; Cohen's H for shares/proportions.
+                                                    </small></td>
                                                 </tr>
 
                                                 <tr>
@@ -455,6 +465,8 @@
                                                             class="btn btn-outline-success-submission" id="submitButton"
                                                             type="submit" value="Submit proposal"></td>
                                                 </tr>
+
+
 
                                                 </tbody>
                                             </table>

@@ -71,8 +71,8 @@
 
                 <li>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-outline-success-submission d-none" data-bs-toggle="modal"
-                            data-bs-target="#Modal" id="modalbutton">
+                    <button class="btn btn-outline-success-submission d-none" data-bs-target="#Modal" data-bs-toggle="modal"
+                            id="modalbutton" type="button">
                         Modal
                     </button>
                 </li>
@@ -95,7 +95,7 @@
 
 
         <!-- Modal -->
-        <div class="modal fade" id="Modal" tabindex="-1" aria-hidden="true">
+        <div aria-hidden="true" class="modal fade" id="Modal" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -105,42 +105,47 @@
                     <div class="modal-body">
 
                         <p>
-                            The sign-up phase is over and by now every research team (RT), which signed-up for the project,
+                            The sign-up phase is over and by now every research team (RT), which signed-up for the
+                            project,
                             should
                             have received an email outlining the further procedure. In case your RT did not
                             receive a notification,
                             <a class="hyperlink"
-                               href="mailto:rene.schwaiger@uibk.ac.at;%20armando.holzknecht@uibk.ac.at?subject=ManyDesignsCarbon">get in contact with us!</a>
+                               href="mailto:rene.schwaiger@uibk.ac.at;%20armando.holzknecht@uibk.ac.at?subject=ManyDesignsCarbon">get
+                                in contact with us!</a>
                         </p>
 
                         <p>Furthermore, we have updated the pre-analysis plan with an Addendum A on OSF, extending
-                        the procedure of selecting the research teams, whereby in addition to the pre-registered
-                        selection of 42 RTs, we randomly selected additional 25 RTs.
-                        There are two reasons for this:
+                            the procedure of selecting the research teams, whereby in addition to the pre-registered
+                            selection of 42 RTs, we randomly selected additional 25 RTs.
+                            There are two reasons for this:
                         </p>
 
                         <ol type="i">
-                                    <li>There was an overwhelming positive
-                        reception of the call with <span class="highlight">137 applications of RTs</span>, and <span class="highlight">124 of those were eligible
-                                            applications.</span>
-                                    </li>
-                                    <li>There was a request by some RTs to consider <span class="highlight"> including additional studies </span> to be funded by
-                        the RT, if this would enhance the feasible number of studies
-                        being part of the project.
-                                    </li>
-                                </ol>
+                            <li>There was an overwhelming positive
+                                reception of the call with <span class="highlight">135 applications of RTs</span>, all
+                                of those were eligible applications.
+                            </li>
+                            <li>Some RTs proposed financing their own study to increase the total number of studies that
+                                are feasible, to mitigate the budget constraint.
+                            </li>
+                        </ol>
 
                         <p>
-                            Therefore, we have decided to <span class="highlight">pre-register another random draw of
-                            25 additional RTs in Addendum A to the PAP</span>. Those RTs have to fund the experiment
-                        themselves with EUR 2,300 each. The reasons for not adding more than 25 additional RTs are
-                        limitations on Prolific regarding the available subject pool and previous experience from the
-                        #ManyDesigns project with the participation of more than 20,000 subjects, showing limits to the
-                        simultaneous enrollment to the experiment when allowing for
-                        group decision making. Thus, the now selected sample makes us confident of the
-                        feasibility of an ambitious total sample size of at max 23,450 participants
-                        (close to 25% of all eligible participants in Prolific for the USA meeting the
-                        criteria of English fluency and approval rate of 90%, as outlined in our PAP).
+                            Therefore, we have decided to <span class="highlight">pre-register an additional
+                            25 randomly selected RTs in Addendum A to the PAP</span>. We intend to have these teams come
+                            up with experiments in addition to the 42 original teams.
+                            Each of those 25 RTs will be asked if they can self-finance their study with GBP 2,100.
+                            The reasons for not adding more than 25 additional RTs are
+                            limitations on Prolific regarding the available subject pool and experience from a previous
+                            #ManyDesigns initiative by parts of the PCs of this project.
+                            They experienced difficulties due to the participation of more than
+                            20,000 subjects given the necessity to ensure simultaneous enrollment
+                            to the experiment and the option of allowing for group decision making. Thus, the now
+                            selected number of teams makes us confident of the feasibility of an ambitious total sample
+                            size of at maximum 23,450 participants (approximately 36% of the 64,251 US participants on
+                            Prolific meeting our criteria of English fluency and approval rate of 90% as outlined in our
+                            PAP while being active on the platform in the last 90 days).
                         </p>
 
 
@@ -161,10 +166,9 @@
                         </p>
 
 
-
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-success-submission" data-bs-dismiss="modal">Close
+                        <button class="btn btn-outline-success-submission" data-bs-dismiss="modal" type="button">Close
                         </button>
                     </div>
                 </div>
@@ -176,7 +180,7 @@
             <section class="animate-bottom" id="topSection" style="background-color: #fafdf0">
                 <div class="titlebar text-center">
                     <div class="image-container">
-                        <img src="img/projectlogo9.png" alt="Project Logo"
+                        <img alt="Project Logo" src="img/projectlogo9.png"
                              style="width: 100%; height: auto; opacity: 0.6;">
                         <div class="title-overlay">
                             <h1 id="title_desktop">#ManyDesignsCarbon</h1>
@@ -481,8 +485,8 @@
                                 <svg class="flowchart" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
                                     <!-- Definitions for arrowheads -->
                                     <defs>
-                                        <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="4" refY="2"
-                                                orient="auto">
+                                        <marker id="arrowhead" markerHeight="4" markerWidth="6" orient="auto" refX="4"
+                                                refY="2">
                                             <polygon points="0 0, 6 2, 0 4"/>
                                         </marker>
                                     </defs>
@@ -676,5 +680,6 @@
 <!-- Core theme JS-->
 <script src="js/sidebar.js"></script>
 <script src="js/index.js"></script>
+<!--<script src="js/modal.js"></script>-->
 </body>
 </html>
