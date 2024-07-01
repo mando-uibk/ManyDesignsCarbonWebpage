@@ -71,7 +71,8 @@
 
                 <li>
                     <!-- Button trigger modal -->
-                    <button class="btn btn-outline-success-submission d-none" data-bs-target="#Modal" data-bs-toggle="modal"
+                    <button class="btn btn-outline-success-submission d-none" data-bs-target="#Modal"
+                            data-bs-toggle="modal"
                             id="modalbutton" type="button">
                         Modal
                     </button>
@@ -95,7 +96,7 @@
 
 
         <!-- Modal -->
-        <div aria-hidden="true" class="modal fade" id="Modal" tabindex="-1">
+        <div aria-hidden="false" class="modal fade" id="Modal" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -105,58 +106,47 @@
                     <div class="modal-body">
 
                         <p>
-                            The sign-up phase is over and by now every research team (RT), which signed-up for the
-                            project,
-                            should
-                            have received an email outlining the further procedure. In case your RT did not
-                            receive a notification,
+                            The sign-up phase is now complete. By this time, every research team (RT) that signed up for
+                            the project should have received an email outlining the next steps. If your RT has not
+                            received this notification,
                             <a class="hyperlink"
-                               href="mailto:rene.schwaiger@uibk.ac.at;%20armando.holzknecht@uibk.ac.at?subject=ManyDesignsCarbon">get
+                               href="mailto:rene.schwaiger@uibk.ac.at;%20armando.holzknecht@uibk.ac.at?subject=ManyDesignsCarbon">please
+                                get
                                 in contact with us!</a>
                         </p>
 
-                        <p>Furthermore, we have updated the pre-analysis plan with an Addendum A on OSF, extending
-                            the procedure of selecting the research teams, whereby in addition to the pre-registered
-                            selection of 42 RTs, we randomly selected additional 25 RTs.
-                            There are two reasons for this:
-                        </p>
-
-                        <ol type="i">
-                            <li>There was an overwhelming positive
-                                reception of the call with <span class="highlight">135 applications of RTs</span>, all
-                                of those were eligible applications.
-                            </li>
-                            <li>Some RTs proposed financing their own study to increase the total number of studies that
-                                are feasible, to mitigate the budget constraint.
-                            </li>
-                        </ol>
-
                         <p>
-                            Therefore, we have decided to <span class="highlight">pre-register an additional
-                            25 randomly selected RTs in Addendum A to the PAP</span>. We intend to have these teams come
-                            up with experiments in addition to the 42 original teams.
-                            Each of those 25 RTs will be asked if they can self-finance their study with GBP 2,100.
-                            The reasons for not adding more than 25 additional RTs are
-                            limitations on Prolific regarding the available subject pool and experience from a previous
-                            #ManyDesigns initiative by parts of the PCs of this project.
-                            They experienced difficulties due to the participation of more than
-                            20,000 subjects given the necessity to ensure simultaneous enrollment
-                            to the experiment and the option of allowing for group decision making. Thus, the now
-                            selected number of teams makes us confident of the feasibility of an ambitious total sample
-                            size of at maximum 23,450 participants (approximately 36% of the 64,251 US participants on
-                            Prolific meeting our criteria of English fluency and approval rate of 90% as outlined in our
-                            PAP while being active on the platform in the last 90 days).
+                            We have decided to <span class="highlight"> pre-register an additional 25
+                            randomly selected research teams in Addendum A to our PAP.</span>
+                            These 25 teams have been selected In addition to the pre-registered selection of 42 research
+                            teams.
+                            There are two reasons for this: (1) we saw an
+                            overwhelming positive reception of the call with 135 applications of RTs, all 135 of those
+                            were eligible applications; (2) Some RTs suggested financing their own studies to increase
+                            the total number of feasible studies, as without self-funding, we would run into budget
+                            constraints. We intend to have these 25 teams come up with experiments in
+                            addition to the 42 original teams. Each of those 25 RTs will be asked if they can
+                            self-finance their study with GBP 2,100. The reasons for registering not more than 25
+                            additional RTs are limitations on Prolific regarding the subject pool and experience from a
+                            previous #ManyDesigns initiative by parts of the PCs of this project. They experienced
+                            difficulties due to the participation of more than 20,000 subjects given the necessity to
+                            ensure simultaneous enrollment to the experiment and the option of allowing for group
+                            decision making. However, the now selected number of teams makes us confident of the
+                            feasibility of an ambitious total sample size of at maximum 23,450 participants
+                            (approximately 36% of the 64,251 US participants on Prolific meeting our criteria of English
+                            fluency and approval rate of 90% as outlined in our PAP while being active on the platform
+                            in the last 90 days).
                         </p>
 
 
                         <p>
-                            We would like to thank all again for the huge interest in the project
-                            and we are looking forward to the next steps.
+                            We would like to thank everyone once again for their immense interest in the project. We
+                            look forward to the upcoming steps!
                         </p>
 
                         <p>
                             <i>
-                                The Porject Cooridnators
+                                <b>The Project Coordinators</b>
                                 <br>Esther Blanco
                                 <br>Armando Holzknecht
                                 <br>Jürgen Huber
@@ -674,6 +664,17 @@
     </div>
 
 </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#Modal').modal('show');
+    });
+</script>
 
 <!-- Bootstrap core JS-->
 <script src="js/bootstrap.bundle.js"></script>
