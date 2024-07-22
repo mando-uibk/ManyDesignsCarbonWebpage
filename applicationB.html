@@ -95,8 +95,10 @@
 
                         <p>
                             Please confirm that your team will be sending the pre-registration and survey A
-                            (see <a class="hyperlink" href="schedule">schedule</a> and see <a class="hyperlink" href="pre_reg_template.html">template</a>)
-                            by September 20th 2024. This can be done via the following <a class="hyperlink" href="design_submission.html">form</a>.
+                            (see <a class="hyperlink" href="schedule">schedule</a> and see <a class="hyperlink"
+                                                                                              href="pre_reg_template.html">template</a>)
+                            by September 20th 2024. This can be done via the following <a class="hyperlink"
+                                                                                          href="design_submission.html">form</a>.
                         </p>
 
 
@@ -134,30 +136,32 @@
                                             <table style="width: 85%">
                                                 <tbody>
 
-                                                <tr >
+                                                <tr>
 
                                                     <td style="width:50%;">The ID of your research team:
 
 
-
                                                     </td>
                                                     <td style="width: 50%"><input class="form-control" id="RtAcronym"
-                                                               name="entry.1555632454"
-                                                               placeholder="" required type="text">
+                                                                                  name="entry.1555632454"
+                                                                                  placeholder="" required type="text">
                                                     </td>
                                                 </tr>
 
                                                 <tr>
                                                     <td colspan="2" class="pb-3">
-                                                        <small class="form-text text-muted">Your team's ID is stated in the notification email you received from us.</small>
+                                                        <small class="form-text text-muted">Your team's ID is stated in
+                                                            the notification email you received from us.</small>
 
                                                     </td>
                                                 </tr>
 
 
                                                 <tr>
-                                                    <td colspan="2">I confirm that my research team is prepared to send the pre-registration and
-                                                    survey A no later than September 20th 2024 via this <a class="hyperlink" href="design_submission.html">form</a>.
+                                                    <td colspan="2">I confirm that my research team is prepared to send
+                                                        the pre-registration and
+                                                        survey A no later than September 20th 2024 via this <a
+                                                                class="hyperlink" href="design_submission.html">form</a>.
                                                     </td>
                                                 </tr>
 
@@ -185,7 +189,8 @@
                                                         <option disabled selected value="">Please specify
                                                         </option>
                                                         <option value="No time">No time</option>
-                                                        <option value="No clear research idea">No clear research idea</option>
+                                                        <option value="No clear research idea">No clear research idea
+                                                        </option>
                                                         <option value="Personal issues">Personal issues</option>
                                                         <option value="Other">Other (specify)</option>
                                                         </option>
@@ -203,28 +208,39 @@
                                                 </tr>
 
                                                 <tr id="FundingQuestion">
-                                                    <td colspan="2">I confirm that my research team will be able to secure the required funding of GBP 2,100 to be part of
+                                                    <td colspan="2">I confirm that my research team will be able to
+                                                        secure the required funding of GBP 2,100 to be part of
                                                         the #ManyDesignsCarbon project.
                                                     </td>
                                                 </tr>
 
-                                                <tr id = "FundingAnswers">
+                                                <tr id="FundingAnswers">
                                                     <td>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" id="RadioFundingYes"
-                                                                   name="entry.787586223"
-                                                                   type="radio" value="Yes">
+                                                                   name="entry.787586223" type="radio" value="Yes">
                                                             <label class="form-check-label"
                                                                    for="RadioFundingYes">Yes</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" id="RadioFundingNo"
-                                                                   name="entry.787586223"
-                                                                   type="radio" value="No">
-                                                            <label class="form-check-label" for="RadioFundingNo">No</label>
+                                                                   name="entry.787586223" type="radio" value="No">
+                                                            <label class="form-check-label"
+                                                                   for="RadioFundingNo">No</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" id="RadioFundingUnsure"
+                                                                   name="entry.787586223" type="radio" value="Unsure">
+                                                            <label class="form-check-label" for="RadioFundingUnsure">Unclear
+                                                                yet (please specify details):</label>
+                                                            <input class="form-control" type="text" id="UnsureDetails"
+                                                                   name="entry.unsureDetails"
+                                                                   placeholder="Please specify your current situation"
+                                                                   size="100">
                                                         </div>
                                                     </td>
                                                 </tr>
+
 
                                                 <tr>
                                                     <td class="justify-content-center pt-3">
@@ -278,17 +294,17 @@
                 });
             });
 
-            document.getElementById('RadioParticipationYes').addEventListener('change', function() {
+            document.getElementById('RadioParticipationYes').addEventListener('change', function () {
                 if (this.value === 'Yes') {
                     document.getElementById('FundingQuestion').style.display = "table-row";
                     document.getElementById('FundingAnswers').style.display = "table-row";
-                    document.getElementById('RadioFundingYes').setAttribute("required","");
-                    document.getElementById('RadioFundingNo').setAttribute("required","");
+                    document.getElementById('RadioFundingYes').setAttribute("required", "");
+                    document.getElementById('RadioFundingNo').setAttribute("required", "");
                 }
 
             })
 
-            document.getElementById('RadioParticipationNo').addEventListener('change', function() {
+            document.getElementById('RadioParticipationNo').addEventListener('change', function () {
                 if (this.value === 'No') {
                     document.getElementById('FundingQuestion').style.display = "none";
                     document.getElementById('FundingAnswers').style.display = "none";
@@ -308,12 +324,13 @@
                     if (input.value.trim() === '') {
                         note = 'Please fill in all required fields.'
                         return false;
-                }}
+                    }
+                }
 
-                    if (!isSelected) {
-                        note = 'Please fill in all required fields.'
-                        return false;
-    }
+                if (!isSelected) {
+                    note = 'Please fill in all required fields.'
+                    return false;
+                }
 
                 // If all required fields are filled, return true
                 return true;
