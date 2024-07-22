@@ -232,11 +232,14 @@
                                                             <input class="form-check-input" id="RadioFundingUnsure"
                                                                    name="entry.787586223" type="radio" value="Unsure">
                                                             <label class="form-check-label" for="RadioFundingUnsure">Unclear
-                                                                yet (please specify details):</label>
-                                                            <input class="form-control" type="text" id="UnsureDetails"
-                                                                   name="entry.787586224"
-                                                                   placeholder="Please specify your current situation"
-                                                                   size="100" required>
+                                                                yet (please specify details):
+                                                                <input class="form-control" type="text"
+                                                                       id="UnsureDetails"
+                                                                       name="entry.unsureDetails"
+                                                                       placeholder="Please specify your current situation"
+                                                                       size="50"
+                                                                       style="display: none; margin-top: 10px;">
+                                                            </label>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -292,35 +295,40 @@
                         })
                     }
                 });
+
+                // Show/hide UnsureDetails based on RadioFundingUnsure
+                document.getElementById('RadioFundingUnsure').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('UnsureDetails').style.display = 'inline-block';
+                        document.getElementById('UnsureDetails').setAttribute('required', '');
+                    } else {
+                        document.getElementById('UnsureDetails').style.display = 'none';
+                        document.getElementById('UnsureDetails').removeAttribute('required');
+                    }
+                });
+
+                document.getElementById('RadioParticipationYes').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('FundingQuestion').style.display = "table-row";
+                        document.getElementById('FundingAnswers').style.display = "table-row";
+                        document.querySelectorAll('input[name="entry.787586223"]').forEach(radio => {
+                            radio.setAttribute("required", "");
+                        });
+                    }
+                });
+
+                document.getElementById('RadioParticipationNo').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('FundingQuestion').style.display = "none";
+                        document.getElementById('FundingAnswers').style.display = "none";
+                        document.querySelectorAll('input[name="entry.787586223"]').forEach(radio => {
+                            radio.removeAttribute("required");
+                        });
+                        document.getElementById('UnsureDetails').style.display = 'none';
+                        document.getElementById('UnsureDetails').removeAttribute('required');
+                    }
+                });
             });
-
-            document.getElementById('RadioParticipationYes').addEventListener('change', function () {
-                if (this.value === 'Yes') {
-                    document.getElementById('FundingQuestion').style.display = "table-row";
-                    document.getElementById('FundingAnswers').style.display = "table-row";
-                    document.getElementById('RadioFundingYes').setAttribute("required", "");
-                    document.getElementById('RadioFundingNo').setAttribute("required", "");
-                    document.getElementById('RadioFundingUnsure').setAttribute("required", "");
-                    document.getElementById('UnsureDetails').setAttribute("required", "");
-
-
-                }
-
-            })
-
-            document.getElementById('RadioParticipationNo').addEventListener('change', function () {
-                if (this.value === 'No') {
-                    document.getElementById('FundingQuestion').style.display = "none";
-                    document.getElementById('FundingAnswers').style.display = "none";
-                    document.getElementById('RadioFundingYes').removeAttribute("required");
-                    document.getElementId('RadioFundingNo').removeAttribute("required");
-                    document.getElementById('RadioFundingUnsure').removeAttribute("required");
-                    document.getElementById('UnsureDetails').removeAttribute("required");
-
-
-                }
-
-            })
 
             function areRequiredFieldsFilled(formId) {
                 const form = document.getElementById(formId);
