@@ -17,10 +17,8 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 </head>
 <body>
-
 <div class="wrapper">
     <!-- Sidebar -->
     <aside id="sidebar" class="bg-dark">
@@ -63,19 +61,14 @@
                        href="mailto:rene.schwaiger@uibk.ac.at;%20armando.holzknecht@uibk.ac.at?subject=#ManyDesignsCarbon"><i
                             class="bi bi-envelope"></i> Contact</a>
                 </li>
-
                 <li class="sidebar-item pt-2 d-none">
                     <ul><a class="btn btn-outline-success-submission" href="submit"
                            style="width: 85%">Sign-up</a>
                     </ul>
                 </li>
-
             </ul>
         </div>
-
     </aside>
-
-
     <!-- Main Component -->
     <div class="main animate-bottom">
         <nav class="navbar navbar-expand px-3 bg-light position-fixed bg-transparent">
@@ -84,15 +77,12 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </nav>
-
-
         <!-- Submission section-->
         <section id="Submission">
             <div class="container px-4 pt-5">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-11">
                         <h2 class="mb-3 pt-3">Confirm further procedure</h2>
-
                         <p>
                             Please confirm that your team will be sending the pre-registration and survey A
                             (see <a class="hyperlink" href="schedule">schedule</a> and see <a class="hyperlink"
@@ -100,20 +90,15 @@
                             by September 20th 2024. This can be done via the following <a class="hyperlink"
                                                                                           href="design_submission.html">form</a>.
                         </p>
-
-
                         <iframe id="hidden_iframe" name="hidden_iframe"
                                 onload="if(submitted) {window.location='confirmation';}"
                                 style="display:none;"></iframe>
-
                         <form action="https://docs.google.com/forms/d/e/1FAIpQLScoO8aFVzHm7I5fD5wLByMhiwlLYf7iVsE7ETn3mUygMZ5xiw/formResponse"
                               class="form"
                               id="myForm"
                               method="post" target="hidden_iframe">
-
                             <div class="d-flex align-items-start">
                                 <div aria-orientation="vertical" class="nav nav-pills" id="v-pills-tab" role="tablist">
-
                                     <button aria-controls="v-pills-memberOne" aria-selected="true"
                                             class="nav-link nav-link-submission active"
                                             data-bs-target="#v-pills-memberOne" data-bs-toggle="pill"
@@ -121,42 +106,29 @@
                                             role="tab"
                                             type="button">Confirmation
                                     </button>
-
                                 </div>
                                 <div class="tab-content w-100" id="v-pills-tabContent">
-
-
                                     <div aria-labelledby="v-pills-memberOne-tab" class="tab-pane fade show active"
                                          id="v-pills-memberOne"
                                          role="tabpanel">
-
-
                                         <div class="table table-border align-content-center justify-content-center d-flex"
                                              style="width: 100%">
                                             <table style="width: 85%">
                                                 <tbody>
-
                                                 <tr>
-
                                                     <td style="width:50%;">The ID of your research team:
-
-
                                                     </td>
                                                     <td style="width: 50%"><input class="form-control" id="RtAcronym"
                                                                                   name="entry.1555632454"
                                                                                   placeholder="" required type="text">
                                                     </td>
                                                 </tr>
-
                                                 <tr>
                                                     <td colspan="2" class="pb-3">
                                                         <small class="form-text text-muted">Your team's ID is stated in
                                                             the notification email you received from us.</small>
-
                                                     </td>
                                                 </tr>
-
-
                                                 <tr>
                                                     <td colspan="2">I confirm that my research team is prepared to send
                                                         the pre-registration and
@@ -164,7 +136,6 @@
                                                                 class="hyperlink" href="design_submission.html">form</a>.
                                                     </td>
                                                 </tr>
-
                                                 <tr>
                                                     <td>
                                                         <div class="form-check form-check-inline">
@@ -182,7 +153,6 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-
                                                 <tr>
                                                     <td><select class="form-select" style="display: none" required
                                                                 id="SpecifcationNo" name="entry.951662645">
@@ -196,7 +166,6 @@
                                                         </option>
                                                     </select>
                                                     </td>
-
                                                     <td>
                                                         <div class="form-group">
                                                 <textarea class="form-control" id="SpecifcationNoOther" required
@@ -204,16 +173,13 @@
                                                           name="entry.951662645" rows="3"></textarea>
                                                         </div>
                                                     </td>
-
                                                 </tr>
-
                                                 <tr id="FundingQuestion">
                                                     <td colspan="2">I confirm that my research team will be able to
                                                         secure the required funding of GBP 2,100 to be part of
                                                         the #ManyDesignsCarbon project.
                                                     </td>
                                                 </tr>
-
                                                 <tr id="FundingAnswers">
                                                     <td>
                                                         <div class="form-check form-check-inline">
@@ -247,7 +213,6 @@
                                                                size="100">
                                                     </td>
                                                 </tr>
-
                                                 <tr>
                                                     <td class="justify-content-center pt-3">
                                                         <input class="btn btn-outline-success-submission"
@@ -256,7 +221,6 @@
                                                 </tr>
                                                 </tbody>
                                             </table>
-
                                         </div>
                                     </div>
                                 </div>
@@ -266,7 +230,6 @@
                 </div>
             </div>
         </section>
-
         <!-- redirect after submit-->
         <script type="text/javascript">
             var submitted = false
@@ -352,7 +315,12 @@
                     }
                 }
 
-                if (!isFundingSelected || !isConfirmationSelected) {
+                if (!isFundingSelected && document.getElementById('RadioParticipationYes').checked) {
+                    note = 'Please fill in all required fields.';
+                    return false;
+                }
+
+                if (!isConfirmationSelected) {
                     note = 'Please fill in all required fields.';
                     return false;
                 }
@@ -361,11 +329,8 @@
                 return true;
             }
         </script>
-
-
     </div>
 </div>
-
 <!-- Bootstrap core JS-->
 <script src="js/bootstrap.bundle.js"></script>
 <!-- Core theme JS-->
