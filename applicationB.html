@@ -236,10 +236,13 @@
                                                                    required>
                                                             <label class="form-check-label" for="RadioFundingUnsure">Unclear
                                                                 yet</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline"
+                                                             id="UnsureDetailsContainer" style="display: none;">
                                                             <input class="form-control" type="text" id="UnsureDetails"
                                                                    name="entry.unsureDetails"
                                                                    placeholder="Please specify your current situation"
-                                                                   style="display: none; margin-left: 10px;">
+                                                                   size="50">
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -272,6 +275,9 @@
             document.addEventListener('DOMContentLoaded', function () {
                 const form = document.getElementById('myForm');
                 const submitButton = document.getElementById('submitButton');
+                const unsureRadio = document.getElementById('RadioFundingUnsure');
+                const unsureDetailsContainer = document.getElementById('UnsureDetailsContainer');
+                const unsureDetails = document.getElementById('UnsureDetails');
 
                 submitButton.addEventListener('click', function (event) {
                     // Prevent the form from submitting by default
@@ -296,14 +302,23 @@
                     }
                 });
 
-                document.getElementById('RadioFundingUnsure').addEventListener('change', function () {
+                unsureRadio.addEventListener('change', function () {
                     if (this.checked) {
-                        document.getElementById('UnsureDetails').style.display = 'inline-block';
-                        document.getElementById('UnsureDetails').setAttribute('required', '');
+                        unsureDetailsContainer.style.display = 'inline-block';
+                        unsureDetails.setAttribute('required', '');
                     } else {
-                        document.getElementById('UnsureDetails').style.display = 'none';
-                        document.getElementById('UnsureDetails').removeAttribute('required');
+                        unsureDetailsContainer.style.display = 'none';
+                        unsureDetails.removeAttribute('required');
                     }
+                });
+
+                document.querySelectorAll('input[name="entry.787586223"]').forEach(radio => {
+                    radio.addEventListener('change', function () {
+                        if (radio !== unsureRadio) {
+                            unsureDetailsContainer.style.display = 'none';
+                            unsureDetails.removeAttribute('required');
+                        }
+                    });
                 });
 
                 document.getElementById('RadioParticipationYes').addEventListener('change', function () {
@@ -323,8 +338,8 @@
                         document.querySelectorAll('input[name="entry.787586223"]').forEach(radio => {
                             radio.removeAttribute("required");
                         });
-                        document.getElementById('UnsureDetails').style.display = 'none';
-                        document.getElementById('UnsureDetails').removeAttribute('required');
+                        unsureDetailsContainer.style.display = 'none';
+                        unsureDetails.removeAttribute('required');
                     }
                 });
             });
