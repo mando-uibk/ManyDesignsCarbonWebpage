@@ -218,19 +218,22 @@
                                                     <td>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" id="RadioFundingYes"
-                                                                   name="entry.787586223" type="radio" value="Yes">
+                                                                   name="entry.787586223" type="radio" value="Yes"
+                                                                   required>
                                                             <label class="form-check-label"
                                                                    for="RadioFundingYes">Yes</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" id="RadioFundingNo"
-                                                                   name="entry.787586223" type="radio" value="No">
+                                                                   name="entry.787586223" type="radio" value="No"
+                                                                   required>
                                                             <label class="form-check-label"
                                                                    for="RadioFundingNo">No</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" id="RadioFundingUnsure"
-                                                                   name="entry.787586223" type="radio" value="Unsure">
+                                                                   name="entry.787586223" type="radio" value="Unsure"
+                                                                   required>
                                                             <label class="form-check-label" for="RadioFundingUnsure">Unclear
                                                                 yet (please specify details):</label>
                                                         </div>
@@ -337,18 +340,20 @@
             function areRequiredFieldsFilled(formId) {
                 const form = document.getElementById(formId);
                 const requiredInputs = form.querySelectorAll('input[required], textarea[required], select[required]');
-                const radioButtons = document.querySelectorAll('input[name="entry.951662645"]');
-                const isSelected = Array.from(radioButtons).some(radio => radio.checked);
+                const radioButtonsFunding = document.querySelectorAll('input[name="entry.787586223"]'); // Funding radio buttons
+                const radioButtonsConfirmation = document.querySelectorAll('input[name="entry.951662645"]'); // Confirmation radio buttons
+                const isFundingSelected = Array.from(radioButtonsFunding).some(radio => radio.checked);
+                const isConfirmationSelected = Array.from(radioButtonsConfirmation).some(radio => radio.checked);
 
                 for (const input of requiredInputs) {
                     if (input.value.trim() === '') {
-                        note = 'Please fill in all required fields.'
+                        note = 'Please fill in all required fields.';
                         return false;
                     }
                 }
 
-                if (!isSelected) {
-                    note = 'Please fill in all required fields.'
+                if (!isFundingSelected || !isConfirmationSelected) {
+                    note = 'Please fill in all required fields.';
                     return false;
                 }
 
