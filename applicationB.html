@@ -229,17 +229,10 @@
                                                                    for="RadioFundingNo">No</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" id="RadioFundingUnsure"
-                                                                   name="entry.787586223" type="radio" value="Unsure">
-                                                            <label class="form-check-label" for="RadioFundingUnsure">Unclear
-                                                                yet (please specify details):
-                                                                <input class="form-control" type="text"
-                                                                       id="UnsureDetails"
-                                                                       name="entry.unsureDetails"
-                                                                       placeholder="Please specify your current situation"
-                                                                       size="50"
-                                                                       style="display: none; margin-top: 10px;">
-                                                            </label>
+                                                            <input class="form-control" type="text" id="UnsureDetails"
+                                                                   name="entry.787586223"
+                                                                   placeholder="Unclear yet (please specify details)"
+                                                                   size="50">
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -293,17 +286,6 @@
                             icon: 'error',
                             confirmButtonText: 'OK'
                         })
-                    }
-                });
-
-                // Show/hide UnsureDetails based on RadioFundingUnsure
-                document.getElementById('RadioFundingUnsure').addEventListener('change', function () {
-                    if (this.checked) {
-                        document.getElementById('UnsureDetails').style.display = 'inline-block';
-                        document.getElementById('UnsureDetails').setAttribute('required', '');
-                    } else {
-                        document.getElementById('UnsureDetails').style.display = 'none';
-                        document.getElementById('UnsureDetails').removeAttribute('required');
                     }
                 });
 
