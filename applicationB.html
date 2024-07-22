@@ -218,21 +218,28 @@
                                                     <td>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" id="RadioFundingYes"
-                                                                   name="entry.787586223" type="radio" value="Yes">
+                                                                   name="entry.787586223" type="radio" value="Yes"
+                                                                   required>
                                                             <label class="form-check-label"
                                                                    for="RadioFundingYes">Yes</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" id="RadioFundingNo"
-                                                                   name="entry.787586223" type="radio" value="No">
+                                                                   name="entry.787586223" type="radio" value="No"
+                                                                   required>
                                                             <label class="form-check-label"
                                                                    for="RadioFundingNo">No</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" id="RadioFundingUnsure"
+                                                                   name="entry.787586223" type="radio" value="Unsure"
+                                                                   required>
+                                                            <label class="form-check-label" for="RadioFundingUnsure">Unclear
+                                                                yet</label>
                                                             <input class="form-control" type="text" id="UnsureDetails"
-                                                                   name="entry.787586223"
-                                                                   placeholder="Unclear yet (please specify details)"
-                                                                   size="50">
+                                                                   name="entry.unsureDetails"
+                                                                   placeholder="Please specify your current situation"
+                                                                   style="display: none; margin-left: 10px;">
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -286,6 +293,16 @@
                             icon: 'error',
                             confirmButtonText: 'OK'
                         })
+                    }
+                });
+
+                document.getElementById('RadioFundingUnsure').addEventListener('change', function () {
+                    if (this.checked) {
+                        document.getElementById('UnsureDetails').style.display = 'inline-block';
+                        document.getElementById('UnsureDetails').setAttribute('required', '');
+                    } else {
+                        document.getElementById('UnsureDetails').style.display = 'none';
+                        document.getElementById('UnsureDetails').removeAttribute('required');
                     }
                 });
 
