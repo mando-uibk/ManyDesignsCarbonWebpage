@@ -390,12 +390,12 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#flush-collapsenew" aria-expanded="false"
-                                            aria-controls="flush-collapsenew">
+                                            data-bs-target="#flush-collapseSeventeen" aria-expanded="false"
+                                            aria-controls="flush-collapseTwelve">
                                         What do we mean with "social price" of carbon?
                                     </button>
                                 </h2>
-                                <div id="flush-collapsenew" class="accordion-collapse collapse"
+                                <div id="flush-collapseSeventeen" class="accordion-collapse collapse"
                                      data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
 
@@ -505,6 +505,90 @@
                                         </div>
 
 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item d-none">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseTwentyOne" aria-expanded="false"
+                                            aria-controls="flush-collapseTwentyOne">
+                                        Do wee need to record Prolific IDs
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseTwentyOne" class="accordion-collapse collapse"
+                                     data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+
+                                        <p> Yes, we will require you to either collect the Prolific Participant IDs
+                                            as a first question (i.e., by hand and asking them to copy there
+                                            ID in a corresponding field), or by using
+                                            embedded variables in the form of URL parameters.
+                                            Generally, we will forward participants
+                                        to RTs control or intervention conditions' with two URL parameters: (i) PROLIFIC_PID={{%PROLIFIC_PID%}},
+                                        (ii) participant_label={{%PROLIFIC_PID%}}. </p>
+
+                                        <p> <b>Two illustrative examples:</b></p>
+
+                                        <p>
+                                        Control condition: <tt>https://your_design_control.com?PROLIFIC_PID=abc123456&participant_label=abc123456</tt><br>
+                                        Intervention condition: <tt>https://your_design_intervention.com?PROLIFIC_PID=abc123456&participant_label=abc123456</tt></p>
+
+                                        <p>If you want to use embedded variables in Qualtrics, we refer to the official tutorial
+                                        under the following link: <a href=https://researcher-help.prolific.com/en/article/fbbd36 class="hyperlink">https://researcher-help.prolific.com/en/article/fbbd36</a>.</p>
+
+                                        <p>If you are using oTree, the participants' Prolific IDs will automatically be
+                                            stored as <tt>participant_label</tt>. Hence, we require you <b>to not use</b> pre-defined
+                                            participant labels.
+                                        </p>
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item d-none">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseTwentyTwo" aria-expanded="false"
+                                            aria-controls="flush-collapseTwentyTwo">
+                                        How do we need to implement the Ex-post survey?
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseTwentyTwo" class="accordion-collapse collapse"
+                                     data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+
+                                        <p>You need to implement the Ex-post survey yourself. We prepared a document containing
+                                        detailed descriptions how to name the variables and which values need to be stored
+                                        under the following link: <a class="hyperlink" href="">Download Ex-Post survey</a>.</p>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item d-none">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#flush-collapseTwentyThree" aria-expanded="false"
+                                            aria-controls="flush-collapseTwentyThree">
+                                        The pre-registration used GBP as a currency for participants' payoffs. However,
+                                        the sample is a U.S. one. Which currency do we need to implement in our software?
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseTwentyThree" class="accordion-collapse collapse"
+                                     data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+
+                                        <p>Since we implement all designs using a U.S. sample, you need you to use USD as currency in your
+                                            design. Therefore, please convert your payoffs
+                                            from GBP into USD. For the flat fee of 1.50 GBP please insert 2.00 USD instead.
+                                        Regarding the maximum bonus payoff of 3.00 GBP, please use 4.00 USD. If your design,
+                                        does not require the maximum bonus payoff of 3.00 GBP, please convert you maximum bonus
+                                        payment by yourself from GBP into USD, and round to the next first digital number.
+                                        For example if you use 1.00 GBP as a bonus payoff, insert 1.30 USD (1.00 GBP ~ 1.33 USD
+                                        as of September 19th 2024). </p>
                                     </div>
                                 </div>
                             </div>
