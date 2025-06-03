@@ -1,0 +1,257 @@
+/* ────────────────────────────────────────────────────────────────────────────── */
+/*                           #ManyDesignsCarbon STYLE SHEET                       */
+/* ────────────────────────────────────────────────────────────────────────────── */
+
+/* ─── SPACING CONTROLS ───────────────────────────────────────────────────────── */
+:root {
+    /* space between title and legend */
+    --space-h1-legend: 2px;
+
+    /* space between legend and chart */
+    --space-legend-chart: -25px;
+
+    /* space between chart and buttons */
+    --space-chart-buttons: 5px;
+}
+
+/* ─── overall page ───────────────────────────────────────────────────────────── */
+body {
+    background: #f5f5f5;
+}
+
+.container {
+    background: #FAFAFA;
+    max-width: 1100px;
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ─── title ──────────────────────────────────────────────────────────────────── */
+h1 {
+    font-size: 24px;
+    margin-bottom: var(--space-h1-legend);
+    margin-top: -10px;
+    text-align: center;
+    color: #333;
+}
+
+/* ─── legend ─────────────────────────────────────────────────────────────────── */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: var(--space-legend-chart);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 5px 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+.legend-marker {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    border-radius: 50%;
+}
+
+.legend-marker.self {
+    background: #009E73;
+}
+
+.legend-marker.peer {
+    background: #56B4E9;
+}
+
+.legend-marker.obs {
+    background: #003361;
+}
+
+.legend-marker.std {
+    background: #f39200;
+}
+
+.legend-marker.sp {
+    background: #f39200;
+}
+
+.legend-marker.spct {
+    background: #f39200;
+}
+
+
+.legend-item svg {
+    margin-right: 6px;
+}
+
+/* ─── chart container ────────────────────────────────────────────────────────── */
+#chart {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: var(--space-legend-chart);
+    margin-bottom: var(--space-chart-buttons);
+}
+
+/* ─── axes & decor ───────────────────────────────────────────────────────────── */
+.axis text,
+.raise-y-axis3 .tick text,
+.sp-y-axis4 .tick text,
+.ct-y-axis5 .tick text,
+.spct-y-axis6 .tick text {
+    font-size: 12px;
+    fill: #333;
+}
+
+/* hide study-ID labels until revealed */
+.obs-y-axis .tick text,
+.std-y-axis .tick text {
+    opacity: 0;
+}
+
+.divider {
+    stroke: #666;
+    stroke-width: 1px;
+    opacity: 0.5;
+}
+
+.zero-line {
+    stroke: #999;
+    stroke-dasharray: 4 2;
+}
+
+/* ─── data elements hidden by default ───────────────────────────────────────── */
+.dot,
+.error,
+.connector,
+.meta-diamond {
+    opacity: 0;
+}
+
+/* ─── dot colors ─────────────────────────────────────────────────────────────── */
+.dot.self {
+    fill: #009E73;
+}
+
+.dot.peer {
+    fill: #56B4E9;
+}
+
+.dot.obs {
+    fill: #003361;
+}
+
+.dot.std {
+    fill: #f39200;
+}
+
+.dot4 {
+    fill: #f39200;
+}
+
+.dot6 {
+    fill: #f39200;
+}
+
+/* ─── dual‐panel button group ─────────────────────────────────────────────────── */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: var(--space-chart-buttons);
+}
+
+.button-group button {
+    font-size: 14px;
+    background: #0072B2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.button-group button:disabled {
+    background: #ccc;
+    cursor: default;
+}
+
+/* ─── tooltip ────────────────────────────────────────────────────────────────── */
+#tooltip {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+/* ─── heterogeneity bar drop shadow ───────────────────────────────────────────── */
+[class^="het-bar"] rect {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.12));
+}
+
+/* ─── Bootstrap tab overrides (if needed) ─────────────────────────────────────── */
+/* You can remove these if Bootstrap’s default is sufficient */
+.nav-tabs .nav-link {
+    color: #333;
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+    color: #0072B2;
+    border-color: #0072B2 #0072B2 #fff;
+}
+
+.nav-tabs {
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.tab-content {
+    margin-top: 1rem;
+}
+
+/* center the half‐width chart inside the tab */
+.chart-container-half {
+    display: flex;
+    justify-content: center;
+}
+
+/* ensure the SVG itself is block‐centered */
+.chart-container-half svg {
+    display: block;
+    margin: auto;
+}
+
+/* center every half-width chart inside its tab */
+.chart-container-half {
+    display: flex;
+    justify-content: center;
+}
+
+.chart-container-half svg {
+    display: block;
+    margin: auto;
+}
+
+/* tooltips for DV3–DV6 */
+[id^="tooltip-dv"] {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}

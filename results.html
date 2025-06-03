@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <title>ManyDesignsCarbon</title>
+    <link href="img/favicon.png" rel="icon" type="image/x-icon"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <!-- Custom CSS theme-->
+    <link href="css/custom.css" rel="stylesheet"/>
+    <link href="css/sidebar.css" rel="stylesheet"/>
+    <link href="css/team.css" rel="stylesheet"/>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:thin,extra-light,light,100,200,300,400,500,600,700,800'
+          rel='stylesheet' type='text/css'>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/results.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+
+<div class="wrapper">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="bg-dark">
+        <div class="h-100 position-fixed">
+            <div class="sidebar-logo">
+                <a href="index">#ManyDesignsCarbon</a>
+            </div>
+            <!-- Sidebar Navigation -->
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="index" class="sidebar-link">
+                        <i class="bi bi-info-circle"></i>
+                        About
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="schedule" class="sidebar-link">
+                        <i class="bi bi-calendar3"></i> Schedule
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="pre_reg_template.html">
+                        <i class="bi bi-file-text"></i> Pre-registration
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="policy_survey">
+                        <i class="bi bi-code-square"></i> Policy Survey
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="coordinators" class="sidebar-link">
+                        <i class="bi bi-people-fill"></i>
+                        Project Coordinators
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="faqs" class="sidebar-link">
+                        <i class="bi bi-question-circle"></i>
+                        FAQ
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link"
+                       href="mailto:rene.schwaiger@uibk.ac.at;%20armando.holzknecht@uibk.ac.at?subject=#ManyDesignsCarbon"><i
+                            class="bi bi-envelope"></i> Contact</a>
+                </li>
+
+                <li class="sidebar-item pt-2 d-none">
+                    <ul><a class="btn btn-outline-success-submission" href="submit"
+                           style="width: 85%">Sign-up</a>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+
+    </aside>
+
+    <!-- Main Component -->
+    <div class="main animate-bottom">
+        <nav class="navbar navbar-expand px-3 bg-light position-fixed bg-transparent toggler">
+            <!-- Button for sidebar toggle -->
+            <button class="btn btn-outline-success-submission" id="toggler" type="button" data-bs-theme="dark">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+
+        <div class="container my-4">
+            <div><h1 class="text-center">#ManyDesignsCarbon Main Results on Support of Carbon Pricing <br/>(Random
+                Effects Meta
+                Analyses)</h1></div>
+            <br>
+
+
+            <!-- ─── Nav tabs ─── -->
+            <ul class="nav nav-tabs" id="dvTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="dual-tab" data-bs-toggle="tab" data-bs-target="#dual"
+                            type="button"
+                            role="tab">Observed &amp; Stated
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="dv3-tab" data-bs-toggle="tab" data-bs-target="#dv3" type="button"
+                            role="tab">
+                        Raise
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="dv4-tab" data-bs-toggle="tab" data-bs-target="#dv4" type="button"
+                            role="tab">
+                        Social Carbon Price
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="dv5-tab" data-bs-toggle="tab" data-bs-target="#dv5" type="button"
+                            role="tab">
+                        Carbon Price + Dividend
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="dv6-tab" data-bs-toggle="tab" data-bs-target="#dv6" type="button"
+                            role="tab">
+                        Social Carbon Price + Dividends
+                    </button>
+                </li>
+            </ul>
+
+            <!-- ─── Tab panes ─── -->
+            <div class="tab-content mt-3">
+                <div class="tab-pane fade show active" id="dual" role="tabpanel">
+                    <div class="legend">
+                        <div class="legend-item"><span class="legend-marker self"></span>Self-assessed effect</div>
+                        <div class="legend-item"><span class="legend-marker peer"></span>Peer-assessed effect</div>
+                        <div class="legend-item"><span class="legend-marker obs"></span>Observed effect</div>
+                        <div class="legend-item"><span class="legend-marker std"></span>Stated effect</div>
+                        <div class="legend-item">
+                            <svg width="12" height="12">
+                                <polygon points="6,0 12,6 6,12 0,6" fill="#003361"/>
+                            </svg>
+                            Observed support (meta CI)
+                        </div>
+                        <div class="legend-item">
+                            <svg width="12" height="12">
+                                <polygon points="6,0 12,6 6,12 0,6" fill="#f39200"/>
+                            </svg>
+                            Stated support (meta CI)
+                        </div>
+                        <div class="legend-item">
+                            <svg width="30" height="4">
+                                <line x1="0" y1="2" x2="30" y2="2" stroke="#003361" stroke-width="6"
+                                      stroke-opacity="0.25"/>
+                            </svg>
+                            Observed 95 % PI
+                        </div>
+                        <div class="legend-item">
+                            <svg width="30" height="4">
+                                <line x1="0" y1="2" x2="30" y2="2" stroke="#f39200" stroke-width="6"
+                                      stroke-opacity="0.25"/>
+                            </svg>
+                            Stated 95 % PI
+                        </div>
+                    </div>
+
+                    <div id="chart"></div>
+                    <div class="button-group text-center mb-4">
+                        <button id="btn-self">Self-assessed</button>
+                        <button id="btn-peer">Peer-assessed</button>
+                        <button id="btn-obs">Observed</button>
+                        <button id="btn-std">Stated</button>
+                        <button id="btn-connectors" disabled>Connectors</button>
+                    </div>
+                    <div id="tooltip"></div>
+                    <script>
+                        /* ───────── constants ───────── */
+                        const metaObs = {mean: 0.05, low: 0.01, high: 0.09};
+                        const metaStd = {mean: 0.06, low: 0.03, high: 0.09};
+                        const piObs = {low: -0.03, high: 0.14};
+                        const piStd = {low: -0.02, high: 0.15};
+                        const hetObs = {tau: 0.12, tauCI: [0.06, 0.22], I2: 37, Q: 48.2, pQ: 0.031};
+                        const hetStd = {tau: 0.45, tauCI: [0.08, 0.29], I2: 45, Q: 56.7, pQ: 0.018};
+                        const margin = {top: 50, right: 140, bottom: 60, left: 100},
+                            fullW = 1000, gap = 50,
+                            halfW = (fullW - margin.left - margin.right - gap) / 2,
+                            rowH = 15, stepDelay = 200, fadeDuration = 100, barH = 30;
+
+                        function pulseDot(sel, delay, r, opacity) {
+                            sel.attr("r", 0).style("opacity", 0)
+                                .transition().delay(delay).duration(fadeDuration * 0.6)
+                                .ease(d3.easeBackOut).attr("r", r * 1.4).style("opacity", opacity)
+                                .transition().duration(fadeDuration * 0.4).attr("r", r);
+                        }
+
+                        function growCI(g, delay, xL, xH, yMid, capHalf, opacity) {
+                            g.style("opacity", 0)
+                                .transition().delay(delay).duration(fadeDuration).style("opacity", opacity);
+                            g.select(".ci-line")
+                                .attr("x1", (xL + xH) / 2).attr("x2", (xL + xH) / 2)
+                                .transition().delay(delay).duration(fadeDuration)
+                                .attr("x1", xL).attr("x2", xH);
+                            ["low", "high"].forEach(w => {
+                                g.select(`.ci-cap.${w}`)
+                                    .attr("y1", yMid).attr("y2", yMid)
+                                    .transition().delay(delay).duration(fadeDuration)
+                                    .attr("y1", yMid - capHalf).attr("y2", yMid + capHalf);
+                            });
+                        }
+
+                        /* ───────── build chart ───────── */
+                        d3.csv("data.csv", d3.autoType).then(data => {
+
+                            const obsOrder = data.slice().sort((a, b) => a.obs_mean - b.obs_mean).map(d => d.id).concat("Meta");
+                            const stdOrder = data.slice().sort((a, b) => a.std_mean - b.std_mean).map(d => d.id).concat("Meta");
+
+                            const innerH = obsOrder.length * rowH,
+                                fullH = innerH + margin.top + margin.bottom + barH;
+
+                            const svg = d3.select("#chart").append("svg")
+                                .attr("width", fullW).attr("height", fullH)
+                                .append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+
+                            const leftVals = data.flatMap(d => [d.self_mean, d.peer_low, d.peer_high, d.obs_low, d.obs_high]);
+                            const stdVals = data.flatMap(d => [d.std_low, d.std_high]);
+                            const [obsMin, obsMax] = d3.extent(leftVals),
+                                [stdMin, stdMax] = d3.extent(stdVals);
+
+                            const xObs = d3.scaleLinear()
+                                .domain([obsMin - (obsMax - obsMin) * 0.05, obsMax + (obsMax - obsMin) * 0.05]).nice()
+                                .range([0, halfW]);
+                            const xStd = d3.scaleLinear()
+                                .domain([stdMin - (stdMax - stdMin) * 0.05, stdMax + (stdMax - stdMin) * 0.05]).nice()
+                                .range([0, halfW]);
+                            const yObs = d3.scaleBand().domain(obsOrder).range([0, innerH]).padding(0.05);
+                            const yStd = d3.scaleBand().domain(stdOrder).range([0, innerH]).padding(0.05);
+
+                            /* axes & decor */
+                            svg.append("g").attr("class", "axis")
+                                .attr("transform", `translate(0,${innerH})`).call(d3.axisBottom(xObs).ticks(4));
+                            svg.append("g").attr("class", "axis")
+                                .attr("transform", `translate(${halfW + gap},${innerH})`).call(d3.axisBottom(xStd).ticks(4));
+                            svg.append("g").attr("class", "axis obs-y-axis")
+                                .call(d3.axisLeft(yObs).tickValues(obsOrder.filter(d => d !== "Meta")));
+                            svg.append("g").attr("class", "axis std-y-axis")
+                                .attr("transform", `translate(${halfW * 2 + gap},0)`)
+                                .call(d3.axisRight(yStd).tickValues(stdOrder.filter(d => d !== "Meta")));
+                            svg.selectAll(".obs-y-axis .tick text")
+                                .attr("transform", "translate(-20,0)")
+                                .style("opacity", 0);
+
+                            svg.selectAll(".std-y-axis .tick text")
+                                .attr("transform", "translate(20,0)")
+                                .style("opacity", 0);
+                            svg.append("line").attr("class", "divider")
+                                .attr("x1", halfW + gap / 2).attr("x2", halfW + gap / 2)
+                                .attr("y1", 0).attr("y2", innerH);
+                            svg.append("line").attr("class", "zero-line")
+                                .attr("x1", xObs(0)).attr("x2", xObs(0)).attr("y1", 0).attr("y2", innerH);
+                            svg.append("line").attr("class", "zero-line")
+                                .attr("x1", halfW + gap + xStd(0)).attr("x2", halfW + gap + xStd(0))
+                                .attr("y1", 0).attr("y2", innerH);
+                            svg.append("text").attr("x", halfW / 2).attr("y", innerH + margin.bottom - 20)
+                                .attr("text-anchor", "middle").text("Observed Support (Cohen's d)");
+                            svg.append("text").attr("x", halfW + gap + halfW / 2).attr("y", innerH + margin.bottom - 20)
+                                .attr("text-anchor", "middle").text("Stated Support (Cohen's d)");
+
+                            /* heterogeneity bars */
+                            function hetBar(side, stats) {
+                                const xC = side === "obs" ? halfW / 2 : halfW + gap + halfW / 2;
+                                const g = svg.append("g").attr("class", `het-bar-${side}`)
+                                    .attr("opacity", 0)
+                                    .attr("transform", `translate(${xC},${innerH + margin.bottom - 4})`);
+                                g.append("rect").attr("x", -halfW / 2).attr("y", 4).attr("width", halfW)
+                                    .attr("height", 20).attr("rx", 4).attr("ry", 4)
+                                    .attr("fill", "#f5f5f5").attr("stroke", "#ccc");
+                                g.append("text").attr("y", 18).attr("text-anchor", "middle").style("font-size", "12px")
+                                    .html(`τ = ${stats.tau.toFixed(2)} (95 % CI ${stats.tauCI[0]}–${stats.tauCI[1]}) • `
+                                        + `I² = ${stats.I2}% • Q = ${stats.Q.toFixed(1)} (p = ${stats.pQ.toFixed(3)})`);
+                            }
+
+                            hetBar("obs", hetObs);
+                            hetBar("std", hetStd);
+
+                            /* ═════ dots & CIs ═════ */
+                            const peerOffset = yObs.bandwidth() * 0.25,
+                                capHalf = 5,
+                                dH = yObs.bandwidth() * 0.25;
+
+                            const selfDots = svg.selectAll(".dot.self").data(data).enter()
+                                .append("circle").attr("class", "dot self")
+                                .attr("cx", d => xObs(d.self_mean))
+                                .attr("cy", d => yObs(d.id) + yObs.bandwidth() / 2)
+                                .attr("r", 0).style("opacity", 0);
+
+                            const peerErr = svg.selectAll("g.error.peer").data(data).enter()
+                                .append("g").attr("class", "error peer").style("opacity", 0);
+                            peerErr.append("line").attr("class", "ci-line")
+                                .attr("x1", d => xObs(d.peer_mean)).attr("x2", d => xObs(d.peer_mean))
+                                .attr("y1", d => yObs(d.id) + yObs.bandwidth() / 2 + peerOffset)
+                                .attr("y2", d => yObs(d.id) + yObs.bandwidth() / 2 + peerOffset)
+                                .attr("stroke", "#56B4E9");
+                            ["low", "high"].forEach(w => {
+                                peerErr.append("line").attr("class", `ci-cap ${w}`)
+                                    .attr("x1", d => xObs(d[`peer_${w}`])).attr("x2", d => xObs(d[`peer_${w}`]))
+                                    .attr("y1", d => yObs(d.id) + yObs.bandwidth() / 2 + peerOffset)
+                                    .attr("y2", d => yObs(d.id) + yObs.bandwidth() / 2 + peerOffset)
+                                    .attr("stroke", "#56B4E9");
+                            });
+                            const peerDots = svg.selectAll(".dot.peer").data(data).enter()
+                                .append("circle").attr("class", "dot peer")
+                                .attr("cx", d => xObs(d.peer_mean))
+                                .attr("cy", d => yObs(d.id) + yObs.bandwidth() / 2 + peerOffset)
+                                .attr("r", 0).style("opacity", 0);
+
+                            const obsErr = svg.selectAll("g.error.obs").data(data).enter()
+                                .append("g").attr("class", "error obs").style("opacity", 0);
+                            obsErr.append("line").attr("class", "ci-line")
+                                .attr("x1", d => xObs(d.obs_mean)).attr("x2", d => xObs(d.obs_mean))
+                                .attr("y1", d => yObs(d.id) + yObs.bandwidth() / 2)
+                                .attr("y2", d => yObs(d.id) + yObs.bandwidth() / 2)
+                                .attr("stroke", "#003361");
+                            ["low", "high"].forEach(w => {
+                                obsErr.append("line").attr("class", `ci-cap ${w}`)
+                                    .attr("x1", d => xObs(d[`obs_${w}`])).attr("x2", d => xObs(d[`obs_${w}`]))
+                                    .attr("y1", d => yObs(d.id) + yObs.bandwidth() / 2)
+                                    .attr("y2", d => yObs(d.id) + yObs.bandwidth() / 2)
+                                    .attr("stroke", "#003361");
+                            });
+                            const obsDots = svg.selectAll(".dot.obs").data(data).enter()
+                                .append("circle").attr("class", "dot obs")
+                                .attr("cx", d => xObs(d.obs_mean))
+                                .attr("cy", d => yObs(d.id) + yObs.bandwidth() / 2)
+                                .attr("r", 0).style("opacity", 0);
+
+                            const stdErr = svg.selectAll("g.error.std").data(data).enter()
+                                .append("g").attr("class", "error std")
+                                .attr("transform", `translate(${halfW + gap},0)`).style("opacity", 0);
+                            stdErr.append("line").attr("class", "ci-line")
+                                .attr("x1", d => xStd(d.std_mean)).attr("x2", d => xStd(d.std_mean))
+                                .attr("y1", d => yStd(d.id) + yStd.bandwidth() / 2)
+                                .attr("y2", d => yStd(d.id) + yStd.bandwidth() / 2)
+                                .attr("stroke", "#f39200");
+                            ["low", "high"].forEach(w => {
+                                stdErr.append("line").attr("class", `ci-cap ${w}`)
+                                    .attr("x1", d => xStd(d[`std_${w}`])).attr("x2", d => xStd(d[`std_${w}`]))
+                                    .attr("y1", d => yStd(d.id) + yStd.bandwidth() / 2)
+                                    .attr("y2", d => yStd(d.id) + yStd.bandwidth() / 2)
+                                    .attr("stroke", "#f39200");
+                            });
+                            const stdDots = svg.selectAll(".dot.std").data(data).enter()
+                                .append("circle").attr("class", "dot std")
+                                .attr("transform", `translate(${halfW + gap},0)`)
+                                .attr("cx", d => xStd(d.std_mean))
+                                .attr("cy", d => yStd(d.id) + yStd.bandwidth() / 2)
+                                .attr("r", 0).style("opacity", 0);
+
+                            /* y-coords for meta row */
+                            const yMetaObs = yObs("Meta") + yObs.bandwidth() / 2;
+                            const yMetaStd = yStd("Meta") + yStd.bandwidth() / 2;
+
+                            /* prediction-interval ribbons (hidden initially) */
+                            svg.append("line").attr("class", "meta-pi obs")
+                                .attr("x1", xObs(piObs.low)).attr("x2", xObs(piObs.high))
+                                .attr("y1", yMetaObs).attr("y2", yMetaObs)
+                                .attr("stroke", "#003361").attr("stroke-width", 6).attr("stroke-opacity", 0.25)
+                                .style("opacity", 0);
+                            svg.append("line").attr("class", "meta-pi std")
+                                .attr("x1", xStd(piStd.low) + halfW + gap).attr("x2", xStd(piStd.high) + halfW + gap)
+                                .attr("y1", yMetaStd).attr("y2", yMetaStd)
+                                .attr("stroke", "#f39200").attr("stroke-width", 6).attr("stroke-opacity", 0.25)
+                                .style("opacity", 0);
+
+                            /* meta diamonds */
+                            svg.append("path").attr("class", "meta-diamond obs").style("opacity", 0)
+                                .attr("d", `M${xObs(metaObs.low)},${yMetaObs}
+                 L${xObs(metaObs.mean)},${yMetaObs - dH}
+                 L${xObs(metaObs.high)},${yMetaObs}
+                 L${xObs(metaObs.mean)},${yMetaObs + dH}Z`)
+                                .attr("fill", "#003361");
+                            svg.append("path").attr("class", "meta-diamond std").style("opacity", 0)
+                                .attr("d", `M${xStd(metaStd.low) + halfW + gap},${yMetaStd}
+                 L${xStd(metaStd.mean) + halfW + gap},${yMetaStd - dH}
+                 L${xStd(metaStd.high) + halfW + gap},${yMetaStd}
+                 L${xStd(metaStd.mean) + halfW + gap},${yMetaStd + dH}Z`)
+                                .attr("fill", "#f39200");
+
+                            /* connectors */
+                            const connectors = svg.selectAll("line.connector").data(data).enter()
+                                .append("line").attr("class", "connector")
+                                .attr("x1", d => xObs(d.obs_mean)).attr("y1", d => yObs(d.id) + yObs.bandwidth() / 2)
+                                .attr("x2", d => xStd(d.std_mean) + halfW + gap).attr("y2", d => yStd(d.id) + yStd.bandwidth() / 2)
+                                .attr("stroke", "#555").style("opacity", 0);
+
+                            /* flags */
+                            let shownSelf = false, shownPeer = false, shownObs = false, shownStd = false;
+                            let obsDone = false, stdDone = false, labelsRevealed = false;
+
+                            let obsLabelsRevealed = false;
+
+                            function revealObsLabels() {
+                                if (obsLabelsRevealed) return;
+                                svg.selectAll(".obs-y-axis .tick text")
+                                    .transition()
+                                    .delay((d, i) => i * stepDelay)
+                                    .duration(fadeDuration)
+                                    .attr("transform", "translate(0,0)")
+                                    .style("opacity", 1);
+                                obsLabelsRevealed = true;
+                            }
+
+                            let stdLabelsRevealed = false;
+
+                            function revealStdLabels() {
+                                if (stdLabelsRevealed) return;
+                                svg.selectAll(".std-y-axis .tick text")
+                                    .transition()
+                                    .delay((d, i) => i * stepDelay)
+                                    .duration(fadeDuration)
+                                    .attr("transform", "translate(0,0)")
+                                    .style("opacity", 1);
+                                stdLabelsRevealed = true;
+                            }
+
+                            function scheduleDim(sel) {
+                                sel.transition("dim-row")
+                                    .delay(d => obsOrder.indexOf(d.id) * stepDelay + fadeDuration)
+                                    .duration(0).style("opacity", 0.6);
+                            }
+
+                            /* ───── buttons ───── */
+                            d3.select("#btn-self").on("click", function () {
+                                shownSelf = true;
+                                d3.select(this).attr("disabled", true);
+                                revealObsLabels();
+                                selfDots.each(function (d) {
+                                    pulseDot(d3.select(this), obsOrder.indexOf(d.id) * stepDelay, 3, 1);
+                                });
+                                if (shownObs) scheduleDim(selfDots);
+                            });
+
+                            d3.select("#btn-peer").on("click", function () {
+                                shownPeer = true;
+                                d3.select(this).attr("disabled", true);
+                                revealObsLabels();
+                                peerErr.each(function (d, i, g) {
+                                    growCI(d3.select(g[i]), obsOrder.indexOf(d.id) * stepDelay,
+                                        xObs(d.peer_low), xObs(d.peer_high),
+                                        yObs(d.id) + yObs.bandwidth() / 2 + peerOffset, capHalf, 1);
+                                });
+                                peerDots.each(function (d) {
+                                    pulseDot(d3.select(this), obsOrder.indexOf(d.id) * stepDelay, 4, 1);
+                                });
+                                if (shownObs) {
+                                    scheduleDim(peerErr);
+                                    scheduleDim(peerDots);
+                                }
+                            });
+
+                            d3.select("#btn-obs").on("click", function () {
+                                shownObs = true;
+                                d3.select(this).attr("disabled", true);
+                                revealObsLabels();
+                                scheduleDim(selfDots);
+                                scheduleDim(peerErr);
+                                scheduleDim(peerDots);
+
+                                obsErr.each(function (d) {
+                                    growCI(d3.select(this), obsOrder.indexOf(d.id) * stepDelay,
+                                        xObs(d.obs_low), xObs(d.obs_high),
+                                        yObs(d.id) + yObs.bandwidth() / 2, capHalf, 1);
+                                });
+                                obsDots.each(function (d) {
+                                    pulseDot(d3.select(this), obsOrder.indexOf(d.id) * stepDelay, 4, 1);
+                                });
+
+                                const lastDelay = (obsOrder.length - 1) * stepDelay;
+
+                                svg.select(".meta-pi.obs")
+                                    .transition().delay(lastDelay).duration(fadeDuration).style("opacity", 1);
+                                svg.select(".meta-diamond.obs")
+                                    .transition().delay(lastDelay).duration(fadeDuration).style("opacity", 1)
+                                    .on("end", function () {
+                                        if (obsDone) return;
+                                        obsDone = true;
+                                        svg.select(".het-bar-obs").transition().duration(600).style("opacity", 1)
+                                            .on("end", () => {
+                                                if (stdDone) d3.select("#btn-connectors").property("disabled", false);
+                                            });
+                                    });
+                            });
+
+                            d3.select("#btn-std").on("click", function () {
+                                shownStd = true;
+                                d3.select(this).attr("disabled", true);
+                                stdErr.each(function (d) {
+                                    growCI(d3.select(this), stdOrder.indexOf(d.id) * stepDelay,
+                                        xStd(d.std_low), xStd(d.std_high),
+                                        yStd(d.id) + yStd.bandwidth() / 2, capHalf, 1);
+                                });
+                                stdDots.each(function (d) {
+                                    pulseDot(d3.select(this), stdOrder.indexOf(d.id) * stepDelay, 4, 1);
+                                });
+
+                                const lastDelay = (stdOrder.length - 1) * stepDelay;
+                                svg.select(".meta-pi.std")
+                                    .transition().delay(lastDelay).duration(fadeDuration).style("opacity", 1);
+                                svg.select(".meta-diamond.std")
+                                    .transition().delay(lastDelay).duration(fadeDuration).style("opacity", 1)
+                                    .on("end", function () {
+                                        if (stdDone) return;
+                                        stdDone = true;
+                                        svg.select(".het-bar-std").transition().duration(600).style("opacity", 1)
+                                            .on("end", () => {
+                                                if (obsDone) d3.select("#btn-connectors").property("disabled", false);
+                                            });
+                                    });
+
+                                svg.selectAll(".std-y-axis .tick text")
+                                    .transition().delay((d, i) => i * stepDelay).duration(fadeDuration)
+                                    .style("opacity", 1).style("transform", "translateX(0)");
+
+                                revealStdLabels();
+                            });
+
+                            d3.select("#btn-connectors").on("click", function () {
+                                d3.select(this).attr("disabled", true);
+                                connectors.each(function () {
+                                    const L = this.getTotalLength();
+                                    d3.select(this).attr("stroke-dasharray", `${L} ${L}`).attr("stroke-dashoffset", L);
+                                }).transition().delay(d => obsOrder.indexOf(d.id) * stepDelay)
+                                    .duration(fadeDuration * 2).ease(d3.easeLinear)
+                                    .attr("stroke-dashoffset", 0)
+                                    .style("opacity", d => ((d.obs_low > 0 || d.obs_high < 0) || (d.std_low > 0 || d.std_high < 0)) ? 1 : 0.2);
+                            });
+
+                            /* tool-tips */
+                            const tooltip = d3.select("#tooltip");
+
+                            function showTip(e, html) {
+                                tooltip.html(html).style("left", `${e.pageX + 10}px`)
+                                    .style("top", `${e.pageY - 10}px`)
+                                    .transition().duration(200).style("opacity", 1);
+                            }
+
+                            function hideTip() {
+                                tooltip.transition().duration(200).style("opacity", 0);
+                            }
+
+                            function attachTip(sel, fn) {
+                                sel.on("mouseover", function (e, d) {
+                                    if (+d3.select(this).style("opacity") > 0) showTip(e, fn(d));
+                                })
+                                    .on("mouseout", hideTip);
+                            }
+
+                            attachTip(selfDots, d => `<strong>${d.id}</strong><br/>Self: ${d.self_mean.toFixed(2)}`);
+                            attachTip(peerDots, d => `<strong>${d.id}</strong><br/>Peer: ${d.peer_mean.toFixed(2)} `
+                                + `[${d.peer_low.toFixed(2)}–${d.peer_high.toFixed(2)}]`);
+                            peerErr.selectAll("line").call(attachTip, d => `<strong>${d.id}</strong><br/>Peer CI: `
+                                + `[${d.peer_low.toFixed(2)}–${d.peer_high.toFixed(2)}]`);
+                            attachTip(obsDots, d => `<strong>${d.id}</strong><br/>Observed: ${d.obs_mean.toFixed(2)} `
+                                + `[${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`);
+                            obsErr.selectAll("line").call(attachTip, d => `<strong>${d.id}</strong><br/>Observed CI: `
+                                + `[${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`);
+                            attachTip(stdDots, d => `<strong>${d.id}</strong><br/>Stated: ${d.std_mean.toFixed(2)} `
+                                + `[${d.std_low.toFixed(2)}–${d.std_high.toFixed(2)}]`);
+                            stdErr.selectAll("line").call(attachTip, d => `<strong>${d.id}</strong><br/>Stated CI: `
+                                + `[${d.std_low.toFixed(2)}–${d.std_high.toFixed(2)}]`);
+
+                            svg.select(".meta-diamond.obs").on("mouseover", e => {
+                                if (+d3.select(".meta-diamond.obs").style("opacity") > 0)
+                                    showTip(e, `<strong>Observed Meta</strong><br/>Mean d: ${metaObs.mean.toFixed(2)}<br/>`
+                                        + `95 % CI: [${metaObs.low.toFixed(2)}–${metaObs.high.toFixed(2)}]<br/>`
+                                        + `95 % PI: [${piObs.low.toFixed(2)}–${piObs.high.toFixed(2)}]`);
+                            })
+                                .on("mouseout", hideTip);
+
+                            svg.select(".meta-diamond.std").on("mouseover", e => {
+                                if (+d3.select(".meta-diamond.std").style("opacity") > 0)
+                                    showTip(e, `<strong>Stated Meta</strong><br/>Mean d: ${metaStd.mean.toFixed(2)}<br/>`
+                                        + `95 % CI: [${metaStd.low.toFixed(2)}–${metaStd.high.toFixed(2)}]<br/>`
+                                        + `95 % PI: [${piStd.low.toFixed(2)}–${piStd.high.toFixed(2)}]`);
+                            })
+                                .on("mouseout", hideTip);
+                        });
+                    </script>
+                </div>
+
+
+                <!-- ─── Tab 2: DV3 (CP Raise) ─── -->
+                <div class="tab-pane fade" id="dv3" role="tabpanel">
+
+                    <div class="legend">
+                        <div class="legend-item">
+                            <span class="legend-marker obs"></span>CP Raise effect
+                        </div>
+                        <div class="legend-item">
+                            <svg width="12" height="12">
+                                <polygon points="6,0 12,6 6,12 0,6" fill="#003361"/>
+                            </svg>
+                            Raise support (meta CI)
+                        </div>
+                        <div class="legend-item">
+                            <svg width="30" height="4">
+                                <line x1="0" y1="2" x2="30" y2="2"
+                                      stroke="#003361" stroke-width="6" stroke-opacity="0.25"/>
+                            </svg>
+                            Raise 95 % PI
+                        </div>
+                    </div>
+
+                    <!-- ← wrap the chart in this so it centers correctly -->
+                    <div class="chart-container-half">
+                        <div id="chart-dv3"></div>
+                    </div>
+
+                    <div class="button-group text-center mb-4">
+                        <button id="btn-raise">CP Raise</button>
+                    </div>
+
+                    <div id="tooltip-dv3"></div>
+
+                    <script>
+                        /* constants */
+                        const metaRaise = {mean: 0.08, low: 0.02, high: 0.14};
+                        const piRaise = {low: -0.05, high: 0.21};
+                        const hetRaise = {tau: 0.10, tauCI: [0.04, 0.18], I2: 30, Q: 40.1, pQ: 0.045};
+
+                        const margin3 = {top: 50, right: 100, bottom: 60, left: 100},
+                            fullW3 = 800,
+                            halfW3 = fullW3 - margin3.left - margin3.right,
+                            rowH3 = 15,
+                            stepDelay3 = 200,
+                            fadeDuration3 = 100,
+                            capHalf3 = 5;
+
+                        function pulseDot3(sel, delay, r, opacity) {
+                            sel.attr("r", 0).style("opacity", 0)
+                                .transition().delay(delay).duration(fadeDuration3 * 0.6)
+                                .ease(d3.easeBackOut).attr("r", r * 1.4).style("opacity", opacity)
+                                .transition().duration(fadeDuration3 * 0.4).attr("r", r);
+                        }
+
+                        function growCI3(g, delay, xL, xH) {
+                            g.style("opacity", 0)
+                                .transition().delay(delay).duration(fadeDuration3)
+                                .style("opacity", 1);
+                            g.select(".ci-line")
+                                .attr("x1", (xL + xH) / 2).attr("x2", (xL + xH) / 2)
+                                .transition().delay(delay).duration(fadeDuration3)
+                                .attr("x1", xL).attr("x2", xH);
+                            ["low", "high"].forEach(w => {
+                                g.select(`.ci-cap.${w}`)
+                                    .attr("y1", 0).attr("y2", 0)
+                                    .transition().delay(delay).duration(fadeDuration3)
+                                    .attr("y1", -capHalf3).attr("y2", capHalf3);
+                            });
+                        }
+
+                        d3.csv("data.csv", d3.autoType).then(data => {
+                            // sort by cp_raise_mean
+                            const sorted = data.slice().sort((a, b) => a.cp_raise_mean - b.cp_raise_mean);
+                            const order3 = sorted.map(d => d.id).concat("Meta");
+                            const innerH3 = order3.length * rowH3,
+                                fullH3 = innerH3 + margin3.top + margin3.bottom + 30;
+
+                            const svg3 = d3.select("#chart-dv3").append("svg")
+                                .attr("width", fullW3).attr("height", fullH3)
+                                .append("g").attr("transform", `translate(${margin3.left},${margin3.top})`);
+
+                            // scales
+                            const vals = sorted.flatMap(d => [d.cp_raise_low, d.cp_raise_high]);
+                            const [minV, maxV] = d3.extent(vals);
+                            const x3 = d3.scaleLinear()
+                                .domain([minV - (maxV - minV) * 0.05, maxV + (maxV - minV) * 0.05]).nice()
+                                .range([0, halfW3]);
+                            const y3 = d3.scaleBand()
+                                .domain(order3).range([0, innerH3]).padding(0.05);
+
+                            // axes + hide labels
+                            svg3.append("g")
+                                .attr("transform", `translate(0,${innerH3})`)
+                                .call(d3.axisBottom(x3).ticks(4));
+                            svg3.append("text")
+                                .attr("x", halfW3 / 2)
+                                .attr("y", innerH3 + margin3.bottom - 20)
+                                .attr("text-anchor", "middle")
+                                .text("CP Raise (Cohen’s d)");
+                            svg3.append("g")
+                                .attr("class", "raise-y-axis3")
+                                .call(d3.axisLeft(y3).tickValues(order3.filter(id => 'Meta' !== id)));
+                            svg3.selectAll(".raise-y-axis3 .tick text")
+                                .attr("transform", "translate(-20,0)").style("opacity", 0);
+
+                            // zero line
+                            svg3.append("line").attr("class", "zero-line")
+                                .attr("x1", x3(0)).attr("x2", x3(0))
+                                .attr("y1", 0).attr("y2", innerH3);
+
+                            // heterogeneity bar
+                            const hetG3 = svg3.append("g")
+                                .attr("class", "het-bar-raise3").attr("opacity", 0)
+                                .attr("transform", `translate(${halfW3 / 2},${innerH3 + margin3.bottom - 4})`);
+                            hetG3.append("rect")
+                                .attr("x", -halfW3 / 2).attr("y", 4)
+                                .attr("width", halfW3).attr("height", 20)
+                                .attr("rx", 4).attr("ry", 4)
+                                .attr("fill", "#f5f5f5").attr("stroke", "#ccc");
+                            hetG3.append("text")
+                                .attr("y", 18).attr("text-anchor", "middle").style("font-size", "12px")
+                                .html(`τ=${hetRaise.tau.toFixed(2)} (95 % CI ${hetRaise.tauCI[0]}–${hetRaise.tauCI[1]}) • ` +
+                                    `I²=${hetRaise.I2}% • Q=${hetRaise.Q.toFixed(1)} (p=${hetRaise.pQ.toFixed(3)})`);
+
+                            // meta‐PI & diamond
+                            const yMeta3 = y3("Meta") + y3.bandwidth() / 2,
+                                dH3 = y3.bandwidth() * 0.25;
+                            const piLine3 = svg3.append("line").attr("class", "meta-pi3")
+                                .attr("x1", x3(piRaise.low)).attr("x2", x3(piRaise.high))
+                                .attr("y1", yMeta3).attr("y2", yMeta3)
+                                .attr("stroke", "#003361").attr("stroke-width", 6).attr("stroke-opacity", 0.25)
+                                .style("opacity", 0);
+                            const diamond3 = svg3.append("path").attr("class", "meta-diamond3")
+                                .attr("d", `M${x3(metaRaise.low)},${yMeta3}
+                   L${x3(metaRaise.mean)},${yMeta3 - dH3}
+                   L${x3(metaRaise.high)},${yMeta3}
+                   L${x3(metaRaise.mean)},${yMeta3 + dH3}Z`)
+                                .attr("fill", "#003361").style("opacity", 0);
+
+                            // error groups & dots
+                            const err3 = svg3.selectAll("g.error3").data(sorted).enter()
+                                .append("g").attr("class", "error3")
+                                .attr("transform", d => `translate(0,${y3(d.id) + y3.bandwidth() / 2})`)
+                                .style("opacity", 0);
+                            err3.append("line").attr("class", "ci-line")
+                                .attr("x1", d => x3(d.cp_raise_mean))
+                                .attr("x2", d => x3(d.cp_raise_mean))
+                                .attr("y1", 0).attr("y2", 0)
+                                .attr("stroke", "#003361");
+                            ["low", "high"].forEach(w => {
+                                err3.append("line").attr("class", `ci-cap ${w}`)
+                                    .attr("x1", d => x3(d[`cp_raise_${w}`]))
+                                    .attr("x2", d => x3(d[`cp_raise_${w}`]))
+                                    .attr("y1", 0).attr("y2", 0)
+                                    .attr("stroke", "#003361");
+                            });
+                            const dots3 = svg3.selectAll("circle.dot3").data(sorted).enter()
+                                .append("circle").attr("class", "dot3")
+                                .attr("cx", d => x3(d.cp_raise_mean))
+                                .attr("cy", d => y3(d.id) + y3.bandwidth() / 2)
+                                .attr("r", 0).style("opacity", 0);
+
+                            // reveal labels
+                            let shown3 = false;
+
+                            function revealLabels3() {
+                                if (shown3) return;
+                                svg3.selectAll(".raise-y-axis3 .tick text")
+                                    .transition().delay((d, i) => i * stepDelay3).duration(fadeDuration3)
+                                    .attr("transform", "translate(0,0)").style("opacity", 1);
+                                shown3 = true;
+                            }
+
+                            // animate on click
+                            d3.select("#btn-raise").on("click", function () {
+                                d3.select(this).attr("disabled", true);
+                                revealLabels3();
+                                sorted.forEach((d, i) => {
+                                    growCI3(d3.select(err3.nodes()[i]), i * stepDelay3,
+                                        x3(d.cp_raise_low), x3(d.cp_raise_high));
+                                    pulseDot3(d3.select(dots3.nodes()[i]), i * stepDelay3, 4, 1);
+                                });
+                                const last = (sorted.length - 1) * stepDelay3;
+                                piLine3.transition().delay(last).duration(fadeDuration3).style("opacity", 1);
+                                diamond3.transition().delay(last).duration(fadeDuration3).style("opacity", 1)
+                                    .on("end", () => hetG3.transition().duration(600).style("opacity", 1));
+                            });
+
+                            // tooltips
+                            const tt3 = d3.select("#tooltip-dv3");
+
+                            function show3(e, html) {
+                                tt3.html(html)
+                                    .style("left", `${e.pageX + 10}px`)
+                                    .style("top", `${e.pageY - 10}px`)
+                                    .transition().duration(200).style("opacity", 1);
+                            }
+
+                            function hide3() {
+                                tt3.transition().duration(200).style("opacity", 0);
+                            }
+
+                            // CI & dot tooltips
+                            err3.selectAll(".ci-line")
+                                .on("mouseover", (e, d) => show3(e,
+                                    `<strong>${d.id}</strong><br/>CI: [${d.cp_raise_low.toFixed(2)}–${d.cp_raise_high.toFixed(2)}]`))
+                                .on("mouseout", hide3);
+                            dots3.on("mouseover", (e, d) => show3(e,
+                                `<strong>${d.id}</strong><br/>Mean: ${d.cp_raise_mean.toFixed(2)}`))
+                                .on("mouseout", hide3);
+
+                            // meta‐diamond & PI tooltips
+                            svg3.selectAll(".meta-pi3, .meta-diamond3")
+                                .on("mouseover", (e) => show3(e,
+                                    `<strong>CP Raise Meta</strong><br/>Mean: ${metaRaise.mean.toFixed(2)}<br/>` +
+                                    `95 % CI: [${metaRaise.low.toFixed(2)}–${metaRaise.high.toFixed(2)}]<br/>` +
+                                    `95 % PI: [${piRaise.low.toFixed(2)}–${piRaise.high.toFixed(2)}]`
+                                ))
+                                .on("mouseout", hide3);
+
+                        });
+                    </script>
+                </div>
+
+                <!-- ─── Tab 4: DV4 (SP CP Support) ─── -->
+                <div class="tab-pane fade" id="dv4" role="tabpanel">
+
+                    <div class="legend">
+                        <div class="legend-item">
+                            <span class="legend-marker sp"></span>SP CP Support effect
+                        </div>
+                        <div class="legend-item">
+                            <svg width="12" height="12">
+                                <polygon points="6,0 12,6 6,12 0,6" fill="#f39200"/>
+                            </svg>
+                            SP CP Support (meta CI)
+                        </div>
+                        <div class="legend-item">
+                            <svg width="30" height="4">
+                                <line x1="0" y1="2" x2="30" y2="2"
+                                      stroke="#f39200" stroke-width="6" stroke-opacity="0.25"/>
+                            </svg>
+                            SP CP Support 95 % PI
+                        </div>
+                    </div>
+
+                    <div class="chart-container-half">
+                        <div id="chart-dv4"></div>
+                    </div>
+
+                    <div class="button-group text-center mb-4">
+                        <button id="btn-sp">SP CP Support</button>
+                    </div>
+
+                    <div id="tooltip-dv4"></div>
+
+                    <script>
+                        /* ─── constants (change these!) ─── */
+                        const metaSpCpSupport = {mean: 0.10, low: 0.04, high: 0.16};
+                        const piSpCpSupport = {low: -0.02, high: 0.22};
+                        const hetSpCpSupport = {tau: 0.08, tauCI: [0.03, 0.15], I2: 25, Q: 35.0, pQ: 0.05};
+
+                        const margin4 = {top: 50, right: 100, bottom: 60, left: 100},
+                            fullW4 = 800,
+                            halfW4 = fullW4 - margin4.left - margin4.right,
+                            rowH4 = 15,
+                            stepDelay4 = 200,
+                            fadeDuration4 = 100,
+                            capHalf4 = 5;
+
+                        function pulseDot4(sel, delay, r, opacity) {
+                            sel.attr("r", 0).style("opacity", 0)
+                                .transition().delay(delay).duration(fadeDuration4 * 0.6)
+                                .ease(d3.easeBackOut).attr("r", r * 1.4).style("opacity", opacity)
+                                .transition().duration(fadeDuration4 * 0.4).attr("r", r);
+                        }
+
+                        function growCI4(g, delay, xL, xH) {
+                            g.style("opacity", 0)
+                                .transition().delay(delay).duration(fadeDuration4)
+                                .style("opacity", 1);
+                            g.select(".ci-line")
+                                .attr("x1", (xL + xH) / 2).attr("x2", (xL + xH) / 2)
+                                .transition().delay(delay).duration(fadeDuration4)
+                                .attr("x1", xL).attr("x2", xH);
+                            ["low", "high"].forEach(w => {
+                                g.select(`.ci-cap.${w}`)
+                                    .attr("y1", 0).attr("y2", 0)
+                                    .transition().delay(delay).duration(fadeDuration4)
+                                    .attr("y1", -capHalf4).attr("y2", capHalf4);
+                            });
+                        }
+
+                        d3.csv("data.csv", d3.autoType).then(data => {
+                            // sort by sp_cp_support_mean
+                            const sorted4 = data.slice()
+                                .sort((a, b) => a.sp_cp_support_mean - b.sp_cp_support_mean);
+                            const order4 = sorted4.map(d => d.id).concat("Meta");
+                            const innerH4 = order4.length * rowH4,
+                                fullH4 = innerH4 + margin4.top + margin4.bottom + 30;
+
+                            const svg4 = d3.select("#chart-dv4").append("svg")
+                                .attr("width", fullW4).attr("height", fullH4)
+                                .append("g").attr("transform", `translate(${margin4.left},${margin4.top})`);
+
+                            // scales
+                            const span4 = sorted4.flatMap(d => [d.sp_cp_support_low, d.sp_cp_support_high]);
+                            const [min4, max4] = d3.extent(span4);
+                            const x4 = d3.scaleLinear()
+                                .domain([min4 - (max4 - min4) * 0.05, max4 + (max4 - min4) * 0.05]).nice()
+                                .range([0, halfW4]);
+                            const y4 = d3.scaleBand()
+                                .domain(order4).range([0, innerH4]).padding(0.05);
+
+                            // axes + hide labels
+                            svg4.append("g")
+                                .attr("transform", `translate(0,${innerH4})`)
+                                .call(d3.axisBottom(x4).ticks(4));
+                            svg4.append("text")
+                                .attr("x", halfW4 / 2)
+                                .attr("y", innerH4 + margin4.bottom - 20)
+                                .attr("text-anchor", "middle")
+                                .text("SP CP Support (Cohen’s d)");
+                            svg4.append("g")
+                                .attr("class", "sp-y-axis4")
+                                .call(d3.axisLeft(y4).tickValues(order4.filter(id => 'Meta' !== id)));
+                            svg4.selectAll(".sp-y-axis4 .tick text")
+                                .attr("transform", "translate(-20,0)").style("opacity", 0);
+
+                            // zero line
+                            svg4.append("line").attr("class", "zero-line")
+                                .attr("x1", x4(0)).attr("x2", x4(0))
+                                .attr("y1", 0).attr("y2", innerH4);
+
+                            // heterogeneity bar
+                            const hetG4 = svg4.append("g")
+                                .attr("class", "het-bar-sp4").attr("opacity", 0)
+                                .attr("transform", `translate(${halfW4 / 2},${innerH4 + margin4.bottom - 4})`);
+                            hetG4.append("rect")
+                                .attr("x", -halfW4 / 2).attr("y", 4)
+                                .attr("width", halfW4).attr("height", 20)
+                                .attr("rx", 4).attr("ry", 4)
+                                .attr("fill", "#f2f2f2").attr("stroke", "#ccc");
+                            hetG4.append("text")
+                                .attr("y", 18).attr("text-anchor", "middle").style("font-size", "12px")
+                                .html(`τ=${hetSpCpSupport.tau.toFixed(2)} (95% CI ${hetSpCpSupport.tauCI[0]}–${hetSpCpSupport.tauCI[1]}) • ` +
+                                    `I²=${hetSpCpSupport.I2}% • Q=${hetSpCpSupport.Q.toFixed(1)} (p=${hetSpCpSupport.pQ.toFixed(3)})`);
+
+                            // meta PI & diamond
+                            const yMeta4 = y4("Meta") + y4.bandwidth() / 2,
+                                dH4 = y4.bandwidth() * 0.25;
+                            const piLine4 = svg4.append("line").attr("class", "meta-pi4")
+                                .attr("x1", x4(piSpCpSupport.low)).attr("x2", x4(piSpCpSupport.high))
+                                .attr("y1", yMeta4).attr("y2", yMeta4)
+                                .attr("stroke", "#f39200").attr("stroke-width", 6).attr("stroke-opacity", 0.25)
+                                .style("opacity", 0);
+                            const diamond4 = svg4.append("path").attr("class", "meta-diamond4")
+                                .attr("d", `M${x4(metaSpCpSupport.low)},${yMeta4}
+                   L${x4(metaSpCpSupport.mean)},${yMeta4 - dH4}
+                   L${x4(metaSpCpSupport.high)},${yMeta4}
+                   L${x4(metaSpCpSupport.mean)},${yMeta4 + dH4}Z`)
+                                .attr("fill", "#f39200").style("opacity", 0);
+
+                            // error & dots
+                            const err4 = svg4.selectAll("g.error4").data(sorted4).enter()
+                                .append("g").attr("class", "error4")
+                                .attr("transform", d => `translate(0,${y4(d.id) + y4.bandwidth() / 2})`)
+                                .style("opacity", 0);
+                            err4.append("line").attr("class", "ci-line")
+                                .attr("x1", d => x4(d.sp_cp_support_mean)).attr("x2", d => x4(d.sp_cp_support_mean))
+                                .attr("y1", 0).attr("y2", 0).attr("stroke", "#f39200");
+                            ["low", "high"].forEach(w => {
+                                err4.append("line").attr("class", `ci-cap ${w}`)
+                                    .attr("x1", d => x4(d[`sp_cp_support_${w}`]))
+                                    .attr("x2", d => x4(d[`sp_cp_support_${w}`]))
+                                    .attr("y1", 0).attr("y2", 0).attr("stroke", "#f39200");
+                            });
+                            const dots4 = svg4.selectAll("circle.dot4").data(sorted4).enter()
+                                .append("circle").attr("class", "dot4")
+                                .attr("cx", d => x4(d.sp_cp_support_mean))
+                                .attr("cy", d => y4(d.id) + y4.bandwidth() / 2)
+                                .attr("r", 0).style("opacity", 0)
+
+                            // reveal labels
+                            let shown4 = false;
+
+                            function reveal4() {
+                                if (shown4) return;
+                                svg4.selectAll(".sp-y-axis4 .tick text")
+                                    .transition().delay((d, i) => i * stepDelay4).duration(fadeDuration4)
+                                    .attr("transform", "translate(0,0)").style("opacity", 1);
+                                shown4 = true;
+                            }
+
+                            // on button
+                            d3.select("#btn-sp").on("click", function () {
+                                d3.select(this).attr("disabled", true);
+                                reveal4();
+                                sorted4.forEach((d, i) => {
+                                    growCI4(d3.select(err4.nodes()[i]), i * stepDelay4,
+                                        x4(d.sp_cp_support_low), x4(d.sp_cp_support_high));
+                                    pulseDot4(d3.select(dots4.nodes()[i]), i * stepDelay4, 4, 1);
+                                });
+                                const last = (sorted4.length - 1) * stepDelay4;
+                                piLine4.transition().delay(last).duration(fadeDuration4).style("opacity", 1);
+                                diamond4.transition().delay(last).duration(fadeDuration4).style("opacity", 1)
+                                    .on("end", () => hetG4.transition().duration(600).style("opacity", 1));
+                            });
+
+                            // tooltips
+                            const tt4 = d3.select("#tooltip-dv4");
+
+                            function show4(e, html) {
+                                tt4.html(html)
+                                    .style("left", `${e.pageX + 10}px`).style("top", `${e.pageY - 10}px`)
+                                    .transition().duration(200).style("opacity", 1);
+                            }
+
+                            function hide4() {
+                                tt4.transition().duration(200).style("opacity", 0);
+                            }
+
+                            err4.selectAll(".ci-line")
+                                .on("mouseover", (e, d) => show4(e,
+                                    `<strong>${d.id}</strong><br/>CI: [${d.sp_cp_support_low.toFixed(2)}–${d.sp_cp_support_high.toFixed(2)}]`))
+                                .on("mouseout", hide4);
+                            dots4.on("mouseover", (e, d) => show4(e,
+                                `<strong>${d.id}</strong><br/>Mean: ${d.sp_cp_support_mean.toFixed(2)}`))
+                                .on("mouseout", hide4);
+
+                            svg4.selectAll(".meta-pi4, .meta-diamond4")
+                                .on("mouseover", e => show4(e,
+                                    `<strong>SP CP Support Meta</strong><br/>Mean: ${metaSpCpSupport.mean.toFixed(2)}<br/>` +
+                                    `95% CI: [${metaSpCpSupport.low.toFixed(2)}–${metaSpCpSupport.high.toFixed(2)}]<br/>` +
+                                    `95% PI: [${piSpCpSupport.low.toFixed(2)}–${piSpCpSupport.high.toFixed(2)}]`))
+                                .on("mouseout", hide4);
+                        });
+                    </script>
+                </div>
+
+                <!-- ─── Tab 5: DV5 (CT CP Support) ─── -->
+                <div class="tab-pane fade" id="dv5" role="tabpanel">
+
+                    <div class="legend">
+                        <div class="legend-item">
+                            <span class="legend-marker obs"></span>CT CP Support effect
+                        </div>
+                        <div class="legend-item">
+                            <svg width="12" height="12">
+                                <polygon points="6,0 12,6 6,12 0,6" fill="#003361"/>
+                            </svg>
+                            CT CP Support (meta CI)
+                        </div>
+                        <div class="legend-item">
+                            <svg width="30" height="4">
+                                <line x1="0" y1="2" x2="30" y2="2"
+                                      stroke="#003361" stroke-width="6" stroke-opacity="0.25"/>
+                            </svg>
+                            CT CP Support 95 % PI
+                        </div>
+                    </div>
+
+                    <div class="chart-container-half">
+                        <div id="chart-dv5"></div>
+                    </div>
+
+                    <div class="button-group text-center mb-4">
+                        <button id="btn-ct">CT CP Support</button>
+                    </div>
+
+                    <div id="tooltip-dv5"></div>
+
+                    <script>
+                        /* ─── constants (edit these!) ─── */
+                        const metaCtCpSupport = {mean: 0.12, low: 0.06, high: 0.18};
+                        const piCtCpSupport = {low: 0.00, high: 0.24};
+                        const hetCtCpSupport = {tau: 0.09, tauCI: [0.02, 0.16], I2: 28, Q: 38.5, pQ: 0.04};
+
+                        const margin5 = {top: 50, right: 100, bottom: 60, left: 100},
+                            fullW5 = 800,
+                            halfW5 = fullW5 - margin5.left - margin5.right,
+                            rowH5 = 15,
+                            stepDelay5 = 200,
+                            fadeDuration5 = 100,
+                            capHalf5 = 5;
+
+                        function pulseDot5(sel, delay, r, opacity) {
+                            sel.attr("r", 0).style("opacity", 0)
+                                .transition().delay(delay).duration(fadeDuration5 * 0.6)
+                                .ease(d3.easeBackOut).attr("r", r * 1.4).style("opacity", opacity)
+                                .transition().duration(fadeDuration5 * 0.4).attr("r", r);
+                        }
+
+                        function growCI5(g, delay, xL, xH) {
+                            g.style("opacity", 0)
+                                .transition().delay(delay).duration(fadeDuration5)
+                                .style("opacity", 1);
+                            g.select(".ci-line")
+                                .attr("x1", (xL + xH) / 2).attr("x2", (xL + xH) / 2)
+                                .transition().delay(delay).duration(fadeDuration5)
+                                .attr("x1", xL).attr("x2", xH);
+                            ["low", "high"].forEach(w => {
+                                g.select(`.ci-cap.${w}`)
+                                    .attr("y1", 0).attr("y2", 0)
+                                    .transition().delay(delay).duration(fadeDuration5)
+                                    .attr("y1", -capHalf5).attr("y2", capHalf5);
+                            });
+                        }
+
+                        d3.csv("data.csv", d3.autoType).then(data => {
+                            const sorted5 = data.slice()
+                                .sort((a, b) => a.ct_cp_support_mean - b.ct_cp_support_mean);
+                            const order5 = sorted5.map(d => d.id).concat("Meta");
+                            const innerH5 = order5.length * rowH5,
+                                fullH5 = innerH5 + margin5.top + margin5.bottom + 30;
+
+                            const svg5 = d3.select("#chart-dv5").append("svg")
+                                .attr("width", fullW5).attr("height", fullH5)
+                                .append("g").attr("transform", `translate(${margin5.left},${margin5.top})`);
+
+                            // scales
+                            const span5 = sorted5.flatMap(d => [d.ct_cp_support_low, d.ct_cp_support_high]);
+                            const [min5, max5] = d3.extent(span5);
+                            const x5 = d3.scaleLinear()
+                                .domain([min5 - (max5 - min5) * 0.05, max5 + (max5 - min5) * 0.05]).nice()
+                                .range([0, halfW5]);
+                            const y5 = d3.scaleBand()
+                                .domain(order5).range([0, innerH5]).padding(0.05);
+
+                            // axes + hide labels
+                            svg5.append("g")
+                                .attr("transform", `translate(0,${innerH5})`)
+                                .call(d3.axisBottom(x5).ticks(4));
+                            svg5.append("text")
+                                .attr("x", halfW5 / 2)
+                                .attr("y", innerH5 + margin5.bottom - 20)
+                                .attr("text-anchor", "middle")
+                                .text("CT CP Support (Cohen’s d)");
+                            svg5.append("g")
+                                .attr("class", "ct-y-axis5")
+                                .call(d3.axisLeft(y5).tickValues(order5.filter(id => 'Meta' !== id)));
+                            svg5.selectAll(".ct-y-axis5 .tick text")
+                                .attr("transform", "translate(-20,0)").style("opacity", 0);
+
+                            // zero line
+                            svg5.append("line").attr("class", "zero-line")
+                                .attr("x1", x5(0)).attr("x2", x5(0))
+                                .attr("y1", 0).attr("y2", innerH5);
+
+                            // heterogeneity bar
+                            const hetG5 = svg5.append("g")
+                                .attr("class", "het-bar-ct5").attr("opacity", 0)
+                                .attr("transform", `translate(${halfW5 / 2},${innerH5 + margin5.bottom - 4})`);
+                            hetG5.append("rect")
+                                .attr("x", -halfW5 / 2).attr("y", 4)
+                                .attr("width", halfW5).attr("height", 20)
+                                .attr("rx", 4).attr("ry", 4)
+                                .attr("fill", "#f2f2f2").attr("stroke", "#ccc");
+                            hetG5.append("text")
+                                .attr("y", 18).attr("text-anchor", "middle").style("font-size", "12px")
+                                .html(`τ=${hetCtCpSupport.tau.toFixed(2)} (95% CI ${hetCtCpSupport.tauCI[0]}–${hetCtCpSupport.tauCI[1]}) • ` +
+                                    `I²=${hetCtCpSupport.I2}% • Q=${hetCtCpSupport.Q.toFixed(1)} (p=${hetCtCpSupport.pQ.toFixed(3)})`);
+
+                            // meta PI & diamond
+                            const yMeta5 = y5("Meta") + y5.bandwidth() / 2,
+                                dH5 = y5.bandwidth() * 0.25;
+                            const piLine5 = svg5.append("line").attr("class", "meta-pi5")
+                                .attr("x1", x5(piCtCpSupport.low)).attr("x2", x5(piCtCpSupport.high))
+                                .attr("y1", yMeta5).attr("y2", yMeta5)
+                                .attr("stroke", "#003361").attr("stroke-width", 6).attr("stroke-opacity", 0.25)
+                                .style("opacity", 0);
+                            const diamond5 = svg5.append("path").attr("class", "meta-diamond5")
+                                .attr("d", `M${x5(metaCtCpSupport.low)},${yMeta5}
+                   L${x5(metaCtCpSupport.mean)},${yMeta5 - dH5}
+                   L${x5(metaCtCpSupport.high)},${yMeta5}
+                   L${x5(metaCtCpSupport.mean)},${yMeta5 + dH5}Z`)
+                                .attr("fill", "#003361").style("opacity", 0);
+
+                            // error & dots
+                            const err5 = svg5.selectAll("g.error5").data(sorted5).enter()
+                                .append("g").attr("class", "error5")
+                                .attr("transform", d => `translate(0,${y5(d.id) + y5.bandwidth() / 2})`)
+                                .style("opacity", 0);
+                            err5.append("line").attr("class", "ci-line")
+                                .attr("x1", d => x5(d.ct_cp_support_mean)).attr("x2", d => x5(d.ct_cp_support_mean))
+                                .attr("y1", 0).attr("y2", 0).attr("stroke", "#003361");
+                            ["low", "high"].forEach(w => {
+                                err5.append("line").attr("class", `ci-cap ${w}`)
+                                    .attr("x1", d => x5(d[`ct_cp_support_${w}`]))
+                                    .attr("x2", d => x5(d[`ct_cp_support_${w}`]))
+                                    .attr("y1", 0).attr("y2", 0).attr("stroke", "#003361");
+                            });
+                            const dots5 = svg5.selectAll("circle.dot5").data(sorted5).enter()
+                                .append("circle").attr("class", "dot5")
+                                .attr("cx", d => x5(d.ct_cp_support_mean))
+                                .attr("cy", d => y5(d.id) + y5.bandwidth() / 2)
+                                .attr("r", 0).style("opacity", 0);
+
+                            // reveal
+                            let shown5 = false;
+
+                            function reveal5() {
+                                if (shown5) return;
+                                svg5.selectAll(".ct-y-axis5 .tick text")
+                                    .transition().delay((d, i) => i * stepDelay5).duration(fadeDuration5)
+                                    .attr("transform", "translate(0,0)").style("opacity", 1);
+                                shown5 = true;
+                            }
+
+                            d3.select("#btn-ct").on("click", function () {
+                                d3.select(this).attr("disabled", true);
+                                reveal5();
+                                sorted5.forEach((d, i) => {
+                                    growCI5(d3.select(err5.nodes()[i]), i * stepDelay5,
+                                        x5(d.ct_cp_support_low), x5(d.ct_cp_support_high));
+                                    pulseDot5(d3.select(dots5.nodes()[i]), i * stepDelay5, 4, 1);
+                                });
+                                const last = (sorted5.length - 1) * stepDelay5;
+                                piLine5.transition().delay(last).duration(fadeDuration5).style("opacity", 1);
+                                diamond5.transition().delay(last).duration(fadeDuration5).style("opacity", 1)
+                                    .on("end", () => hetG5.transition().duration(600).style("opacity", 1));
+                            });
+
+                            // tooltips
+                            const tt5 = d3.select("#tooltip-dv5");
+
+                            function show5(e, html) {
+                                tt5.html(html)
+                                    .style("left", `${e.pageX + 10}px`).style("top", `${e.pageY - 10}px`)
+                                    .transition().duration(200).style("opacity", 1);
+                            }
+
+                            function hide5() {
+                                tt5.transition().duration(200).style("opacity", 0);
+                            }
+
+                            err5.selectAll(".ci-line")
+                                .on("mouseover", (e, d) => show5(e,
+                                    `<strong>${d.id}</strong><br/>CI: [${d.ct_cp_support_low.toFixed(2)}–${d.ct_cp_support_high.toFixed(2)}]`))
+                                .on("mouseout", hide5);
+                            dots5.on("mouseover", (e, d) => show5(e,
+                                `<strong>${d.id}</strong><br/>Mean: ${d.ct_cp_support_mean.toFixed(2)}`))
+                                .on("mouseout", hide5);
+
+                            svg5.selectAll(".meta-pi5, .meta-diamond5")
+                                .on("mouseover", e => show5(e,
+                                    `<strong>CT CP Support Meta</strong><br/>Mean: ${metaCtCpSupport.mean.toFixed(2)}<br/>` +
+                                    `95% CI: [${metaCtCpSupport.low.toFixed(2)}–${metaCtCpSupport.high.toFixed(2)}]<br/>` +
+                                    `95% PI: [${piCtCpSupport.low.toFixed(2)}–${piCtCpSupport.high.toFixed(2)}]`))
+                                .on("mouseout", hide5);
+                        });
+                    </script>
+                </div>
+
+
+                <!-- ─── Tab 6: DV6 (SPCT CP Support) ─── -->
+                <div class="tab-pane fade" id="dv6" role="tabpanel">
+
+
+                    <div class="legend">
+                        <div class="legend-item">
+                            <span class="legend-marker spct"></span>SPCT CP Support effect
+                        </div>
+                        <div class="legend-item">
+                            <svg width="12" height="12">
+                                <polygon points="6,0 12,6 6,12 0,6" fill="#f39200"/>
+                            </svg>
+                            SPCT CP Support (meta CI)
+                        </div>
+                        <div class="legend-item">
+                            <svg width="30" height="4">
+                                <line x1="0" y1="2" x2="30" y2="2"
+                                      stroke="#f39200" stroke-width="6" stroke-opacity="0.25"/>
+                            </svg>
+                            SPCT CP Support 95 % PI
+                        </div>
+                    </div>
+
+                    <div class="chart-container-half">
+                        <div id="chart-dv6"></div>
+                    </div>
+
+                    <div class="button-group text-center mb-4">
+                        <button id="btn-spct">SPCT CP Support</button>
+                    </div>
+
+                    <div id="tooltip-dv6"></div>
+
+                    <script>
+                        /* ─── constants (edit these!) ─── */
+                        const metaSpctCpSupport = {mean: 0.09, low: 0.03, high: 0.15};
+                        const piSpctCpSupport = {low: -0.01, high: 0.19};
+                        const hetSpctCpSupport = {tau: 0.11, tauCI: [0.05, 0.17], I2: 32, Q: 42.2, pQ: 0.042};
+
+                        const margin6 = {top: 50, right: 100, bottom: 60, left: 100},
+                            fullW6 = 800,
+                            halfW6 = fullW6 - margin6.left - margin6.right,
+                            rowH6 = 15,
+                            stepDelay6 = 200,
+                            fadeDuration6 = 100,
+                            capHalf6 = 5;
+
+                        function pulseDot6(sel, delay, r, opacity) {
+                            sel.attr("r", 0).style("opacity", 0)
+                                .transition().delay(delay).duration(fadeDuration6 * 0.6)
+                                .ease(d3.easeBackOut).attr("r", r * 1.4).style("opacity", opacity)
+                                .transition().duration(fadeDuration6 * 0.4).attr("r", r);
+                        }
+
+                        function growCI6(g, delay, xL, xH) {
+                            g.style("opacity", 0)
+                                .transition().delay(delay).duration(fadeDuration6)
+                                .style("opacity", 1);
+                            g.select(".ci-line")
+                                .attr("x1", (xL + xH) / 2).attr("x2", (xL + xH) / 2)
+                                .transition().delay(delay).duration(fadeDuration6)
+                                .attr("x1", xL).attr("x2", xH);
+                            ["low", "high"].forEach(w => {
+                                g.select(`.ci-cap.${w}`)
+                                    .attr("y1", 0).attr("y2", 0)
+                                    .transition().delay(delay).duration(fadeDuration6)
+                                    .attr("y1", -capHalf6).attr("y2", capHalf6);
+                            });
+                        }
+
+                        d3.csv("data.csv", d3.autoType).then(data => {
+                            const sorted6 = data.slice()
+                                .sort((a, b) => a.spct_cp_support_mean - b.spct_cp_support_mean);
+                            const order6 = sorted6.map(d => d.id).concat("Meta");
+                            const innerH6 = order6.length * rowH6,
+                                fullH6 = innerH6 + margin6.top + margin6.bottom + 30;
+
+                            const svg6 = d3.select("#chart-dv6").append("svg")
+                                .attr("width", fullW6).attr("height", fullH6)
+                                .append("g").attr("transform", `translate(${margin6.left},${margin6.top})`);
+
+                            // scales
+                            const span6 = sorted6.flatMap(d => [d.spct_cp_support_low, d.spct_cp_support_high]);
+                            const [min6, max6] = d3.extent(span6);
+                            const x6 = d3.scaleLinear()
+                                .domain([min6 - (max6 - min6) * 0.05, max6 + (max6 - min6) * 0.05]).nice()
+                                .range([0, halfW6]);
+                            const y6 = d3.scaleBand()
+                                .domain(order6).range([0, innerH6]).padding(0.05);
+
+                            // axes + hide labels
+                            svg6.append("g")
+                                .attr("transform", `translate(0,${innerH6})`)
+                                .call(d3.axisBottom(x6).ticks(4));
+                            svg6.append("text")
+                                .attr("x", halfW6 / 2)
+                                .attr("y", innerH6 + margin6.bottom - 20)
+                                .attr("text-anchor", "middle")
+                                .text("SPCT CP Support (Cohen’s d)");
+                            svg6.append("g")
+                                .attr("class", "spct-y-axis6")
+                                .call(d3.axisLeft(y6).tickValues(order6.filter(id => 'Meta' !== id)));
+                            svg6.selectAll(".spct-y-axis6 .tick text")
+                                .attr("transform", "translate(-20,0)").style("opacity", 0);
+
+                            // zero line
+                            svg6.append("line").attr("class", "zero-line")
+                                .attr("x1", x6(0)).attr("x2", x6(0))
+                                .attr("y1", 0).attr("y2", innerH6);
+
+                            // heterogeneity bar
+                            const hetG6 = svg6.append("g")
+                                .attr("class", "het-bar-spct6").attr("opacity", 0)
+                                .attr("transform", `translate(${halfW6 / 2},${innerH6 + margin6.bottom - 4})`);
+                            hetG6.append("rect")
+                                .attr("x", -halfW6 / 2).attr("y", 4)
+                                .attr("width", halfW6).attr("height", 20)
+                                .attr("rx", 4).attr("ry", 4)
+                                .attr("fill", "#f2f2f2").attr("stroke", "#ccc");
+                            hetG6.append("text")
+                                .attr("y", 18).attr("text-anchor", "middle").style("font-size", "12px")
+                                .html(`τ=${hetSpctCpSupport.tau.toFixed(2)} (95% CI ${hetSpctCpSupport.tauCI[0]}–${hetSpctCpSupport.tauCI[1]}) • ` +
+                                    `I²=${hetSpctCpSupport.I2}% • Q=${hetSpctCpSupport.Q.toFixed(1)} (p=${hetSpctCpSupport.pQ.toFixed(3)})`);
+
+                            // meta PI & diamond
+                            const yMeta6 = y6("Meta") + y6.bandwidth() / 2,
+                                dH6 = y6.bandwidth() * 0.25;
+                            const piLine6 = svg6.append("line").attr("class", "meta-pi6")
+                                .attr("x1", x6(piSpctCpSupport.low)).attr("x2", x6(piSpctCpSupport.high))
+                                .attr("y1", yMeta6).attr("y2", yMeta6)
+                                .attr("stroke", "#f39200").attr("stroke-width", 6).attr("stroke-opacity", 0.25)
+                                .style("opacity", 0);
+                            const diamond6 = svg6.append("path").attr("class", "meta-diamond6")
+                                .attr("d", `M${x6(metaSpctCpSupport.low)},${yMeta6}
+                   L${x6(metaSpctCpSupport.mean)},${yMeta6 - dH6}
+                   L${x6(metaSpctCpSupport.high)},${yMeta6}
+                   L${x6(metaSpctCpSupport.mean)},${yMeta6 + dH6}Z`)
+                                .attr("fill", " #f39200").style("opacity", 0);
+
+                            // error & dots
+                            const err6 = svg6.selectAll("g.error6").data(sorted6).enter()
+                                .append("g").attr("class", "error6")
+                                .attr("transform", d => `translate(0,${y6(d.id) + y6.bandwidth() / 2})`)
+                                .style("opacity", 0);
+                            err6.append("line").attr("class", "ci-line")
+                                .attr("x1", d => x6(d.spct_cp_support_mean)).attr("x2", d => x6(d.spct_cp_support_mean))
+                                .attr("y1", 0).attr("y2", 0).attr("stroke", "#f39200");
+                            ["low", "high"].forEach(w => {
+                                err6.append("line").attr("class", `ci-cap ${w}`)
+                                    .attr("x1", d => x6(d[`spct_cp_support_${w}`]))
+                                    .attr("x2", d => x6(d[`spct_cp_support_${w}`]))
+                                    .attr("y1", 0).attr("y2", 0).attr("stroke", "#f39200");
+                            });
+                            const dots6 = svg6.selectAll("circle.dot6").data(sorted6).enter()
+                                .append("circle").attr("class", "dot6")
+                                .attr("cx", d => x6(d.spct_cp_support_mean))
+                                .attr("cy", d => y6(d.id) + y6.bandwidth() / 2)
+                                .attr("r", 0).style("opacity", 0);
+
+                            // reveal
+                            let shown6 = false;
+
+                            function reveal6() {
+                                if (shown6) return;
+                                svg6.selectAll(".spct-y-axis6 .tick text")
+                                    .transition().delay((d, i) => i * stepDelay6).duration(fadeDuration6)
+                                    .attr("transform", "translate(0,0)").style("opacity", 1);
+                                shown6 = true;
+                            }
+
+                            d3.select("#btn-spct").on("click", function () {
+                                d3.select(this).attr("disabled", true);
+                                reveal6();
+                                sorted6.forEach((d, i) => {
+                                    growCI6(d3.select(err6.nodes()[i]), i * stepDelay6,
+                                        x6(d.spct_cp_support_low), x6(d.spct_cp_support_high));
+                                    pulseDot6(d3.select(dots6.nodes()[i]), i * stepDelay6, 4, 1);
+                                });
+                                const last = (sorted6.length - 1) * stepDelay6;
+                                piLine6.transition().delay(last).duration(fadeDuration6).style("opacity", 1);
+                                diamond6.transition().delay(last).duration(fadeDuration6).style("opacity", 1)
+                                    .on("end", () => hetG6.transition().duration(600).style("opacity", 1));
+                            });
+
+                            // tooltips
+                            const tt6 = d3.select("#tooltip-dv6");
+
+                            function show6(e, html) {
+                                tt6.html(html)
+                                    .style("left", `${e.pageX + 10}px`).style("top", `${e.pageY - 10}px`)
+                                    .transition().duration(200).style("opacity", 1);
+                            }
+
+                            function hide6() {
+                                tt6.transition().duration(200).style("opacity", 0);
+                            }
+
+                            err6.selectAll(".ci-line")
+                                .on("mouseover", (e, d) => show6(e,
+                                    `<strong>${d.id}</strong><br/>CI: [${d.spct_cp_support_low.toFixed(2)}–${d.spct_cp_support_high.toFixed(2)}]`))
+                                .on("mouseout", hide6);
+                            dots6.on("mouseover", (e, d) => show6(e,
+                                `<strong>${d.id}</strong><br/>Mean: ${d.spct_cp_support_mean.toFixed(2)}`))
+                                .on("mouseout", hide6);
+
+                            svg6.selectAll(".meta-pi6, .meta-diamond6")
+                                .on("mouseover", e => show6(e,
+                                    `<strong>SPCT CP Support Meta</strong><br/>Mean: ${metaSpctCpSupport.mean.toFixed(2)}<br/>` +
+                                    `95% CI: [${metaSpctCpSupport.low.toFixed(2)}–${metaSpctCpSupport.high.toFixed(2)}]<br/>` +
+                                    `95% PI: [${piSpctCpSupport.low.toFixed(2)}–${piSpctCpSupport.high.toFixed(2)}]`))
+                                .on("mouseout", hide6);
+                        });
+                    </script>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</div>
+</div>
+
+<!-- Bootstrap core JS-->
+<script src="js/bootstrap.bundle.js"></script>
+<!-- Core theme JS-->
+<script src="js/sidebar.js"></script>
+</body>
+</html>
