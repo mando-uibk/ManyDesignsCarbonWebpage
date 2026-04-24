@@ -13,7 +13,8 @@
 <div class="container my-4">
     <h1 class="text-center results-title">
         <button id="project-detail-open" class="project-title-open" type="button"
-                aria-label="Open #ManyDesignsCarbon project overview">#ManyDesignsCarbon</button>
+                aria-label="Open #ManyDesignsCarbon project overview">#ManyDesignsCarbon
+        </button>
         <span>Main Results</span>
     </h1>
     <p class="page-subtitle">Interactive forest plots of experimental design effects</p>
@@ -42,7 +43,7 @@
         <div class="summary-card">
             <span class="summary-label explain-trigger" data-explain="social-price" tabindex="0">Social price</span>
             <strong class="explain-trigger" data-explain="cohen-d" tabindex="0">d = +0.07</strong>
-            <span class="summary-points explain-trigger" data-explain="support-share" tabindex="0">+2 pp support</span>
+            <span class="summary-points explain-trigger" data-explain="support-share" tabindex="0">+2.0 pp support</span>
             <span class="summary-meta explain-trigger" data-explain="ci" tabindex="0">95% CI 0.03 to 0.10</span>
             <span class="summary-meta explain-trigger" data-explain="pi" tabindex="0">95% PI -0.12 to 0.25</span>
         </div>
@@ -103,14 +104,21 @@
         <div class="tab-pane fade show active" id="dual" role="tabpanel">
             <div class="chart-flex-row">
                 <div class="legend">
-                    <div class="legend-item explain-trigger" data-explain="self" tabindex="0"><span class="legend-marker self"></span>Self-assessed effect</div>
-                    <div class="legend-item explain-trigger" data-explain="peer" tabindex="0"><span class="legend-marker peer"></span>Peer-assessed effect</div>
-                    <div class="legend-item explain-trigger" data-explain="estimated-effect" tabindex="0"><span class="legend-marker obs"></span>Estimated RT effect</div>
+                    <div class="legend-item explain-trigger" data-explain="self" tabindex="0"><span
+                            class="legend-marker self"></span>Self-assessed effect
+                    </div>
+                    <div class="legend-item explain-trigger" data-explain="peer" tabindex="0"><span
+                            class="legend-marker peer"></span>Peer-assessed effect
+                    </div>
+                    <div class="legend-item explain-trigger" data-explain="estimated-effect" tabindex="0"><span
+                            class="legend-marker obs"></span>Estimated RT effect
+                    </div>
                     <div class="legend-item">
                         <svg width="12" height="12">
                             <polygon points="6,0 12,6 6,12 0,6" fill="black"/>
                         </svg>
-                        <span class="explain-trigger" data-explain="meta-effect" tabindex="0">Meta-effect (95% CI)</span>
+                        <span class="explain-trigger" data-explain="meta-effect"
+                              tabindex="0">Meta-effect (95% CI)</span>
                     </div>
                     <div class="legend-item">
                         <svg width="30" height="4">
@@ -119,9 +127,12 @@
                         <span class="explain-trigger" data-explain="pi" tabindex="0">95% PI</span>
                     </div>
                     <div class="connector-legend" aria-label="Connector significance legend">
-                        <span class="explain-trigger" data-explain="connectors" tabindex="0"><i class="connector-swatch connector-swatch-strong"></i>both outcomes p &lt; .05</span>
-                        <span class="explain-trigger" data-explain="connectors" tabindex="0"><i class="connector-swatch connector-swatch-medium"></i>one outcome p &lt; .05</span>
-                        <span class="explain-trigger" data-explain="connectors" tabindex="0"><i class="connector-swatch connector-swatch-muted"></i>neither p &lt; .05</span>
+                        <span class="explain-trigger" data-explain="connectors" tabindex="0"><i
+                                class="connector-swatch connector-swatch-strong"></i>both outcomes p &lt; .05</span>
+                        <span class="explain-trigger" data-explain="connectors" tabindex="0"><i
+                                class="connector-swatch connector-swatch-medium"></i>one outcome p &lt; .05</span>
+                        <span class="explain-trigger" data-explain="connectors" tabindex="0"><i
+                                class="connector-swatch connector-swatch-muted"></i>neither p &lt; .05</span>
                     </div>
 
                 </div>
@@ -154,7 +165,8 @@
                         <span class="legend-marker" style="background:#c94f52;"></span>Strategic Group Interactions
                     </button>
                     <button class="category-chip" data-category="Behavioral Biases/Reflective Thinking" type="button">
-                        <span class="legend-marker" style="background:#9ab83f;"></span>Behavioral Biases/Reflective Thinking
+                        <span class="legend-marker" style="background:#9ab83f;"></span>Behavioral Biases/Reflective
+                        Thinking
                     </button>
                 </div>
             </div>
@@ -167,10 +179,13 @@
                 const hetObs = {tau: 0.12, tauCI: [0.09, 0.17], I2: 57.73, Q: 127.74, pQ: 0.005};
                 const hetStd = {tau: 0.11, tauCI: [0.07, 0.15], I2: 49.30, Q: 106.51, pQ: 0.005};
 
+                const teamRevealDelay = 38;
                 const margin = {top: 32, right: 74, bottom: 76, left: 74},
                     fullW = 760, gap = 38,
                     halfW = (fullW - margin.left - margin.right - gap) / 2,
-                    rowH = 17, stepDelay = 38, fadeDuration = 180, barH = 52;
+                    rowH = 17, stepDelay = teamRevealDelay, fadeDuration = 180, barH = 52;
+                const dotTravelDuration = 900;
+                const ciGrowDuration = 800;
 
                 const categories = ["Use of AI", "Information Treatment", "Strategic Group Interactions", "Behavioral Biases/Reflective Thinking"];
 
@@ -181,7 +196,7 @@
                     "#9ab83f"
                 ];
                 const colorScale = d3.scaleOrdinal().domain(categories).range(categoryColors);
-                let sharedXDomain = [-0.5, 1.5];
+                var sharedXDomain = [-0.5, 1.5];
 
                 let shownSelf = false, shownPeer = false, shownObs = false, shownStd = false;
                 let obsDone = false, stdDone = false;
@@ -519,25 +534,61 @@
                 });
 
                 function pulseDot(sel, delay, r, opacity) {
-                    sel.attr("r", 0).style("opacity", 0)
-                        .transition("series").delay(delay).duration(fadeDuration * 0.6)
-                        .ease(d3.easeBackOut).attr("r", r * 1.4).style("opacity", opacity)
-                        .transition("series").duration(fadeDuration * 0.4).attr("r", r);
+                    const targetCx = +sel.attr("cx");
+                    const originCx = +sel.attr("data-origin-cx");
+                    sel.attr("cx", Number.isFinite(originCx) ? originCx : targetCx)
+                        .attr("r", r * 0.72)
+                        .attr("stroke", "rgba(255, 255, 255, 0.92)")
+                        .attr("stroke-width", 1.1)
+                        .attr("stroke-opacity", 1)
+                        .style("opacity", 0)
+                        .transition().delay(delay).duration(dotTravelDuration)
+                        .ease(d3.easeCubicOut)
+                        .attr("cx", targetCx)
+                        .attr("r", r)
+                        .style("opacity", opacity);
                 }
 
-                function growCI(g, delay, xL, xH, yMid, capHalf, opacity) {
+                function growCI(g, delay, xL, xH, xMid, opacity) {
                     g.style("opacity", 0)
-                        .transition("series").delay(delay).duration(fadeDuration).style("opacity", opacity);
+                        .transition("series").delay(delay).duration(ciGrowDuration)
+                        .ease(d3.easeCubicOut)
+                        .style("opacity", opacity);
                     g.select(".ci-line")
-                        .attr("x1", (xL + xH) / 2).attr("x2", (xL + xH) / 2)
-                        .transition("series").delay(delay).duration(fadeDuration)
+                        .attr("x1", xMid).attr("x2", xMid)
+                        .transition("series").delay(delay).duration(ciGrowDuration)
+                        .ease(d3.easeCubicOut)
                         .attr("x1", xL).attr("x2", xH);
-                    ["low", "high"].forEach(w => {
-                        g.select(`.ci-cap.${w}`)
-                            .attr("y1", yMid).attr("y2", yMid)
-                            .transition("series").delay(delay).duration(fadeDuration)
-                            .attr("y1", yMid - capHalf).attr("y2", yMid + capHalf);
-                    });
+                }
+
+                function metaDiamondPath(xLow, xMean, xHigh, yMid, halfHeight) {
+                    return `M${xLow},${yMid}L${xMean},${yMid - halfHeight}L${xHigh},${yMid}L${xMean},${yMid + halfHeight}Z`;
+                }
+
+                function animateMetaPI(sel, delay, xLow, xHigh, xMean, opacity = 1) {
+                    return sel.style("opacity", 0)
+                        .attr("x1", xMean)
+                        .attr("x2", xMean)
+                        .transition("series").delay(delay).duration(ciGrowDuration)
+                        .ease(d3.easeCubicOut)
+                        .style("opacity", opacity)
+                        .attr("x1", xLow)
+                        .attr("x2", xHigh);
+                }
+
+                function animateMetaDiamond(sel, delay, xLow, xMean, xHigh, yMid, halfHeight, opacity = 1) {
+                    return sel.style("opacity", 0)
+                        .attr("d", metaDiamondPath(xMean, xMean, xMean, yMid, 0))
+                        .transition("series").delay(delay).duration(ciGrowDuration)
+                        .ease(d3.easeCubicOut)
+                        .style("opacity", opacity)
+                        .attrTween("d", () => t => metaDiamondPath(
+                            xMean + (xLow - xMean) * t,
+                            xMean,
+                            xMean + (xHigh - xMean) * t,
+                            yMid,
+                            halfHeight * t
+                        ));
                 }
 
                 function renderHetPill(svgRoot, className, xCenter, yTop, width, stats) {
@@ -581,7 +632,9 @@
                 }
 
                 d3.csv("data.csv", d3.autoType).then(data => {
-                    data.forEach(d => { window.studyDesignCategories[d.id] = d.category; });
+                    data.forEach(d => {
+                        window.studyDesignCategories[d.id] = d.category;
+                    });
                     const obsOrder = data.slice().sort((a, b) => a.obs_mean - b.obs_mean).map(d => d.id).concat("Meta");
                     const stdOrder = data.slice().sort((a, b) => a.std_mean - b.std_mean).map(d => d.id).concat("Meta");
 
@@ -695,13 +748,14 @@
                     hetBar("std", hetStd);
 
                     // draw black-first dots, CIs, connectors
-                    const peerOffset = yObs.bandwidth() * 0.25, capHalf = 3.5, dH = yObs.bandwidth() * 0.25;
+                    const peerOffset = yObs.bandwidth() * 0.25, dH = yObs.bandwidth() * 0.25;
 
                     const selfDots = svg.selectAll(".dot.self").data(data).enter()
                         .append("circle").attr("class", "dot self study-mark")
                         .attr("data-id", d => d.id)
                         .attr("cx", d => xObs(d.self_mean))
                         .attr("cy", d => yObs(d.id) + yObs.bandwidth() / 2)
+                        .attr("data-origin-cx", xObs(0))
                         .attr("r", 0).style("opacity", 0).style("fill", "#2e806e");
 
                     const peerErr = svg.selectAll("g.error.peer").data(data).enter()
@@ -713,18 +767,12 @@
                         .attr("y1", d => yObs(d.id) + yObs.bandwidth() / 2 + peerOffset)
                         .attr("y2", d => yObs(d.id) + yObs.bandwidth() / 2 + peerOffset)
                         .attr("stroke", "#6baed6");
-                    ["low", "high"].forEach(w => {
-                        peerErr.append("line").attr("class", `ci-cap ${w}`)
-                            .attr("x1", d => xObs(d[`peer_${w}`])).attr("x2", d => xObs(d[`peer_${w}`]))
-                            .attr("y1", d => yObs(d.id) + yObs.bandwidth() / 2 + peerOffset)
-                            .attr("y2", d => yObs(d.id) + yObs.bandwidth() / 2 + peerOffset)
-                            .attr("stroke", "#6baed6");
-                    });
                     const peerDots = svg.selectAll(".dot.peer").data(data).enter()
                         .append("circle").attr("class", "dot peer study-mark")
                         .attr("data-id", d => d.id)
                         .attr("cx", d => xObs(d.peer_mean))
                         .attr("cy", d => yObs(d.id) + yObs.bandwidth() / 2 + peerOffset)
+                        .attr("data-origin-cx", xObs(0))
                         .attr("r", 0).style("opacity", 0).style("fill", "#6baed6");
 
                     let selfPeerVisible = true;
@@ -754,18 +802,12 @@
                         .attr("stroke", "black")
                         .attr("stroke-width", 1.15);
 
-                    ["low", "high"].forEach(w => {
-                        obsErr.append("line").attr("class", `ci-cap ${w}`)
-                            .attr("x1", d => xObs(d[`obs_${w}`])).attr("x2", d => xObs(d[`obs_${w}`]))
-                            .attr("y1", d => yObs(d.id) + yObs.bandwidth() / 2)
-                            .attr("y2", d => yObs(d.id) + yObs.bandwidth() / 2)
-                            .attr("stroke", "black");
-                    });
                     const obsDots = svg.selectAll(".dot.obs").data(data).enter()
                         .append("circle").attr("class", "dot obs study-mark")
                         .attr("data-id", d => d.id)
                         .attr("cx", d => xObs(d.obs_mean))
                         .attr("cy", d => yObs(d.id) + yObs.bandwidth() / 2)
+                        .attr("data-origin-cx", xObs(0))
                         .attr("r", 0).style("opacity", 0).style("fill", "black");
 
                     const stdErr = svg.selectAll("g.error.std").data(data).enter()
@@ -778,22 +820,13 @@
                         .attr("y2", d => yStd(d.id) + yStd.bandwidth() / 2)
                         .attr("stroke", "black")
                         .attr("stroke-width", 1.15);
-
-                    ["low", "high"].forEach(w => {
-                        stdErr.append("line").attr("class", `ci-cap ${w}`)
-                            .attr("x1", d => xStd(d[`std_${w}`])).attr("x2", d => xStd(d[`std_${w}`]))
-                            .attr("y1", d => yStd(d.id) + yStd.bandwidth() / 2)
-                            .attr("y2", d => yStd(d.id) + yStd.bandwidth() / 2)
-                            .attr("stroke", "black")
-                            .attr("stroke-width", 1.15);
-
-                    });
                     const stdDots = svg.selectAll(".dot.std").data(data).enter()
                         .append("circle").attr("class", "dot std study-mark")
                         .attr("data-id", d => d.id)
                         .attr("transform", `translate(${halfW + gap},0)`)
                         .attr("cx", d => xStd(d.std_mean))
                         .attr("cy", d => yStd(d.id) + yStd.bandwidth() / 2)
+                        .attr("data-origin-cx", xStd(0))
                         .attr("r", 0).style("opacity", 0).style("fill", "black");
 
                     const connectors = svg.selectAll("line.connector").data(data).enter()
@@ -857,10 +890,16 @@
                         .style("opacity", 0);
 
                     svg.append("path").attr("class", "meta-diamond obs").style("opacity", 0)
-                        .attr("d", `M${xObs(metaObs.low)},${yMetaObs}L${xObs(metaObs.mean)},${yMetaObs - dH}L${xObs(metaObs.high)},${yMetaObs}L${xObs(metaObs.mean)},${yMetaObs + dH}Z`)
+                        .attr("d", metaDiamondPath(xObs(metaObs.low), xObs(metaObs.mean), xObs(metaObs.high), yMetaObs, dH))
                         .attr("fill", "black");
                     svg.append("path").attr("class", "meta-diamond std").style("opacity", 0)
-                        .attr("d", `M${xStd(metaStd.low) + halfW + gap},${yMetaStd}L${xStd(metaStd.mean) + halfW + gap},${yMetaStd - dH}L${xStd(metaStd.high) + halfW + gap},${yMetaStd}L${xStd(metaStd.mean) + halfW + gap},${yMetaStd + dH}Z`)
+                        .attr("d", metaDiamondPath(
+                            xStd(metaStd.low) + halfW + gap,
+                            xStd(metaStd.mean) + halfW + gap,
+                            xStd(metaStd.high) + halfW + gap,
+                            yMetaStd,
+                            dH
+                        ))
                         .attr("fill", "black");
 
                     svg.select(".meta-diamond.obs")
@@ -1134,9 +1173,8 @@
                         revealObsLabels();
                         peerErr.each(function (d, i) {
                             growCI(d3.select(this), obsOrder.indexOf(d.id) * stepDelay,
-                                xObs(d.peer_low), xObs(d.peer_high),
-                                yObs(d.id) + yObs.bandwidth() / 2 + peerOffset,
-                                capHalf, 1);
+                                xObs(d.peer_low), xObs(d.peer_high), xObs(d.peer_mean),
+                                1);
                         });
                         peerDots.each(function (d, i) {
                             pulseDot(d3.select(this), obsOrder.indexOf(d.id) * stepDelay, 3.8, 1);
@@ -1165,8 +1203,7 @@
                                 delay,
                                 xObs(d.obs_low),
                                 xObs(d.obs_high),
-                                yObs(d.id) + yObs.bandwidth() / 2,
-                                capHalf,
+                                xObs(d.obs_mean),
                                 1
                             );
                         });
@@ -1182,28 +1219,36 @@
                             );
                         });
 
-                        // reveal the meta‐interval & diamond, then het‐bar, then enable buttons
+                        // reveal the meta interval, diamond, and heterogeneity bar together
                         const lastDelay = (obsOrder.length - 1) * stepDelay;
-                        svg.select(".meta-pi.obs")
-                            .transition()
-                            .delay(lastDelay)
-                            .duration(fadeDuration)
-                            .style("opacity", 1);
+                        animateMetaPI(
+                            svg.select(".meta-pi.obs"),
+                            lastDelay,
+                            xObs(piObs.low),
+                            xObs(piObs.high),
+                            xObs(metaObs.mean)
+                        );
 
-                        svg.select(".meta-diamond.obs")
-                            .transition()
-                            .delay(lastDelay)
-                            .duration(fadeDuration)
-                            .style("opacity", 1)
+                        animateMetaDiamond(
+                            svg.select(".meta-diamond.obs"),
+                            lastDelay,
+                            xObs(metaObs.low),
+                            xObs(metaObs.mean),
+                            xObs(metaObs.high),
+                            yMetaObs,
+                            dH
+                        )
                             .on("end", () => {
                                 obsDone = true;  // mark observed done
                                 settleObservedSeries();
-                                svg.select(".het-bar-obs")
-                                    .transition()
-                                    .duration(600)
-                                    .style("opacity", 1)
-                                    .on("end", updateButtons);
+                                updateButtons();
                             });
+
+                        svg.select(".het-bar-obs")
+                            .transition("series")
+                            .delay(lastDelay)
+                            .duration(600)
+                            .style("opacity", 1);
 
                         shownObs = true;
                     });
@@ -1221,8 +1266,7 @@
                                 delay,
                                 xStd(d.std_low),
                                 xStd(d.std_high),
-                                yStd(d.id) + yStd.bandwidth() / 2,
-                                capHalf,
+                                xStd(d.std_mean),
                                 1
                             );
                         });
@@ -1238,27 +1282,37 @@
                             );
                         });
 
-                        // reveal the 95% PI & diamond, then het-bar, then enable buttons
-                        svg.select(".meta-pi.std")
-                            .transition("series")
-                            .delay((stdOrder.length - 1) * stepDelay)
-                            .duration(fadeDuration)
-                            .style("opacity", 1);
+                        // reveal the 95% PI, diamond, and heterogeneity bar together
+                        const lastDelay = (stdOrder.length - 1) * stepDelay;
+                        const stdShift = halfW + gap;
+                        animateMetaPI(
+                            svg.select(".meta-pi.std"),
+                            lastDelay,
+                            xStd(piStd.low) + stdShift,
+                            xStd(piStd.high) + stdShift,
+                            xStd(metaStd.mean) + stdShift
+                        );
 
-                        svg.select(".meta-diamond.std")
-                            .transition("series")
-                            .delay((stdOrder.length - 1) * stepDelay)
-                            .duration(fadeDuration)
-                            .style("opacity", 1)
+                        animateMetaDiamond(
+                            svg.select(".meta-diamond.std"),
+                            lastDelay,
+                            xStd(metaStd.low) + stdShift,
+                            xStd(metaStd.mean) + stdShift,
+                            xStd(metaStd.high) + stdShift,
+                            yMetaStd,
+                            dH
+                        )
                             .on("end", () => {
                                 stdDone = true;  // mark stated done
                                 settleStatedSeries();
-                                svg.select(".het-bar-std")
-                                    .transition("series")
-                                    .duration(600)
-                                    .style("opacity", 1)
-                                    .on("end", updateButtons);
+                                updateButtons();
                             });
+
+                        svg.select(".het-bar-std")
+                            .transition("series")
+                            .delay(lastDelay)
+                            .duration(600)
+                            .style("opacity", 1);
 
                         // bring in the std‐axis labels
                         revealStdLabels();
@@ -1440,31 +1494,36 @@
                     fullW3 = 600,
                     halfW3 = fullW3 - margin3.left - margin3.right,
                     rowH3 = 17,
-                    stepDelay3 = 38,
-                    fadeDuration3 = 180,
-                    capHalf3 = 3.5;
+                    stepDelay3 = teamRevealDelay,
+                    fadeDuration3 = 180;
 
                 function pulseDot3(sel, delay, r, opacity) {
-                    sel.attr("r", 0).style("opacity", 0)
-                        .transition().delay(delay).duration(fadeDuration3 * 0.6)
-                        .ease(d3.easeBackOut).attr("r", r * 1.4).style("opacity", opacity)
-                        .transition().duration(fadeDuration3 * 0.4).attr("r", r);
+                    const targetCx = +sel.attr("cx");
+                    const originCx = +sel.attr("data-origin-cx");
+                    sel.attr("cx", Number.isFinite(originCx) ? originCx : targetCx)
+                        .attr("r", r * 0.72)
+                        .attr("stroke", "rgba(255, 255, 255, 0.92)")
+                        .attr("stroke-width", 1.1)
+                        .attr("stroke-opacity", 1)
+                        .style("opacity", 0)
+                        .transition().delay(delay).duration(dotTravelDuration)
+                        .ease(d3.easeCubicOut)
+                        .attr("cx", targetCx)
+                        .attr("r", r)
+                        .style("opacity", opacity);
                 }
 
                 function growCI3(g, delay, xL, xH) {
+                    const xMid = +g.select(".ci-line").attr("x1");
                     g.style("opacity", 0)
-                        .transition().delay(delay).duration(fadeDuration3)
+                        .transition().delay(delay).duration(ciGrowDuration)
+                        .ease(d3.easeCubicOut)
                         .style("opacity", 1);
                     g.select(".ci-line")
-                        .attr("x1", (xL + xH) / 2).attr("x2", (xL + xH) / 2)
-                        .transition().delay(delay).duration(fadeDuration3)
+                        .attr("x1", xMid).attr("x2", xMid)
+                        .transition().delay(delay).duration(ciGrowDuration)
+                        .ease(d3.easeCubicOut)
                         .attr("x1", xL).attr("x2", xH);
-                    ["low", "high"].forEach(w => {
-                        g.select(`.ci-cap.${w}`)
-                            .attr("y1", 0).attr("y2", 0)
-                            .transition().delay(delay).duration(fadeDuration3)
-                            .attr("y1", -capHalf3).attr("y2", capHalf3);
-                    });
                 }
 
                 d3.csv("data.csv", d3.autoType).then(data => {
@@ -1535,10 +1594,7 @@
                         .attr("stroke", "#25313a").attr("stroke-width", 4).attr("stroke-opacity", 0.16)
                         .style("opacity", 0);
                     const diamond3 = svg3.append("path").attr("class", "meta-diamond3")
-                        .attr("d", `M${x3(metaRaise.low)},${yMeta3}
-                   L${x3(metaRaise.mean)},${yMeta3 - dH3}
-                   L${x3(metaRaise.high)},${yMeta3}
-                   L${x3(metaRaise.mean)},${yMeta3 + dH3}Z`)
+                        .attr("d", metaDiamondPath(x3(metaRaise.low), x3(metaRaise.mean), x3(metaRaise.high), yMeta3, dH3))
                         .attr("fill", "#101820").style("opacity", 0);
 
                     // error groups & dots
@@ -1551,17 +1607,11 @@
                         .attr("x2", d => x3(d.cp_raise_mean))
                         .attr("y1", 0).attr("y2", 0)
                         .attr("stroke", "#101820");
-                    ["low", "high"].forEach(w => {
-                        err3.append("line").attr("class", `ci-cap ${w}`)
-                            .attr("x1", d => x3(d[`cp_raise_${w}`]))
-                            .attr("x2", d => x3(d[`cp_raise_${w}`]))
-                            .attr("y1", 0).attr("y2", 0)
-                            .attr("stroke", "#101820");
-                    });
                     const dots3 = svg3.selectAll("circle.dot3").data(sorted).enter()
                         .append("circle").attr("class", "dot3")
                         .attr("cx", d => x3(d.cp_raise_mean))
                         .attr("cy", d => y3(d.id) + y3.bandwidth() / 2)
+                        .attr("data-origin-cx", x3(0))
                         .attr("r", 0).style("opacity", 0);
                     const hit3 = svg3.selectAll("circle.dossier-hit3").data(sorted).enter()
                         .append("circle").attr("class", "dossier-hit dossier-hit3")
@@ -1595,9 +1645,17 @@
                         });
                         hit3.style("pointer-events", "all");
                         const last = (sorted.length - 1) * stepDelay3;
-                        piLine3.transition().delay(last).duration(fadeDuration3).style("opacity", 1);
-                        diamond3.transition().delay(last).duration(fadeDuration3).style("opacity", 1)
-                            .on("end", () => hetG3.transition().duration(600).style("opacity", 1));
+                        animateMetaPI(piLine3, last, x3(piRaise.low), x3(piRaise.high), x3(metaRaise.mean));
+                        animateMetaDiamond(
+                            diamond3,
+                            last,
+                            x3(metaRaise.low),
+                            x3(metaRaise.mean),
+                            x3(metaRaise.high),
+                            yMeta3,
+                            dH3
+                        );
+                        hetG3.transition().delay(last).duration(600).style("opacity", 1);
                     });
 
                     // tooltips
@@ -1683,31 +1741,36 @@
                     fullW4 = 600,
                     halfW4 = fullW4 - margin4.left - margin4.right,
                     rowH4 = 17,
-                    stepDelay4 = 38,
-                    fadeDuration4 = 180,
-                    capHalf4 = 3.5;
+                    stepDelay4 = teamRevealDelay,
+                    fadeDuration4 = 180;
 
                 function pulseDot4(sel, delay, r, opacity) {
-                    sel.attr("r", 0).style("opacity", 0)
-                        .transition().delay(delay).duration(fadeDuration4 * 0.6)
-                        .ease(d3.easeBackOut).attr("r", r * 1.4).style("opacity", opacity)
-                        .transition().duration(fadeDuration4 * 0.4).attr("r", r);
+                    const targetCx = +sel.attr("cx");
+                    const originCx = +sel.attr("data-origin-cx");
+                    sel.attr("cx", Number.isFinite(originCx) ? originCx : targetCx)
+                        .attr("r", r * 0.72)
+                        .attr("stroke", "rgba(255, 255, 255, 0.92)")
+                        .attr("stroke-width", 1.1)
+                        .attr("stroke-opacity", 1)
+                        .style("opacity", 0)
+                        .transition().delay(delay).duration(dotTravelDuration)
+                        .ease(d3.easeCubicOut)
+                        .attr("cx", targetCx)
+                        .attr("r", r)
+                        .style("opacity", opacity);
                 }
 
                 function growCI4(g, delay, xL, xH) {
+                    const xMid = +g.select(".ci-line").attr("x1");
                     g.style("opacity", 0)
-                        .transition().delay(delay).duration(fadeDuration4)
+                        .transition().delay(delay).duration(ciGrowDuration)
+                        .ease(d3.easeCubicOut)
                         .style("opacity", 1);
                     g.select(".ci-line")
-                        .attr("x1", (xL + xH) / 2).attr("x2", (xL + xH) / 2)
-                        .transition().delay(delay).duration(fadeDuration4)
+                        .attr("x1", xMid).attr("x2", xMid)
+                        .transition().delay(delay).duration(ciGrowDuration)
+                        .ease(d3.easeCubicOut)
                         .attr("x1", xL).attr("x2", xH);
-                    ["low", "high"].forEach(w => {
-                        g.select(`.ci-cap.${w}`)
-                            .attr("y1", 0).attr("y2", 0)
-                            .transition().delay(delay).duration(fadeDuration4)
-                            .attr("y1", -capHalf4).attr("y2", capHalf4);
-                    });
                 }
 
                 d3.csv("data.csv", d3.autoType).then(data => {
@@ -1728,7 +1791,7 @@
                     const span4 = sorted4.flatMap(d => [d.sp_cp_support_low, d.sp_cp_support_high]);
                     const x4 = d3.scaleLinear()
                         .domain(sharedXDomain)
-                        .range([0, halfW3]);
+                        .range([0, halfW4]);
                     const y4 = d3.scaleBand()
                         .domain(order4).range([0, innerH4]).padding(0.05);
 
@@ -1779,10 +1842,7 @@
                         .attr("stroke", "#25313a").attr("stroke-width", 4).attr("stroke-opacity", 0.16)
                         .style("opacity", 0);
                     const diamond4 = svg4.append("path").attr("class", "meta-diamond4")
-                        .attr("d", `M${x4(metaSpCpSupport.low)},${yMeta4}
-                   L${x4(metaSpCpSupport.mean)},${yMeta4 - dH4}
-                   L${x4(metaSpCpSupport.high)},${yMeta4}
-                   L${x4(metaSpCpSupport.mean)},${yMeta4 + dH4}Z`)
+                        .attr("d", metaDiamondPath(x4(metaSpCpSupport.low), x4(metaSpCpSupport.mean), x4(metaSpCpSupport.high), yMeta4, dH4))
                         .attr("fill", "#101820").style("opacity", 0);
 
                     // error & dots
@@ -1793,16 +1853,11 @@
                     err4.append("line").attr("class", "ci-line")
                         .attr("x1", d => x4(d.sp_cp_support_mean)).attr("x2", d => x4(d.sp_cp_support_mean))
                         .attr("y1", 0).attr("y2", 0).attr("stroke", "#101820");
-                    ["low", "high"].forEach(w => {
-                        err4.append("line").attr("class", `ci-cap ${w}`)
-                            .attr("x1", d => x4(d[`sp_cp_support_${w}`]))
-                            .attr("x2", d => x4(d[`sp_cp_support_${w}`]))
-                            .attr("y1", 0).attr("y2", 0).attr("stroke", "#101820");
-                    });
                     const dots4 = svg4.selectAll("circle.dot4").data(sorted4).enter()
                         .append("circle").attr("class", "dot4")
                         .attr("cx", d => x4(d.sp_cp_support_mean))
                         .attr("cy", d => y4(d.id) + y4.bandwidth() / 2)
+                        .attr("data-origin-cx", x4(0))
                         .attr("r", 0).style("opacity", 0);
                     const hit4 = svg4.selectAll("circle.dossier-hit4").data(sorted4).enter()
                         .append("circle").attr("class", "dossier-hit dossier-hit4")
@@ -1836,9 +1891,17 @@
                         });
                         hit4.style("pointer-events", "all");
                         const last = (sorted4.length - 1) * stepDelay4;
-                        piLine4.transition().delay(last).duration(fadeDuration4).style("opacity", 1);
-                        diamond4.transition().delay(last).duration(fadeDuration4).style("opacity", 1)
-                            .on("end", () => hetG4.transition().duration(600).style("opacity", 1));
+                        animateMetaPI(piLine4, last, x4(piSpCpSupport.low), x4(piSpCpSupport.high), x4(metaSpCpSupport.mean));
+                        animateMetaDiamond(
+                            diamond4,
+                            last,
+                            x4(metaSpCpSupport.low),
+                            x4(metaSpCpSupport.mean),
+                            x4(metaSpCpSupport.high),
+                            yMeta4,
+                            dH4
+                        );
+                        hetG4.transition().delay(last).duration(600).style("opacity", 1);
                     });
 
                     // tooltips
@@ -1918,31 +1981,36 @@
                     fullW5 = 600,
                     halfW5 = fullW5 - margin5.left - margin5.right,
                     rowH5 = 17,
-                    stepDelay5 = 38,
-                    fadeDuration5 = 180,
-                    capHalf5 = 3.5;
+                    stepDelay5 = teamRevealDelay,
+                    fadeDuration5 = 180;
 
                 function pulseDot5(sel, delay, r, opacity) {
-                    sel.attr("r", 0).style("opacity", 0)
-                        .transition().delay(delay).duration(fadeDuration5 * 0.6)
-                        .ease(d3.easeBackOut).attr("r", r * 1.4).style("opacity", opacity)
-                        .transition().duration(fadeDuration5 * 0.4).attr("r", r);
+                    const targetCx = +sel.attr("cx");
+                    const originCx = +sel.attr("data-origin-cx");
+                    sel.attr("cx", Number.isFinite(originCx) ? originCx : targetCx)
+                        .attr("r", r * 0.72)
+                        .attr("stroke", "rgba(255, 255, 255, 0.92)")
+                        .attr("stroke-width", 1.1)
+                        .attr("stroke-opacity", 1)
+                        .style("opacity", 0)
+                        .transition().delay(delay).duration(dotTravelDuration)
+                        .ease(d3.easeCubicOut)
+                        .attr("cx", targetCx)
+                        .attr("r", r)
+                        .style("opacity", opacity);
                 }
 
                 function growCI5(g, delay, xL, xH) {
+                    const xMid = +g.select(".ci-line").attr("x1");
                     g.style("opacity", 0)
-                        .transition().delay(delay).duration(fadeDuration5)
+                        .transition().delay(delay).duration(ciGrowDuration)
+                        .ease(d3.easeCubicOut)
                         .style("opacity", 1);
                     g.select(".ci-line")
-                        .attr("x1", (xL + xH) / 2).attr("x2", (xL + xH) / 2)
-                        .transition().delay(delay).duration(fadeDuration5)
+                        .attr("x1", xMid).attr("x2", xMid)
+                        .transition().delay(delay).duration(ciGrowDuration)
+                        .ease(d3.easeCubicOut)
                         .attr("x1", xL).attr("x2", xH);
-                    ["low", "high"].forEach(w => {
-                        g.select(`.ci-cap.${w}`)
-                            .attr("y1", 0).attr("y2", 0)
-                            .transition().delay(delay).duration(fadeDuration5)
-                            .attr("y1", -capHalf5).attr("y2", capHalf5);
-                    });
                 }
 
                 d3.csv("data.csv", d3.autoType).then(data => {
@@ -1962,7 +2030,7 @@
                     const span5 = sorted5.flatMap(d => [d.ct_cp_support_low, d.ct_cp_support_high]);
                     const x5 = d3.scaleLinear()
                         .domain(sharedXDomain)
-                        .range([0, halfW3]);
+                        .range([0, halfW5]);
                     const y5 = d3.scaleBand()
                         .domain(order5).range([0, innerH5]).padding(0.05);
 
@@ -2013,10 +2081,7 @@
                         .attr("stroke", "#25313a").attr("stroke-width", 4).attr("stroke-opacity", 0.16)
                         .style("opacity", 0);
                     const diamond5 = svg5.append("path").attr("class", "meta-diamond5")
-                        .attr("d", `M${x5(metaCtCpSupport.low)},${yMeta5}
-                   L${x5(metaCtCpSupport.mean)},${yMeta5 - dH5}
-                   L${x5(metaCtCpSupport.high)},${yMeta5}
-                   L${x5(metaCtCpSupport.mean)},${yMeta5 + dH5}Z`)
+                        .attr("d", metaDiamondPath(x5(metaCtCpSupport.low), x5(metaCtCpSupport.mean), x5(metaCtCpSupport.high), yMeta5, dH5))
                         .attr("fill", "#101820").style("opacity", 0);
 
                     // error & dots
@@ -2027,16 +2092,11 @@
                     err5.append("line").attr("class", "ci-line")
                         .attr("x1", d => x5(d.ct_cp_support_mean)).attr("x2", d => x5(d.ct_cp_support_mean))
                         .attr("y1", 0).attr("y2", 0).attr("stroke", "#101820");
-                    ["low", "high"].forEach(w => {
-                        err5.append("line").attr("class", `ci-cap ${w}`)
-                            .attr("x1", d => x5(d[`ct_cp_support_${w}`]))
-                            .attr("x2", d => x5(d[`ct_cp_support_${w}`]))
-                            .attr("y1", 0).attr("y2", 0).attr("stroke", "#101820");
-                    });
                     const dots5 = svg5.selectAll("circle.dot5").data(sorted5).enter()
                         .append("circle").attr("class", "dot5")
                         .attr("cx", d => x5(d.ct_cp_support_mean))
                         .attr("cy", d => y5(d.id) + y5.bandwidth() / 2)
+                        .attr("data-origin-cx", x5(0))
                         .attr("r", 0).style("opacity", 0);
                     const hit5 = svg5.selectAll("circle.dossier-hit5").data(sorted5).enter()
                         .append("circle").attr("class", "dossier-hit dossier-hit5")
@@ -2069,9 +2129,17 @@
                         });
                         hit5.style("pointer-events", "all");
                         const last = (sorted5.length - 1) * stepDelay5;
-                        piLine5.transition().delay(last).duration(fadeDuration5).style("opacity", 1);
-                        diamond5.transition().delay(last).duration(fadeDuration5).style("opacity", 1)
-                            .on("end", () => hetG5.transition().duration(600).style("opacity", 1));
+                        animateMetaPI(piLine5, last, x5(piCtCpSupport.low), x5(piCtCpSupport.high), x5(metaCtCpSupport.mean));
+                        animateMetaDiamond(
+                            diamond5,
+                            last,
+                            x5(metaCtCpSupport.low),
+                            x5(metaCtCpSupport.mean),
+                            x5(metaCtCpSupport.high),
+                            yMeta5,
+                            dH5
+                        );
+                        hetG5.transition().delay(last).duration(600).style("opacity", 1);
                     });
 
                     // tooltips
@@ -2153,31 +2221,36 @@
                     fullW6 = 600,
                     halfW6 = fullW6 - margin6.left - margin6.right,
                     rowH6 = 17,
-                    stepDelay6 = 38,
-                    fadeDuration6 = 180,
-                    capHalf6 = 3.5;
+                    stepDelay6 = teamRevealDelay,
+                    fadeDuration6 = 180;
 
                 function pulseDot6(sel, delay, r, opacity) {
-                    sel.attr("r", 0).style("opacity", 0)
-                        .transition().delay(delay).duration(fadeDuration6 * 0.6)
-                        .ease(d3.easeBackOut).attr("r", r * 1.4).style("opacity", opacity)
-                        .transition().duration(fadeDuration6 * 0.4).attr("r", r);
+                    const targetCx = +sel.attr("cx");
+                    const originCx = +sel.attr("data-origin-cx");
+                    sel.attr("cx", Number.isFinite(originCx) ? originCx : targetCx)
+                        .attr("r", r * 0.72)
+                        .attr("stroke", "rgba(255, 255, 255, 0.92)")
+                        .attr("stroke-width", 1.1)
+                        .attr("stroke-opacity", 1)
+                        .style("opacity", 0)
+                        .transition().delay(delay).duration(dotTravelDuration)
+                        .ease(d3.easeCubicOut)
+                        .attr("cx", targetCx)
+                        .attr("r", r)
+                        .style("opacity", opacity);
                 }
 
                 function growCI6(g, delay, xL, xH) {
+                    const xMid = +g.select(".ci-line").attr("x1");
                     g.style("opacity", 0)
-                        .transition().delay(delay).duration(fadeDuration6)
+                        .transition().delay(delay).duration(ciGrowDuration)
+                        .ease(d3.easeCubicOut)
                         .style("opacity", 1);
                     g.select(".ci-line")
-                        .attr("x1", (xL + xH) / 2).attr("x2", (xL + xH) / 2)
-                        .transition().delay(delay).duration(fadeDuration6)
+                        .attr("x1", xMid).attr("x2", xMid)
+                        .transition().delay(delay).duration(ciGrowDuration)
+                        .ease(d3.easeCubicOut)
                         .attr("x1", xL).attr("x2", xH);
-                    ["low", "high"].forEach(w => {
-                        g.select(`.ci-cap.${w}`)
-                            .attr("y1", 0).attr("y2", 0)
-                            .transition().delay(delay).duration(fadeDuration6)
-                            .attr("y1", -capHalf6).attr("y2", capHalf6);
-                    });
                 }
 
                 d3.csv("data.csv", d3.autoType).then(data => {
@@ -2196,7 +2269,7 @@
                     // scales
                     const x6 = d3.scaleLinear()
                         .domain(sharedXDomain)
-                        .range([0, halfW3]);
+                        .range([0, halfW6]);
                     const y6 = d3.scaleBand()
                         .domain(order6).range([0, innerH6]).padding(0.05);
 
@@ -2247,10 +2320,7 @@
                         .attr("stroke", "#25313a").attr("stroke-width", 4).attr("stroke-opacity", 0.16)
                         .style("opacity", 0);
                     const diamond6 = svg6.append("path").attr("class", "meta-diamond6")
-                        .attr("d", `M${x6(metaSpctCpSupport.low)},${yMeta6}
-                   L${x6(metaSpctCpSupport.mean)},${yMeta6 - dH6}
-                   L${x6(metaSpctCpSupport.high)},${yMeta6}
-                   L${x6(metaSpctCpSupport.mean)},${yMeta6 + dH6}Z`)
+                        .attr("d", metaDiamondPath(x6(metaSpctCpSupport.low), x6(metaSpctCpSupport.mean), x6(metaSpctCpSupport.high), yMeta6, dH6))
                         .attr("fill", "#101820").style("opacity", 0);
 
                     // error & dots
@@ -2261,16 +2331,11 @@
                     err6.append("line").attr("class", "ci-line")
                         .attr("x1", d => x6(d.spct_cp_support_mean)).attr("x2", d => x6(d.spct_cp_support_mean))
                         .attr("y1", 0).attr("y2", 0).attr("stroke", "#101820");
-                    ["low", "high"].forEach(w => {
-                        err6.append("line").attr("class", `ci-cap ${w}`)
-                            .attr("x1", d => x6(d[`spct_cp_support_${w}`]))
-                            .attr("x2", d => x6(d[`spct_cp_support_${w}`]))
-                            .attr("y1", 0).attr("y2", 0).attr("stroke", "#101820");
-                    });
                     const dots6 = svg6.selectAll("circle.dot6").data(sorted6).enter()
                         .append("circle").attr("class", "dot6")
                         .attr("cx", d => x6(d.spct_cp_support_mean))
                         .attr("cy", d => y6(d.id) + y6.bandwidth() / 2)
+                        .attr("data-origin-cx", x6(0))
                         .attr("r", 0).style("opacity", 0);
                     const hit6 = svg6.selectAll("circle.dossier-hit6").data(sorted6).enter()
                         .append("circle").attr("class", "dossier-hit dossier-hit6")
@@ -2303,9 +2368,17 @@
                         });
                         hit6.style("pointer-events", "all");
                         const last = (sorted6.length - 1) * stepDelay6;
-                        piLine6.transition().delay(last).duration(fadeDuration6).style("opacity", 1);
-                        diamond6.transition().delay(last).duration(fadeDuration6).style("opacity", 1)
-                            .on("end", () => hetG6.transition().duration(600).style("opacity", 1));
+                        animateMetaPI(piLine6, last, x6(piSpctCpSupport.low), x6(piSpctCpSupport.high), x6(metaSpctCpSupport.mean));
+                        animateMetaDiamond(
+                            diamond6,
+                            last,
+                            x6(metaSpctCpSupport.low),
+                            x6(metaSpctCpSupport.mean),
+                            x6(metaSpctCpSupport.high),
+                            yMeta6,
+                            dH6
+                        );
+                        hetG6.transition().delay(last).duration(600).style("opacity", 1);
                     });
 
                     // tooltips
@@ -2380,18 +2453,34 @@
         <section>
             <h3>Why many designs?</h3>
             <p>
-                A single intervention can tell us whether one idea worked in one setting. A many-designs project asks
-                a broader question: what happens when many research teams independently design interventions for the
-                same policy problem? This makes design heterogeneity visible instead of hiding it behind one average.
+                A single randomized study is essentially one draw from a noisy distribution and only tells us whether an
+                intervention works in one specific setting. Its scope is therefore limited, and with typical sample
+                sizes it often has limited statistical power. A many-designs approach asks a broader question: what
+                happens when many independent research teams design different interventions for the same policy problem,
+                all evaluated under a shared framework (common outcomes, comparable measures, and a unified analysis
+                plan)? This leverages the wisdom of an expert crowd and offers several advantages. First, it increases
+                effective sample size and thus statistical power at the aggregate level. Second, it makes design
+                heterogeneity visible: instead of a single estimate, it yields a distribution of effects and shows how
+                sensitive results are to design choices. Third, it enables immediate evidence aggregation using
+                established methods (e.g., random-effects meta-analysis), rather than requiring years of accumulated
+                studies. Fourth, it reduces the risk that conclusions hinge on a single, potentially idiosyncratic
+                design, improving robustness and external validity. Finally, because all designs are preregistered,
+                analyzed in a coordinated way, and reported regardless of results, transparency is higher and
+                publication bias is reduced.
             </p>
         </section>
         <section>
-            <h3>How designs entered the study</h3>
+            <h3>How designs entered the study and were implemented</h3>
             <p>
-                Research teams applied to participate, were selected from the applicant pool, and submitted
-                pre-registered design proposals. Each study needed a treatment and a control condition, and each team
-                proposed a real-world or consequential measure of support for carbon pricing. Teams also predicted
-                their own effect sizes, while peers evaluated other teams' designs.
+                Research teams applied to participate and were randomly selected from a large international applicant
+                pool. Selected teams then submitted pre-registered design proposals following a common protocol. Each
+                study was required to include both a treatment and a control condition, and to implement a
+                consequential, real-world measure of support for carbon pricing (e.g., donations, petitions, or
+                political engagement). In addition to designing and programming their own experiments, teams also
+                provided ex-ante predictions of their expected effect sizes. To further capture expert judgment, teams
+                were randomly assigned to evaluate a subset of other designs, generating independent peer assessments
+                alongside self-assessments. All studies were then implemented simultaneously on a shared participant
+                pool under a unified analysis framework, ensuring comparability across designs.
             </p>
         </section>
         <section>
@@ -2416,7 +2505,9 @@
     <aside id="study-detail" class="study-detail" aria-hidden="true" aria-labelledby="study-detail-title">
         <div class="study-detail-topbar">
             <div class="study-detail-kicker">Research team dossier</div>
-            <button id="study-detail-close" class="study-detail-close" type="button" aria-label="Close study details">Close</button>
+            <button id="study-detail-close" class="study-detail-close" type="button" aria-label="Close study details">
+                Close
+            </button>
         </div>
         <div class="study-detail-head">
             <h2 id="study-detail-title">Select a team</h2>
@@ -2426,7 +2517,8 @@
             <a id="study-proposal-link" class="study-proposal-link" href="#" download target="_blank" rel="noopener">
                 <span class="study-proposal-icon" aria-hidden="true">
                     <svg viewBox="0 0 18 18" focusable="false">
-                        <path d="M9 3v8.1m0 0 3.4-3.4M9 11.1 5.6 7.7M4 14.5h10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 3v8.1m0 0 3.4-3.4M9 11.1 5.6 7.7M4 14.5h10" fill="none" stroke="currentColor"
+                              stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </span>
                 <span>
@@ -2447,21 +2539,28 @@
                 <p id="study-detail-outcome"></p>
             </section>
         </div>
-        <div class="study-detail-footnote">Source: RT design overview table in the paper. Click another plotted team to switch dossier.</div>
+        <div class="study-detail-footnote">Source: RT design overview table in the paper. Click another plotted team to
+            switch dossier.
+        </div>
     </aside>
     <div id="guide-detail-backdrop" class="guide-detail-backdrop" aria-hidden="true"></div>
     <aside id="guide-detail" class="guide-detail" aria-hidden="true" aria-labelledby="guide-detail-title">
         <div class="guide-detail-topbar">
             <div id="guide-detail-kicker" class="guide-detail-kicker">Reading guide</div>
-            <button id="guide-detail-close" class="guide-detail-close" type="button" aria-label="Close reading guide">Close</button>
+            <button id="guide-detail-close" class="guide-detail-close" type="button" aria-label="Close reading guide">
+                Close
+            </button>
         </div>
         <h2 id="guide-detail-title">How to read this figure</h2>
         <p id="guide-detail-text"></p>
         <blockquote id="guide-detail-question"></blockquote>
         <p id="guide-detail-note" class="guide-detail-note"></p>
         <div class="guide-detail-menu" aria-label="Reading guide shortcuts">
-            <button class="guide-open guide-only-general-support" type="button" data-explain="general-observed">Observed</button>
-            <button class="guide-open guide-only-general-support" type="button" data-explain="general-stated">Stated</button>
+            <button class="guide-open guide-only-general-support" type="button" data-explain="general-observed">
+                Observed
+            </button>
+            <button class="guide-open guide-only-general-support" type="button" data-explain="general-stated">Stated
+            </button>
         </div>
     </aside>
     <div id="explain-popover" class="explain-popover" aria-hidden="true">
