@@ -2,41 +2,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>#ManyDesignsCarbon – Main Results</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=award-polish-3">
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/study-designs.js?v=1"></script>
 </head>
 <body>
 <div class="container my-4">
-    <h1 class="text-center"></h1>
+    <h1 class="text-center">#ManyDesignsCarbon Main Results</h1>
+    <p class="page-subtitle">Interactive forest plots of experimental design effects</p>
+    <div class="results-summary" aria-label="Main results summary">
+        <div class="summary-card">
+            <span class="summary-label explain-trigger" data-explain="general-observed" tabindex="0">General support (observed)</span>
+            <strong class="explain-trigger" data-explain="cohen-d" tabindex="0">d = +0.06</strong>
+            <span class="summary-points explain-trigger" data-explain="percentage-points" tabindex="0">+2.3 pp</span>
+            <span class="summary-meta explain-trigger" data-explain="ci" tabindex="0">95% CI 0.02 to 0.10</span>
+            <span class="summary-meta explain-trigger" data-explain="pi" tabindex="0">95% PI -0.19 to 0.31</span>
+        </div>
+        <div class="summary-card">
+            <span class="summary-label explain-trigger" data-explain="general-stated" tabindex="0">General support (stated)</span>
+            <strong class="explain-trigger" data-explain="cohen-d" tabindex="0">d = +0.08</strong>
+            <span class="summary-points explain-trigger" data-explain="support-share" tabindex="0">+2 pp support</span>
+            <span class="summary-meta explain-trigger" data-explain="ci" tabindex="0">95% CI 0.04 to 0.12</span>
+            <span class="summary-meta explain-trigger" data-explain="pi" tabindex="0">95% PI -0.13 to 0.29</span>
+        </div>
+        <div class="summary-card">
+            <span class="summary-label explain-trigger" data-explain="general-price-increase" tabindex="0">General price increase</span>
+            <strong class="explain-trigger" data-explain="cohen-d" tabindex="0">d = +0.06</strong>
+            <span class="summary-points explain-trigger" data-explain="percentage-points" tabindex="0">+2.0 pp</span>
+            <span class="summary-meta explain-trigger" data-explain="ci" tabindex="0">95% CI 0.02 to 0.10</span>
+            <span class="summary-meta explain-trigger" data-explain="pi" tabindex="0">95% PI -0.14 to 0.27</span>
+        </div>
+        <div class="summary-card">
+            <span class="summary-label explain-trigger" data-explain="social-price" tabindex="0">Social price</span>
+            <strong class="explain-trigger" data-explain="cohen-d" tabindex="0">d = +0.07</strong>
+            <span class="summary-points explain-trigger" data-explain="support-share" tabindex="0">+2 pp support</span>
+            <span class="summary-meta explain-trigger" data-explain="ci" tabindex="0">95% CI 0.03 to 0.10</span>
+            <span class="summary-meta explain-trigger" data-explain="pi" tabindex="0">95% PI -0.12 to 0.25</span>
+        </div>
+        <div class="summary-card">
+            <span class="summary-label explain-trigger" data-explain="tax-rebates" tabindex="0">Tax with rebates</span>
+            <strong class="explain-trigger" data-explain="cohen-d" tabindex="0">d = +0.06</strong>
+            <span class="summary-points explain-trigger" data-explain="support-share" tabindex="0">+1 pp support</span>
+            <span class="summary-meta explain-trigger" data-explain="ci" tabindex="0">95% CI 0.02 to 0.10</span>
+            <span class="summary-meta explain-trigger" data-explain="pi" tabindex="0">95% PI -0.12 to 0.24</span>
+        </div>
+        <div class="summary-card">
+            <span class="summary-label explain-trigger" data-explain="social-price-rebates" tabindex="0">Social price with rebates</span>
+            <strong class="explain-trigger" data-explain="cohen-d" tabindex="0">d = +0.04</strong>
+            <span class="summary-points explain-trigger" data-explain="support-share" tabindex="0">+1 pp support</span>
+            <span class="summary-meta explain-trigger" data-explain="ci" tabindex="0">95% CI 0.00 to 0.07</span>
+            <span class="summary-meta explain-trigger" data-explain="pi" tabindex="0">95% PI -0.14 to 0.22</span>
+        </div>
+    </div>
+    <div class="reading-guide">
+        <span>New here?</span>
+        <button class="guide-open" type="button" data-explain="overview">How to read this figure</button>
+        <button class="guide-open" type="button" data-explain="cohen-d">What is Cohen's d?</button>
+        <button class="guide-open" type="button" data-explain="active-outcome">What was measured?</button>
+    </div>
     <br>
 
     <!-- ─── Nav tabs ─── -->
     <ul class="nav nav-tabs" id="dvTabs" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="dual-tab" data-bs-toggle="tab" data-bs-target="#dual" type="button"
-                    role="tab">Observed &amp; Stated
+                    role="tab">General support
             </button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="dv3-tab" data-bs-toggle="tab" data-bs-target="#dv3" type="button" role="tab">
-                Raise
+                General price increase
             </button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="dv4-tab" data-bs-toggle="tab" data-bs-target="#dv4" type="button" role="tab">
-                Social Carbon Price
+                Social price
             </button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="dv5-tab" data-bs-toggle="tab" data-bs-target="#dv5" type="button" role="tab">
-                Carbon Price + Dividend
+                Tax with rebates
             </button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="dv6-tab" data-bs-toggle="tab" data-bs-target="#dv6" type="button" role="tab">
-                Social Carbon Price + Dividends
+                Social price with rebates
             </button>
         </li>
     </ul>
@@ -46,37 +99,27 @@
         <div class="tab-pane fade show active" id="dual" role="tabpanel">
             <div class="chart-flex-row">
                 <div class="legend">
-                    <div class="legend-item"><span class="legend-marker self"></span>Self-assessed effect</div>
-                    <div class="legend-item"><span class="legend-marker peer"></span>Peer-assessed effect</div>
-                    <div class="legend-item"><span class="legend-marker obs"></span>Measured effect</div>
+                    <div class="legend-item explain-trigger" data-explain="self" tabindex="0"><span class="legend-marker self"></span>Self-assessed effect</div>
+                    <div class="legend-item explain-trigger" data-explain="peer" tabindex="0"><span class="legend-marker peer"></span>Peer-assessed effect</div>
+                    <div class="legend-item explain-trigger" data-explain="estimated-effect" tabindex="0"><span class="legend-marker obs"></span>Estimated RT effect</div>
                     <div class="legend-item">
                         <svg width="12" height="12">
                             <polygon points="6,0 12,6 6,12 0,6" fill="black"/>
                         </svg>
-                        Meta Effect (meta CI)
+                        <span class="explain-trigger" data-explain="meta-effect" tabindex="0">Meta-effect (95% CI)</span>
                     </div>
                     <div class="legend-item">
                         <svg width="30" height="4">
                             <line x1="0" y1="2" x2="30" y2="2" stroke="black" stroke-width="6" stroke-opacity="0.25"/>
                         </svg>
-                        95% PI
+                        <span class="explain-trigger" data-explain="pi" tabindex="0">95% PI</span>
+                    </div>
+                    <div class="connector-legend" aria-label="Connector significance legend">
+                        <span class="explain-trigger" data-explain="connectors" tabindex="0"><i class="connector-swatch connector-swatch-strong"></i>both outcomes p &lt; .05</span>
+                        <span class="explain-trigger" data-explain="connectors" tabindex="0"><i class="connector-swatch connector-swatch-medium"></i>one outcome p &lt; .05</span>
+                        <span class="explain-trigger" data-explain="connectors" tabindex="0"><i class="connector-swatch connector-swatch-muted"></i>neither p &lt; .05</span>
                     </div>
 
-                    <div id="category-legend" style="margin-top:16px; display:none;">
-                        <div class="legend-item">
-                            <span class="legend-marker" style="background:#FF8000;"></span>Use of AI
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-marker" style="background:#005BBB;"></span>Information Treatment
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-marker" style="background:#E02A2A;"></span>Strategic Group Interactions
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-marker" style="background:#AECB00;"></span>Behavioral Biases/Reflective
-                            Thinking
-                        </div>
-                    </div>
                 </div>
                 <div class="chart-holder">
                     <div id="chart"></div>
@@ -88,10 +131,27 @@
                         <button id="btn-peer">Peer-assessed</button>
                         <button id="btn-obs">Observed</button>
                         <button id="btn-std">Stated</button>
-                        <button id="btn-connectors" disabled>Connectors</button>
-                        <button id="btn-categories" disabled>Reveal Categories</button>
-                        <button id="btn-toggle-selfpeer">Hide Self & Peer</button>
+                        <button id="btn-connectors" aria-pressed="false" disabled>Connectors</button>
+                        <button id="btn-categories" aria-pressed="false" disabled>Reveal Categories</button>
+                        <button id="btn-toggle-selfpeer" aria-pressed="false">Hide Self & Peer</button>
                     </div>
+                </div>
+                <div id="category-legend" style="margin-top:16px; display:none;">
+                    <button class="category-chip active" data-category="All" type="button">
+                        <span class="legend-marker all"></span>All categories
+                    </button>
+                    <button class="category-chip" data-category="Use of AI" type="button">
+                        <span class="legend-marker" style="background:#c8752a;"></span>Use of AI
+                    </button>
+                    <button class="category-chip" data-category="Information Treatment" type="button">
+                        <span class="legend-marker" style="background:#2f6fb3;"></span>Information Treatment
+                    </button>
+                    <button class="category-chip" data-category="Strategic Group Interactions" type="button">
+                        <span class="legend-marker" style="background:#c94f52;"></span>Strategic Group Interactions
+                    </button>
+                    <button class="category-chip" data-category="Behavioral Biases/Reflective Thinking" type="button">
+                        <span class="legend-marker" style="background:#9ab83f;"></span>Behavioral Biases/Reflective Thinking
+                    </button>
                 </div>
             </div>
 
@@ -103,18 +163,18 @@
                 const hetObs = {tau: 0.12, tauCI: [0.09, 0.17], I2: 57.73, Q: 127.74, pQ: 0.005};
                 const hetStd = {tau: 0.11, tauCI: [0.07, 0.15], I2: 49.30, Q: 106.51, pQ: 0.005};
 
-                const margin = {top: 50, right: 240, bottom: 60, left: 100},
-                    fullW = 1100, gap = 50,
+                const margin = {top: 32, right: 74, bottom: 76, left: 74},
+                    fullW = 760, gap = 38,
                     halfW = (fullW - margin.left - margin.right - gap) / 2,
-                    rowH = 15, stepDelay = 200, fadeDuration = 100, barH = 30;
+                    rowH = 17, stepDelay = 38, fadeDuration = 180, barH = 52;
 
                 const categories = ["Use of AI", "Information Treatment", "Strategic Group Interactions", "Behavioral Biases/Reflective Thinking"];
 
                 const categoryColors = [
-                    "#FF8000",
-                    "#005BBB",
-                    "#E02A2A",
-                    "#AECB00"
+                    "#c8752a",
+                    "#2f6fb3",
+                    "#c94f52",
+                    "#9ab83f"
                 ];
                 const colorScale = d3.scaleOrdinal().domain(categories).range(categoryColors);
                 let sharedXDomain;
@@ -122,6 +182,321 @@
                 let shownSelf = false, shownPeer = false, shownObs = false, shownStd = false;
                 let obsDone = false, stdDone = false;
                 let obsLabelsRevealed = false, stdLabelsRevealed = false;
+                window.studyDesignCategories = window.studyDesignCategories || {};
+
+                function openStudyDossier(id, category) {
+                    const entry = window.studyDesigns?.[id];
+                    if (!entry) return;
+                    d3.select("#study-detail-title").text(id);
+                    d3.select("#study-detail-category").text(category || window.studyDesignCategories[id] || "Experimental design");
+                    d3.select("#study-detail-control").text(entry.control);
+                    d3.select("#study-detail-treatment").text(entry.treatment);
+                    d3.select("#study-detail-outcome").text(entry.outcome);
+                    const proposalHref = `Design%20Proposals/${encodeURIComponent(id)}.pdf`;
+                    d3.select("#study-proposal-link")
+                        .attr("href", proposalHref)
+                        .attr("download", `${id}_Full_Proposal.pdf`)
+                        .attr("aria-label", `Download full proposal for ${id}`);
+                    d3.select("#study-proposal-label").text(`${id} full proposal`);
+                    d3.select("#study-detail").classed("is-open", true).attr("aria-hidden", "false");
+                    d3.select("#study-detail-backdrop").classed("is-open", true).attr("aria-hidden", "false");
+                    d3.selectAll(".study-label-selected").classed("study-label-selected", false);
+                    d3.selectAll(".tick text").classed("study-label-selected", d => d === id);
+                }
+
+                function closeStudyDossier() {
+                    d3.select("#study-detail").classed("is-open", false).attr("aria-hidden", "true");
+                    d3.select("#study-detail-backdrop").classed("is-open", false).attr("aria-hidden", "true");
+                    d3.selectAll(".study-label-selected").classed("study-label-selected", false);
+                }
+
+                const explainCards = {
+                    overview: {
+                        kicker: "Reading guide",
+                        title: "How to read this figure",
+                        text: "Read the figure as a staged reveal. First click Self-assessed to see how teams expected their own interventions to perform, then Peer-assessed to compare those expectations with predictions from other teams. Next click Observed to reveal the consequential outcome estimates from the actual experiment.",
+                        question: "After the observed effects appear, use Hide Self & Peer to remove the prediction layer and focus on the data. Then click Stated to compare the common survey outcome, turn on Connectors to link each team across observed and stated support, and finally Reveal Categories to see whether design families cluster in meaningful ways.",
+                        note: "Values to the right of zero indicate increased support relative to the control condition. The diamond summarizes the pooled average; horizontal lines show uncertainty. Team labels and plotted points open the research-team dossier, including the full proposal PDF."
+                    },
+                    outcomes: {
+                        kicker: "Primary outcomes",
+                        title: "What was measured?",
+                        text: "The page shows the six primary outcomes from the manuscript: one real-world support measure chosen by each research team and five stated support measures from a common policy survey.",
+                        note: "Observed = behavior or consequential choice in the individual study. Stated = survey response measured after the intervention."
+                    },
+                    "general-support-tab": {
+                        kicker: "Outcome",
+                        title: "General support",
+                        text: "This tab compares two versions of general carbon-pricing support: the consequential real-world outcome chosen by each research team and the common survey measure asked in every study.",
+                        question: "Left panel: team-specific real-world support measure. Right panel: “Do you support or oppose a carbon tax in general?”"
+                    },
+                    "general-observed": {
+                        kicker: "Outcome",
+                        title: "General support (observed)",
+                        text: "The real-world policy support outcome proposed by each research team. These measures had consequences, such as donations, petitions, letters, or choices linked to carbon pricing support.",
+                        question: "Measurement: team-specific consequential outcomes. The pooled raw treatment-control difference is +2.3 percentage points [1.2; 3.4]. Open a team dossier to see the exact outcome variable for that design."
+                    },
+                    "general-stated": {
+                        kicker: "Outcome",
+                        title: "General support (stated)",
+                        text: "A common survey measure asked in every study after the intervention.",
+                        question: "Survey item: “Do you support or oppose a carbon tax in general?” Measurement: 5-point Likert scale from strongly oppose to strongly support. Overall supportive responses increased from 50% in control to 52% in intervention."
+                    },
+                    "general-price-increase": {
+                        kicker: "Outcome",
+                        title: "General price increase",
+                        text: "A stated support measure for raising carbon taxes on fossil fuels.",
+                        question: "Survey item: “I support raising carbon taxes on gas/fossil fuels/coal?” Measurement: 0-100 slider from 0 (not at all) to 100 (very much). The pooled raw treatment-control difference is +2.0 percentage points [1.1; 2.9]."
+                    },
+                    "social-price": {
+                        kicker: "Outcome",
+                        title: "Social price",
+                        text: "Support for a carbon tax equal to the social cost of carbon used in the manuscript: $120 per tonne of CO2, roughly $1.00 per gallon of gasoline.",
+                        question: "Survey item: “Do you support or oppose a carbon tax of $120 per tonne of CO2, meaning about $1.00 per gallon of gasoline?” Measurement: 5-point Likert scale from strongly oppose to strongly support. Supportive responses increased from 38% to 40%."
+                    },
+                    "tax-rebates": {
+                        kicker: "Outcome",
+                        title: "Tax with rebates",
+                        text: "Support for a general carbon tax where revenues are returned to households as cash transfers.",
+                        question: "Survey item: “Do you support or oppose a carbon tax with cash transfers in general?” Measurement: 5-point Likert scale from strongly oppose to strongly support. Supportive responses increased from 53% to 54%."
+                    },
+                    "social-price-rebates": {
+                        kicker: "Outcome",
+                        title: "Social price with rebates",
+                        text: "Support for the $120 per tonne carbon tax when revenues are returned to households.",
+                        question: "Survey item: “Do you support or oppose a carbon tax of $120 per tonne of CO2 with cash transfers, whereby each adult would receive about $1500 per year?” Measurement: 5-point Likert scale from strongly oppose to strongly support. Supportive responses increased from 61% to 62%."
+                    },
+                    "cohen-d": {
+                        kicker: "Effect size",
+                        title: "Cohen's d",
+                        text: "Cohen's d expresses the treatment-control difference in standardized units, so outcomes measured in dollars, petitions, or survey points can be compared on the same scale.",
+                        question: "Conventional reference values from Cohen (1988): d = 0.2 is a small effect, d = 0.5 is a medium effect, and d = 0.8 is a large effect.",
+                        note: "Citation: Cohen, J. (1988). Statistical Power Analysis for the Behavioral Sciences. Here, d values around 0.04 to 0.08 are much smaller than Cohen's conventional small-effect benchmark, but statistically detectable because the pooled sample is large."
+                    },
+                    ci: {
+                        kicker: "Uncertainty",
+                        title: "95% confidence interval",
+                        text: "The interval around an estimate. Narrower intervals mean more precision. If the interval is fully above zero, the estimate is positive at the displayed confidence level.",
+                        note: "For individual studies, the lines show uncertainty around each team's treatment effect."
+                    },
+                    pi: {
+                        kicker: "Prediction",
+                        title: "95% prediction interval",
+                        text: "The range where a future study from the same design space would plausibly fall. It is wider than the confidence interval because it includes between-study heterogeneity.",
+                        note: "If the PI crosses zero, future interventions could plausibly produce null or negative effects even when the average meta-effect is positive."
+                    },
+                    "prediction-distribution": {
+                        kicker: "Prediction",
+                        title: "Predictive distribution",
+                        text: "The distribution of plausible true effects for new studies from this design space. It combines uncertainty in the average effect with heterogeneity across research designs."
+                    },
+                    "meta-effect": {
+                        kicker: "Meta-analysis",
+                        title: "Meta-effect",
+                        text: "The pooled average treatment effect across all research team designs, estimated with a random-effects meta-analysis."
+                    },
+                    tau: {
+                        kicker: "Heterogeneity",
+                        title: "Tau (τ)",
+                        text: "Tau is the estimated standard deviation of true effects across studies. Larger τ means the intervention effects differ more strongly from one research design to another."
+                    },
+                    i2: {
+                        kicker: "Heterogeneity",
+                        title: "I²",
+                        text: "I² is the share of total observed variation that is attributed to true between-study differences rather than sampling noise."
+                    },
+                    q: {
+                        kicker: "Heterogeneity",
+                        title: "Cochran's Q",
+                        text: "Q tests whether study effects vary more than expected by chance. A small p-value suggests real heterogeneity across research designs."
+                    },
+                    pvalue: {
+                        kicker: "Significance",
+                        title: "p-value",
+                        text: "The p-value measures how surprising the estimate would be if the true effect were zero. In this project, p < .005 is treated as statistically significant and p < .05 as suggestive evidence."
+                    },
+                    "percentage-points": {
+                        kicker: "Raw difference",
+                        title: "Percentage-point difference",
+                        text: "This is the treatment-control difference on the original percentage scale. It is easier to read than Cohen's d, but less comparable across outcomes with different measurement scales.",
+                        note: "For the observed outcome and the 0-100 price-increase slider, this is the pooled overall raw difference from the appendix figures."
+                    },
+                    "support-share": {
+                        kicker: "Raw difference",
+                        title: "Supportive-response difference",
+                        text: "For Likert outcomes, this summarizes the change in the share of participants choosing one of the two supportive response categories: somewhat support or strongly support.",
+                        note: "It complements Cohen's d, which uses the full distribution across all five response categories."
+                    },
+                    self: {
+                        kicker: "Expectation",
+                        title: "Self-assessed effect",
+                        text: "Before seeing the data, each research team predicted the expected effect size of its own intervention in Cohen's d units."
+                    },
+                    peer: {
+                        kicker: "Expectation",
+                        title: "Peer-assessed effect",
+                        text: "Other research teams reviewed the design and predicted its effect size. These peer estimates summarize community expectations before the experiment was run."
+                    },
+                    "estimated-effect": {
+                        kicker: "Observed data",
+                        title: "Estimated RT effect",
+                        text: "The treatment-control effect estimated from the actual participants assigned to that research team design."
+                    },
+                    connectors: {
+                        kicker: "Linking outcomes",
+                        title: "Connector lines",
+                        text: "The grey line connects the same team across observed and stated general support. Darker lines mark teams with stronger evidence of positive effects across one or both outcomes."
+                    },
+                    categories: {
+                        kicker: "Design families",
+                        title: "Intervention categories",
+                        text: "Research team designs were grouped into broad families such as information treatments, AI-based interventions, strategic group interactions, and behavioral-bias or reflective-thinking approaches."
+                    }
+                };
+
+                function attachDossierOpen(sel, idAccessor = d => d.id, categoryAccessor = d => d.category) {
+                    sel.style("cursor", "pointer")
+                        .attr("tabindex", 0)
+                        .attr("role", "button")
+                        .attr("aria-label", d => `Open ${idAccessor(d)} design dossier`)
+                        .on("click.dossier", (event, d) => {
+                            event.stopPropagation();
+                            openStudyDossier(idAccessor(d), categoryAccessor(d));
+                        })
+                        .on("keydown.dossier", (event, d) => {
+                            if (event.key === "Enter" || event.key === " ") {
+                                event.preventDefault();
+                                openStudyDossier(idAccessor(d), categoryAccessor(d));
+                            }
+                        });
+                }
+
+                function bindStudyDossierControls() {
+                    d3.select("#study-detail-close").on("click", closeStudyDossier);
+                    d3.select("#study-detail-backdrop").on("click", closeStudyDossier);
+                }
+
+                function explainCard(key) {
+                    return explainCards[key] || explainCards.overview;
+                }
+
+                function activeOutcomeKey() {
+                    const activeTab = document.querySelector("#dvTabs .nav-link.active");
+                    const target = activeTab?.dataset.bsTarget;
+                    return {
+                        "#dual": "general-support-tab",
+                        "#dv3": "general-price-increase",
+                        "#dv4": "social-price",
+                        "#dv5": "tax-rebates",
+                        "#dv6": "social-price-rebates"
+                    }[target] || "outcomes";
+                }
+
+                function updateGuideMenu(key) {
+                    const isGeneralSupport = document.querySelector("#dvTabs .nav-link.active")?.dataset.bsTarget === "#dual";
+                    const showOutcomeShortcuts = isGeneralSupport && key === "general-support-tab";
+                    d3.selectAll(".guide-only-general-support")
+                        .style("display", showOutcomeShortcuts ? null : "none");
+                    d3.select(".guide-detail-menu")
+                        .style("display", showOutcomeShortcuts ? null : "none");
+                }
+
+                function openGuide(key = "overview") {
+                    if (key === "active-outcome") key = activeOutcomeKey();
+                    const card = explainCard(key);
+                    updateGuideMenu(key);
+                    d3.select("#guide-detail-kicker").text(card.kicker);
+                    d3.select("#guide-detail-title").text(card.title);
+                    d3.select("#guide-detail-text").text(card.text);
+                    d3.select("#guide-detail-question")
+                        .style("display", card.question ? null : "none")
+                        .text(card.question || "");
+                    d3.select("#guide-detail-note")
+                        .style("display", card.note ? null : "none")
+                        .text(card.note || "");
+                    d3.select("#guide-detail").classed("is-open", true).attr("aria-hidden", "false");
+                    d3.select("#guide-detail-backdrop").classed("is-open", true).attr("aria-hidden", "false");
+                }
+
+                function closeGuide() {
+                    d3.select("#guide-detail").classed("is-open", false).attr("aria-hidden", "true");
+                    d3.select("#guide-detail-backdrop").classed("is-open", false).attr("aria-hidden", "true");
+                    d3.select("#explain-popover").classed("is-visible", false);
+                }
+
+                function moveExplainPopover(event, target = null) {
+                    const pop = d3.select("#explain-popover");
+                    if (pop.empty()) return;
+                    const rect = target?.getBoundingClientRect?.();
+                    const baseX = Number.isFinite(event.clientX) ? event.clientX : (rect ? rect.right : 20);
+                    const baseY = Number.isFinite(event.clientY) ? event.clientY : (rect ? rect.bottom : 20);
+                    const x = Math.min(baseX + 16, window.innerWidth - 408);
+                    const y = Math.min(baseY + 16, window.innerHeight - 140);
+                    pop.style("left", `${Math.max(14, x)}px`).style("top", `${Math.max(14, y)}px`);
+                }
+
+                function showExplainPopover(target, event) {
+                    const key = target.dataset.explain;
+                    const card = explainCard(key);
+                    const pop = d3.select("#explain-popover");
+                    pop.select(".explain-popover-kicker").text(card.kicker);
+                    pop.select(".explain-popover-title").text(card.title);
+                    pop.select(".explain-popover-text").text(card.text);
+                    pop.select(".explain-popover-detail")
+                        .style("display", card.question ? null : "none")
+                        .text(card.question || "");
+                    pop.classed("is-visible", true);
+                    moveExplainPopover(event, target);
+                }
+
+                function bindGuideControls() {
+                    d3.select("#guide-detail-close").on("click", closeGuide);
+                    d3.select("#guide-detail-backdrop").on("click", closeGuide);
+
+                    document.addEventListener("click", event => {
+                        const trigger = event.target.closest(".explain-trigger, .guide-open");
+                        if (!trigger) return;
+                        event.preventDefault();
+                        openGuide(trigger.dataset.explain || "overview");
+                    });
+                    document.addEventListener("mouseover", event => {
+                        const trigger = event.target.closest(".explain-trigger");
+                        if (trigger) showExplainPopover(trigger, event);
+                    });
+                    document.addEventListener("mousemove", event => {
+                        if (event.target.closest(".explain-trigger")) moveExplainPopover(event);
+                    });
+                    document.addEventListener("mouseout", event => {
+                        if (event.target.closest(".explain-trigger")) {
+                            d3.select("#explain-popover").classed("is-visible", false);
+                        }
+                    });
+                    document.addEventListener("focusin", event => {
+                        const trigger = event.target.closest(".explain-trigger");
+                        if (trigger) showExplainPopover(trigger, event);
+                    });
+                    document.addEventListener("focusout", event => {
+                        if (event.target.closest(".explain-trigger")) {
+                            d3.select("#explain-popover").classed("is-visible", false);
+                        }
+                    });
+                }
+
+                if (document.readyState === "loading") {
+                    document.addEventListener("DOMContentLoaded", () => {
+                        bindStudyDossierControls();
+                        bindGuideControls();
+                    }, {once: true});
+                } else {
+                    bindStudyDossierControls();
+                    bindGuideControls();
+                }
+                document.addEventListener("keydown", event => {
+                    if (event.key === "Escape") {
+                        closeStudyDossier();
+                        closeGuide();
+                    }
+                });
 
                 function pulseDot(sel, delay, r, opacity) {
                     sel.attr("r", 0).style("opacity", 0)
@@ -142,7 +517,40 @@
                             .attr("y1", yMid).attr("y2", yMid)
                             .transition("series").delay(delay).duration(fadeDuration)
                             .attr("y1", yMid - capHalf).attr("y2", yMid + capHalf);
-                    });
+                        });
+                }
+
+                function renderHetPill(svgRoot, className, xCenter, yTop, width, stats) {
+                    const g = svgRoot.append("g")
+                        .attr("class", className)
+                        .attr("opacity", 0)
+                        .attr("transform", `translate(${xCenter},${yTop})`);
+                    const w = Math.max(220, width);
+                    g.append("rect")
+                        .attr("x", -w / 2)
+                        .attr("y", 0)
+                        .attr("width", w)
+                        .attr("height", 38)
+                        .attr("rx", 5)
+                        .attr("ry", 5);
+                    const text = g.append("text")
+                        .attr("text-anchor", "middle")
+                        .attr("dominant-baseline", "middle");
+                    text.append("tspan")
+                        .attr("class", "explain-trigger")
+                        .attr("data-explain", "tau")
+                        .attr("tabindex", 0)
+                        .attr("x", 0)
+                        .attr("y", 14)
+                        .text(`τ = ${stats.tau.toFixed(2)} (95% CI ${stats.tauCI[0]}–${stats.tauCI[1]})`);
+                    text.append("tspan")
+                        .attr("class", "explain-trigger")
+                        .attr("data-explain", "i2")
+                        .attr("tabindex", 0)
+                        .attr("x", 0)
+                        .attr("y", 28)
+                        .text(`I² = ${stats.I2}% • Q = ${stats.Q.toFixed(1)} (p < ${stats.pQ.toFixed(3)})`);
+                    return g;
                 }
 
                 function updateButtons() {
@@ -153,6 +561,7 @@
                 }
 
                 d3.csv("data.csv", d3.autoType).then(data => {
+                    data.forEach(d => { window.studyDesignCategories[d.id] = d.category; });
                     const obsOrder = data.slice().sort((a, b) => a.obs_mean - b.obs_mean).map(d => d.id).concat("Meta");
                     const stdOrder = data.slice().sort((a, b) => a.std_mean - b.std_mean).map(d => d.id).concat("Meta");
 
@@ -161,6 +570,8 @@
 
                     const svg = d3.select("#chart").append("svg")
                         .attr("width", fullW).attr("height", fullH)
+                        .attr("role", "img")
+                        .attr("aria-label", "Forest plot of general support effects across research teams")
                         .append("g").attr("transform", `translate(${margin.left},${margin.top})`);
 
                     const leftVals = data.flatMap(d => [d.self_mean, d.peer_low, d.peer_high, d.obs_low, d.obs_high]);
@@ -174,6 +585,8 @@
                     const xStd = d3.scaleLinear().domain(sharedXDomain).range([0, halfW]);
                     const yObs = d3.scaleBand().domain(obsOrder).range([0, innerH]).padding(0.05);
                     const yStd = d3.scaleBand().domain(stdOrder).range([0, innerH]).padding(0.05);
+                    let connectorsShown = false;
+                    let activeCategory = "All";
 
                     // ─── axes & decor ───
                     svg.append("g")
@@ -223,60 +636,76 @@
                         .attr("x1", halfW + gap + xStd(0)).attr("x2", halfW + gap + xStd(0))
                         .attr("y1", 0).attr("y2", innerH);
 
+                    const hoverLayer = svg.append("g").attr("class", "hover-layer");
+                    const obsHover = hoverLayer.append("rect")
+                        .attr("class", "study-highlight obs-hover")
+                        .attr("x", -margin.left + 8)
+                        .attr("width", halfW + margin.left - 12)
+                        .attr("height", yObs.bandwidth())
+                        .style("opacity", 0);
+                    const stdHover = hoverLayer.append("rect")
+                        .attr("class", "study-highlight std-hover")
+                        .attr("x", halfW + gap)
+                        .attr("width", halfW + margin.right - 12)
+                        .attr("height", yStd.bandwidth())
+                        .style("opacity", 0);
                     svg.append("text")
-                        .attr("x", halfW / 2).attr("y", innerH + margin.bottom - 20)
+                        .attr("class", "axis-title explain-trigger")
+                        .attr("data-explain", "general-observed")
+                        .attr("tabindex", 0)
+                        .attr("x", halfW / 2).attr("y", innerH + margin.bottom - 13)
                         .attr("text-anchor", "middle")
-                        .style("font-size", "17px")
-                        .text("Observed Support (Cohen's d)");
+                        .text("General support (observed) - Cohen's d");
 
                     svg.append("text")
-                        .attr("x", halfW + gap + halfW / 2).attr("y", innerH + margin.bottom - 20)
+                        .attr("class", "axis-title explain-trigger")
+                        .attr("data-explain", "general-stated")
+                        .attr("tabindex", 0)
+                        .attr("x", halfW + gap + halfW / 2).attr("y", innerH + margin.bottom - 13)
                         .attr("text-anchor", "middle")
-                        .style("font-size", "17px")
-                        .text("Stated Support (Cohen's d)");
+                        .text("General support (stated) - Cohen's d");
 
                     // heterogeneity bars
                     function hetBar(side, stats) {
                         const xC = side === "obs" ? halfW / 2 : halfW + gap + halfW / 2;
-                        const g = svg.append("g").attr("class", `het-bar-${side}`).attr("opacity", 0)
-                            .attr("transform", `translate(${xC},${innerH + margin.bottom - 4})`);
-                        g.append("rect").attr("x", -halfW / 2).attr("y", 4).attr("width", halfW).attr("height", 20)
-                            .attr("rx", 4).attr("ry", 4).style("fill", "#f5f5f5").attr("stroke", "#ccc");
-                        g.append("text").attr("y", 18).attr("text-anchor", "middle").style("font-size", "12px")
-                            .html(`τ = ${stats.tau.toFixed(2)} (95% CI ${stats.tauCI[0]}–${stats.tauCI[1]}) • I² = ${stats.I2}% • Q = ${stats.Q.toFixed(1)} (p < ${stats.pQ.toFixed(3)})`);
+                        return renderHetPill(svg, `het-bar-${side}`, xC, innerH + margin.bottom + 4, halfW, stats);
                     }
 
                     hetBar("obs", hetObs);
                     hetBar("std", hetStd);
 
                     // draw black-first dots, CIs, connectors
-                    const peerOffset = yObs.bandwidth() * 0.25, capHalf = 5, dH = yObs.bandwidth() * 0.25;
+                    const peerOffset = yObs.bandwidth() * 0.25, capHalf = 3.5, dH = yObs.bandwidth() * 0.25;
 
                     const selfDots = svg.selectAll(".dot.self").data(data).enter()
-                        .append("circle").attr("class", "dot self")
+                        .append("circle").attr("class", "dot self study-mark")
+                        .attr("data-id", d => d.id)
                         .attr("cx", d => xObs(d.self_mean))
                         .attr("cy", d => yObs(d.id) + yObs.bandwidth() / 2)
-                        .attr("r", 0).style("opacity", 0).style("fill", "#009E73");
+                        .attr("r", 0).style("opacity", 0).style("fill", "#2e806e");
 
                     const peerErr = svg.selectAll("g.error.peer").data(data).enter()
-                        .append("g").attr("class", "error peer").style("opacity", 0);
+                        .append("g").attr("class", "error peer study-mark")
+                        .attr("data-id", d => d.id)
+                        .style("opacity", 0);
                     peerErr.append("line").attr("class", "ci-line")
                         .attr("x1", d => xObs(d.peer_mean)).attr("x2", d => xObs(d.peer_mean))
                         .attr("y1", d => yObs(d.id) + yObs.bandwidth() / 2 + peerOffset)
                         .attr("y2", d => yObs(d.id) + yObs.bandwidth() / 2 + peerOffset)
-                        .attr("stroke", "#56B4E9");
+                        .attr("stroke", "#6baed6");
                     ["low", "high"].forEach(w => {
                         peerErr.append("line").attr("class", `ci-cap ${w}`)
                             .attr("x1", d => xObs(d[`peer_${w}`])).attr("x2", d => xObs(d[`peer_${w}`]))
                             .attr("y1", d => yObs(d.id) + yObs.bandwidth() / 2 + peerOffset)
                             .attr("y2", d => yObs(d.id) + yObs.bandwidth() / 2 + peerOffset)
-                            .attr("stroke", "#56B4E9");
+                            .attr("stroke", "#6baed6");
                     });
                     const peerDots = svg.selectAll(".dot.peer").data(data).enter()
-                        .append("circle").attr("class", "dot peer")
+                        .append("circle").attr("class", "dot peer study-mark")
+                        .attr("data-id", d => d.id)
                         .attr("cx", d => xObs(d.peer_mean))
                         .attr("cy", d => yObs(d.id) + yObs.bandwidth() / 2 + peerOffset)
-                        .attr("r", 0).style("opacity", 0).style("fill", "#56B4E9");
+                        .attr("r", 0).style("opacity", 0).style("fill", "#6baed6");
 
                     let selfPeerVisible = true;
                     d3.select("#btn-toggle-selfpeer").on("click", function () {
@@ -289,16 +718,21 @@
                         this.textContent = selfPeerVisible
                             ? "Hide Self & Peer"
                             : "Show Self & Peer";
+                        this.classList.toggle("mode-active", !selfPeerVisible);
+                        this.setAttribute("aria-pressed", String(!selfPeerVisible));
+                        applyCategoryFilter(activeCategory);
                     });
 
                     const obsErr = svg.selectAll("g.error.obs").data(data).enter()
-                        .append("g").attr("class", "error obs").style("opacity", 0);
+                        .append("g").attr("class", "error obs study-mark")
+                        .attr("data-id", d => d.id)
+                        .style("opacity", 0);
                     obsErr.append("line").attr("class", "ci-line")
                         .attr("x1", d => xObs(d.obs_mean)).attr("x2", d => xObs(d.obs_mean))
                         .attr("y1", d => yObs(d.id) + yObs.bandwidth() / 2)
                         .attr("y2", d => yObs(d.id) + yObs.bandwidth() / 2)
                         .attr("stroke", "black")
-                        .attr("stroke-width", 2);
+                        .attr("stroke-width", 1.15);
 
                     ["low", "high"].forEach(w => {
                         obsErr.append("line").attr("class", `ci-cap ${w}`)
@@ -308,20 +742,22 @@
                             .attr("stroke", "black");
                     });
                     const obsDots = svg.selectAll(".dot.obs").data(data).enter()
-                        .append("circle").attr("class", "dot obs")
+                        .append("circle").attr("class", "dot obs study-mark")
+                        .attr("data-id", d => d.id)
                         .attr("cx", d => xObs(d.obs_mean))
                         .attr("cy", d => yObs(d.id) + yObs.bandwidth() / 2)
                         .attr("r", 0).style("opacity", 0).style("fill", "black");
 
                     const stdErr = svg.selectAll("g.error.std").data(data).enter()
-                        .append("g").attr("class", "error std")
+                        .append("g").attr("class", "error std study-mark")
+                        .attr("data-id", d => d.id)
                         .attr("transform", `translate(${halfW + gap},0)`).style("opacity", 0);
                     stdErr.append("line").attr("class", "ci-line")
                         .attr("x1", d => xStd(d.std_mean)).attr("x2", d => xStd(d.std_mean))
                         .attr("y1", d => yStd(d.id) + yStd.bandwidth() / 2)
                         .attr("y2", d => yStd(d.id) + yStd.bandwidth() / 2)
                         .attr("stroke", "black")
-                        .attr("stroke-width", 2);
+                        .attr("stroke-width", 1.15);
 
                     ["low", "high"].forEach(w => {
                         stdErr.append("line").attr("class", `ci-cap ${w}`)
@@ -329,11 +765,12 @@
                             .attr("y1", d => yStd(d.id) + yStd.bandwidth() / 2)
                             .attr("y2", d => yStd(d.id) + yStd.bandwidth() / 2)
                             .attr("stroke", "black")
-                            .attr("stroke-width", 2);
+                            .attr("stroke-width", 1.15);
 
                     });
                     const stdDots = svg.selectAll(".dot.std").data(data).enter()
-                        .append("circle").attr("class", "dot std")
+                        .append("circle").attr("class", "dot std study-mark")
+                        .attr("data-id", d => d.id)
                         .attr("transform", `translate(${halfW + gap},0)`)
                         .attr("cx", d => xStd(d.std_mean))
                         .attr("cy", d => yStd(d.id) + yStd.bandwidth() / 2)
@@ -341,15 +778,39 @@
 
                     const connectors = svg.selectAll("line.connector").data(data).enter()
                         .append("line").attr("class", "connector")
+                        .attr("data-id", d => d.id)
                         .attr("x1", d => xObs(d.obs_mean))
                         .attr("y1", d => yObs(d.id) + yObs.bandwidth() / 2)
                         .attr("x2", d => xStd(d.std_mean) + halfW + gap)
                         .attr("y2", d => yStd(d.id) + yStd.bandwidth() / 2)
-                        .attr("stroke", "#555").style("opacity", 0);
+                        .attr("stroke", "#25313a").style("opacity", 0);
 
-                    const yMetaObs = yObs("Meta") + yObs.bandwidth() / 2;
-                    const yMetaStd = yStd("Meta") + yStd.bandwidth() / 2;
-                    const piOffset = 6;   // how many pixels DOWN from the diamond’s center
+                    function settleObservedSeries() {
+                        obsErr.interrupt("series").style("opacity", shownObs ? 1 : 0);
+                        obsDots.interrupt("series").style("opacity", shownObs ? 1 : 0);
+                    }
+
+                    function settleStatedSeries() {
+                        stdErr.interrupt("series").style("opacity", shownStd ? 1 : 0);
+                        stdDots.interrupt("series").style("opacity", shownStd ? 1 : 0);
+                    }
+
+	                    const yMetaObs = yObs("Meta") + yObs.bandwidth() / 2;
+	                    const yMetaStd = yStd("Meta") + yStd.bandwidth() / 2;
+	                    const piOffset = 6;   // how many pixels DOWN from the diamond’s center
+
+	                    svg.append("line")
+	                        .attr("class", "meta-separator")
+	                        .attr("x1", 0)
+	                        .attr("x2", halfW)
+	                        .attr("y1", yMetaObs - yObs.bandwidth() / 2)
+	                        .attr("y2", yMetaObs - yObs.bandwidth() / 2);
+	                    svg.append("line")
+	                        .attr("class", "meta-separator")
+	                        .attr("x1", halfW + gap)
+	                        .attr("x2", halfW + gap + halfW)
+	                        .attr("y1", yMetaStd - yStd.bandwidth() / 2)
+	                        .attr("y2", yMetaStd - yStd.bandwidth() / 2);
 
 // Observed PI (grey bar), shifted down
                     svg.append("line")
@@ -359,8 +820,8 @@
                         .attr("y1", yMetaObs + piOffset)
                         .attr("y2", yMetaObs + piOffset)
                         .attr("stroke", "black")
-                        .attr("stroke-width", 6)
-                        .attr("stroke-opacity", 0.25)
+                        .attr("stroke-width", 4)
+                        .attr("stroke-opacity", 0.16)
                         .style("opacity", 0);
 
 // Stated PI (grey bar), also shifted down
@@ -371,8 +832,8 @@
                         .attr("y1", yMetaStd + piOffset)
                         .attr("y2", yMetaStd + piOffset)
                         .attr("stroke", "black")
-                        .attr("stroke-width", 6)
-                        .attr("stroke-opacity", 0.25)
+                        .attr("stroke-width", 4)
+                        .attr("stroke-opacity", 0.16)
                         .style("opacity", 0);
 
                     svg.append("path").attr("class", "meta-diamond obs").style("opacity", 0)
@@ -382,31 +843,51 @@
                         .attr("d", `M${xStd(metaStd.low) + halfW + gap},${yMetaStd}L${xStd(metaStd.mean) + halfW + gap},${yMetaStd - dH}L${xStd(metaStd.high) + halfW + gap},${yMetaStd}L${xStd(metaStd.mean) + halfW + gap},${yMetaStd + dH}Z`)
                         .attr("fill", "black");
 
-                    svg.select(".meta-diamond.obs")
-                        .on("mouseover", e => {
-                            if (+d3.select(".meta-diamond.obs").style("opacity") > 0) {
-                                showTip(e,
-                                    `<strong>Observed Meta</strong><br/>` +
-                                    `Mean d: ${metaObs.mean.toFixed(2)}<br/>` +
-                                    `95% CI: [${metaObs.low.toFixed(2)}–${metaObs.high.toFixed(2)}]<br/>` +
-                                    `95% PI: [${piObs.low.toFixed(2)}–${piObs.high.toFixed(2)}]`
-                                );
-                            }
-                        })
-                        .on("mouseout", hideTip);
+	                    svg.select(".meta-diamond.obs")
+	                        .on("mouseover", e => {
+	                            if (+d3.select(".meta-diamond.obs").style("opacity") > 0) {
+	                                showTip(e,
+	                                    `<strong>General support (observed) meta-effect</strong><br/>` +
+	                                    `Mean d: ${metaObs.mean.toFixed(2)}<br/>` +
+	                                    `95% CI: [${metaObs.low.toFixed(2)}–${metaObs.high.toFixed(2)}]`
+	                                );
+	                            }
+	                        })
+	                        .on("mouseout", hideTip);
 
-                    svg.select(".meta-diamond.std")
-                        .on("mouseover", e => {
-                            if (+d3.select(".meta-diamond.std").style("opacity") > 0) {
-                                showTip(e,
-                                    `<strong>Stated Meta</strong><br/>` +
-                                    `Mean d: ${metaStd.mean.toFixed(2)}<br/>` +
-                                    `95% CI: [${metaStd.low.toFixed(2)}–${metaStd.high.toFixed(2)}]<br/>` +
-                                    `95% PI: [${piStd.low.toFixed(2)}–${piStd.high.toFixed(2)}]`
-                                );
-                            }
-                        })
-                        .on("mouseout", hideTip);
+	                    svg.select(".meta-pi.obs")
+	                        .on("mouseover", e => {
+	                            if (+d3.select(".meta-pi.obs").style("opacity") > 0) {
+	                                showTip(e,
+	                                    `<strong>General support (observed) prediction interval</strong><br/>` +
+	                                    `95% PI: [${piObs.low.toFixed(2)}–${piObs.high.toFixed(2)}]`
+	                                );
+	                            }
+	                        })
+	                        .on("mouseout", hideTip);
+
+	                    svg.select(".meta-diamond.std")
+	                        .on("mouseover", e => {
+	                            if (+d3.select(".meta-diamond.std").style("opacity") > 0) {
+	                                showTip(e,
+	                                    `<strong>General support (stated) meta-effect</strong><br/>` +
+	                                    `Mean d: ${metaStd.mean.toFixed(2)}<br/>` +
+	                                    `95% CI: [${metaStd.low.toFixed(2)}–${metaStd.high.toFixed(2)}]`
+	                                );
+	                            }
+	                        })
+	                        .on("mouseout", hideTip);
+
+	                    svg.select(".meta-pi.std")
+	                        .on("mouseover", e => {
+	                            if (+d3.select(".meta-pi.std").style("opacity") > 0) {
+	                                showTip(e,
+	                                    `<strong>General support (stated) prediction interval</strong><br/>` +
+	                                    `95% PI: [${piStd.low.toFixed(2)}–${piStd.high.toFixed(2)}]`
+	                                );
+	                            }
+	                        })
+	                        .on("mouseout", hideTip);
 
                     // tooltips
                     const tooltip = d3.select("#tooltip");
@@ -421,19 +902,164 @@
                         tooltip.transition().duration(200).style("opacity", 0);
                     }
 
-                    function attachTip(sel, fn) {
-                        sel.on("mouseover", function (e, d) {
-                            if (+d3.select(this).style("opacity") > 0) showTip(e, fn(d));
-                        }).on("mouseout", hideTip);
+                    function setStudyHover(id, panel) {
+                        const datum = data.find(d => d.id === id);
+                        if (!datum) return;
+                        const yO = yObs(id);
+                        const yS = yStd(id);
+                        const hoverObserved = obsDone && (panel === "obs" || panel === "both" || stdDone);
+                        const hoverStated = stdDone && (panel === "std" || panel === "both" || obsDone);
+                        obsHover
+                            .attr("y", hoverObserved && yO != null ? yO : -100)
+                            .style("opacity", hoverObserved && yO != null ? 1 : 0);
+                        stdHover
+                            .attr("y", hoverStated && yS != null ? yS : -100)
+                            .style("opacity", hoverStated && yS != null ? 1 : 0);
+                        svg.selectAll(".dot.self, .dot.peer, .dot.obs, .error.peer, .error.obs")
+                            .classed("is-hovered", d => hoverObserved && d && d.id === id);
+                        svg.selectAll(".dot.std, .error.std")
+                            .classed("is-hovered", d => hoverStated && d && d.id === id);
+                        connectors
+                            .classed("is-hovered", d => connectorsShown && hoverObserved && hoverStated && d && d.id === id);
+                        svg.selectAll(".obs-y-axis .tick text")
+                            .classed("is-hovered-label", d => hoverObserved && d === id);
+                        svg.selectAll(".std-y-axis .tick text")
+                            .classed("is-hovered-label", d => hoverStated && d === id);
                     }
 
-                    attachTip(selfDots, d => `<strong>${d.id}</strong><br/>Self: ${d.self_mean.toFixed(2)}`);
-                    attachTip(peerDots, d => `<strong>${d.id}</strong><br/>Peer: ${d.peer_mean.toFixed(2)} [${d.peer_low.toFixed(2)}–${d.peer_high.toFixed(2)}]`);
-                    peerErr.selectAll("line").call(attachTip, d => `<strong>${d.id}</strong><br/>Peer CI: [${d.peer_low.toFixed(2)}–${d.peer_high.toFixed(2)}]`);
-                    attachTip(obsDots, d => `<strong>${d.id}</strong><br/>Observed: ${d.obs_mean.toFixed(2)} [${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`);
-                    obsErr.selectAll("line").call(attachTip, d => `<strong>${d.id}</strong><br/>Observed CI: [${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`);
-                    attachTip(stdDots, d => `<strong>${d.id}</strong><br/>Stated: ${d.std_mean.toFixed(2)} [${d.std_low.toFixed(2)}–${d.std_high.toFixed(2)}]`);
-                    stdErr.selectAll("line").call(attachTip, d => `<strong>${d.id}</strong><br/>Stated CI: [${d.std_low.toFixed(2)}–${d.std_high.toFixed(2)}]`);
+                    function clearStudyHover() {
+                        obsHover.style("opacity", 0);
+                        stdHover.style("opacity", 0);
+                        svg.selectAll(".study-mark, .connector").classed("is-hovered", false);
+                        svg.selectAll(".obs-y-axis .tick text, .std-y-axis .tick text")
+                            .classed("is-hovered-label", false);
+                    }
+
+                    function openStudyDesign(id) {
+                        const row = data.find(d => d.id === id);
+                        openStudyDossier(id, row?.category);
+                    }
+
+                    function attachStudyOpen(sel) {
+                        sel.style("cursor", "pointer")
+                            .attr("tabindex", 0)
+                            .attr("role", "button")
+                            .attr("aria-label", d => `Open ${d.id} design dossier`)
+                            .on("click.study", (event, d) => {
+                                event.stopPropagation();
+                                openStudyDesign(d.id);
+                            })
+                            .on("keydown.study", (event, d) => {
+                                if (event.key === "Enter" || event.key === " ") {
+                                    event.preventDefault();
+                                    openStudyDesign(d.id);
+                                }
+                            });
+                    }
+
+                    function attachStudyLabelOpen() {
+                        svg.selectAll(".obs-y-axis .tick text, .std-y-axis .tick text")
+                            .filter(d => d !== "Meta" && window.studyDesigns?.[d])
+                            .classed("study-label", true)
+                            .style("cursor", "pointer")
+                            .attr("tabindex", 0)
+                            .attr("role", "button")
+                            .attr("aria-label", d => `Open ${d} design dossier`)
+                            .on("click.study", (event, d) => {
+                                event.stopPropagation();
+                                openStudyDesign(d);
+                            })
+                            .on("keydown.study", (event, d) => {
+                                if (event.key === "Enter" || event.key === " ") {
+                                    event.preventDefault();
+                                    openStudyDesign(d);
+                                }
+                            });
+                    }
+
+                    function restoreCategoryOpacity() {
+                        selfDots.transition("category").duration(180)
+                            .style("opacity", shownSelf && selfPeerVisible ? (shownObs ? 0.6 : 1) : 0);
+                        peerErr.transition("category").duration(180)
+                            .style("opacity", shownPeer && selfPeerVisible ? (shownObs ? 0.6 : 1) : 0);
+                        peerDots.transition("category").duration(180)
+                            .style("opacity", shownPeer && selfPeerVisible ? (shownObs ? 0.6 : 1) : 0);
+                        obsErr.transition("category").duration(180).style("opacity", shownObs ? 1 : 0);
+                        obsDots.transition("category").duration(180).style("opacity", shownObs ? 1 : 0);
+                        stdErr.transition("category").duration(180).style("opacity", shownStd ? 1 : 0);
+                        stdDots.transition("category").duration(180).style("opacity", shownStd ? 1 : 0);
+                        connectors.transition("category").duration(180)
+                            .style("opacity", d => connectorsShown ? connectorOpacity(d) : 0);
+                    }
+
+                    function applyCategoryFilter(category) {
+                        activeCategory = category;
+                        d3.selectAll("#category-legend .category-chip")
+                            .classed("active", function () {
+                                return this.dataset.category === category;
+                            });
+                        if (category === "All") {
+                            restoreCategoryOpacity();
+                            return;
+                        }
+                        const inCategory = d => d.category === category;
+                        selfDots.transition("category").duration(180)
+                            .style("opacity", d => shownSelf && selfPeerVisible ? (inCategory(d) ? 1 : 0.12) : 0);
+                        peerErr.transition("category").duration(180)
+                            .style("opacity", d => shownPeer && selfPeerVisible ? (inCategory(d) ? 1 : 0.12) : 0);
+                        peerDots.transition("category").duration(180)
+                            .style("opacity", d => shownPeer && selfPeerVisible ? (inCategory(d) ? 1 : 0.12) : 0);
+                        obsErr.transition("category").duration(180)
+                            .style("opacity", d => shownObs ? (inCategory(d) ? 1 : 0.12) : 0);
+                        obsDots.transition("category").duration(180)
+                            .style("opacity", d => shownObs ? (inCategory(d) ? 1 : 0.12) : 0);
+                        stdErr.transition("category").duration(180)
+                            .style("opacity", d => shownStd ? (inCategory(d) ? 1 : 0.12) : 0);
+                        stdDots.transition("category").duration(180)
+                            .style("opacity", d => shownStd ? (inCategory(d) ? 1 : 0.12) : 0);
+                        connectors.transition("category").duration(180)
+                            .style("opacity", d => connectorsShown ? (inCategory(d) ? connectorOpacity(d) : 0.05) : 0);
+                    }
+
+                    function attachTip(sel, fn, panel) {
+                        sel.on("mouseover", function (e, d) {
+                            if (+d3.select(this).style("opacity") > 0) {
+                                setStudyHover(d.id, panel);
+                                showTip(e, fn(d));
+                            }
+                        }).on("mouseout", () => {
+                            clearStudyHover();
+                            hideTip();
+                        });
+                    }
+
+                    attachTip(selfDots, d => `<strong>${d.id}</strong><br/>Self: ${d.self_mean.toFixed(2)}`, "obs");
+                    attachTip(peerDots, d => `<strong>${d.id}</strong><br/>Peer: ${d.peer_mean.toFixed(2)} [${d.peer_low.toFixed(2)}–${d.peer_high.toFixed(2)}]`, "obs");
+                    peerErr.selectAll("line").call(attachTip, d => `<strong>${d.id}</strong><br/>Peer CI: [${d.peer_low.toFixed(2)}–${d.peer_high.toFixed(2)}]`, "obs");
+                    attachTip(obsDots, d => `<strong>${d.id}</strong><br/>General support (observed): ${d.obs_mean.toFixed(2)} [${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`, "obs");
+                    obsErr.selectAll("line").call(attachTip, d => `<strong>${d.id}</strong><br/>Observed CI: [${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`, "obs");
+                    attachTip(stdDots, d => `<strong>${d.id}</strong><br/>General support (stated): ${d.std_mean.toFixed(2)} [${d.std_low.toFixed(2)}–${d.std_high.toFixed(2)}]`, "std");
+                    stdErr.selectAll("line").call(attachTip, d => `<strong>${d.id}</strong><br/>Stated CI: [${d.std_low.toFixed(2)}–${d.std_high.toFixed(2)}]`, "std");
+                    attachTip(connectors, d => {
+                        const sig = d.obs_p_one_sided < 0.05 && d.std_p_one_sided < 0.05
+                            ? "Both outcomes significant"
+                            : (d.obs_p_one_sided < 0.05 || d.std_p_one_sided < 0.05)
+                                ? "One outcome significant"
+                                : "Neither outcome significant";
+                        return `<strong>${d.id}</strong><br/>${sig}<br/>Observed p: ${d.obs_p_one_sided.toFixed(3)}<br/>Stated p: ${d.std_p_one_sided.toFixed(3)}`;
+                    }, "both");
+
+                    [
+                        selfDots,
+                        peerDots,
+                        obsDots,
+                        stdDots,
+                        peerErr.selectAll("line"),
+                        obsErr.selectAll("line"),
+                        stdErr.selectAll("line"),
+                        connectors
+                    ].forEach(attachStudyOpen);
+                    attachStudyLabelOpen();
 
 
 // ─── reveal logic with slide + fade, only once ───
@@ -478,7 +1104,7 @@
                         this.disabled = true;
                         revealObsLabels();
                         selfDots.each(function (d, i) {
-                            pulseDot(d3.select(this), obsOrder.indexOf(d.id) * stepDelay, 5, 1);
+                            pulseDot(d3.select(this), obsOrder.indexOf(d.id) * stepDelay, 3.8, 1);
                         });
                         shownSelf = true;
                         if (shownObs) scheduleDim(selfDots);
@@ -493,7 +1119,7 @@
                                 capHalf, 1);
                         });
                         peerDots.each(function (d, i) {
-                            pulseDot(d3.select(this), obsOrder.indexOf(d.id) * stepDelay, 5, 1);
+                            pulseDot(d3.select(this), obsOrder.indexOf(d.id) * stepDelay, 3.8, 1);
                         });
                         shownPeer = true;
                         if (shownObs) {
@@ -531,7 +1157,7 @@
                             pulseDot(
                                 d3.select(this),
                                 delay,
-                                5,
+                                3.8,
                                 1
                             );
                         });
@@ -551,6 +1177,7 @@
                             .style("opacity", 1)
                             .on("end", () => {
                                 obsDone = true;  // mark observed done
+                                settleObservedSeries();
                                 svg.select(".het-bar-obs")
                                     .transition()
                                     .duration(600)
@@ -586,7 +1213,7 @@
                             pulseDot(
                                 d3.select(this),
                                 delay,
-                                5,
+                                3.8,
                                 1
                             );
                         });
@@ -605,6 +1232,7 @@
                             .style("opacity", 1)
                             .on("end", () => {
                                 stdDone = true;  // mark stated done
+                                settleStatedSeries();
                                 svg.select(".het-bar-std")
                                     .transition("series")
                                     .duration(600)
@@ -616,17 +1244,24 @@
                         revealStdLabels();
                         shownStd = true;
                     });
+
+                    function connectorOpacity(d) {
+                        if (d.obs_p_one_sided < 0.05 && d.std_p_one_sided < 0.05) return 0.62;
+                        if (d.obs_p_one_sided < 0.05 || d.std_p_one_sided < 0.05) return 0.32;
+                        return 0.09;
+                    }
+
                     d3.select("#btn-connectors").on("click", function () {
                         this.disabled = true;
+                        this.classList.add("mode-active");
+                        this.setAttribute("aria-pressed", "true");
+                        connectorsShown = true;
 
                         connectors
                             .attr("stroke-width", d => {
-                                // both significant → extra thick
-                                if (d.obs_p_one_sided < 0.05 && d.std_p_one_sided < 0.05) return 5;
-                                // one significant → medium
-                                if (d.obs_p_one_sided < 0.05 || d.std_p_one_sided < 0.05) return 3;
-                                // none significant → thin
-                                return 3;
+                                if (d.obs_p_one_sided < 0.05 && d.std_p_one_sided < 0.05) return 1.65;
+                                if (d.obs_p_one_sided < 0.05 || d.std_p_one_sided < 0.05) return 1;
+                                return 0.55;
                             });
 
                         connectors.each(function (d) {
@@ -640,9 +1275,7 @@
                             .duration(fadeDuration * 2)
                             .ease(d3.easeLinear)
                             .attr("stroke-dashoffset", 0)
-                            .style("opacity", d =>
-                                ((d.obs_low > 0 || d.obs_high < 0) || (d.std_low > 0 || d.std_high < 0)) ? 1 : 0.2
-                            );
+                            .style("opacity", d => activeCategory === "All" || d.category === activeCategory ? connectorOpacity(d) : 0.05);
                     });
 
 
@@ -652,6 +1285,8 @@
                         catsOn = !catsOn;
 
                         if (catsOn) {
+                            this.classList.add("mode-active");
+                            this.setAttribute("aria-pressed", "true");
                             // turn categories ON
                             selfDots.transition("toggle").duration(500)
                                 .style("fill", d => colorScale(d.category));
@@ -672,18 +1307,24 @@
 
                             // show & fade in legend
                             d3.select("#category-legend")
-                                .style("display", "block")
+                                .style("display", "flex")
                                 .transition().duration(500)
                                 .style("opacity", 1);
+                            applyCategoryFilter(activeCategory);
 
                         } else {
+                            activeCategory = "All";
+                            d3.selectAll("#category-legend .category-chip")
+                                .classed("active", function () {
+                                    return this.dataset.category === "All";
+                                });
                             // turn categories OFF (back to original colors)
                             selfDots.transition("toggle").duration(500)
-                                .style("fill", "#009E73");
+                                .style("fill", "#2e806e");
                             peerErr.transition("toggle").duration(500).selectAll("line")
-                                .style("stroke", "#56B4E9");
+                                .style("stroke", "#6baed6");
                             peerDots.transition("toggle").duration(500)
-                                .style("fill", "#56B4E9");
+                                .style("fill", "#6baed6");
                             obsErr.transition("toggle").duration(500).selectAll("line")
                                 .style("stroke", "black");
                             obsDots.transition("toggle").duration(500)
@@ -694,6 +1335,8 @@
                                 .style("fill", "black");
 
                             this.textContent = "Reveal Categories";
+                            this.classList.remove("mode-active");
+                            this.setAttribute("aria-pressed", "false");
 
                             // fade out & hide legend
                             d3.select("#category-legend")
@@ -703,40 +1346,66 @@
                                 .on("end", function () {
                                     d3.select(this).style("display", "none");
                                 });
+                            restoreCategoryOpacity();
                         }
+                    });
+
+                    d3.selectAll("#category-legend .category-chip").on("click", function () {
+                        catsOn = true;
+                        d3.select("#btn-categories")
+                            .text("Hide Categories")
+                            .classed("mode-active", true)
+                            .attr("aria-pressed", "true");
+                        d3.select("#category-legend").style("display", "flex").style("opacity", 1);
+                        const category = this.dataset.category;
+                        selfDots.transition("toggle").duration(250)
+                            .style("fill", d => colorScale(d.category));
+                        peerErr.transition("toggle").duration(250).selectAll("line")
+                            .style("stroke", d => colorScale(d.category));
+                        peerDots.transition("toggle").duration(250)
+                            .style("fill", d => colorScale(d.category));
+                        obsErr.transition("toggle").duration(250).selectAll("line")
+                            .style("stroke", d => colorScale(d.category));
+                        obsDots.transition("toggle").duration(250)
+                            .style("fill", d => colorScale(d.category));
+                        stdErr.transition("toggle").duration(250).selectAll("line")
+                            .style("stroke", d => colorScale(d.category));
+                        stdDots.transition("toggle").duration(250)
+                            .style("fill", d => colorScale(d.category));
+                        applyCategoryFilter(category);
                     });
                 });
             </script>
         </div>
 
 
-        <!-- Tab 2: DV3 (Raise) -->
+        <!-- Tab 2: General price increase -->
         <div class="tab-pane fade" id="dv3" role="tabpanel">
             <div class="chart-flex-row">
                 <div class="legend">
                     <div class="legend-item">
-                        <span class="legend-marker obs"></span>CP Raise effect
+                        <span class="legend-marker obs"></span>Estimated RT effect
                     </div>
                     <div class="legend-item">
                         <svg width="12" height="12">
-                            <polygon points="6,0 12,6 6,12 0,6" fill="#003361"/>
+                            <polygon points="6,0 12,6 6,12 0,6" fill="#101820"/>
                         </svg>
-                        Raise support (meta CI)
+                        Meta-effect (95% CI)
                     </div>
                     <div class="legend-item">
                         <svg width="30" height="4">
-                            <line x1="0" y1="2" x2="30" y2="2" stroke="#003361" stroke-width="6" stroke-opacity="0.25"/>
+                            <line x1="0" y1="2" x2="30" y2="2" stroke="#25313a" stroke-width="6" stroke-opacity="0.16"/>
                         </svg>
-                        Raise 95% PI
+                        95% PI
                     </div>
                 </div>
                 <div class="chart-holder">
-                    <div id="chart-dv3" ; style="margin-top:-30px;"></div>
+                    <div id="chart-dv3" class="single-chart"></div>
                     <div id="tooltip-dv3"></div>
                 </div>
                 <div class="button-col">
                     <div class="button-group">
-                        <button id="btn-raise">CP Raise</button>
+                        <button id="btn-raise">General price increase</button>
                     </div>
                 </div>
             </div>
@@ -750,10 +1419,10 @@
                 const margin3 = {top: 50, right: 100, bottom: 60, left: 100},
                     fullW3 = 600,
                     halfW3 = fullW3 - margin3.left - margin3.right,
-                    rowH3 = 15,
-                    stepDelay3 = 200,
-                    fadeDuration3 = 100,
-                    capHalf3 = 5;
+                    rowH3 = 17,
+                    stepDelay3 = 38,
+                    fadeDuration3 = 180,
+                    capHalf3 = 3.5;
 
                 function pulseDot3(sel, delay, r, opacity) {
                     sel.attr("r", 0).style("opacity", 0)
@@ -783,10 +1452,12 @@
                     const sorted = data.slice().sort((a, b) => a.cp_raise_mean - b.cp_raise_mean);
                     const order3 = sorted.map(d => d.id).concat("Meta");
                     const innerH3 = order3.length * rowH3,
-                        fullH3 = innerH3 + margin3.top + margin3.bottom + 30;
+                        fullH3 = innerH3 + margin3.top + margin3.bottom + 52;
 
                     const svg3 = d3.select("#chart-dv3").append("svg")
                         .attr("width", fullW3).attr("height", fullH3)
+                        .attr("role", "img")
+                        .attr("aria-label", "Forest plot of general price increase effects across research teams")
                         .append("g").attr("transform", `translate(${margin3.left},${margin3.top})`);
 
                     // scales
@@ -802,15 +1473,23 @@
                         .attr("transform", `translate(0,${innerH3})`)
                         .call(d3.axisBottom(x3).ticks(4));
                     svg3.append("text")
+                        .attr("class", "axis-title explain-trigger")
                         .attr("x", halfW3 / 2)
-                        .attr("y", innerH3 + margin3.bottom - 20)
+                        .attr("y", innerH3 + margin3.bottom - 13)
                         .attr("text-anchor", "middle")
-                        .text("CP Raise (Cohen’s d)");
+                        .attr("data-explain", "general-price-increase")
+                        .attr("tabindex", 0)
+                        .text("General price increase - Cohen's d");
                     svg3.append("g")
                         .attr("class", "raise-y-axis3")
                         .call(d3.axisLeft(y3).tickValues(order3.filter(id => 'Meta' !== id)));
                     svg3.selectAll(".raise-y-axis3 .tick text")
                         .attr("transform", "translate(-20,0)").style("opacity", 0);
+                    attachDossierOpen(
+                        svg3.selectAll(".raise-y-axis3 .tick text").filter(d => window.studyDesigns?.[d]),
+                        d => d,
+                        d => data.find(row => row.id === d)?.category
+                    );
 
                     // zero line
                     svg3.append("line").attr("class", "zero-line")
@@ -818,33 +1497,29 @@
                         .attr("y1", 0).attr("y2", innerH3);
 
                     // heterogeneity bar
-                    const hetG3 = svg3.append("g")
-                        .attr("class", "het-bar-raise3").attr("opacity", 0)
-                        .attr("transform", `translate(${halfW3 / 2},${innerH3 + margin3.bottom - 4})`);
-                    hetG3.append("rect")
-                        .attr("x", -halfW3 / 2).attr("y", 4)
-                        .attr("width", halfW3).attr("height", 20)
-                        .attr("rx", 4).attr("ry", 4)
-                        .attr("fill", "#f5f5f5").attr("stroke", "#ccc");
-                    hetG3.append("text")
-                        .attr("y", 18).attr("text-anchor", "middle").style("font-size", "12px")
-                        .html(`τ=${hetRaise.tau.toFixed(2)} (95% CI ${hetRaise.tauCI[0]}–${hetRaise.tauCI[1]}) • ` +
-                            `I²=${hetRaise.I2}% • Q=${hetRaise.Q.toFixed(1)} (p<${hetRaise.pQ.toFixed(3)})`);
+                    const hetG3 = renderHetPill(svg3, "het-bar-raise3", halfW3 / 2, innerH3 + margin3.bottom + 4, halfW3, hetRaise);
 
                     // meta‐PI & diamond
-                    const yMeta3 = y3("Meta") + y3.bandwidth() / 2,
-                        dH3 = y3.bandwidth() * 0.25;
-                    const piLine3 = svg3.append("line").attr("class", "meta-pi3")
-                        .attr("x1", x3(piRaise.low)).attr("x2", x3(piRaise.high))
-                        .attr("y1", yMeta3).attr("y2", yMeta3)
-                        .attr("stroke", "#000000").attr("stroke-width", 6).attr("stroke-opacity", 0.25)
+	                    const yMeta3 = y3("Meta") + y3.bandwidth() / 2,
+	                        piOffset3 = 6,
+	                        dH3 = y3.bandwidth() * 0.25;
+	                    svg3.append("line")
+	                        .attr("class", "meta-separator")
+	                        .attr("x1", 0)
+	                        .attr("x2", halfW3)
+	                        .attr("y1", yMeta3 - y3.bandwidth() / 2)
+	                        .attr("y2", yMeta3 - y3.bandwidth() / 2);
+	                    const piLine3 = svg3.append("line").attr("class", "meta-pi3")
+	                        .attr("x1", x3(piRaise.low)).attr("x2", x3(piRaise.high))
+	                        .attr("y1", yMeta3 + piOffset3).attr("y2", yMeta3 + piOffset3)
+	                        .attr("stroke", "#25313a").attr("stroke-width", 4).attr("stroke-opacity", 0.16)
                         .style("opacity", 0);
                     const diamond3 = svg3.append("path").attr("class", "meta-diamond3")
                         .attr("d", `M${x3(metaRaise.low)},${yMeta3}
                    L${x3(metaRaise.mean)},${yMeta3 - dH3}
                    L${x3(metaRaise.high)},${yMeta3}
                    L${x3(metaRaise.mean)},${yMeta3 + dH3}Z`)
-                        .attr("fill", "#000000").style("opacity", 0);
+                        .attr("fill", "#101820").style("opacity", 0);
 
                     // error groups & dots
                     const err3 = svg3.selectAll("g.error3").data(sorted).enter()
@@ -855,19 +1530,28 @@
                         .attr("x1", d => x3(d.cp_raise_mean))
                         .attr("x2", d => x3(d.cp_raise_mean))
                         .attr("y1", 0).attr("y2", 0)
-                        .attr("stroke", "#000000");
+                        .attr("stroke", "#101820");
                     ["low", "high"].forEach(w => {
                         err3.append("line").attr("class", `ci-cap ${w}`)
                             .attr("x1", d => x3(d[`cp_raise_${w}`]))
                             .attr("x2", d => x3(d[`cp_raise_${w}`]))
                             .attr("y1", 0).attr("y2", 0)
-                            .attr("stroke", "#000000");
+                            .attr("stroke", "#101820");
                     });
                     const dots3 = svg3.selectAll("circle.dot3").data(sorted).enter()
                         .append("circle").attr("class", "dot3")
                         .attr("cx", d => x3(d.cp_raise_mean))
                         .attr("cy", d => y3(d.id) + y3.bandwidth() / 2)
                         .attr("r", 0).style("opacity", 0);
+                    const hit3 = svg3.selectAll("circle.dossier-hit3").data(sorted).enter()
+                        .append("circle").attr("class", "dossier-hit dossier-hit3")
+                        .attr("cx", d => x3(d.cp_raise_mean))
+                        .attr("cy", d => y3(d.id) + y3.bandwidth() / 2)
+                        .attr("r", 9)
+                        .style("pointer-events", "none");
+                    attachDossierOpen(err3.selectAll("line"));
+                    attachDossierOpen(dots3);
+                    attachDossierOpen(hit3);
 
                     // reveal labels
                     let shown3 = false;
@@ -887,8 +1571,9 @@
                         sorted.forEach((d, i) => {
                             growCI3(d3.select(err3.nodes()[i]), i * stepDelay3,
                                 x3(d.cp_raise_low), x3(d.cp_raise_high));
-                            pulseDot3(d3.select(dots3.nodes()[i]), i * stepDelay3, 5, 1);
+                            pulseDot3(d3.select(dots3.nodes()[i]), i * stepDelay3, 3.8, 1);
                         });
+                        hit3.style("pointer-events", "all");
                         const last = (sorted.length - 1) * stepDelay3;
                         piLine3.transition().delay(last).duration(fadeDuration3).style("opacity", 1);
                         diamond3.transition().delay(last).duration(fadeDuration3).style("opacity", 1)
@@ -915,49 +1600,57 @@
                             `<strong>${d.id}</strong><br/>CI: [${d.cp_raise_low.toFixed(2)}–${d.cp_raise_high.toFixed(2)}]`))
                         .on("mouseout", hide3);
                     dots3.on("mouseover", (e, d) => show3(e,
-                        `<strong>${d.id}</strong><br/>Mean: ${d.cp_raise_mean.toFixed(2)}`))
+                        `<strong>${d.id}</strong><br/>Estimated RT effect: ${d.cp_raise_mean.toFixed(2)}`))
+                        .on("mouseout", hide3);
+                    hit3.on("mouseover", (e, d) => show3(e,
+                        `<strong>${d.id}</strong><br/>Estimated RT effect: ${d.cp_raise_mean.toFixed(2)}`))
                         .on("mouseout", hide3);
 
-                    // meta‐diamond & PI tooltips
-                    svg3.selectAll(".meta-pi3, .meta-diamond3")
-                        .on("mouseover", (e) => show3(e,
-                            `<strong>CP Raise Meta</strong><br/>Mean: ${metaRaise.mean.toFixed(2)}<br/>` +
-                            `95% CI: [${metaRaise.low.toFixed(2)}–${metaRaise.high.toFixed(2)}]<br/>` +
-                            `95% PI: [${piRaise.low.toFixed(2)}–${piRaise.high.toFixed(2)}]`
-                        ))
-                        .on("mouseout", hide3);
+	                    // meta-diamond & PI tooltips
+	                    svg3.select(".meta-diamond3")
+	                        .on("mouseover", (e) => show3(e,
+	                            `<strong>General price increase meta-effect</strong><br/>Mean d: ${metaRaise.mean.toFixed(2)}<br/>` +
+	                            `95% CI: [${metaRaise.low.toFixed(2)}–${metaRaise.high.toFixed(2)}]`
+	                        ))
+	                        .on("mouseout", hide3);
+	                    svg3.select(".meta-pi3")
+	                        .on("mouseover", (e) => show3(e,
+	                            `<strong>General price increase prediction interval</strong><br/>` +
+	                            `95% PI: [${piRaise.low.toFixed(2)}–${piRaise.high.toFixed(2)}]`
+	                        ))
+	                        .on("mouseout", hide3);
 
                 });
             </script>
         </div>
 
-        <!-- Tab 3: DV4 (Social Carbon Price) -->
+        <!-- Tab 3: Social price -->
         <div class="tab-pane fade" id="dv4" role="tabpanel">
             <div class="chart-flex-row">
                 <div class="legend">
                     <div class="legend-item">
-                        <span class="legend-marker sp"></span>SP CP Support effect
+                        <span class="legend-marker obs"></span>Estimated RT effect
                     </div>
                     <div class="legend-item">
                         <svg width="12" height="12">
-                            <polygon points="6,0 12,6 6,12 0,6" fill="#f39200"/>
+                            <polygon points="6,0 12,6 6,12 0,6" fill="#101820"/>
                         </svg>
-                        SP CP Support (meta CI)
+                        Meta-effect (95% CI)
                     </div>
                     <div class="legend-item">
                         <svg width="30" height="4">
-                            <line x1="0" y1="2" x2="30" y2="2" stroke="#f39200" stroke-width="6" stroke-opacity="0.25"/>
+                            <line x1="0" y1="2" x2="30" y2="2" stroke="#25313a" stroke-width="6" stroke-opacity="0.16"/>
                         </svg>
-                        SP CP Support 95% PI
+                        95% PI
                     </div>
                 </div>
                 <div class="chart-holder">
-                    <div id="chart-dv4" ; style="margin-top:-30px;"></div>
+                    <div id="chart-dv4" class="single-chart"></div>
                     <div id="tooltip-dv4"></div>
                 </div>
                 <div class="button-col">
                     <div class="button-group">
-                        <button id="btn-sp">SP CP Support</button>
+                        <button id="btn-sp">Social price</button>
                     </div>
                 </div>
             </div>
@@ -969,10 +1662,10 @@
                 const margin4 = {top: 50, right: 100, bottom: 60, left: 100},
                     fullW4 = 600,
                     halfW4 = fullW4 - margin4.left - margin4.right,
-                    rowH4 = 15,
-                    stepDelay4 = 200,
-                    fadeDuration4 = 100,
-                    capHalf4 = 5;
+                    rowH4 = 17,
+                    stepDelay4 = 38,
+                    fadeDuration4 = 180,
+                    capHalf4 = 3.5;
 
                 function pulseDot4(sel, delay, r, opacity) {
                     sel.attr("r", 0).style("opacity", 0)
@@ -1003,10 +1696,12 @@
                         .sort((a, b) => a.sp_cp_support_mean - b.sp_cp_support_mean);
                     const order4 = sorted4.map(d => d.id).concat("Meta");
                     const innerH4 = order4.length * rowH4,
-                        fullH4 = innerH4 + margin4.top + margin4.bottom + 30;
+                        fullH4 = innerH4 + margin4.top + margin4.bottom + 52;
 
                     const svg4 = d3.select("#chart-dv4").append("svg")
                         .attr("width", fullW4).attr("height", fullH4)
+                        .attr("role", "img")
+                        .attr("aria-label", "Forest plot of social price effects across research teams")
                         .append("g").attr("transform", `translate(${margin4.left},${margin4.top})`);
 
                     // scales
@@ -1022,15 +1717,23 @@
                         .attr("transform", `translate(0,${innerH4})`)
                         .call(d3.axisBottom(x4).ticks(4));
                     svg4.append("text")
+                        .attr("class", "axis-title explain-trigger")
                         .attr("x", halfW4 / 2)
-                        .attr("y", innerH4 + margin4.bottom - 20)
+                        .attr("y", innerH4 + margin4.bottom - 13)
                         .attr("text-anchor", "middle")
-                        .text("SP CP Support (Cohen’s d)");
+                        .attr("data-explain", "social-price")
+                        .attr("tabindex", 0)
+                        .text("Social price - Cohen's d");
                     svg4.append("g")
                         .attr("class", "sp-y-axis4")
                         .call(d3.axisLeft(y4).tickValues(order4.filter(id => 'Meta' !== id)));
                     svg4.selectAll(".sp-y-axis4 .tick text")
                         .attr("transform", "translate(-20,0)").style("opacity", 0);
+                    attachDossierOpen(
+                        svg4.selectAll(".sp-y-axis4 .tick text").filter(d => window.studyDesigns?.[d]),
+                        d => d,
+                        d => data.find(row => row.id === d)?.category
+                    );
 
                     // zero line
                     svg4.append("line").attr("class", "zero-line")
@@ -1038,33 +1741,29 @@
                         .attr("y1", 0).attr("y2", innerH4);
 
                     // heterogeneity bar
-                    const hetG4 = svg4.append("g")
-                        .attr("class", "het-bar-sp4").attr("opacity", 0)
-                        .attr("transform", `translate(${halfW4 / 2},${innerH4 + margin4.bottom - 4})`);
-                    hetG4.append("rect")
-                        .attr("x", -halfW4 / 2).attr("y", 4)
-                        .attr("width", halfW4).attr("height", 20)
-                        .attr("rx", 4).attr("ry", 4)
-                        .attr("fill", "#f2f2f2").attr("stroke", "#ccc");
-                    hetG4.append("text")
-                        .attr("y", 18).attr("text-anchor", "middle").style("font-size", "12px")
-                        .html(`τ=${hetSpCpSupport.tau.toFixed(2)} (95% CI ${hetSpCpSupport.tauCI[0]}–${hetSpCpSupport.tauCI[1]}) • ` +
-                            `I²=${hetSpCpSupport.I2}% • Q=${hetSpCpSupport.Q.toFixed(1)} (p<${hetSpCpSupport.pQ.toFixed(3)})`);
+                    const hetG4 = renderHetPill(svg4, "het-bar-sp4", halfW4 / 2, innerH4 + margin4.bottom + 4, halfW4, hetSpCpSupport);
 
                     // meta PI & diamond
-                    const yMeta4 = y4("Meta") + y4.bandwidth() / 2,
-                        dH4 = y4.bandwidth() * 0.25;
-                    const piLine4 = svg4.append("line").attr("class", "meta-pi4")
-                        .attr("x1", x4(piSpCpSupport.low)).attr("x2", x4(piSpCpSupport.high))
-                        .attr("y1", yMeta4).attr("y2", yMeta4)
-                        .attr("stroke", "#f39200").attr("stroke-width", 6).attr("stroke-opacity", 0.25)
+	                    const yMeta4 = y4("Meta") + y4.bandwidth() / 2,
+	                        piOffset4 = 6,
+	                        dH4 = y4.bandwidth() * 0.25;
+	                    svg4.append("line")
+	                        .attr("class", "meta-separator")
+	                        .attr("x1", 0)
+	                        .attr("x2", halfW4)
+	                        .attr("y1", yMeta4 - y4.bandwidth() / 2)
+	                        .attr("y2", yMeta4 - y4.bandwidth() / 2);
+	                    const piLine4 = svg4.append("line").attr("class", "meta-pi4")
+	                        .attr("x1", x4(piSpCpSupport.low)).attr("x2", x4(piSpCpSupport.high))
+	                        .attr("y1", yMeta4 + piOffset4).attr("y2", yMeta4 + piOffset4)
+	                        .attr("stroke", "#25313a").attr("stroke-width", 4).attr("stroke-opacity", 0.16)
                         .style("opacity", 0);
                     const diamond4 = svg4.append("path").attr("class", "meta-diamond4")
                         .attr("d", `M${x4(metaSpCpSupport.low)},${yMeta4}
                    L${x4(metaSpCpSupport.mean)},${yMeta4 - dH4}
                    L${x4(metaSpCpSupport.high)},${yMeta4}
                    L${x4(metaSpCpSupport.mean)},${yMeta4 + dH4}Z`)
-                        .attr("fill", "#f39200").style("opacity", 0);
+                        .attr("fill", "#101820").style("opacity", 0);
 
                     // error & dots
                     const err4 = svg4.selectAll("g.error4").data(sorted4).enter()
@@ -1073,18 +1772,27 @@
                         .style("opacity", 0);
                     err4.append("line").attr("class", "ci-line")
                         .attr("x1", d => x4(d.sp_cp_support_mean)).attr("x2", d => x4(d.sp_cp_support_mean))
-                        .attr("y1", 0).attr("y2", 0).attr("stroke", "#f39200");
+                        .attr("y1", 0).attr("y2", 0).attr("stroke", "#101820");
                     ["low", "high"].forEach(w => {
                         err4.append("line").attr("class", `ci-cap ${w}`)
                             .attr("x1", d => x4(d[`sp_cp_support_${w}`]))
                             .attr("x2", d => x4(d[`sp_cp_support_${w}`]))
-                            .attr("y1", 0).attr("y2", 0).attr("stroke", "#f39200");
+                            .attr("y1", 0).attr("y2", 0).attr("stroke", "#101820");
                     });
                     const dots4 = svg4.selectAll("circle.dot4").data(sorted4).enter()
                         .append("circle").attr("class", "dot4")
                         .attr("cx", d => x4(d.sp_cp_support_mean))
                         .attr("cy", d => y4(d.id) + y4.bandwidth() / 2)
-                        .attr("r", 0).style("opacity", 0)
+                        .attr("r", 0).style("opacity", 0);
+                    const hit4 = svg4.selectAll("circle.dossier-hit4").data(sorted4).enter()
+                        .append("circle").attr("class", "dossier-hit dossier-hit4")
+                        .attr("cx", d => x4(d.sp_cp_support_mean))
+                        .attr("cy", d => y4(d.id) + y4.bandwidth() / 2)
+                        .attr("r", 9)
+                        .style("pointer-events", "none");
+                    attachDossierOpen(err4.selectAll("line"));
+                    attachDossierOpen(dots4);
+                    attachDossierOpen(hit4);
 
                     // reveal labels
                     let shown4 = false;
@@ -1104,8 +1812,9 @@
                         sorted4.forEach((d, i) => {
                             growCI4(d3.select(err4.nodes()[i]), i * stepDelay4,
                                 x4(d.sp_cp_support_low), x4(d.sp_cp_support_high));
-                            pulseDot4(d3.select(dots4.nodes()[i]), i * stepDelay4, 5, 1);
+                            pulseDot4(d3.select(dots4.nodes()[i]), i * stepDelay4, 3.8, 1);
                         });
+                        hit4.style("pointer-events", "all");
                         const last = (sorted4.length - 1) * stepDelay4;
                         piLine4.transition().delay(last).duration(fadeDuration4).style("opacity", 1);
                         diamond4.transition().delay(last).duration(fadeDuration4).style("opacity", 1)
@@ -1130,15 +1839,22 @@
                             `<strong>${d.id}</strong><br/>CI: [${d.sp_cp_support_low.toFixed(2)}–${d.sp_cp_support_high.toFixed(2)}]`))
                         .on("mouseout", hide4);
                     dots4.on("mouseover", (e, d) => show4(e,
-                        `<strong>${d.id}</strong><br/>Mean: ${d.sp_cp_support_mean.toFixed(2)}`))
+                        `<strong>${d.id}</strong><br/>Estimated RT effect: ${d.sp_cp_support_mean.toFixed(2)}`))
+                        .on("mouseout", hide4);
+                    hit4.on("mouseover", (e, d) => show4(e,
+                        `<strong>${d.id}</strong><br/>Estimated RT effect: ${d.sp_cp_support_mean.toFixed(2)}`))
                         .on("mouseout", hide4);
 
-                    svg4.selectAll(".meta-pi4, .meta-diamond4")
-                        .on("mouseover", e => show4(e,
-                            `<strong>SP CP Support Meta</strong><br/>Mean: ${metaSpCpSupport.mean.toFixed(2)}<br/>` +
-                            `95% CI: [${metaSpCpSupport.low.toFixed(2)}–${metaSpCpSupport.high.toFixed(2)}]<br/>` +
-                            `95% PI: [${piSpCpSupport.low.toFixed(2)}–${piSpCpSupport.high.toFixed(2)}]`))
-                        .on("mouseout", hide4);
+	                    svg4.select(".meta-diamond4")
+	                        .on("mouseover", e => show4(e,
+	                            `<strong>Social price meta-effect</strong><br/>Mean d: ${metaSpCpSupport.mean.toFixed(2)}<br/>` +
+	                            `95% CI: [${metaSpCpSupport.low.toFixed(2)}–${metaSpCpSupport.high.toFixed(2)}]`))
+	                        .on("mouseout", hide4);
+	                    svg4.select(".meta-pi4")
+	                        .on("mouseover", e => show4(e,
+	                            `<strong>Social price prediction interval</strong><br/>` +
+	                            `95% PI: [${piSpCpSupport.low.toFixed(2)}–${piSpCpSupport.high.toFixed(2)}]`))
+	                        .on("mouseout", hide4);
                 });
             </script>
         </div>
@@ -1147,28 +1863,28 @@
             <div class="chart-flex-row">
                 <div class="legend">
                     <div class="legend-item">
-                        <span class="legend-marker obs"></span>CT CP Support effect
+                        <span class="legend-marker obs"></span>Estimated RT effect
                     </div>
                     <div class="legend-item">
                         <svg width="12" height="12">
-                            <polygon points="6,0 12,6 6,12 0,6" fill="#003361"/>
+                            <polygon points="6,0 12,6 6,12 0,6" fill="#101820"/>
                         </svg>
-                        CT CP Support (meta CI)
+                        Meta-effect (95% CI)
                     </div>
                     <div class="legend-item">
                         <svg width="30" height="4">
-                            <line x1="0" y1="2" x2="30" y2="2" stroke="#003361" stroke-width="6" stroke-opacity="0.25"/>
+                            <line x1="0" y1="2" x2="30" y2="2" stroke="#25313a" stroke-width="6" stroke-opacity="0.16"/>
                         </svg>
-                        CT CP Support 95% PI
+                        95% PI
                     </div>
                 </div>
                 <div class="chart-holder">
-                    <div id="chart-dv5" ; style="margin-top:-30px;"></div>
+                    <div id="chart-dv5" class="single-chart"></div>
                     <div id="tooltip-dv5"></div>
                 </div>
                 <div class="button-col">
                     <div class="button-group">
-                        <button id="btn-ct">CT CP Support</button>
+                        <button id="btn-ct">Tax with rebates</button>
                     </div>
                 </div>
             </div>
@@ -1181,10 +1897,10 @@
                 const margin5 = {top: 50, right: 100, bottom: 60, left: 100},
                     fullW5 = 600,
                     halfW5 = fullW5 - margin5.left - margin5.right,
-                    rowH5 = 15,
-                    stepDelay5 = 200,
-                    fadeDuration5 = 100,
-                    capHalf5 = 5;
+                    rowH5 = 17,
+                    stepDelay5 = 38,
+                    fadeDuration5 = 180,
+                    capHalf5 = 3.5;
 
                 function pulseDot5(sel, delay, r, opacity) {
                     sel.attr("r", 0).style("opacity", 0)
@@ -1214,10 +1930,12 @@
                         .sort((a, b) => a.ct_cp_support_mean - b.ct_cp_support_mean);
                     const order5 = sorted5.map(d => d.id).concat("Meta");
                     const innerH5 = order5.length * rowH5,
-                        fullH5 = innerH5 + margin5.top + margin5.bottom + 30;
+                        fullH5 = innerH5 + margin5.top + margin5.bottom + 52;
 
                     const svg5 = d3.select("#chart-dv5").append("svg")
                         .attr("width", fullW5).attr("height", fullH5)
+                        .attr("role", "img")
+                        .attr("aria-label", "Forest plot of tax with rebates effects across research teams")
                         .append("g").attr("transform", `translate(${margin5.left},${margin5.top})`);
 
                     // scales
@@ -1233,15 +1951,23 @@
                         .attr("transform", `translate(0,${innerH5})`)
                         .call(d3.axisBottom(x5).ticks(4));
                     svg5.append("text")
+                        .attr("class", "axis-title explain-trigger")
                         .attr("x", halfW5 / 2)
-                        .attr("y", innerH5 + margin5.bottom - 20)
+                        .attr("y", innerH5 + margin5.bottom - 13)
                         .attr("text-anchor", "middle")
-                        .text("CT CP Support (Cohen’s d)");
+                        .attr("data-explain", "tax-rebates")
+                        .attr("tabindex", 0)
+                        .text("Tax with rebates - Cohen's d");
                     svg5.append("g")
                         .attr("class", "ct-y-axis5")
                         .call(d3.axisLeft(y5).tickValues(order5.filter(id => 'Meta' !== id)));
                     svg5.selectAll(".ct-y-axis5 .tick text")
                         .attr("transform", "translate(-20,0)").style("opacity", 0);
+                    attachDossierOpen(
+                        svg5.selectAll(".ct-y-axis5 .tick text").filter(d => window.studyDesigns?.[d]),
+                        d => d,
+                        d => data.find(row => row.id === d)?.category
+                    );
 
                     // zero line
                     svg5.append("line").attr("class", "zero-line")
@@ -1249,33 +1975,29 @@
                         .attr("y1", 0).attr("y2", innerH5);
 
                     // heterogeneity bar
-                    const hetG5 = svg5.append("g")
-                        .attr("class", "het-bar-ct5").attr("opacity", 0)
-                        .attr("transform", `translate(${halfW5 / 2},${innerH5 + margin5.bottom - 4})`);
-                    hetG5.append("rect")
-                        .attr("x", -halfW5 / 2).attr("y", 4)
-                        .attr("width", halfW5).attr("height", 20)
-                        .attr("rx", 4).attr("ry", 4)
-                        .attr("fill", "#f2f2f2").attr("stroke", "#ccc");
-                    hetG5.append("text")
-                        .attr("y", 18).attr("text-anchor", "middle").style("font-size", "12px")
-                        .html(`τ=${hetCtCpSupport.tau.toFixed(2)} (95% CI ${hetCtCpSupport.tauCI[0]}–${hetCtCpSupport.tauCI[1]}) • ` +
-                            `I²=${hetCtCpSupport.I2}% • Q=${hetCtCpSupport.Q.toFixed(1)} (p<${hetCtCpSupport.pQ.toFixed(3)})`);
+                    const hetG5 = renderHetPill(svg5, "het-bar-ct5", halfW5 / 2, innerH5 + margin5.bottom + 4, halfW5, hetCtCpSupport);
 
                     // meta PI & diamond
-                    const yMeta5 = y5("Meta") + y5.bandwidth() / 2,
-                        dH5 = y5.bandwidth() * 0.25;
-                    const piLine5 = svg5.append("line").attr("class", "meta-pi5")
-                        .attr("x1", x5(piCtCpSupport.low)).attr("x2", x5(piCtCpSupport.high))
-                        .attr("y1", yMeta5).attr("y2", yMeta5)
-                        .attr("stroke", "#003361").attr("stroke-width", 6).attr("stroke-opacity", 0.25)
+	                    const yMeta5 = y5("Meta") + y5.bandwidth() / 2,
+	                        piOffset5 = 6,
+	                        dH5 = y5.bandwidth() * 0.25;
+	                    svg5.append("line")
+	                        .attr("class", "meta-separator")
+	                        .attr("x1", 0)
+	                        .attr("x2", halfW5)
+	                        .attr("y1", yMeta5 - y5.bandwidth() / 2)
+	                        .attr("y2", yMeta5 - y5.bandwidth() / 2);
+	                    const piLine5 = svg5.append("line").attr("class", "meta-pi5")
+	                        .attr("x1", x5(piCtCpSupport.low)).attr("x2", x5(piCtCpSupport.high))
+	                        .attr("y1", yMeta5 + piOffset5).attr("y2", yMeta5 + piOffset5)
+	                        .attr("stroke", "#25313a").attr("stroke-width", 4).attr("stroke-opacity", 0.16)
                         .style("opacity", 0);
                     const diamond5 = svg5.append("path").attr("class", "meta-diamond5")
                         .attr("d", `M${x5(metaCtCpSupport.low)},${yMeta5}
                    L${x5(metaCtCpSupport.mean)},${yMeta5 - dH5}
                    L${x5(metaCtCpSupport.high)},${yMeta5}
                    L${x5(metaCtCpSupport.mean)},${yMeta5 + dH5}Z`)
-                        .attr("fill", "#003361").style("opacity", 0);
+                        .attr("fill", "#101820").style("opacity", 0);
 
                     // error & dots
                     const err5 = svg5.selectAll("g.error5").data(sorted5).enter()
@@ -1284,18 +2006,27 @@
                         .style("opacity", 0);
                     err5.append("line").attr("class", "ci-line")
                         .attr("x1", d => x5(d.ct_cp_support_mean)).attr("x2", d => x5(d.ct_cp_support_mean))
-                        .attr("y1", 0).attr("y2", 0).attr("stroke", "#003361");
+                        .attr("y1", 0).attr("y2", 0).attr("stroke", "#101820");
                     ["low", "high"].forEach(w => {
                         err5.append("line").attr("class", `ci-cap ${w}`)
                             .attr("x1", d => x5(d[`ct_cp_support_${w}`]))
                             .attr("x2", d => x5(d[`ct_cp_support_${w}`]))
-                            .attr("y1", 0).attr("y2", 0).attr("stroke", "#003361");
+                            .attr("y1", 0).attr("y2", 0).attr("stroke", "#101820");
                     });
                     const dots5 = svg5.selectAll("circle.dot5").data(sorted5).enter()
                         .append("circle").attr("class", "dot5")
                         .attr("cx", d => x5(d.ct_cp_support_mean))
                         .attr("cy", d => y5(d.id) + y5.bandwidth() / 2)
                         .attr("r", 0).style("opacity", 0);
+                    const hit5 = svg5.selectAll("circle.dossier-hit5").data(sorted5).enter()
+                        .append("circle").attr("class", "dossier-hit dossier-hit5")
+                        .attr("cx", d => x5(d.ct_cp_support_mean))
+                        .attr("cy", d => y5(d.id) + y5.bandwidth() / 2)
+                        .attr("r", 9)
+                        .style("pointer-events", "none");
+                    attachDossierOpen(err5.selectAll("line"));
+                    attachDossierOpen(dots5);
+                    attachDossierOpen(hit5);
 
                     // reveal
                     let shown5 = false;
@@ -1314,8 +2045,9 @@
                         sorted5.forEach((d, i) => {
                             growCI5(d3.select(err5.nodes()[i]), i * stepDelay5,
                                 x5(d.ct_cp_support_low), x5(d.ct_cp_support_high));
-                            pulseDot5(d3.select(dots5.nodes()[i]), i * stepDelay5, 5, 1);
+                            pulseDot5(d3.select(dots5.nodes()[i]), i * stepDelay5, 3.8, 1);
                         });
+                        hit5.style("pointer-events", "all");
                         const last = (sorted5.length - 1) * stepDelay5;
                         piLine5.transition().delay(last).duration(fadeDuration5).style("opacity", 1);
                         diamond5.transition().delay(last).duration(fadeDuration5).style("opacity", 1)
@@ -1340,47 +2072,54 @@
                             `<strong>${d.id}</strong><br/>CI: [${d.ct_cp_support_low.toFixed(2)}–${d.ct_cp_support_high.toFixed(2)}]`))
                         .on("mouseout", hide5);
                     dots5.on("mouseover", (e, d) => show5(e,
-                        `<strong>${d.id}</strong><br/>Mean: ${d.ct_cp_support_mean.toFixed(2)}`))
+                        `<strong>${d.id}</strong><br/>Estimated RT effect: ${d.ct_cp_support_mean.toFixed(2)}`))
+                        .on("mouseout", hide5);
+                    hit5.on("mouseover", (e, d) => show5(e,
+                        `<strong>${d.id}</strong><br/>Estimated RT effect: ${d.ct_cp_support_mean.toFixed(2)}`))
                         .on("mouseout", hide5);
 
-                    svg5.selectAll(".meta-pi5, .meta-diamond5")
-                        .on("mouseover", e => show5(e,
-                            `<strong>CT CP Support Meta</strong><br/>Mean: ${metaCtCpSupport.mean.toFixed(2)}<br/>` +
-                            `95% CI: [${metaCtCpSupport.low.toFixed(2)}–${metaCtCpSupport.high.toFixed(2)}]<br/>` +
-                            `95% PI: [${piCtCpSupport.low.toFixed(2)}–${piCtCpSupport.high.toFixed(2)}]`))
-                        .on("mouseout", hide5);
+	                    svg5.select(".meta-diamond5")
+	                        .on("mouseover", e => show5(e,
+	                            `<strong>Tax with rebates meta-effect</strong><br/>Mean d: ${metaCtCpSupport.mean.toFixed(2)}<br/>` +
+	                            `95% CI: [${metaCtCpSupport.low.toFixed(2)}–${metaCtCpSupport.high.toFixed(2)}]`))
+	                        .on("mouseout", hide5);
+	                    svg5.select(".meta-pi5")
+	                        .on("mouseover", e => show5(e,
+	                            `<strong>Tax with rebates prediction interval</strong><br/>` +
+	                            `95% PI: [${piCtCpSupport.low.toFixed(2)}–${piCtCpSupport.high.toFixed(2)}]`))
+	                        .on("mouseout", hide5);
                 });
             </script>
         </div>
 
 
-        <!-- Tab 5: DV6 (SPCT CP Support) -->
+        <!-- Tab 5: Social price with rebates -->
         <div class="tab-pane fade" id="dv6" role="tabpanel">
             <div class="chart-flex-row">
                 <div class="legend">
                     <div class="legend-item">
-                        <span class="legend-marker spct"></span>SPCT CP Support effect
+                        <span class="legend-marker obs"></span>Estimated RT effect
                     </div>
                     <div class="legend-item">
                         <svg width="12" height="12">
-                            <polygon points="6,0 12,6 6,12 0,6" fill="#f39200"/>
+                            <polygon points="6,0 12,6 6,12 0,6" fill="#101820"/>
                         </svg>
-                        SPCT CP Support (meta CI)
+                        Meta-effect (95% CI)
                     </div>
                     <div class="legend-item">
                         <svg width="30" height="4">
-                            <line x1="0" y1="2" x2="30" y2="2" stroke="#f39200" stroke-width="6" stroke-opacity="0.25"/>
+                            <line x1="0" y1="2" x2="30" y2="2" stroke="#25313a" stroke-width="6" stroke-opacity="0.16"/>
                         </svg>
-                        SPCT CP Support 95% PI
+                        95% PI
                     </div>
                 </div>
                 <div class="chart-holder">
-                    <div id="chart-dv6" ; style="margin-top:-30px;"></div>
+                    <div id="chart-dv6" class="single-chart"></div>
                     <div id="tooltip-dv6"></div>
                 </div>
                 <div class="button-col">
                     <div class="button-group">
-                        <button id="btn-spct">SPCT CP Support</button>
+                        <button id="btn-spct">Social price with rebates</button>
                     </div>
                 </div>
             </div>
@@ -1393,10 +2132,10 @@
                 const margin6 = {top: 50, right: 100, bottom: 60, left: 100},
                     fullW6 = 600,
                     halfW6 = fullW6 - margin6.left - margin6.right,
-                    rowH6 = 15,
-                    stepDelay6 = 200,
-                    fadeDuration6 = 100,
-                    capHalf6 = 5;
+                    rowH6 = 17,
+                    stepDelay6 = 38,
+                    fadeDuration6 = 180,
+                    capHalf6 = 3.5;
 
                 function pulseDot6(sel, delay, r, opacity) {
                     sel.attr("r", 0).style("opacity", 0)
@@ -1426,10 +2165,12 @@
                         .sort((a, b) => a.spct_cp_support_mean - b.spct_cp_support_mean);
                     const order6 = sorted6.map(d => d.id).concat("Meta");
                     const innerH6 = order6.length * rowH6,
-                        fullH6 = innerH6 + margin6.top + margin6.bottom + 30;
+                        fullH6 = innerH6 + margin6.top + margin6.bottom + 52;
 
                     const svg6 = d3.select("#chart-dv6").append("svg")
                         .attr("width", fullW6).attr("height", fullH6)
+                        .attr("role", "img")
+                        .attr("aria-label", "Forest plot of social price with rebates effects across research teams")
                         .append("g").attr("transform", `translate(${margin6.left},${margin6.top})`);
 
                     // scales
@@ -1444,15 +2185,23 @@
                         .attr("transform", `translate(0,${innerH6})`)
                         .call(d3.axisBottom(x6).ticks(4));
                     svg6.append("text")
+                        .attr("class", "axis-title explain-trigger")
                         .attr("x", halfW6 / 2)
-                        .attr("y", innerH6 + margin6.bottom - 20)
+                        .attr("y", innerH6 + margin6.bottom - 13)
                         .attr("text-anchor", "middle")
-                        .text("SPCT CP Support (Cohen’s d)");
+                        .attr("data-explain", "social-price-rebates")
+                        .attr("tabindex", 0)
+                        .text("Social price with rebates - Cohen's d");
                     svg6.append("g")
                         .attr("class", "spct-y-axis6")
                         .call(d3.axisLeft(y6).tickValues(order6.filter(id => 'Meta' !== id)));
                     svg6.selectAll(".spct-y-axis6 .tick text")
                         .attr("transform", "translate(-20,0)").style("opacity", 0);
+                    attachDossierOpen(
+                        svg6.selectAll(".spct-y-axis6 .tick text").filter(d => window.studyDesigns?.[d]),
+                        d => d,
+                        d => data.find(row => row.id === d)?.category
+                    );
 
                     // zero line
                     svg6.append("line").attr("class", "zero-line")
@@ -1460,33 +2209,29 @@
                         .attr("y1", 0).attr("y2", innerH6);
 
                     // heterogeneity bar
-                    const hetG6 = svg6.append("g")
-                        .attr("class", "het-bar-spct6").attr("opacity", 0)
-                        .attr("transform", `translate(${halfW6 / 2},${innerH6 + margin6.bottom - 4})`);
-                    hetG6.append("rect")
-                        .attr("x", -halfW6 / 2).attr("y", 4)
-                        .attr("width", halfW6).attr("height", 20)
-                        .attr("rx", 4).attr("ry", 4)
-                        .attr("fill", "#f2f2f2").attr("stroke", "#ccc");
-                    hetG6.append("text")
-                        .attr("y", 18).attr("text-anchor", "middle").style("font-size", "12px")
-                        .html(`τ=${hetSpctCpSupport.tau.toFixed(2)} (95% CI ${hetSpctCpSupport.tauCI[0]}–${hetSpctCpSupport.tauCI[1]}) • ` +
-                            `I²=${hetSpctCpSupport.I2}% • Q=${hetSpctCpSupport.Q.toFixed(1)} (p<${hetSpctCpSupport.pQ.toFixed(3)})`);
+                    const hetG6 = renderHetPill(svg6, "het-bar-spct6", halfW6 / 2, innerH6 + margin6.bottom + 4, halfW6, hetSpctCpSupport);
 
                     // meta PI & diamond
-                    const yMeta6 = y6("Meta") + y6.bandwidth() / 2,
-                        dH6 = y6.bandwidth() * 0.25;
-                    const piLine6 = svg6.append("line").attr("class", "meta-pi6")
-                        .attr("x1", x6(piSpctCpSupport.low)).attr("x2", x6(piSpctCpSupport.high))
-                        .attr("y1", yMeta6).attr("y2", yMeta6)
-                        .attr("stroke", "#f39200").attr("stroke-width", 6).attr("stroke-opacity", 0.25)
+	                    const yMeta6 = y6("Meta") + y6.bandwidth() / 2,
+	                        piOffset6 = 6,
+	                        dH6 = y6.bandwidth() * 0.25;
+	                    svg6.append("line")
+	                        .attr("class", "meta-separator")
+	                        .attr("x1", 0)
+	                        .attr("x2", halfW6)
+	                        .attr("y1", yMeta6 - y6.bandwidth() / 2)
+	                        .attr("y2", yMeta6 - y6.bandwidth() / 2);
+	                    const piLine6 = svg6.append("line").attr("class", "meta-pi6")
+	                        .attr("x1", x6(piSpctCpSupport.low)).attr("x2", x6(piSpctCpSupport.high))
+	                        .attr("y1", yMeta6 + piOffset6).attr("y2", yMeta6 + piOffset6)
+	                        .attr("stroke", "#25313a").attr("stroke-width", 4).attr("stroke-opacity", 0.16)
                         .style("opacity", 0);
                     const diamond6 = svg6.append("path").attr("class", "meta-diamond6")
                         .attr("d", `M${x6(metaSpctCpSupport.low)},${yMeta6}
                    L${x6(metaSpctCpSupport.mean)},${yMeta6 - dH6}
                    L${x6(metaSpctCpSupport.high)},${yMeta6}
                    L${x6(metaSpctCpSupport.mean)},${yMeta6 + dH6}Z`)
-                        .attr("fill", " #f39200").style("opacity", 0);
+                        .attr("fill", "#101820").style("opacity", 0);
 
                     // error & dots
                     const err6 = svg6.selectAll("g.error6").data(sorted6).enter()
@@ -1495,18 +2240,27 @@
                         .style("opacity", 0);
                     err6.append("line").attr("class", "ci-line")
                         .attr("x1", d => x6(d.spct_cp_support_mean)).attr("x2", d => x6(d.spct_cp_support_mean))
-                        .attr("y1", 0).attr("y2", 0).attr("stroke", "#f39200");
+                        .attr("y1", 0).attr("y2", 0).attr("stroke", "#101820");
                     ["low", "high"].forEach(w => {
                         err6.append("line").attr("class", `ci-cap ${w}`)
                             .attr("x1", d => x6(d[`spct_cp_support_${w}`]))
                             .attr("x2", d => x6(d[`spct_cp_support_${w}`]))
-                            .attr("y1", 0).attr("y2", 0).attr("stroke", "#f39200");
+                            .attr("y1", 0).attr("y2", 0).attr("stroke", "#101820");
                     });
                     const dots6 = svg6.selectAll("circle.dot6").data(sorted6).enter()
                         .append("circle").attr("class", "dot6")
                         .attr("cx", d => x6(d.spct_cp_support_mean))
                         .attr("cy", d => y6(d.id) + y6.bandwidth() / 2)
                         .attr("r", 0).style("opacity", 0);
+                    const hit6 = svg6.selectAll("circle.dossier-hit6").data(sorted6).enter()
+                        .append("circle").attr("class", "dossier-hit dossier-hit6")
+                        .attr("cx", d => x6(d.spct_cp_support_mean))
+                        .attr("cy", d => y6(d.id) + y6.bandwidth() / 2)
+                        .attr("r", 9)
+                        .style("pointer-events", "none");
+                    attachDossierOpen(err6.selectAll("line"));
+                    attachDossierOpen(dots6);
+                    attachDossierOpen(hit6);
 
                     // reveal
                     let shown6 = false;
@@ -1525,8 +2279,9 @@
                         sorted6.forEach((d, i) => {
                             growCI6(d3.select(err6.nodes()[i]), i * stepDelay6,
                                 x6(d.spct_cp_support_low), x6(d.spct_cp_support_high));
-                            pulseDot6(d3.select(dots6.nodes()[i]), i * stepDelay6, 5, 1);
+                            pulseDot6(d3.select(dots6.nodes()[i]), i * stepDelay6, 3.8, 1);
                         });
+                        hit6.style("pointer-events", "all");
                         const last = (sorted6.length - 1) * stepDelay6;
                         piLine6.transition().delay(last).duration(fadeDuration6).style("opacity", 1);
                         diamond6.transition().delay(last).duration(fadeDuration6).style("opacity", 1)
@@ -1551,20 +2306,85 @@
                             `<strong>${d.id}</strong><br/>CI: [${d.spct_cp_support_low.toFixed(2)}–${d.spct_cp_support_high.toFixed(2)}]`))
                         .on("mouseout", hide6);
                     dots6.on("mouseover", (e, d) => show6(e,
-                        `<strong>${d.id}</strong><br/>Mean: ${d.spct_cp_support_mean.toFixed(2)}`))
+                        `<strong>${d.id}</strong><br/>Estimated RT effect: ${d.spct_cp_support_mean.toFixed(2)}`))
+                        .on("mouseout", hide6);
+                    hit6.on("mouseover", (e, d) => show6(e,
+                        `<strong>${d.id}</strong><br/>Estimated RT effect: ${d.spct_cp_support_mean.toFixed(2)}`))
                         .on("mouseout", hide6);
 
-                    svg6.selectAll(".meta-pi6, .meta-diamond6")
-                        .on("mouseover", e => show6(e,
-                            `<strong>SPCT CP Support Meta</strong><br/>Mean: ${metaSpctCpSupport.mean.toFixed(2)}<br/>` +
-                            `95% CI: [${metaSpctCpSupport.low.toFixed(2)}–${metaSpctCpSupport.high.toFixed(2)}]<br/>` +
-                            `95% PI: [${piSpctCpSupport.low.toFixed(2)}–${piSpctCpSupport.high.toFixed(2)}]`))
-                        .on("mouseout", hide6);
+	                    svg6.select(".meta-diamond6")
+	                        .on("mouseover", e => show6(e,
+	                            `<strong>Social price with rebates meta-effect</strong><br/>Mean d: ${metaSpctCpSupport.mean.toFixed(2)}<br/>` +
+	                            `95% CI: [${metaSpctCpSupport.low.toFixed(2)}–${metaSpctCpSupport.high.toFixed(2)}]`))
+	                        .on("mouseout", hide6);
+	                    svg6.select(".meta-pi6")
+	                        .on("mouseover", e => show6(e,
+	                            `<strong>Social price with rebates prediction interval</strong><br/>` +
+	                            `95% PI: [${piSpctCpSupport.low.toFixed(2)}–${piSpctCpSupport.high.toFixed(2)}]`))
+	                        .on("mouseout", hide6);
                 });
             </script>
         </div>
 
 
+    </div>
+    <div id="study-detail-backdrop" class="study-detail-backdrop" aria-hidden="true"></div>
+    <aside id="study-detail" class="study-detail" aria-hidden="true" aria-labelledby="study-detail-title">
+        <div class="study-detail-topbar">
+            <div class="study-detail-kicker">Research team dossier</div>
+            <button id="study-detail-close" class="study-detail-close" type="button" aria-label="Close study details">Close</button>
+        </div>
+        <div class="study-detail-head">
+            <h2 id="study-detail-title">Select a team</h2>
+            <span id="study-detail-category" class="study-detail-category">Experimental design</span>
+        </div>
+        <div class="study-detail-body">
+            <a id="study-proposal-link" class="study-proposal-link" href="#" download target="_blank" rel="noopener">
+                <span class="study-proposal-icon" aria-hidden="true">
+                    <svg viewBox="0 0 18 18" focusable="false">
+                        <path d="M9 3v8.1m0 0 3.4-3.4M9 11.1 5.6 7.7M4 14.5h10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <span>
+                    <span class="study-proposal-kicker">Full design proposal</span>
+                    <strong id="study-proposal-label">Download PDF</strong>
+                </span>
+            </a>
+            <section>
+                <h3>Control</h3>
+                <p id="study-detail-control"></p>
+            </section>
+            <section>
+                <h3>Policy Treatment</h3>
+                <p id="study-detail-treatment"></p>
+            </section>
+            <section>
+                <h3>Outcome Variable</h3>
+                <p id="study-detail-outcome"></p>
+            </section>
+        </div>
+        <div class="study-detail-footnote">Source: RT design overview table in the paper. Click another plotted team to switch dossier.</div>
+    </aside>
+    <div id="guide-detail-backdrop" class="guide-detail-backdrop" aria-hidden="true"></div>
+    <aside id="guide-detail" class="guide-detail" aria-hidden="true" aria-labelledby="guide-detail-title">
+        <div class="guide-detail-topbar">
+            <div id="guide-detail-kicker" class="guide-detail-kicker">Reading guide</div>
+            <button id="guide-detail-close" class="guide-detail-close" type="button" aria-label="Close reading guide">Close</button>
+        </div>
+        <h2 id="guide-detail-title">How to read this figure</h2>
+        <p id="guide-detail-text"></p>
+        <blockquote id="guide-detail-question"></blockquote>
+        <p id="guide-detail-note" class="guide-detail-note"></p>
+        <div class="guide-detail-menu" aria-label="Reading guide shortcuts">
+            <button class="guide-open guide-only-general-support" type="button" data-explain="general-observed">Observed</button>
+            <button class="guide-open guide-only-general-support" type="button" data-explain="general-stated">Stated</button>
+        </div>
+    </aside>
+    <div id="explain-popover" class="explain-popover" aria-hidden="true">
+        <div class="explain-popover-kicker"></div>
+        <div class="explain-popover-title"></div>
+        <p class="explain-popover-text"></p>
+        <p class="explain-popover-detail"></p>
     </div>
 </div>
 
