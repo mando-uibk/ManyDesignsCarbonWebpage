@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>#ManyDesignsCarbon – Main Results</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=award-polish-3">
+    <link rel="stylesheet" href="css/styles.css?v=award-polish-4">
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="js/study-designs.js?v=1"></script>
 </head>
@@ -29,7 +29,7 @@
         <div class="summary-card">
             <span class="summary-label explain-trigger" data-explain="general-stated" tabindex="0">General support (stated)</span>
             <strong class="explain-trigger" data-explain="cohen-d" tabindex="0">d = +0.08</strong>
-            <span class="summary-points explain-trigger" data-explain="support-share" tabindex="0">+2 pp support</span>
+            <span class="summary-points explain-trigger" data-explain="support-share" tabindex="0">+2.0 pp support</span>
             <span class="summary-meta explain-trigger" data-explain="ci" tabindex="0">95% CI 0.04 to 0.12</span>
             <span class="summary-meta explain-trigger" data-explain="pi" tabindex="0">95% PI -0.13 to 0.29</span>
         </div>
@@ -51,14 +51,14 @@
         <div class="summary-card">
             <span class="summary-label explain-trigger" data-explain="tax-rebates" tabindex="0">Tax with rebates</span>
             <strong class="explain-trigger" data-explain="cohen-d" tabindex="0">d = +0.06</strong>
-            <span class="summary-points explain-trigger" data-explain="support-share" tabindex="0">+1 pp support</span>
+            <span class="summary-points explain-trigger" data-explain="support-share" tabindex="0">+1.0 pp support</span>
             <span class="summary-meta explain-trigger" data-explain="ci" tabindex="0">95% CI 0.02 to 0.10</span>
             <span class="summary-meta explain-trigger" data-explain="pi" tabindex="0">95% PI -0.12 to 0.24</span>
         </div>
         <div class="summary-card">
             <span class="summary-label explain-trigger" data-explain="social-price-rebates" tabindex="0">Social price with rebates</span>
             <strong class="explain-trigger" data-explain="cohen-d" tabindex="0">d = +0.04</strong>
-            <span class="summary-points explain-trigger" data-explain="support-share" tabindex="0">+1 pp support</span>
+            <span class="summary-points explain-trigger" data-explain="support-share" tabindex="0">+1.0 pp support</span>
             <span class="summary-meta explain-trigger" data-explain="ci" tabindex="0">95% CI 0.00 to 0.07</span>
             <span class="summary-meta explain-trigger" data-explain="pi" tabindex="0">95% PI -0.14 to 0.22</span>
         </div>
@@ -777,18 +777,23 @@
                         .attr("r", 0).style("opacity", 0).style("fill", "#6baed6");
 
                     let selfPeerVisible = true;
-                    d3.select("#btn-toggle-selfpeer").on("click", function () {
+                    const selfPeerToggle = d3.select("#btn-toggle-selfpeer");
+
+                    function updateSelfPeerToggle() {
+                        const canToggleSelfPeer = shownSelf || shownPeer;
+                        selfPeerToggle
+                            .property("disabled", !canToggleSelfPeer)
+                            .classed("mode-active", canToggleSelfPeer && !selfPeerVisible)
+                            .attr("aria-pressed", String(canToggleSelfPeer && !selfPeerVisible))
+                            .text(selfPeerVisible ? "Hide Self & Peer" : "Show Self & Peer");
+                    }
+
+                    updateSelfPeerToggle();
+
+                    selfPeerToggle.on("click", function () {
+                        if (this.disabled) return;
                         selfPeerVisible = !selfPeerVisible;
-                        const newOpacity = selfPeerVisible ? 1 : 0;
-                        // hide/show the circles
-                        selfDots.transition().duration(200).style("opacity", newOpacity);
-                        peerErr.transition().duration(200).style("opacity", newOpacity);
-                        peerDots.transition().duration(200).style("opacity", newOpacity);
-                        this.textContent = selfPeerVisible
-                            ? "Hide Self & Peer"
-                            : "Show Self & Peer";
-                        this.classList.toggle("mode-active", !selfPeerVisible);
-                        this.setAttribute("aria-pressed", String(!selfPeerVisible));
+                        updateSelfPeerToggle();
                         applyCategoryFilter(activeCategory);
                     });
 
@@ -1167,6 +1172,7 @@
                             pulseDot(d3.select(this), obsOrder.indexOf(d.id) * stepDelay, 3.8, 1);
                         });
                         shownSelf = true;
+                        updateSelfPeerToggle();
                         if (shownObs) scheduleDim(selfDots);
                     });
                     d3.select("#btn-peer").on("click", function () {
@@ -1181,6 +1187,7 @@
                             pulseDot(d3.select(this), obsOrder.indexOf(d.id) * stepDelay, 3.8, 1);
                         });
                         shownPeer = true;
+                        updateSelfPeerToggle();
                         if (shownObs) {
                             scheduleDim(peerErr);
                             scheduleDim(peerDots);
