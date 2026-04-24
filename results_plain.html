@@ -11,7 +11,11 @@
 </head>
 <body>
 <div class="container my-4">
-    <h1 class="text-center">#ManyDesignsCarbon Main Results</h1>
+    <h1 class="text-center results-title">
+        <button id="project-detail-open" class="project-title-open" type="button"
+                aria-label="Open #ManyDesignsCarbon project overview">#ManyDesignsCarbon</button>
+        <span>Main Results</span>
+    </h1>
     <p class="page-subtitle">Interactive forest plots of experimental design effects</p>
     <div class="results-summary" aria-label="Main results summary">
         <div class="summary-card">
@@ -177,7 +181,7 @@
                     "#9ab83f"
                 ];
                 const colorScale = d3.scaleOrdinal().domain(categories).range(categoryColors);
-                let sharedXDomain;
+                let sharedXDomain = [-0.5, 1.5];
 
                 let shownSelf = false, shownPeer = false, shownObs = false, shownStd = false;
                 let obsDone = false, stdDone = false;
@@ -424,6 +428,18 @@
                     d3.select("#explain-popover").classed("is-visible", false);
                 }
 
+                function openProjectDetail() {
+                    closeStudyDossier();
+                    closeGuide();
+                    d3.select("#project-detail").classed("is-open", true).attr("aria-hidden", "false");
+                    d3.select("#project-detail-backdrop").classed("is-open", true).attr("aria-hidden", "false");
+                }
+
+                function closeProjectDetail() {
+                    d3.select("#project-detail").classed("is-open", false).attr("aria-hidden", "true");
+                    d3.select("#project-detail-backdrop").classed("is-open", false).attr("aria-hidden", "true");
+                }
+
                 function moveExplainPopover(event, target = null) {
                     const pop = d3.select("#explain-popover");
                     if (pop.empty()) return;
@@ -452,6 +468,9 @@
                 function bindGuideControls() {
                     d3.select("#guide-detail-close").on("click", closeGuide);
                     d3.select("#guide-detail-backdrop").on("click", closeGuide);
+                    d3.select("#project-detail-open").on("click", openProjectDetail);
+                    d3.select("#project-detail-close").on("click", closeProjectDetail);
+                    d3.select("#project-detail-backdrop").on("click", closeProjectDetail);
 
                     document.addEventListener("click", event => {
                         const trigger = event.target.closest(".explain-trigger, .guide-open");
@@ -495,6 +514,7 @@
                     if (event.key === "Escape") {
                         closeStudyDossier();
                         closeGuide();
+                        closeProjectDetail();
                     }
                 });
 
@@ -517,7 +537,7 @@
                             .attr("y1", yMid).attr("y2", yMid)
                             .transition("series").delay(delay).duration(fadeDuration)
                             .attr("y1", yMid - capHalf).attr("y2", yMid + capHalf);
-                        });
+                    });
                 }
 
                 function renderHetPill(svgRoot, className, xCenter, yTop, width, stats) {
@@ -795,22 +815,22 @@
                         stdDots.interrupt("series").style("opacity", shownStd ? 1 : 0);
                     }
 
-	                    const yMetaObs = yObs("Meta") + yObs.bandwidth() / 2;
-	                    const yMetaStd = yStd("Meta") + yStd.bandwidth() / 2;
-	                    const piOffset = 6;   // how many pixels DOWN from the diamond’s center
+                    const yMetaObs = yObs("Meta") + yObs.bandwidth() / 2;
+                    const yMetaStd = yStd("Meta") + yStd.bandwidth() / 2;
+                    const piOffset = 6;   // how many pixels DOWN from the diamond’s center
 
-	                    svg.append("line")
-	                        .attr("class", "meta-separator")
-	                        .attr("x1", 0)
-	                        .attr("x2", halfW)
-	                        .attr("y1", yMetaObs - yObs.bandwidth() / 2)
-	                        .attr("y2", yMetaObs - yObs.bandwidth() / 2);
-	                    svg.append("line")
-	                        .attr("class", "meta-separator")
-	                        .attr("x1", halfW + gap)
-	                        .attr("x2", halfW + gap + halfW)
-	                        .attr("y1", yMetaStd - yStd.bandwidth() / 2)
-	                        .attr("y2", yMetaStd - yStd.bandwidth() / 2);
+                    svg.append("line")
+                        .attr("class", "meta-separator")
+                        .attr("x1", 0)
+                        .attr("x2", halfW)
+                        .attr("y1", yMetaObs - yObs.bandwidth() / 2)
+                        .attr("y2", yMetaObs - yObs.bandwidth() / 2);
+                    svg.append("line")
+                        .attr("class", "meta-separator")
+                        .attr("x1", halfW + gap)
+                        .attr("x2", halfW + gap + halfW)
+                        .attr("y1", yMetaStd - yStd.bandwidth() / 2)
+                        .attr("y2", yMetaStd - yStd.bandwidth() / 2);
 
 // Observed PI (grey bar), shifted down
                     svg.append("line")
@@ -843,51 +863,51 @@
                         .attr("d", `M${xStd(metaStd.low) + halfW + gap},${yMetaStd}L${xStd(metaStd.mean) + halfW + gap},${yMetaStd - dH}L${xStd(metaStd.high) + halfW + gap},${yMetaStd}L${xStd(metaStd.mean) + halfW + gap},${yMetaStd + dH}Z`)
                         .attr("fill", "black");
 
-	                    svg.select(".meta-diamond.obs")
-	                        .on("mouseover", e => {
-	                            if (+d3.select(".meta-diamond.obs").style("opacity") > 0) {
-	                                showTip(e,
-	                                    `<strong>General support (observed) meta-effect</strong><br/>` +
-	                                    `Mean d: ${metaObs.mean.toFixed(2)}<br/>` +
-	                                    `95% CI: [${metaObs.low.toFixed(2)}–${metaObs.high.toFixed(2)}]`
-	                                );
-	                            }
-	                        })
-	                        .on("mouseout", hideTip);
+                    svg.select(".meta-diamond.obs")
+                        .on("mouseover", e => {
+                            if (+d3.select(".meta-diamond.obs").style("opacity") > 0) {
+                                showTip(e,
+                                    `<strong>General support (observed) meta-effect</strong><br/>` +
+                                    `Mean d: ${metaObs.mean.toFixed(2)}<br/>` +
+                                    `95% CI: [${metaObs.low.toFixed(2)}–${metaObs.high.toFixed(2)}]`
+                                );
+                            }
+                        })
+                        .on("mouseout", hideTip);
 
-	                    svg.select(".meta-pi.obs")
-	                        .on("mouseover", e => {
-	                            if (+d3.select(".meta-pi.obs").style("opacity") > 0) {
-	                                showTip(e,
-	                                    `<strong>General support (observed) prediction interval</strong><br/>` +
-	                                    `95% PI: [${piObs.low.toFixed(2)}–${piObs.high.toFixed(2)}]`
-	                                );
-	                            }
-	                        })
-	                        .on("mouseout", hideTip);
+                    svg.select(".meta-pi.obs")
+                        .on("mouseover", e => {
+                            if (+d3.select(".meta-pi.obs").style("opacity") > 0) {
+                                showTip(e,
+                                    `<strong>General support (observed) prediction interval</strong><br/>` +
+                                    `95% PI: [${piObs.low.toFixed(2)}–${piObs.high.toFixed(2)}]`
+                                );
+                            }
+                        })
+                        .on("mouseout", hideTip);
 
-	                    svg.select(".meta-diamond.std")
-	                        .on("mouseover", e => {
-	                            if (+d3.select(".meta-diamond.std").style("opacity") > 0) {
-	                                showTip(e,
-	                                    `<strong>General support (stated) meta-effect</strong><br/>` +
-	                                    `Mean d: ${metaStd.mean.toFixed(2)}<br/>` +
-	                                    `95% CI: [${metaStd.low.toFixed(2)}–${metaStd.high.toFixed(2)}]`
-	                                );
-	                            }
-	                        })
-	                        .on("mouseout", hideTip);
+                    svg.select(".meta-diamond.std")
+                        .on("mouseover", e => {
+                            if (+d3.select(".meta-diamond.std").style("opacity") > 0) {
+                                showTip(e,
+                                    `<strong>General support (stated) meta-effect</strong><br/>` +
+                                    `Mean d: ${metaStd.mean.toFixed(2)}<br/>` +
+                                    `95% CI: [${metaStd.low.toFixed(2)}–${metaStd.high.toFixed(2)}]`
+                                );
+                            }
+                        })
+                        .on("mouseout", hideTip);
 
-	                    svg.select(".meta-pi.std")
-	                        .on("mouseover", e => {
-	                            if (+d3.select(".meta-pi.std").style("opacity") > 0) {
-	                                showTip(e,
-	                                    `<strong>General support (stated) prediction interval</strong><br/>` +
-	                                    `95% PI: [${piStd.low.toFixed(2)}–${piStd.high.toFixed(2)}]`
-	                                );
-	                            }
-	                        })
-	                        .on("mouseout", hideTip);
+                    svg.select(".meta-pi.std")
+                        .on("mouseover", e => {
+                            if (+d3.select(".meta-pi.std").style("opacity") > 0) {
+                                showTip(e,
+                                    `<strong>General support (stated) prediction interval</strong><br/>` +
+                                    `95% PI: [${piStd.low.toFixed(2)}–${piStd.high.toFixed(2)}]`
+                                );
+                            }
+                        })
+                        .on("mouseout", hideTip);
 
                     // tooltips
                     const tooltip = d3.select("#tooltip");
@@ -1500,19 +1520,19 @@
                     const hetG3 = renderHetPill(svg3, "het-bar-raise3", halfW3 / 2, innerH3 + margin3.bottom + 4, halfW3, hetRaise);
 
                     // meta‐PI & diamond
-	                    const yMeta3 = y3("Meta") + y3.bandwidth() / 2,
-	                        piOffset3 = 6,
-	                        dH3 = y3.bandwidth() * 0.25;
-	                    svg3.append("line")
-	                        .attr("class", "meta-separator")
-	                        .attr("x1", 0)
-	                        .attr("x2", halfW3)
-	                        .attr("y1", yMeta3 - y3.bandwidth() / 2)
-	                        .attr("y2", yMeta3 - y3.bandwidth() / 2);
-	                    const piLine3 = svg3.append("line").attr("class", "meta-pi3")
-	                        .attr("x1", x3(piRaise.low)).attr("x2", x3(piRaise.high))
-	                        .attr("y1", yMeta3 + piOffset3).attr("y2", yMeta3 + piOffset3)
-	                        .attr("stroke", "#25313a").attr("stroke-width", 4).attr("stroke-opacity", 0.16)
+                    const yMeta3 = y3("Meta") + y3.bandwidth() / 2,
+                        piOffset3 = 6,
+                        dH3 = y3.bandwidth() * 0.25;
+                    svg3.append("line")
+                        .attr("class", "meta-separator")
+                        .attr("x1", 0)
+                        .attr("x2", halfW3)
+                        .attr("y1", yMeta3 - y3.bandwidth() / 2)
+                        .attr("y2", yMeta3 - y3.bandwidth() / 2);
+                    const piLine3 = svg3.append("line").attr("class", "meta-pi3")
+                        .attr("x1", x3(piRaise.low)).attr("x2", x3(piRaise.high))
+                        .attr("y1", yMeta3 + piOffset3).attr("y2", yMeta3 + piOffset3)
+                        .attr("stroke", "#25313a").attr("stroke-width", 4).attr("stroke-opacity", 0.16)
                         .style("opacity", 0);
                     const diamond3 = svg3.append("path").attr("class", "meta-diamond3")
                         .attr("d", `M${x3(metaRaise.low)},${yMeta3}
@@ -1606,19 +1626,19 @@
                         `<strong>${d.id}</strong><br/>Estimated RT effect: ${d.cp_raise_mean.toFixed(2)}`))
                         .on("mouseout", hide3);
 
-	                    // meta-diamond & PI tooltips
-	                    svg3.select(".meta-diamond3")
-	                        .on("mouseover", (e) => show3(e,
-	                            `<strong>General price increase meta-effect</strong><br/>Mean d: ${metaRaise.mean.toFixed(2)}<br/>` +
-	                            `95% CI: [${metaRaise.low.toFixed(2)}–${metaRaise.high.toFixed(2)}]`
-	                        ))
-	                        .on("mouseout", hide3);
-	                    svg3.select(".meta-pi3")
-	                        .on("mouseover", (e) => show3(e,
-	                            `<strong>General price increase prediction interval</strong><br/>` +
-	                            `95% PI: [${piRaise.low.toFixed(2)}–${piRaise.high.toFixed(2)}]`
-	                        ))
-	                        .on("mouseout", hide3);
+                    // meta-diamond & PI tooltips
+                    svg3.select(".meta-diamond3")
+                        .on("mouseover", (e) => show3(e,
+                            `<strong>General price increase meta-effect</strong><br/>Mean d: ${metaRaise.mean.toFixed(2)}<br/>` +
+                            `95% CI: [${metaRaise.low.toFixed(2)}–${metaRaise.high.toFixed(2)}]`
+                        ))
+                        .on("mouseout", hide3);
+                    svg3.select(".meta-pi3")
+                        .on("mouseover", (e) => show3(e,
+                            `<strong>General price increase prediction interval</strong><br/>` +
+                            `95% PI: [${piRaise.low.toFixed(2)}–${piRaise.high.toFixed(2)}]`
+                        ))
+                        .on("mouseout", hide3);
 
                 });
             </script>
@@ -1744,19 +1764,19 @@
                     const hetG4 = renderHetPill(svg4, "het-bar-sp4", halfW4 / 2, innerH4 + margin4.bottom + 4, halfW4, hetSpCpSupport);
 
                     // meta PI & diamond
-	                    const yMeta4 = y4("Meta") + y4.bandwidth() / 2,
-	                        piOffset4 = 6,
-	                        dH4 = y4.bandwidth() * 0.25;
-	                    svg4.append("line")
-	                        .attr("class", "meta-separator")
-	                        .attr("x1", 0)
-	                        .attr("x2", halfW4)
-	                        .attr("y1", yMeta4 - y4.bandwidth() / 2)
-	                        .attr("y2", yMeta4 - y4.bandwidth() / 2);
-	                    const piLine4 = svg4.append("line").attr("class", "meta-pi4")
-	                        .attr("x1", x4(piSpCpSupport.low)).attr("x2", x4(piSpCpSupport.high))
-	                        .attr("y1", yMeta4 + piOffset4).attr("y2", yMeta4 + piOffset4)
-	                        .attr("stroke", "#25313a").attr("stroke-width", 4).attr("stroke-opacity", 0.16)
+                    const yMeta4 = y4("Meta") + y4.bandwidth() / 2,
+                        piOffset4 = 6,
+                        dH4 = y4.bandwidth() * 0.25;
+                    svg4.append("line")
+                        .attr("class", "meta-separator")
+                        .attr("x1", 0)
+                        .attr("x2", halfW4)
+                        .attr("y1", yMeta4 - y4.bandwidth() / 2)
+                        .attr("y2", yMeta4 - y4.bandwidth() / 2);
+                    const piLine4 = svg4.append("line").attr("class", "meta-pi4")
+                        .attr("x1", x4(piSpCpSupport.low)).attr("x2", x4(piSpCpSupport.high))
+                        .attr("y1", yMeta4 + piOffset4).attr("y2", yMeta4 + piOffset4)
+                        .attr("stroke", "#25313a").attr("stroke-width", 4).attr("stroke-opacity", 0.16)
                         .style("opacity", 0);
                     const diamond4 = svg4.append("path").attr("class", "meta-diamond4")
                         .attr("d", `M${x4(metaSpCpSupport.low)},${yMeta4}
@@ -1845,16 +1865,16 @@
                         `<strong>${d.id}</strong><br/>Estimated RT effect: ${d.sp_cp_support_mean.toFixed(2)}`))
                         .on("mouseout", hide4);
 
-	                    svg4.select(".meta-diamond4")
-	                        .on("mouseover", e => show4(e,
-	                            `<strong>Social price meta-effect</strong><br/>Mean d: ${metaSpCpSupport.mean.toFixed(2)}<br/>` +
-	                            `95% CI: [${metaSpCpSupport.low.toFixed(2)}–${metaSpCpSupport.high.toFixed(2)}]`))
-	                        .on("mouseout", hide4);
-	                    svg4.select(".meta-pi4")
-	                        .on("mouseover", e => show4(e,
-	                            `<strong>Social price prediction interval</strong><br/>` +
-	                            `95% PI: [${piSpCpSupport.low.toFixed(2)}–${piSpCpSupport.high.toFixed(2)}]`))
-	                        .on("mouseout", hide4);
+                    svg4.select(".meta-diamond4")
+                        .on("mouseover", e => show4(e,
+                            `<strong>Social price meta-effect</strong><br/>Mean d: ${metaSpCpSupport.mean.toFixed(2)}<br/>` +
+                            `95% CI: [${metaSpCpSupport.low.toFixed(2)}–${metaSpCpSupport.high.toFixed(2)}]`))
+                        .on("mouseout", hide4);
+                    svg4.select(".meta-pi4")
+                        .on("mouseover", e => show4(e,
+                            `<strong>Social price prediction interval</strong><br/>` +
+                            `95% PI: [${piSpCpSupport.low.toFixed(2)}–${piSpCpSupport.high.toFixed(2)}]`))
+                        .on("mouseout", hide4);
                 });
             </script>
         </div>
@@ -1978,19 +1998,19 @@
                     const hetG5 = renderHetPill(svg5, "het-bar-ct5", halfW5 / 2, innerH5 + margin5.bottom + 4, halfW5, hetCtCpSupport);
 
                     // meta PI & diamond
-	                    const yMeta5 = y5("Meta") + y5.bandwidth() / 2,
-	                        piOffset5 = 6,
-	                        dH5 = y5.bandwidth() * 0.25;
-	                    svg5.append("line")
-	                        .attr("class", "meta-separator")
-	                        .attr("x1", 0)
-	                        .attr("x2", halfW5)
-	                        .attr("y1", yMeta5 - y5.bandwidth() / 2)
-	                        .attr("y2", yMeta5 - y5.bandwidth() / 2);
-	                    const piLine5 = svg5.append("line").attr("class", "meta-pi5")
-	                        .attr("x1", x5(piCtCpSupport.low)).attr("x2", x5(piCtCpSupport.high))
-	                        .attr("y1", yMeta5 + piOffset5).attr("y2", yMeta5 + piOffset5)
-	                        .attr("stroke", "#25313a").attr("stroke-width", 4).attr("stroke-opacity", 0.16)
+                    const yMeta5 = y5("Meta") + y5.bandwidth() / 2,
+                        piOffset5 = 6,
+                        dH5 = y5.bandwidth() * 0.25;
+                    svg5.append("line")
+                        .attr("class", "meta-separator")
+                        .attr("x1", 0)
+                        .attr("x2", halfW5)
+                        .attr("y1", yMeta5 - y5.bandwidth() / 2)
+                        .attr("y2", yMeta5 - y5.bandwidth() / 2);
+                    const piLine5 = svg5.append("line").attr("class", "meta-pi5")
+                        .attr("x1", x5(piCtCpSupport.low)).attr("x2", x5(piCtCpSupport.high))
+                        .attr("y1", yMeta5 + piOffset5).attr("y2", yMeta5 + piOffset5)
+                        .attr("stroke", "#25313a").attr("stroke-width", 4).attr("stroke-opacity", 0.16)
                         .style("opacity", 0);
                     const diamond5 = svg5.append("path").attr("class", "meta-diamond5")
                         .attr("d", `M${x5(metaCtCpSupport.low)},${yMeta5}
@@ -2078,16 +2098,16 @@
                         `<strong>${d.id}</strong><br/>Estimated RT effect: ${d.ct_cp_support_mean.toFixed(2)}`))
                         .on("mouseout", hide5);
 
-	                    svg5.select(".meta-diamond5")
-	                        .on("mouseover", e => show5(e,
-	                            `<strong>Tax with rebates meta-effect</strong><br/>Mean d: ${metaCtCpSupport.mean.toFixed(2)}<br/>` +
-	                            `95% CI: [${metaCtCpSupport.low.toFixed(2)}–${metaCtCpSupport.high.toFixed(2)}]`))
-	                        .on("mouseout", hide5);
-	                    svg5.select(".meta-pi5")
-	                        .on("mouseover", e => show5(e,
-	                            `<strong>Tax with rebates prediction interval</strong><br/>` +
-	                            `95% PI: [${piCtCpSupport.low.toFixed(2)}–${piCtCpSupport.high.toFixed(2)}]`))
-	                        .on("mouseout", hide5);
+                    svg5.select(".meta-diamond5")
+                        .on("mouseover", e => show5(e,
+                            `<strong>Tax with rebates meta-effect</strong><br/>Mean d: ${metaCtCpSupport.mean.toFixed(2)}<br/>` +
+                            `95% CI: [${metaCtCpSupport.low.toFixed(2)}–${metaCtCpSupport.high.toFixed(2)}]`))
+                        .on("mouseout", hide5);
+                    svg5.select(".meta-pi5")
+                        .on("mouseover", e => show5(e,
+                            `<strong>Tax with rebates prediction interval</strong><br/>` +
+                            `95% PI: [${piCtCpSupport.low.toFixed(2)}–${piCtCpSupport.high.toFixed(2)}]`))
+                        .on("mouseout", hide5);
                 });
             </script>
         </div>
@@ -2212,19 +2232,19 @@
                     const hetG6 = renderHetPill(svg6, "het-bar-spct6", halfW6 / 2, innerH6 + margin6.bottom + 4, halfW6, hetSpctCpSupport);
 
                     // meta PI & diamond
-	                    const yMeta6 = y6("Meta") + y6.bandwidth() / 2,
-	                        piOffset6 = 6,
-	                        dH6 = y6.bandwidth() * 0.25;
-	                    svg6.append("line")
-	                        .attr("class", "meta-separator")
-	                        .attr("x1", 0)
-	                        .attr("x2", halfW6)
-	                        .attr("y1", yMeta6 - y6.bandwidth() / 2)
-	                        .attr("y2", yMeta6 - y6.bandwidth() / 2);
-	                    const piLine6 = svg6.append("line").attr("class", "meta-pi6")
-	                        .attr("x1", x6(piSpctCpSupport.low)).attr("x2", x6(piSpctCpSupport.high))
-	                        .attr("y1", yMeta6 + piOffset6).attr("y2", yMeta6 + piOffset6)
-	                        .attr("stroke", "#25313a").attr("stroke-width", 4).attr("stroke-opacity", 0.16)
+                    const yMeta6 = y6("Meta") + y6.bandwidth() / 2,
+                        piOffset6 = 6,
+                        dH6 = y6.bandwidth() * 0.25;
+                    svg6.append("line")
+                        .attr("class", "meta-separator")
+                        .attr("x1", 0)
+                        .attr("x2", halfW6)
+                        .attr("y1", yMeta6 - y6.bandwidth() / 2)
+                        .attr("y2", yMeta6 - y6.bandwidth() / 2);
+                    const piLine6 = svg6.append("line").attr("class", "meta-pi6")
+                        .attr("x1", x6(piSpctCpSupport.low)).attr("x2", x6(piSpctCpSupport.high))
+                        .attr("y1", yMeta6 + piOffset6).attr("y2", yMeta6 + piOffset6)
+                        .attr("stroke", "#25313a").attr("stroke-width", 4).attr("stroke-opacity", 0.16)
                         .style("opacity", 0);
                     const diamond6 = svg6.append("path").attr("class", "meta-diamond6")
                         .attr("d", `M${x6(metaSpctCpSupport.low)},${yMeta6}
@@ -2312,16 +2332,16 @@
                         `<strong>${d.id}</strong><br/>Estimated RT effect: ${d.spct_cp_support_mean.toFixed(2)}`))
                         .on("mouseout", hide6);
 
-	                    svg6.select(".meta-diamond6")
-	                        .on("mouseover", e => show6(e,
-	                            `<strong>Social price with rebates meta-effect</strong><br/>Mean d: ${metaSpctCpSupport.mean.toFixed(2)}<br/>` +
-	                            `95% CI: [${metaSpctCpSupport.low.toFixed(2)}–${metaSpctCpSupport.high.toFixed(2)}]`))
-	                        .on("mouseout", hide6);
-	                    svg6.select(".meta-pi6")
-	                        .on("mouseover", e => show6(e,
-	                            `<strong>Social price with rebates prediction interval</strong><br/>` +
-	                            `95% PI: [${piSpctCpSupport.low.toFixed(2)}–${piSpctCpSupport.high.toFixed(2)}]`))
-	                        .on("mouseout", hide6);
+                    svg6.select(".meta-diamond6")
+                        .on("mouseover", e => show6(e,
+                            `<strong>Social price with rebates meta-effect</strong><br/>Mean d: ${metaSpctCpSupport.mean.toFixed(2)}<br/>` +
+                            `95% CI: [${metaSpctCpSupport.low.toFixed(2)}–${metaSpctCpSupport.high.toFixed(2)}]`))
+                        .on("mouseout", hide6);
+                    svg6.select(".meta-pi6")
+                        .on("mouseover", e => show6(e,
+                            `<strong>Social price with rebates prediction interval</strong><br/>` +
+                            `95% PI: [${piSpctCpSupport.low.toFixed(2)}–${piSpctCpSupport.high.toFixed(2)}]`))
+                        .on("mouseout", hide6);
                 });
             </script>
         </div>
@@ -2329,6 +2349,70 @@
 
     </div>
     <div id="study-detail-backdrop" class="study-detail-backdrop" aria-hidden="true"></div>
+    <div id="project-detail-backdrop" class="project-detail-backdrop" aria-hidden="true"></div>
+    <aside id="project-detail" class="project-detail" aria-hidden="true" aria-labelledby="project-detail-title">
+        <div class="project-detail-topbar">
+            <div class="project-detail-kicker">Project overview</div>
+            <button id="project-detail-close" class="project-detail-close" type="button"
+                    aria-label="Close project overview">Close
+            </button>
+        </div>
+        <h2 id="project-detail-title">What is #ManyDesignsCarbon?</h2>
+        <p class="project-detail-lead">
+            #ManyDesignsCarbon is a crowd-science project on whether behavioral interventions can increase public
+            support for carbon pricing. The main results shown here summarize 55 independently designed studies run
+            under a shared protocol with 19,558 U.S. participants.
+        </p>
+        <div class="project-detail-metrics" aria-label="Project facts">
+            <div>
+                <strong>135</strong>
+                <span>applications</span>
+            </div>
+            <div>
+                <strong>55</strong>
+                <span>implemented designs</span>
+            </div>
+            <div>
+                <strong>19,558</strong>
+                <span>participants</span>
+            </div>
+        </div>
+        <section>
+            <h3>Why many designs?</h3>
+            <p>
+                A single intervention can tell us whether one idea worked in one setting. A many-designs project asks
+                a broader question: what happens when many research teams independently design interventions for the
+                same policy problem? This makes design heterogeneity visible instead of hiding it behind one average.
+            </p>
+        </section>
+        <section>
+            <h3>How designs entered the study</h3>
+            <p>
+                Research teams applied to participate, were selected from the applicant pool, and submitted
+                pre-registered design proposals. Each study needed a treatment and a control condition, and each team
+                proposed a real-world or consequential measure of support for carbon pricing. Teams also predicted
+                their own effect sizes, while peers evaluated other teams' designs.
+            </p>
+        </section>
+        <section>
+            <h3>What the project learned</h3>
+            <p>
+                On average, behavioral interventions produced small but statistically detectable increases in
+                real-world and stated support for carbon pricing, roughly around two percentage points across the
+                main measures. At the same time, effects differed across designs, and the prediction intervals show
+                that future interventions from the same design space could plausibly have null or negative effects.
+            </p>
+        </section>
+        <section>
+            <h3>Open science</h3>
+            <p>
+                The project was pre-registered, received ethics approval from the University of Innsbruck, and provides
+                the pre-registered study protocol, data, and analysis files in the
+                <a href="https://osf.io/ujvdn/?view_only=b46d7fab56d447c5ab516c8cbbf0602d" target="_blank"
+                   rel="noopener">OSF repository</a>.
+            </p>
+        </section>
+    </aside>
     <aside id="study-detail" class="study-detail" aria-hidden="true" aria-labelledby="study-detail-title">
         <div class="study-detail-topbar">
             <div class="study-detail-kicker">Research team dossier</div>
