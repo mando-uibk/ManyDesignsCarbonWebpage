@@ -29,7 +29,8 @@
         <div class="summary-card">
             <span class="summary-label explain-trigger" data-explain="general-stated" tabindex="0">General support (stated)</span>
             <strong class="explain-trigger" data-explain="cohen-d" tabindex="0">d = +0.08</strong>
-            <span class="summary-points explain-trigger" data-explain="support-share" tabindex="0">+2.0 pp support</span>
+            <span class="summary-points explain-trigger" data-explain="support-share"
+                  tabindex="0">+2.0 pp support</span>
             <span class="summary-meta explain-trigger" data-explain="ci" tabindex="0">95% CI 0.04 to 0.12</span>
             <span class="summary-meta explain-trigger" data-explain="pi" tabindex="0">95% PI -0.13 to 0.29</span>
         </div>
@@ -51,14 +52,16 @@
         <div class="summary-card">
             <span class="summary-label explain-trigger" data-explain="tax-rebates" tabindex="0">Tax with rebates</span>
             <strong class="explain-trigger" data-explain="cohen-d" tabindex="0">d = +0.06</strong>
-            <span class="summary-points explain-trigger" data-explain="support-share" tabindex="0">+1.0 pp support</span>
+            <span class="summary-points explain-trigger" data-explain="support-share"
+                  tabindex="0">+1.0 pp support</span>
             <span class="summary-meta explain-trigger" data-explain="ci" tabindex="0">95% CI 0.02 to 0.10</span>
             <span class="summary-meta explain-trigger" data-explain="pi" tabindex="0">95% PI -0.12 to 0.24</span>
         </div>
         <div class="summary-card">
             <span class="summary-label explain-trigger" data-explain="social-price-rebates" tabindex="0">Social price with rebates</span>
             <strong class="explain-trigger" data-explain="cohen-d" tabindex="0">d = +0.04</strong>
-            <span class="summary-points explain-trigger" data-explain="support-share" tabindex="0">+1.0 pp support</span>
+            <span class="summary-points explain-trigger" data-explain="support-share"
+                  tabindex="0">+1.0 pp support</span>
             <span class="summary-meta explain-trigger" data-explain="ci" tabindex="0">95% CI 0.00 to 0.07</span>
             <span class="summary-meta explain-trigger" data-explain="pi" tabindex="0">95% PI -0.14 to 0.22</span>
         </div>
@@ -552,8 +555,7 @@
 
                 function growCI(g, delay, xL, xH, xMid, opacity) {
                     g.style("opacity", 0)
-                        .transition("series").delay(delay).duration(ciGrowDuration)
-                        .ease(d3.easeCubicOut)
+                        .transition("series-visibility").delay(delay).duration(0)
                         .style("opacity", opacity);
                     g.select(".ci-line")
                         .attr("x1", xMid).attr("x2", xMid)
@@ -1160,8 +1162,8 @@
                             .style("opacity", 1);
                     }
 
-                    function scheduleDim(sel) {
-                        sel.transition("series").delay(d => obsOrder.indexOf(d.id) * stepDelay + fadeDuration)
+                    function scheduleDim(sel, settleDelay = fadeDuration) {
+                        sel.transition("series").delay(d => obsOrder.indexOf(d.id) * stepDelay + settleDelay)
                             .duration(0).style("opacity", 0.6);
                     }
 
@@ -1173,7 +1175,7 @@
                         });
                         shownSelf = true;
                         updateSelfPeerToggle();
-                        if (shownObs) scheduleDim(selfDots);
+                        if (shownObs) scheduleDim(selfDots, dotTravelDuration);
                     });
                     d3.select("#btn-peer").on("click", function () {
                         this.disabled = true;
@@ -1189,8 +1191,8 @@
                         shownPeer = true;
                         updateSelfPeerToggle();
                         if (shownObs) {
-                            scheduleDim(peerErr);
-                            scheduleDim(peerDots);
+                            scheduleDim(peerErr, ciGrowDuration);
+                            scheduleDim(peerDots, dotTravelDuration);
                         }
                     });
                     // Observed button
@@ -1524,8 +1526,7 @@
                 function growCI3(g, delay, xL, xH) {
                     const xMid = +g.select(".ci-line").attr("x1");
                     g.style("opacity", 0)
-                        .transition().delay(delay).duration(ciGrowDuration)
-                        .ease(d3.easeCubicOut)
+                        .transition().delay(delay).duration(0)
                         .style("opacity", 1);
                     g.select(".ci-line")
                         .attr("x1", xMid).attr("x2", xMid)
@@ -1771,8 +1772,7 @@
                 function growCI4(g, delay, xL, xH) {
                     const xMid = +g.select(".ci-line").attr("x1");
                     g.style("opacity", 0)
-                        .transition().delay(delay).duration(ciGrowDuration)
-                        .ease(d3.easeCubicOut)
+                        .transition().delay(delay).duration(0)
                         .style("opacity", 1);
                     g.select(".ci-line")
                         .attr("x1", xMid).attr("x2", xMid)
@@ -2011,8 +2011,7 @@
                 function growCI5(g, delay, xL, xH) {
                     const xMid = +g.select(".ci-line").attr("x1");
                     g.style("opacity", 0)
-                        .transition().delay(delay).duration(ciGrowDuration)
-                        .ease(d3.easeCubicOut)
+                        .transition().delay(delay).duration(0)
                         .style("opacity", 1);
                     g.select(".ci-line")
                         .attr("x1", xMid).attr("x2", xMid)
@@ -2251,8 +2250,7 @@
                 function growCI6(g, delay, xL, xH) {
                     const xMid = +g.select(".ci-line").attr("x1");
                     g.style("opacity", 0)
-                        .transition().delay(delay).duration(ciGrowDuration)
-                        .ease(d3.easeCubicOut)
+                        .transition().delay(delay).duration(0)
                         .style("opacity", 1);
                     g.select(".ci-line")
                         .attr("x1", xMid).attr("x2", xMid)

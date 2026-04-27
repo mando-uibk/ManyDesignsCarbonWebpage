@@ -52,6 +52,12 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a href="results" class="sidebar-link">
+                        <i class="bi bi-bar-chart-line"></i>
+                        Results
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a href="coordinators" class="sidebar-link">
                         <i class="bi bi-people-fill"></i>
                         Project Coordinators
@@ -100,8 +106,10 @@
 
                         <p>
                             Please confirm that your team will be sending the pre-registration and survey A
-                            (see <a class="hyperlink" href="schedule">schedule</a> and see <a class="hyperlink" href="pre_reg_template.html">template</a>)
-                            by September 20th 2024. This can be done via the following <a class="hyperlink" href="design_submission.html">form</a>.
+                            (see <a class="hyperlink" href="schedule">schedule</a> and see <a class="hyperlink"
+                                                                                              href="pre_reg_template.html">template</a>)
+                            by September 20th 2024. This can be done via the following <a class="hyperlink"
+                                                                                          href="design_submission.html">form</a>.
                         </p>
 
 
@@ -139,30 +147,32 @@
                                             <table style="width: 85%">
                                                 <tbody>
 
-                                                <tr >
+                                                <tr>
 
                                                     <td style="width:50%;">The ID of your research team:
 
 
-
                                                     </td>
                                                     <td style="width: 50%"><input class="form-control" id="RtAcronym"
-                                                               name="entry.1555632454"
-                                                               placeholder="" required type="text">
+                                                                                  name="entry.1555632454"
+                                                                                  placeholder="" required type="text">
                                                     </td>
                                                 </tr>
 
                                                 <tr>
                                                     <td colspan="2" class="pb-3">
-                                                        <small class="form-text text-muted">Your team's ID is stated in the notification email you received from us.</small>
+                                                        <small class="form-text text-muted">Your team's ID is stated in
+                                                            the notification email you received from us.</small>
 
                                                     </td>
                                                 </tr>
 
 
                                                 <tr>
-                                                    <td colspan="2">I confirm that my research team will be sending the pre-registration and
-                                                    survey A no later than September 20th 2024 via this <a class="hyperlink" href="design_submission.html">form</a>.
+                                                    <td colspan="2">I confirm that my research team will be sending the
+                                                        pre-registration and
+                                                        survey A no later than September 20th 2024 via this <a
+                                                                class="hyperlink" href="design_submission.html">form</a>.
                                                     </td>
                                                 </tr>
 
@@ -190,7 +200,8 @@
                                                         <option disabled selected value="">Please specify
                                                         </option>
                                                         <option value="No time">No time</option>
-                                                        <option value="No clear research idea">No clear research idea</option>
+                                                        <option value="No clear research idea">No clear research idea
+                                                        </option>
                                                         <option value="Personal issues">Personal issues</option>
                                                         <option value="Other">Other (specify)</option>
                                                         </option>
@@ -219,7 +230,6 @@
                                                 </tr>
                                                 </tbody>
                                             </table>
-
 
 
                                         </div>
@@ -275,12 +285,13 @@
                     if (input.value.trim() === '') {
                         note = 'Please fill in all required fields.'
                         return false;
-                }}
+                    }
+                }
 
-                    if (!isSelected) {
-                        note = 'Please fill in all required fields.'
-                        return false;
-    }
+                if (!isSelected) {
+                    note = 'Please fill in all required fields.'
+                    return false;
+                }
 
                 // If all required fields are filled, return true
                 return true;
