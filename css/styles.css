@@ -1651,6 +1651,7 @@ svg text {
     html.is-embedded-mobile .study-detail-backdrop,
     html.is-embedded-mobile .guide-detail-backdrop,
     html.is-embedded-mobile .project-detail-backdrop {
+        display: none;
         position: absolute;
         top: var(--mobile-backdrop-top, 0);
         right: 0;
@@ -1662,10 +1663,20 @@ svg text {
     html.is-embedded-mobile .study-detail,
     html.is-embedded-mobile .guide-detail,
     html.is-embedded-mobile .project-detail {
+        display: none;
         position: absolute;
         top: var(--mobile-dialog-top, 16px);
         bottom: auto;
         max-height: var(--mobile-dialog-max-height, 76dvh);
+    }
+
+    html.is-embedded-mobile .study-detail-backdrop.is-open,
+    html.is-embedded-mobile .guide-detail-backdrop.is-open,
+    html.is-embedded-mobile .project-detail-backdrop.is-open,
+    html.is-embedded-mobile .study-detail.is-open,
+    html.is-embedded-mobile .guide-detail.is-open,
+    html.is-embedded-mobile .project-detail.is-open {
+        display: block;
     }
 
     html.is-embedded-mobile .study-detail {
@@ -1787,5 +1798,12 @@ svg text {
         bottom: 8px;
         width: calc(100vw - 16px);
         max-height: min(84vh, 720px);
+    }
+
+    html.is-embedded-mobile .study-detail,
+    html.is-embedded-mobile .guide-detail,
+    html.is-embedded-mobile .project-detail {
+        bottom: auto;
+        max-height: var(--mobile-dialog-max-height, 84dvh);
     }
 }

@@ -216,12 +216,13 @@
                     if (!isFramed) return;
                     const body = document.body;
                     const html = document.documentElement;
-                    const height = Math.max(
-                        body?.scrollHeight || 0,
-                        body?.offsetHeight || 0,
-                        html?.scrollHeight || 0,
-                        html?.offsetHeight || 0
-                    );
+                    const container = document.querySelector(".container");
+                    const bodyStyle = window.getComputedStyle(body);
+                    const bodyPaddingBottom = parseFloat(bodyStyle.paddingBottom) || 0;
+                    const contentHeight = container
+                        ? container.offsetTop + container.offsetHeight + bodyPaddingBottom
+                        : Math.max(body?.offsetHeight || 0, html?.offsetHeight || 0);
+                    const height = Math.max(1, Math.ceil(contentHeight));
                     window.parent.postMessage({
                         type: "many-designs-results-height",
                         height
