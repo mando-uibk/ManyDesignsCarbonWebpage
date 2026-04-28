@@ -1467,6 +1467,29 @@ svg text {
         overflow-x: hidden;
     }
 
+    html.is-embedded-mobile,
+    html.is-embedded-mobile body {
+        min-height: 100%;
+        overflow-y: visible;
+    }
+
+    html.is-embedded-mobile body {
+        position: relative;
+        touch-action: manipulation;
+    }
+
+    html.is-embedded-mobile .explain-popover {
+        display: none;
+    }
+
+    @media (hover: none), (pointer: coarse) {
+        #tooltip,
+        [id^="tooltip-dv"],
+        .explain-popover {
+            display: none !important;
+        }
+    }
+
     .container {
         width: calc(100vw - 32px);
         min-width: 0;
@@ -1623,6 +1646,50 @@ svg text {
 
     .project-detail-metrics {
         grid-template-columns: 1fr;
+    }
+
+    html.is-embedded-mobile .study-detail-backdrop,
+    html.is-embedded-mobile .guide-detail-backdrop,
+    html.is-embedded-mobile .project-detail-backdrop {
+        position: absolute;
+        top: var(--mobile-backdrop-top, 0);
+        right: 0;
+        bottom: auto;
+        left: 0;
+        height: var(--mobile-backdrop-height, 100dvh);
+    }
+
+    html.is-embedded-mobile .study-detail,
+    html.is-embedded-mobile .guide-detail,
+    html.is-embedded-mobile .project-detail {
+        position: absolute;
+        top: var(--mobile-dialog-top, 16px);
+        bottom: auto;
+        max-height: var(--mobile-dialog-max-height, 76dvh);
+    }
+
+    html.is-embedded-mobile .study-detail {
+        transform: translateY(18px) scale(0.985);
+    }
+
+    html.is-embedded-mobile .study-detail.is-open {
+        transform: translateY(0) scale(1);
+    }
+
+    html.is-embedded-mobile .guide-detail {
+        transform: translateY(18px) scale(0.985);
+    }
+
+    html.is-embedded-mobile .guide-detail.is-open {
+        transform: translateY(0) scale(1);
+    }
+
+    html.is-embedded-mobile .project-detail {
+        transform: translateY(18px) scale(0.985);
+    }
+
+    html.is-embedded-mobile .project-detail.is-open {
+        transform: translateY(0) scale(1);
     }
 }
 
