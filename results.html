@@ -35,22 +35,18 @@
         }
 
         @media (max-width: 768px) {
-            .main {
-                overflow: visible;
-            }
-
             .results-frame-shell {
-                min-height: 100vh;
-                min-height: 100dvh;
-                overflow: visible;
+                height: 100vh;
+                height: 100dvh;
+                min-height: 0;
             }
 
             .results-frame {
-                height: var(--results-frame-height, 100vh);
-                height: var(--results-frame-height, 100dvh);
-                min-height: 100vh;
-                min-height: 100dvh;
-                overflow: hidden;
+                height: 100vh;
+                height: 100dvh;
+                min-height: 0;
+                overflow: auto;
+                -webkit-overflow-scrolling: touch;
             }
         }
     </style>
@@ -138,7 +134,8 @@
                     class="results-frame"
                     src="results_plain.html"
                     title="#ManyDesignsCarbon Main Results"
-                    loading="eager">
+                    loading="eager"
+                    scrolling="yes">
             </iframe>
         </main>
     </div>
@@ -146,37 +143,5 @@
 
 <script src="js/bootstrap.bundle.js"></script>
 <script src="js/sidebar.js"></script>
-<script>
-    (() => {
-        const frame = document.querySelector(".results-frame");
-        if (!frame) return;
-
-        const mobileQuery = window.matchMedia("(max-width: 768px)");
-        const targetOrigin = window.location.origin === "null" ? "*" : window.location.origin;
-        let measuredHeight = null;
-
-        function applyFrameHeight() {
-            if (mobileQuery.matches && measuredHeight) {
-                frame.style.setProperty("--results-frame-height", `${measuredHeight}px`);
-            } else {
-                frame.style.removeProperty("--results-frame-height");
-            }
-        }
-
-        window.addEventListener("message", event => {
-            if (targetOrigin !== "*" && event.origin !== targetOrigin) return;
-            if (event.source !== frame.contentWindow) return;
-            if (event.data?.type !== "many-designs-results-height") return;
-            measuredHeight = Math.max(1, Math.ceil(Number(event.data.height) || 0));
-            applyFrameHeight();
-        });
-
-        mobileQuery.addEventListener?.("change", applyFrameHeight);
-        window.addEventListener("resize", applyFrameHeight, {passive: true});
-        frame.addEventListener("load", () => frame.contentWindow?.postMessage({
-            type: "many-designs-request-height"
-        }, targetOrigin));
-    })();
-</script>
 </body>
 </html>

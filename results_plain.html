@@ -208,62 +208,10 @@
                 window.studyDesignCategories = window.studyDesignCategories || {};
 
                 const fineHoverQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
-                const mobileResultsQuery = window.matchMedia("(max-width: 820px)");
-                const isFramed = window.parent !== window;
-                const messageTargetOrigin = window.location.origin === "null" ? "*" : window.location.origin;
-
-                function reportResultsHeight() {
-                    if (!isFramed) return;
-                    const body = document.body;
-                    const html = document.documentElement;
-                    const container = document.querySelector(".container");
-                    const bodyStyle = window.getComputedStyle(body);
-                    const bodyPaddingBottom = parseFloat(bodyStyle.paddingBottom) || 0;
-                    const contentHeight = container
-                        ? container.offsetTop + container.offsetHeight + bodyPaddingBottom
-                        : Math.max(body?.offsetHeight || 0, html?.offsetHeight || 0);
-                    const height = Math.max(1, Math.ceil(contentHeight));
-                    window.parent.postMessage({
-                        type: "many-designs-results-height",
-                        height
-                    }, messageTargetOrigin);
-                }
-
-                function syncEmbeddedMobileState() {
-                    const embeddedMobile = isFramed && mobileResultsQuery.matches;
-                    document.documentElement.classList.toggle("is-embedded-mobile", embeddedMobile);
-                    if (!embeddedMobile) {
-                        document.documentElement.style.removeProperty("--mobile-dialog-top");
-                        document.documentElement.style.removeProperty("--mobile-dialog-max-height");
-                        document.documentElement.style.removeProperty("--mobile-backdrop-top");
-                        document.documentElement.style.removeProperty("--mobile-backdrop-height");
-                    }
-                    syncEmbeddedMobileViewport();
-                }
-
-                function syncEmbeddedMobileViewport() {
-                    if (!document.documentElement.classList.contains("is-embedded-mobile")) return;
-                    const frame = window.frameElement;
-                    if (!frame) return;
-                    const parentViewport = window.parent.visualViewport;
-                    const viewportHeight = parentViewport?.height || window.parent.innerHeight || window.innerHeight;
-                    const frameRect = frame.getBoundingClientRect();
-                    const visibleTop = Math.max(0, -frameRect.top);
-                    const visibleBottom = Math.min(frameRect.height, viewportHeight - frameRect.top);
-                    const visibleHeight = Math.max(280, Math.min(viewportHeight, visibleBottom - visibleTop || viewportHeight));
-                    const topOffset = Math.max(8, Math.round(visibleHeight * 0.14));
-                    const maxHeight = Math.max(260, Math.round(visibleHeight - topOffset - 8));
-
-                    document.documentElement.style.setProperty("--mobile-dialog-top", `${Math.round(visibleTop + topOffset)}px`);
-                    document.documentElement.style.setProperty("--mobile-dialog-max-height", `${maxHeight}px`);
-                    document.documentElement.style.setProperty("--mobile-backdrop-top", `${Math.round(visibleTop)}px`);
-                    document.documentElement.style.setProperty("--mobile-backdrop-height", `${Math.round(visibleHeight)}px`);
-                }
 
                 function openStudyDossier(id, category) {
                     const entry = window.studyDesigns?.[id];
                     if (!entry) return;
-                    syncEmbeddedMobileViewport();
                     d3.select("#study-detail-title").text(id);
                     d3.select("#study-detail-category").text(category || window.studyDesignCategories[id] || "Experimental design");
                     d3.select("#study-detail-control").text(entry.control);
@@ -285,7 +233,6 @@
                     d3.select("#study-detail").classed("is-open", false).attr("aria-hidden", "true");
                     d3.select("#study-detail-backdrop").classed("is-open", false).attr("aria-hidden", "true");
                     d3.selectAll(".study-label-selected").classed("study-label-selected", false);
-                    reportResultsHeight();
                 }
 
                 const explainCards = {
@@ -481,7 +428,6 @@
 
                 function openGuide(key = "overview") {
                     if (key === "active-outcome") key = activeOutcomeKey();
-                    syncEmbeddedMobileViewport();
                     const card = explainCard(key);
                     updateGuideMenu(key);
                     d3.select("#guide-detail-kicker").text(card.kicker);
@@ -501,13 +447,11 @@
                     d3.select("#guide-detail").classed("is-open", false).attr("aria-hidden", "true");
                     d3.select("#guide-detail-backdrop").classed("is-open", false).attr("aria-hidden", "true");
                     d3.select("#explain-popover").classed("is-visible", false);
-                    reportResultsHeight();
                 }
 
                 function openProjectDetail() {
                     closeStudyDossier();
                     closeGuide();
-                    syncEmbeddedMobileViewport();
                     d3.select("#project-detail").classed("is-open", true).attr("aria-hidden", "false");
                     d3.select("#project-detail-backdrop").classed("is-open", true).attr("aria-hidden", "false");
                 }
@@ -515,7 +459,6 @@
                 function closeProjectDetail() {
                     d3.select("#project-detail").classed("is-open", false).attr("aria-hidden", "true");
                     d3.select("#project-detail-backdrop").classed("is-open", false).attr("aria-hidden", "true");
-                    reportResultsHeight();
                 }
 
                 function moveExplainPopover(event, target = null) {
@@ -586,52 +529,10 @@
                 }
 
                 function bindEmbeddedMobileControls() {
-                    syncEmbeddedMobileState();
-                    reportResultsHeight();
-
-                    const scheduleHeightReport = (() => {
-                        let frame = 0;
-                        return () => {
-                            if (frame) return;
-                            frame = requestAnimationFrame(() => {
-                                frame = 0;
-                                syncEmbeddedMobileViewport();
-                                reportResultsHeight();
-                            });
-                        };
-                    })();
-
-                    window.addEventListener("resize", scheduleHeightReport, {passive: true});
-                    mobileResultsQuery.addEventListener?.("change", () => {
-                        syncEmbeddedMobileState();
-                        scheduleHeightReport();
-                    });
                     fineHoverQuery.addEventListener?.("change", () => {
                         if (!fineHoverQuery.matches) {
                             d3.select("#explain-popover").classed("is-visible", false);
                         }
-                    });
-                    window.addEventListener("message", event => {
-                        if (messageTargetOrigin !== "*" && event.origin !== messageTargetOrigin) return;
-                        if (event.data?.type === "many-designs-request-height") scheduleHeightReport();
-                    });
-
-                    if (isFramed) {
-                        window.parent.addEventListener("scroll", syncEmbeddedMobileViewport, {passive: true});
-                        window.parent.addEventListener("resize", scheduleHeightReport, {passive: true});
-                        window.parent.visualViewport?.addEventListener("resize", scheduleHeightReport, {passive: true});
-                        window.parent.visualViewport?.addEventListener("scroll", syncEmbeddedMobileViewport, {passive: true});
-                    }
-
-                    if ("ResizeObserver" in window) {
-                        const resizeObserver = new ResizeObserver(scheduleHeightReport);
-                        resizeObserver.observe(document.documentElement);
-                        resizeObserver.observe(document.body);
-                    }
-                    new MutationObserver(scheduleHeightReport).observe(document.body, {
-                        attributes: true,
-                        childList: true,
-                        subtree: true
                     });
                 }
 
