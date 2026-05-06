@@ -522,8 +522,7 @@ h1 {
 
 .button-group.multi-row-control {
     grid-template-columns: 1fr;
-    grid-template-rows: auto 0 auto 0 auto;
-    gap: 0;
+    gap: 8px;
 }
 
 .button-row {
@@ -532,25 +531,9 @@ h1 {
     width: 100%;
 }
 
-.button-row-primary {
-    grid-row: 1;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
+.button-row-primary,
 .button-row-explore {
-    grid-row: 3;
-    grid-template-columns: repeat(2, minmax(150px, 1fr));
-    justify-self: center;
-    width: min(100%, 520px);
-    margin-top: 8px;
-}
-
-.button-row-context {
-    grid-row: 5;
-    grid-template-columns: repeat(2, minmax(150px, 1fr));
-    justify-self: center;
-    width: min(100%, 520px);
-    margin-top: 8px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .tab-pane .button-group button {
@@ -1652,8 +1635,7 @@ svg text {
     }
 
     .button-row-primary,
-    .button-row-explore,
-    .button-row-context {
+    .button-row-explore {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         max-width: 100%;
         width: 100%;
@@ -1864,7 +1846,7 @@ svg text {
 
     .button-group.multi-row-control {
         grid-template-columns: 1fr;
-        gap: 0;
+        gap: 7px;
     }
 
     .tab-pane .button-group button {
