@@ -145,32 +145,74 @@
                     <div id="tooltip"></div>
                 </div>
                 <div class="button-col">
-                    <div class="button-group">
-                        <button id="btn-self">Self-assessed</button>
-                        <button id="btn-peer">Peer-assessed</button>
-                        <button id="btn-obs">Observed</button>
-                        <button id="btn-std">Stated</button>
-                        <button id="btn-connectors" aria-pressed="false" disabled>Connectors</button>
-                        <button id="btn-categories" aria-pressed="false" disabled>Reveal Categories</button>
-                        <button id="btn-toggle-selfpeer" aria-pressed="false">Hide Self & Peer</button>
+                    <div class="button-group multi-row-control">
+                        <div class="button-row button-row-primary">
+                            <button id="btn-self">Self-assessed</button>
+                            <button id="btn-peer">Peer-assessed</button>
+                            <button id="btn-obs">Observed</button>
+                            <button id="btn-std">Stated</button>
+                        </div>
+                        <div class="button-row button-row-explore">
+                            <button id="btn-categories" aria-pressed="false" disabled>Show Categories</button>
+                            <button id="btn-outcomes" aria-pressed="false" disabled>Show Outcomes</button>
+                        </div>
+                        <div class="button-row button-row-context">
+                            <button id="btn-connectors" aria-pressed="false" disabled>Connectors</button>
+                            <button id="btn-toggle-selfpeer" aria-pressed="false">Hide Self & Peer</button>
+                        </div>
                     </div>
                 </div>
                 <div id="category-legend" style="margin-top:16px; display:none;">
-                    <button class="category-chip active" data-category="All" type="button">
+                    <button class="category-chip explain-trigger active" data-category="All" data-explain="categories" type="button">
                         <span class="legend-marker all"></span>All categories
                     </button>
-                    <button class="category-chip" data-category="Use of AI" type="button">
+                    <button class="category-chip explain-trigger" data-category="Use of AI" data-explain="intervention-use-ai" type="button">
                         <span class="legend-marker" style="background:#c8752a;"></span>Use of AI
                     </button>
-                    <button class="category-chip" data-category="Information Treatment" type="button">
+                    <button class="category-chip explain-trigger" data-category="Information Treatment" data-explain="intervention-information" type="button">
                         <span class="legend-marker" style="background:#2f6fb3;"></span>Information Treatment
                     </button>
-                    <button class="category-chip" data-category="Strategic Group Interactions" type="button">
+                    <button class="category-chip explain-trigger" data-category="Strategic Group Interactions" data-explain="intervention-strategic" type="button">
                         <span class="legend-marker" style="background:#c94f52;"></span>Strategic Group Interactions
                     </button>
-                    <button class="category-chip" data-category="Behavioral Biases/Reflective Thinking" type="button">
+                    <button class="category-chip explain-trigger" data-category="Behavioral Biases/Reflective Thinking" data-explain="intervention-behavioral" type="button">
                         <span class="legend-marker" style="background:#9ab83f;"></span>Behavioral Biases/Reflective
                         Thinking
+                    </button>
+                </div>
+                <div id="outcome-legend" style="margin-top:10px; display:none;">
+                    <button class="category-chip outcome-chip explain-trigger active" data-outcome="All" data-explain="outcome-all" type="button">
+                        <svg class="outcome-legend-symbol" viewBox="-6 -6 12 12" aria-hidden="true">
+                            <path d="M-4.8,-4.8H-1.8V-1.8H-4.8Z"></path>
+                            <path d="M2.9,-5.2L5, -1.7H0.8Z"></path>
+                            <path d="M-3.3,1.8L-1,4.8L-5,4.8Z"></path>
+                            <path d="M3,1L5,3L3,5L1,3Z"></path>
+                        </svg>
+                        All outcomes
+                    </button>
+                    <button class="category-chip outcome-chip explain-trigger" data-outcome="Donation" data-explain="outcome-donation" type="button">
+                        <svg class="outcome-legend-symbol" viewBox="-6 -6 12 12" aria-hidden="true">
+                            <path d="M-1.4,-5H1.4V-1.4H5V1.4H1.4V5H-1.4V1.4H-5V-1.4H-1.4Z"></path>
+                        </svg>
+                        Donation
+                    </button>
+                    <button class="category-chip outcome-chip explain-trigger" data-outcome="Political Contact" data-explain="outcome-political-contact" type="button">
+                        <svg class="outcome-legend-symbol" viewBox="-6 -6 12 12" aria-hidden="true">
+                            <path d="M-4.3,-4.3H4.3V4.3H-4.3Z"></path>
+                        </svg>
+                        Political Contact
+                    </button>
+                    <button class="category-chip outcome-chip explain-trigger" data-outcome="Petition" data-explain="outcome-petition" type="button">
+                        <svg class="outcome-legend-symbol" viewBox="-6 -6 12 12" aria-hidden="true">
+                            <path d="M0,-5.4L5,4.1H-5Z"></path>
+                        </svg>
+                        Petition
+                    </button>
+                    <button class="category-chip outcome-chip explain-trigger" data-outcome="Market Price" data-explain="outcome-market-price" type="button">
+                        <svg class="outcome-legend-symbol" viewBox="-6 -6 12 12" aria-hidden="true">
+                            <path d="M0,-5.5L4.2,0L0,5.5L-4.2,0Z"></path>
+                        </svg>
+                        Market Price
                     </button>
                 </div>
             </div>
@@ -200,6 +242,25 @@
                     "#9ab83f"
                 ];
                 const colorScale = d3.scaleOrdinal().domain(categories).range(categoryColors);
+                const outcomeTypes = ["Donation", "Political Contact", "Petition", "Market Price"];
+                const outcomeTypeById = {
+                    AZK26: "Political Contact",
+                    HTA17: "Political Contact",
+                    INA32: "Political Contact",
+                    KLV32: "Political Contact",
+                    LDM83: "Petition",
+                    RVM76: "Petition",
+                    YQH52: "Petition",
+                    FTF24: "Market Price",
+                    WFQ37: "Market Price"
+                };
+	                const outcomeSymbolPaths = {
+	                    Donation: "M-1.4,-5H1.4V-1.4H5V1.4H1.4V5H-1.4V1.4H-5V-1.4H-1.4Z",
+	                    "Political Contact": "M-4.3,-4.3H4.3V4.3H-4.3Z",
+	                    Petition: "M0,-5.4L5,4.1H-5Z",
+	                    "Market Price": "M0,-5.5L4.2,0L0,5.5L-4.2,0Z"
+	                };
+	                const outcomeSymbolPath = d => outcomeSymbolPaths[outcomeTypeById[d.id] || "Donation"];
                 var sharedXDomain = [-0.5, 1.5];
 
                 let shownSelf = false, shownPeer = false, shownObs = false, shownStd = false;
@@ -240,7 +301,7 @@
                         kicker: "Reading guide",
                         title: "How to read this figure",
                         text: "Read the figure as a staged reveal. First click Self-assessed to see how teams expected their own interventions to perform, then Peer-assessed to compare those expectations with predictions from other teams. Next click Observed to reveal the consequential outcome estimates from the actual experiment.",
-                        question: "After the observed effects appear, use Hide Self & Peer to remove the prediction layer and focus on the data. Then click Stated to compare the common survey outcome, turn on Connectors to link each team across observed and stated support, and finally Reveal Categories to see whether design families cluster in meaningful ways.",
+                        question: "After the observed effects appear, use Hide Self & Peer to remove the prediction layer and focus on the data. Then click Stated to compare the common survey outcome, turn on Connectors to link each team across observed and stated support, and finally Show Categories to see whether design families cluster in meaningful ways.",
                         note: "Values to the right of zero indicate increased support relative to the control condition. The diamond summarizes the pooled average; horizontal lines show uncertainty. Team labels and plotted points open the research-team dossier, including the full proposal PDF."
                     },
                     outcomes: {
@@ -375,7 +436,62 @@
                     categories: {
                         kicker: "Design families",
                         title: "Intervention categories",
-                        text: "Research team designs were grouped into broad families such as information treatments, AI-based interventions, strategic group interactions, and behavioral-bias or reflective-thinking approaches."
+                        text: "Research-team designs were grouped into broad intervention families from the manuscript: information treatments, AI-based interventions, strategic group interactions, and behavioral-bias or reflective-thinking approaches.",
+                        question: "Click a category chip to isolate that design family. Turn on outcomes to combine intervention colors with outcome symbols."
+                    },
+                    "intervention-use-ai": {
+                        kicker: "Intervention category",
+                        title: "Use of AI",
+                        text: "Treatments where an AI system, chatbot, or AI-generated material is part of the intervention.",
+                        question: "These designs test whether algorithmic explanation, persuasion, or generated climate-policy content changes support for carbon pricing."
+                    },
+                    "intervention-information": {
+                        kicker: "Intervention category",
+                        title: "Information Treatment",
+                        text: "Treatments that primarily provide factual or explanatory information, such as how carbon pricing works, policy effectiveness, co-benefits, rebates, fairness, or examples from other jurisdictions.",
+                        question: "The core mechanism is information: does learning more about the policy or its consequences shift support?"
+                    },
+                    "intervention-strategic": {
+                        kicker: "Intervention category",
+                        title: "Strategic Group Interactions",
+                        text: "Designs embedded in games, votes, group decisions, tax-and-rebate institutions, or other settings where choices interact with other participants' payoffs or simulated emissions.",
+                        question: "These interventions ask whether institutional incentives and group dynamics alter support for carbon pricing."
+                    },
+                    "intervention-behavioral": {
+                        kicker: "Intervention category",
+                        title: "Behavioral Biases / Reflective Thinking",
+                        text: "Treatments targeting psychological channels such as framing, defaults, future orientation, social norms, fairness perceptions, reflective writing, or other mechanisms beyond simple information.",
+                        question: "Exploratory analyses report suggestive evidence that this family tends to produce positive observed effects on average."
+                    },
+                    "outcome-all": {
+                        kicker: "Outcome families",
+                        title: "Outcome categories",
+                        text: "Observed outcomes were grouped by the type of consequential support behavior each research team measured: donation, political contact, petition, or market-price-linked action.",
+                        question: "Click an outcome chip to isolate that outcome family. When categories are also active, the filter combines both dimensions."
+                    },
+                    "outcome-donation": {
+                        kicker: "Outcome variable",
+                        title: "Donation",
+                        text: "Real-world support is measured through a consequential donation decision, typically allocating money, earnings, or an endowment to an organization advocating carbon pricing.",
+                        question: "This is the largest outcome family in the appendix outcome-categorization figure."
+                    },
+                    "outcome-political-contact": {
+                        kicker: "Outcome variable",
+                        title: "Political Contact",
+                        text: "Real-world support is measured through contacting political actors or publics, such as writing to representatives, sending emails, posting advocacy messages, or submitting supportive statements.",
+                        question: "The manuscript lists letters to government officials and advocacy-oriented social media posts as examples of consequential support behavior."
+                    },
+                    "outcome-petition": {
+                        kicker: "Outcome variable",
+                        title: "Petition",
+                        text: "Real-world support is measured by whether participants sign or support a petition requesting the implementation of carbon pricing.",
+                        question: "This captures direct political-support action rather than a stated survey response."
+                    },
+                    "outcome-market-price": {
+                        kicker: "Outcome variable",
+                        title: "Market Price",
+                        text: "Real-world support is measured through choices linked to carbon-pricing markets or price instruments, such as purchasing or removing carbon allowances, pollution rights, or carbon-price-related premiums.",
+                        question: "These outcomes express support through a market-linked behavior rather than a donation, petition, or contact action."
                     }
                 };
 
@@ -646,6 +762,9 @@
                 }
 
                 function updateButtons() {
+                    if (obsDone) {
+                        d3.select("#btn-outcomes").property("disabled", false);
+                    }
                     if (obsDone && stdDone) {
                         d3.select("#btn-connectors").property("disabled", false);
                         d3.select("#btn-categories").property("disabled", false);
@@ -835,6 +954,15 @@
                         .attr("cy", d => yObs(d.id) + yObs.bandwidth() / 2)
                         .attr("data-origin-cx", xObs(0))
                         .attr("r", 0).style("opacity", 0).style("fill", "black");
+                    const obsOutcomeSymbols = svg.selectAll("path.outcome-symbol.obs").data(data).enter()
+                        .append("path")
+	                        .attr("class", "outcome-symbol obs study-mark")
+	                        .attr("data-id", d => d.id)
+	                        .attr("transform", d => `translate(${xObs(d.obs_mean)},${yObs(d.id) + yObs.bandwidth() / 2})`)
+	                        .attr("d", outcomeSymbolPath)
+                        .style("display", "none")
+                        .style("opacity", 0)
+                        .style("fill", "black");
 
                     const stdErr = svg.selectAll("g.error.std").data(data).enter()
                         .append("g").attr("class", "error std study-mark")
@@ -1000,7 +1128,7 @@
                         stdHover
                             .attr("y", hoverStated && yS != null ? yS : -100)
                             .style("opacity", hoverStated && yS != null ? 1 : 0);
-                        svg.selectAll(".dot.self, .dot.peer, .dot.obs, .error.peer, .error.obs")
+                        svg.selectAll(".dot.self, .dot.peer, .dot.obs, .outcome-symbol.obs, .error.peer, .error.obs")
                             .classed("is-hovered", d => hoverObserved && d && d.id === id);
                         svg.selectAll(".dot.std, .error.std")
                             .classed("is-hovered", d => hoverStated && d && d.id === id);
@@ -1062,20 +1190,61 @@
                             });
                     }
 
-                    function restoreCategoryOpacity() {
-                        selfDots.transition("category").duration(180)
-                            .style("opacity", shownSelf && selfPeerVisible ? (shownObs ? 0.6 : 1) : 0);
-                        peerErr.transition("category").duration(180)
-                            .style("opacity", shownPeer && selfPeerVisible ? (shownObs ? 0.6 : 1) : 0);
-                        peerDots.transition("category").duration(180)
-                            .style("opacity", shownPeer && selfPeerVisible ? (shownObs ? 0.6 : 1) : 0);
-                        obsErr.transition("category").duration(180).style("opacity", shownObs ? 1 : 0);
-                        obsDots.transition("category").duration(180).style("opacity", shownObs ? 1 : 0);
-                        stdErr.transition("category").duration(180).style("opacity", shownStd ? 1 : 0);
-                        stdDots.transition("category").duration(180).style("opacity", shownStd ? 1 : 0);
-                        connectors.transition("category").duration(180)
-                            .style("opacity", d => connectorsShown ? connectorOpacity(d) : 0);
+	                    let catsOn = false;
+	                    let outcomesOn = false;
+	                    let activeOutcome = "All";
+
+	                    function outcomeType(d) {
+	                        return outcomeTypeById[d.id] || "Donation";
+	                    }
+
+	                    function studyMatchesFilters(d) {
+	                        const categoryMatches = activeCategory === "All" || d.category === activeCategory;
+	                        const outcomeMatches = activeOutcome === "All" || outcomeType(d) === activeOutcome;
+	                        return categoryMatches && outcomeMatches;
+	                    }
+
+	                    function filteredOpacity(d, fullOpacity = 1, dimOpacity = 0.12) {
+	                        return studyMatchesFilters(d) ? fullOpacity : dimOpacity;
+	                    }
+
+	                    function setOutcomeLegendActive(outcome) {
+	                        d3.selectAll("#outcome-legend .outcome-chip")
+	                            .classed("active", function () {
+	                                return this.dataset.outcome === outcome;
+	                            });
+	                    }
+
+	                    function outcomeFilteredOpacity(d) {
+	                        if (!shownObs) return 0;
+	                        return filteredOpacity(d, 1, 0.12);
+	                    }
+
+                    function syncOutcomeSymbols(duration = 180) {
+                        obsDots.style("display", outcomesOn ? "none" : null);
+                        obsOutcomeSymbols
+                            .style("display", outcomesOn ? null : "none")
+                            .transition("outcome")
+                            .duration(duration)
+                            .style("opacity", d => outcomesOn ? outcomeFilteredOpacity(d) : 0)
+                            .style("fill", d => catsOn ? colorScale(d.category) : "black");
                     }
+
+	                    function restoreCategoryOpacity() {
+	                        selfDots.transition("category").duration(180)
+	                            .style("opacity", d => shownSelf && selfPeerVisible ? filteredOpacity(d, shownObs ? 0.6 : 1, 0.12) : 0);
+	                        peerErr.transition("category").duration(180)
+	                            .style("opacity", d => shownPeer && selfPeerVisible ? filteredOpacity(d, shownObs ? 0.6 : 1, 0.12) : 0);
+	                        peerDots.transition("category").duration(180)
+	                            .style("opacity", d => shownPeer && selfPeerVisible ? filteredOpacity(d, shownObs ? 0.6 : 1, 0.12) : 0);
+	                        obsErr.transition("category").duration(180).style("opacity", d => shownObs ? filteredOpacity(d) : 0);
+	                        obsDots.transition("category").duration(180).style("opacity", d => shownObs ? filteredOpacity(d) : 0);
+	                        stdErr.transition("category").duration(180).style("opacity", d => shownStd ? filteredOpacity(d) : 0);
+	                        stdDots.transition("category").duration(180).style("opacity", d => shownStd ? filteredOpacity(d) : 0);
+	                        connectors.transition("category").duration(180)
+	                            .style("opacity", d => connectorsShown ? (studyMatchesFilters(d) ? connectorOpacity(d) : 0.05) : 0);
+	                        syncOutcomeSymbols();
+	                    }
 
                     function applyCategoryFilter(category) {
                         activeCategory = category;
@@ -1083,28 +1252,14 @@
                             .classed("active", function () {
                                 return this.dataset.category === category;
                             });
-                        if (category === "All") {
-                            restoreCategoryOpacity();
-                            return;
-                        }
-                        const inCategory = d => d.category === category;
-                        selfDots.transition("category").duration(180)
-                            .style("opacity", d => shownSelf && selfPeerVisible ? (inCategory(d) ? 1 : 0.12) : 0);
-                        peerErr.transition("category").duration(180)
-                            .style("opacity", d => shownPeer && selfPeerVisible ? (inCategory(d) ? 1 : 0.12) : 0);
-                        peerDots.transition("category").duration(180)
-                            .style("opacity", d => shownPeer && selfPeerVisible ? (inCategory(d) ? 1 : 0.12) : 0);
-                        obsErr.transition("category").duration(180)
-                            .style("opacity", d => shownObs ? (inCategory(d) ? 1 : 0.12) : 0);
-                        obsDots.transition("category").duration(180)
-                            .style("opacity", d => shownObs ? (inCategory(d) ? 1 : 0.12) : 0);
-                        stdErr.transition("category").duration(180)
-                            .style("opacity", d => shownStd ? (inCategory(d) ? 1 : 0.12) : 0);
-                        stdDots.transition("category").duration(180)
-                            .style("opacity", d => shownStd ? (inCategory(d) ? 1 : 0.12) : 0);
-                        connectors.transition("category").duration(180)
-                            .style("opacity", d => connectorsShown ? (inCategory(d) ? connectorOpacity(d) : 0.05) : 0);
-                    }
+	                        restoreCategoryOpacity();
+	                    }
+
+	                    function applyOutcomeFilter(outcome) {
+	                        activeOutcome = outcome;
+	                        setOutcomeLegendActive(outcome);
+	                        restoreCategoryOpacity();
+	                    }
 
                     function attachTip(sel, fn, panel) {
                         sel.on("mouseover", function (e, d) {
@@ -1122,6 +1277,7 @@
                     attachTip(peerDots, d => `<strong>${d.id}</strong><br/>Peer: ${d.peer_mean.toFixed(2)} [${d.peer_low.toFixed(2)}–${d.peer_high.toFixed(2)}]`, "obs");
                     peerErr.selectAll("line").call(attachTip, d => `<strong>${d.id}</strong><br/>Peer CI: [${d.peer_low.toFixed(2)}–${d.peer_high.toFixed(2)}]`, "obs");
                     attachTip(obsDots, d => `<strong>${d.id}</strong><br/>General support (observed): ${d.obs_mean.toFixed(2)} [${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`, "obs");
+                    attachTip(obsOutcomeSymbols, d => `<strong>${d.id}</strong><br/>${outcomeTypeById[d.id] || "Donation"} outcome<br/>General support (observed): ${d.obs_mean.toFixed(2)} [${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`, "obs");
                     obsErr.selectAll("line").call(attachTip, d => `<strong>${d.id}</strong><br/>Observed CI: [${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`, "obs");
                     attachTip(stdDots, d => `<strong>${d.id}</strong><br/>General support (stated): ${d.std_mean.toFixed(2)} [${d.std_low.toFixed(2)}–${d.std_high.toFixed(2)}]`, "std");
                     stdErr.selectAll("line").call(attachTip, d => `<strong>${d.id}</strong><br/>Stated CI: [${d.std_low.toFixed(2)}–${d.std_high.toFixed(2)}]`, "std");
@@ -1138,6 +1294,7 @@
                         selfDots,
                         peerDots,
                         obsDots,
+                        obsOutcomeSymbols,
                         stdDots,
                         peerErr.selectAll("line"),
                         obsErr.selectAll("line"),
@@ -1267,10 +1424,11 @@
                             dH
                         )
                             .on("end", () => {
-                                obsDone = true;  // mark observed done
-                                settleObservedSeries();
-                                updateButtons();
-                            });
+	                                obsDone = true;  // mark observed done
+	                                settleObservedSeries();
+	                                updateButtons();
+	                                syncOutcomeSymbols();
+	                            });
 
                         svg.select(".het-bar-obs")
                             .transition("series")
@@ -1377,13 +1535,29 @@
                             .duration(fadeDuration * 2)
                             .ease(d3.easeLinear)
                             .attr("stroke-dashoffset", 0)
-                            .style("opacity", d => activeCategory === "All" || d.category === activeCategory ? connectorOpacity(d) : 0.05);
-                    });
+	                            .style("opacity", d => studyMatchesFilters(d) ? connectorOpacity(d) : 0.05);
+	                    });
+
+	                    d3.select("#btn-outcomes").on("click", function () {
+	                        if (this.disabled) return;
+	                        outcomesOn = !outcomesOn;
+	                        if (!outcomesOn) {
+	                            activeOutcome = "All";
+	                            setOutcomeLegendActive("All");
+	                        }
+	                        this.classList.toggle("mode-active", outcomesOn);
+	                        this.setAttribute("aria-pressed", String(outcomesOn));
+	                        this.textContent = outcomesOn ? "Hide Outcomes" : "Show Outcomes";
+	                        d3.select("#outcome-legend")
+	                            .style("display", outcomesOn ? "flex" : "none")
+	                            .transition()
+	                            .duration(outcomesOn ? 500 : 0)
+	                            .style("opacity", outcomesOn ? 1 : 0);
+	                        restoreCategoryOpacity();
+	                    });
 
 
-                    let catsOn = false;
-
-                    d3.select("#btn-categories").on("click", function () {
+	                    d3.select("#btn-categories").on("click", function () {
                         catsOn = !catsOn;
 
                         if (catsOn) {
@@ -1436,7 +1610,7 @@
                             stdDots.transition("toggle").duration(500)
                                 .style("fill", "black");
 
-                            this.textContent = "Reveal Categories";
+                            this.textContent = "Show Categories";
                             this.classList.remove("mode-active");
                             this.setAttribute("aria-pressed", "false");
 
@@ -1452,7 +1626,8 @@
                         }
                     });
 
-                    d3.selectAll("#category-legend .category-chip").on("click", function () {
+                    d3.selectAll("#category-legend .category-chip").on("click", function (event) {
+                        event.stopPropagation();
                         catsOn = true;
                         d3.select("#btn-categories")
                             .text("Hide Categories")
@@ -1475,6 +1650,17 @@
                         stdDots.transition("toggle").duration(250)
                             .style("fill", d => colorScale(d.category));
                         applyCategoryFilter(category);
+                    });
+
+                    d3.selectAll("#outcome-legend .outcome-chip").on("click", function (event) {
+                        event.stopPropagation();
+                        outcomesOn = true;
+                        d3.select("#btn-outcomes")
+                            .text("Hide Outcomes")
+                            .classed("mode-active", true)
+                            .attr("aria-pressed", "true");
+                        d3.select("#outcome-legend").style("display", "flex").style("opacity", 1);
+                        applyOutcomeFilter(this.dataset.outcome);
                     });
                 });
             </script>
