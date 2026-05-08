@@ -988,7 +988,9 @@
                         .attr("y1", d => yObs(d.id) + yObs.bandwidth() / 2)
                         .attr("x2", d => xStd(d.std_mean) + halfW + gap)
                         .attr("y2", d => yStd(d.id) + yStd.bandwidth() / 2)
-                        .attr("stroke", "#25313a").style("opacity", 0);
+                        .attr("stroke", "#25313a")
+                        .style("opacity", 0)
+                        .style("pointer-events", "none");
 
                     function settleObservedSeries() {
                         obsErr.interrupt("series").style("opacity", shownObs ? 1 : 0);
@@ -1115,7 +1117,10 @@
 
                     function setStudyHover(id, panel) {
                         const datum = data.find(d => d.id === id);
-                        if (!datum) return;
+                        if (!datum || !studyMatchesFilters(datum)) {
+                            clearStudyHover();
+                            return;
+                        }
                         const yO = yObs(id);
                         const yS = yStd(id);
                         const hoverObserved = obsDone && (panel === "obs" || panel === "both" || stdDone);
@@ -1131,7 +1136,7 @@
                         svg.selectAll(".dot.std, .error.std")
                             .classed("is-hovered", d => hoverStated && d && d.id === id);
                         connectors
-                            .classed("is-hovered", d => connectorsShown && hoverObserved && hoverStated && d && d.id === id);
+                            .classed("is-hovered", d => connectorsShown && hoverObserved && hoverStated && d && d.id === id && studyMatchesFilters(d));
                         svg.selectAll(".obs-y-axis .tick text")
                             .classed("is-hovered-label", d => hoverObserved && d === id);
                         svg.selectAll(".std-y-axis .tick text")
@@ -1148,6 +1153,7 @@
 
                     function openStudyDesign(id) {
                         const row = data.find(d => d.id === id);
+                        if (!row || !studyMatchesFilters(row)) return;
                         openStudyDossier(id, row?.category);
                     }
 
@@ -1206,6 +1212,28 @@
 	                        return studyMatchesFilters(d) ? fullOpacity : dimOpacity;
 	                    }
 
+	                    function studyIdMatchesFilters(id) {
+	                        const row = data.find(d => d.id === id);
+	                        return row ? studyMatchesFilters(row) : false;
+	                    }
+
+	                    function syncFilteredInteractivity() {
+	                        selfDots.style("pointer-events", d => shownSelf && selfPeerVisible && studyMatchesFilters(d) ? "all" : "none");
+	                        peerDots.style("pointer-events", d => shownPeer && selfPeerVisible && studyMatchesFilters(d) ? "all" : "none");
+	                        peerErr.selectAll("line").style("pointer-events", d => shownPeer && selfPeerVisible && studyMatchesFilters(d) ? "all" : "none");
+	                        obsDots.style("pointer-events", d => shownObs && !outcomesOn && studyMatchesFilters(d) ? "all" : "none");
+	                        obsOutcomeSymbols.style("pointer-events", d => shownObs && outcomesOn && studyMatchesFilters(d) ? "all" : "none");
+	                        obsErr.selectAll("line").style("pointer-events", d => shownObs && studyMatchesFilters(d) ? "all" : "none");
+	                        stdDots.style("pointer-events", d => shownStd && studyMatchesFilters(d) ? "all" : "none");
+	                        stdErr.selectAll("line").style("pointer-events", d => shownStd && studyMatchesFilters(d) ? "all" : "none");
+	                        connectors.style("pointer-events", d => connectorsShown && studyMatchesFilters(d) ? "all" : "none");
+	                        svg.selectAll(".obs-y-axis .tick text, .std-y-axis .tick text")
+	                            .filter(d => d !== "Meta" && window.studyDesigns?.[d])
+	                            .style("pointer-events", d => studyIdMatchesFilters(d) ? "all" : "none")
+	                            .style("cursor", d => studyIdMatchesFilters(d) ? "pointer" : "default")
+	                            .attr("tabindex", d => studyIdMatchesFilters(d) ? 0 : null);
+	                    }
+
 	                    function setOutcomeLegendActive(outcome) {
 	                        d3.selectAll("#outcome-legend .outcome-chip")
 	                            .classed("active", function () {
@@ -1226,6 +1254,7 @@
                             .duration(duration)
                             .style("opacity", d => outcomesOn ? outcomeFilteredOpacity(d) : 0)
                             .style("fill", d => catsOn ? colorScale(d.category) : "black");
+                        syncFilteredInteractivity();
                     }
 
 	                    function restoreCategoryOpacity() {
@@ -1242,6 +1271,7 @@
 	                        connectors.transition("category").duration(180)
 	                            .style("opacity", d => connectorsShown ? (studyMatchesFilters(d) ? connectorOpacity(d) : 0.05) : 0);
 	                        syncOutcomeSymbols();
+	                        syncFilteredInteractivity();
 	                    }
 
                     function applyCategoryFilter(category) {
@@ -1261,7 +1291,7 @@
 
                     function attachTip(sel, fn, panel) {
                         sel.on("mouseover", function (e, d) {
-                            if (+d3.select(this).style("opacity") > 0) {
+                            if (studyMatchesFilters(d) && +d3.select(this).style("opacity") > 0) {
                                 setStudyHover(d.id, panel);
                                 showTip(e, fn(d));
                             }
@@ -1534,6 +1564,7 @@
                             .ease(d3.easeLinear)
                             .attr("stroke-dashoffset", 0)
 	                            .style("opacity", d => studyMatchesFilters(d) ? connectorOpacity(d) : 0.05);
+                        syncFilteredInteractivity();
 	                    });
 
 	                    d3.select("#btn-outcomes").on("click", function () {
