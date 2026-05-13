@@ -664,7 +664,7 @@ svg text {
 .outcome-symbol {
     fill: var(--observed);
     stroke: rgba(255, 255, 255, 0.96);
-    stroke-width: 1.1;
+    stroke-width: 1.25;
     vector-effect: non-scaling-stroke;
     pointer-events: all;
 }
@@ -809,8 +809,8 @@ svg text {
 
 .outcome-legend-symbol {
     display: block;
-    width: 13px;
-    height: 13px;
+    width: 15px;
+    height: 15px;
     fill: #101820;
 }
 

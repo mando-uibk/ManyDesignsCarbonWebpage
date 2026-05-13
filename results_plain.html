@@ -190,7 +190,7 @@
                     </button>
                     <button class="category-chip outcome-chip explain-trigger" data-outcome="Donation" data-explain="outcome-donation" type="button">
                         <svg class="outcome-legend-symbol" viewBox="-6 -6 12 12" aria-hidden="true">
-                            <path d="M-1.4,-5H1.4V-1.4H5V1.4H1.4V5H-1.4V1.4H-5V-1.4H-1.4Z"></path>
+                            <path d="M-1.65,-5.2H1.65V-1.65H5.2V1.65H1.65V5.2H-1.65V1.65H-5.2V-1.65H-1.65Z"></path>
                         </svg>
                         Donation
                     </button>
@@ -202,13 +202,13 @@
                     </button>
                     <button class="category-chip outcome-chip explain-trigger" data-outcome="Petition" data-explain="outcome-petition" type="button">
                         <svg class="outcome-legend-symbol" viewBox="-6 -6 12 12" aria-hidden="true">
-                            <path d="M0,-5.4L5,4.1H-5Z"></path>
+                            <path d="M0,-5.65L5.35,4.35H-5.35Z"></path>
                         </svg>
                         Petition
                     </button>
                     <button class="category-chip outcome-chip explain-trigger" data-outcome="Market Price" data-explain="outcome-market-price" type="button">
                         <svg class="outcome-legend-symbol" viewBox="-6 -6 12 12" aria-hidden="true">
-                            <path d="M0,-5.5L4.2,0L0,5.5L-4.2,0Z"></path>
+                            <path d="M0,-5.65L4.7,0L0,5.65L-4.7,0Z"></path>
                         </svg>
                         Market Price
                     </button>
@@ -253,10 +253,10 @@
                     WFQ37: "Market Price"
                 };
 	                const outcomeSymbolPaths = {
-	                    Donation: "M-1.4,-5H1.4V-1.4H5V1.4H1.4V5H-1.4V1.4H-5V-1.4H-1.4Z",
+	                    Donation: "M-1.65,-5.2H1.65V-1.65H5.2V1.65H1.65V5.2H-1.65V1.65H-5.2V-1.65H-1.65Z",
 	                    "Political Contact": "M-4.3,-4.3H4.3V4.3H-4.3Z",
-	                    Petition: "M0,-5.4L5,4.1H-5Z",
-	                    "Market Price": "M0,-5.5L4.2,0L0,5.5L-4.2,0Z"
+	                    Petition: "M0,-5.65L5.35,4.35H-5.35Z",
+	                    "Market Price": "M0,-5.65L4.7,0L0,5.65L-4.7,0Z"
 	                };
 	                const outcomeSymbolPath = d => outcomeSymbolPaths[outcomeTypeById[d.id] || "Donation"];
                 var sharedXDomain = [-0.5, 1.5];
@@ -956,7 +956,7 @@
                         .append("path")
 	                        .attr("class", "outcome-symbol obs study-mark")
 	                        .attr("data-id", d => d.id)
-	                        .attr("transform", d => `translate(${xObs(d.obs_mean)},${yObs(d.id) + yObs.bandwidth() / 2})`)
+	                        .attr("transform", d => `translate(${xObs(d.obs_mean)},${yObs(d.id) + yObs.bandwidth() / 2}) scale(1.12)`)
 	                        .attr("d", outcomeSymbolPath)
                         .style("display", "none")
                         .style("opacity", 0)
