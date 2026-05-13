@@ -241,16 +241,17 @@
                 ];
                 const colorScale = d3.scaleOrdinal().domain(categories).range(categoryColors);
                 const outcomeTypes = ["Donation", "Political Contact", "Petition", "Market Price"];
-                const outcomeTypeById = {
-                    AZK26: "Political Contact",
-                    HTA17: "Political Contact",
-                    INA32: "Political Contact",
-                    KLV32: "Political Contact",
-                    LDM83: "Petition",
-                    RVM76: "Petition",
-                    YQH52: "Petition",
-                    FTF24: "Market Price",
-                    WFQ37: "Market Price"
+                const outcomeTypesById = {
+                    AZK26: ["Political Contact"],
+                    HTA17: ["Political Contact"],
+                    INA32: ["Political Contact"],
+                    KLV32: ["Political Contact"],
+                    LDM83: ["Petition"],
+                    RVM76: ["Petition"],
+                    SLX06: ["Petition"],
+                    YQH52: ["Donation", "Petition"],
+                    FTF24: ["Market Price"],
+                    WFQ37: ["Market Price"]
                 };
 	                const outcomeSymbolPaths = {
 	                    Donation: "M-1.65,-5.2H1.65V-1.65H5.2V1.65H1.65V5.2H-1.65V1.65H-5.2V-1.65H-1.65Z",
@@ -258,7 +259,7 @@
 	                    Petition: "M0,-5.65L5.35,4.35H-5.35Z",
 	                    "Market Price": "M0,-5.65L4.7,0L0,5.65L-4.7,0Z"
 	                };
-	                const outcomeSymbolPath = d => outcomeSymbolPaths[outcomeTypeById[d.id] || "Donation"];
+	                const outcomeSymbolPath = d => outcomeSymbolPaths[d.outcomeType || "Donation"];
                 var sharedXDomain = [-0.5, 1.5];
 
                 let shownSelf = false, shownPeer = false, shownObs = false, shownStd = false;
@@ -952,11 +953,19 @@
                         .attr("cy", d => yObs(d.id) + yObs.bandwidth() / 2)
                         .attr("data-origin-cx", xObs(0))
                         .attr("r", 0).style("opacity", 0).style("fill", "black");
-                    const obsOutcomeSymbols = svg.selectAll("path.outcome-symbol.obs").data(data).enter()
+                    const outcomeSymbolData = data.flatMap(d => (outcomeTypesById[d.id] || ["Donation"]).map((outcomeType, outcomeIndex, outcomeList) => ({
+                        ...d,
+                        outcomeType,
+                        outcomeIndex,
+                        outcomeCount: outcomeList.length
+                    })));
+                    const outcomeSymbolOffset = d => d.outcomeCount > 1 ? (d.outcomeIndex - (d.outcomeCount - 1) / 2) * 12 : 0;
+
+                    const obsOutcomeSymbols = svg.selectAll("path.outcome-symbol.obs").data(outcomeSymbolData).enter()
                         .append("path")
 	                        .attr("class", "outcome-symbol obs study-mark")
 	                        .attr("data-id", d => d.id)
-	                        .attr("transform", d => `translate(${xObs(d.obs_mean)},${yObs(d.id) + yObs.bandwidth() / 2}) scale(1.12)`)
+	                        .attr("transform", d => `translate(${xObs(d.obs_mean) + outcomeSymbolOffset(d)},${yObs(d.id) + yObs.bandwidth() / 2}) scale(1.12)`)
 	                        .attr("d", outcomeSymbolPath)
                         .style("display", "none")
                         .style("opacity", 0)
@@ -1132,9 +1141,9 @@
                             .attr("y", hoverStated && yS != null ? yS : -100)
                             .style("opacity", hoverStated && yS != null ? 1 : 0);
                         svg.selectAll(".dot.self, .dot.peer, .dot.obs, .outcome-symbol.obs, .error.peer, .error.obs")
-                            .classed("is-hovered", d => hoverObserved && d && d.id === id);
+                            .classed("is-hovered", d => hoverObserved && d && d.id === id && (d.outcomeType ? outcomeMarkMatchesFilters(d) : studyMatchesFilters(d)));
                         svg.selectAll(".dot.std, .error.std")
-                            .classed("is-hovered", d => hoverStated && d && d.id === id);
+                            .classed("is-hovered", d => hoverStated && d && d.id === id && studyMatchesFilters(d));
                         connectors
                             .classed("is-hovered", d => connectorsShown && hoverObserved && hoverStated && d && d.id === id && studyMatchesFilters(d));
                         svg.selectAll(".obs-y-axis .tick text")
@@ -1198,13 +1207,19 @@
 	                    let outcomesOn = false;
 	                    let activeOutcome = "All";
 
-	                    function outcomeType(d) {
-	                        return outcomeTypeById[d.id] || "Donation";
+	                    function studyOutcomeTypes(d) {
+	                        return outcomeTypesById[d.id] || ["Donation"];
 	                    }
 
 	                    function studyMatchesFilters(d) {
 	                        const categoryMatches = activeCategory === "All" || d.category === activeCategory;
-	                        const outcomeMatches = activeOutcome === "All" || outcomeType(d) === activeOutcome;
+	                        const outcomeMatches = activeOutcome === "All" || studyOutcomeTypes(d).includes(activeOutcome);
+	                        return categoryMatches && outcomeMatches;
+	                    }
+
+	                    function outcomeMarkMatchesFilters(d) {
+	                        const categoryMatches = activeCategory === "All" || d.category === activeCategory;
+	                        const outcomeMatches = activeOutcome === "All" || d.outcomeType === activeOutcome;
 	                        return categoryMatches && outcomeMatches;
 	                    }
 
@@ -1222,7 +1237,7 @@
 	                        peerDots.style("pointer-events", d => shownPeer && selfPeerVisible && studyMatchesFilters(d) ? "all" : "none");
 	                        peerErr.selectAll("line").style("pointer-events", d => shownPeer && selfPeerVisible && studyMatchesFilters(d) ? "all" : "none");
 	                        obsDots.style("pointer-events", d => shownObs && !outcomesOn && studyMatchesFilters(d) ? "all" : "none");
-	                        obsOutcomeSymbols.style("pointer-events", d => shownObs && outcomesOn && studyMatchesFilters(d) ? "all" : "none");
+	                        obsOutcomeSymbols.style("pointer-events", d => shownObs && outcomesOn && outcomeMarkMatchesFilters(d) ? "all" : "none");
 	                        obsErr.selectAll("line").style("pointer-events", d => shownObs && studyMatchesFilters(d) ? "all" : "none");
 	                        stdDots.style("pointer-events", d => shownStd && studyMatchesFilters(d) ? "all" : "none");
 	                        stdErr.selectAll("line").style("pointer-events", d => shownStd && studyMatchesFilters(d) ? "all" : "none");
@@ -1243,7 +1258,7 @@
 
 	                    function outcomeFilteredOpacity(d) {
 	                        if (!shownObs) return 0;
-	                        return filteredOpacity(d, 1, 0.12);
+	                        return outcomeMarkMatchesFilters(d) ? 1 : 0.12;
 	                    }
 
                     function syncOutcomeSymbols(duration = 180) {
@@ -1291,7 +1306,8 @@
 
                     function attachTip(sel, fn, panel) {
                         sel.on("mouseover", function (e, d) {
-                            if (studyMatchesFilters(d) && +d3.select(this).style("opacity") > 0) {
+                            const matches = d.outcomeType ? outcomeMarkMatchesFilters(d) : studyMatchesFilters(d);
+                            if (matches && +d3.select(this).style("opacity") > 0) {
                                 setStudyHover(d.id, panel);
                                 showTip(e, fn(d));
                             }
@@ -1305,7 +1321,7 @@
                     attachTip(peerDots, d => `<strong>${d.id}</strong><br/>Peer: ${d.peer_mean.toFixed(2)} [${d.peer_low.toFixed(2)}–${d.peer_high.toFixed(2)}]`, "obs");
                     peerErr.selectAll("line").call(attachTip, d => `<strong>${d.id}</strong><br/>Peer CI: [${d.peer_low.toFixed(2)}–${d.peer_high.toFixed(2)}]`, "obs");
                     attachTip(obsDots, d => `<strong>${d.id}</strong><br/>General support (observed): ${d.obs_mean.toFixed(2)} [${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`, "obs");
-                    attachTip(obsOutcomeSymbols, d => `<strong>${d.id}</strong><br/>${outcomeTypeById[d.id] || "Donation"} outcome<br/>General support (observed): ${d.obs_mean.toFixed(2)} [${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`, "obs");
+                    attachTip(obsOutcomeSymbols, d => `<strong>${d.id}</strong><br/>${d.outcomeType} outcome${d.outcomeCount > 1 ? " (one of two)" : ""}<br/>General support (observed): ${d.obs_mean.toFixed(2)} [${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`, "obs");
                     obsErr.selectAll("line").call(attachTip, d => `<strong>${d.id}</strong><br/>Observed CI: [${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`, "obs");
                     attachTip(stdDots, d => `<strong>${d.id}</strong><br/>General support (stated): ${d.std_mean.toFixed(2)} [${d.std_low.toFixed(2)}–${d.std_high.toFixed(2)}]`, "std");
                     stdErr.selectAll("line").call(attachTip, d => `<strong>${d.id}</strong><br/>Stated CI: [${d.std_low.toFixed(2)}–${d.std_high.toFixed(2)}]`, "std");
