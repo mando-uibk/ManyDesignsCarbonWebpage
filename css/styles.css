@@ -780,6 +780,47 @@ svg text {
     font-weight: 700;
 }
 
+.tooltip-context {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 5px 0 4px;
+}
+
+.tooltip-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    max-width: 100%;
+    padding: 2px 5px;
+    border: 1px solid rgba(23, 33, 43, 0.10);
+    border-radius: 999px;
+    color: #40505b;
+    background: rgba(246, 249, 250, 0.92);
+    font-size: 10px;
+    font-weight: 650;
+    line-height: 1.2;
+}
+
+.tooltip-chip i {
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+}
+
+.tooltip-chip-outcome {
+    color: #12202a;
+    background: rgba(241, 244, 245, 0.94);
+}
+
+.tooltip-note {
+    color: #66737c;
+    font-size: 10.5px;
+    font-weight: 600;
+}
+
 #category-legend,
 #outcome-legend {
     grid-column: 1 / -1;
