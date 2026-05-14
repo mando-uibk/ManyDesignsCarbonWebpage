@@ -1311,12 +1311,13 @@
 	                        return activeOutcome === "All" ? types : types.filter(type => type === activeOutcome);
 	                    }
 
-	                    function tooltipContext(d) {
+	                    function tooltipContext(d, panel = "obs") {
 	                        const chips = [];
 	                        if (catsOn && d.category) {
 	                            chips.push(`<span class="tooltip-chip tooltip-chip-intervention"><i style="background:${colorScale(d.category)}"></i>${d.category}</span>`);
 	                        }
-	                        const outcomeLabels = currentOutcomeLabels(d);
+	                        const showOutcomeContext = panel === "obs" || panel === "both";
+	                        const outcomeLabels = showOutcomeContext ? currentOutcomeLabels(d) : [];
 	                        if (outcomeLabels.length) {
 	                            const suffix = outcomeLabels.length > 1 ? " outcomes" : " outcome";
 	                            chips.push(`<span class="tooltip-chip tooltip-chip-outcome">${outcomeLabels.join(" + ")}${suffix}</span>`);
@@ -1324,8 +1325,8 @@
 	                        return chips.length ? `<div class="tooltip-context">${chips.join("")}</div>` : "";
 	                    }
 
-	                    function tooltipHeader(d) {
-	                        return `<strong>${d.id}</strong>${tooltipContext(d)}`;
+	                    function tooltipHeader(d, panel = "obs") {
+	                        return `<strong>${d.id}</strong>${tooltipContext(d, panel)}`;
 	                    }
 
                     function attachTip(sel, fn, panel) {
@@ -1341,21 +1342,21 @@
                         });
                     }
 
-                    attachTip(selfDots, d => `${tooltipHeader(d)}<br/>Self: ${d.self_mean.toFixed(2)}`, "obs");
-                    attachTip(peerDots, d => `${tooltipHeader(d)}<br/>Peer: ${d.peer_mean.toFixed(2)} [${d.peer_low.toFixed(2)}–${d.peer_high.toFixed(2)}]`, "obs");
-                    peerErr.selectAll("line").call(attachTip, d => `${tooltipHeader(d)}<br/>Peer CI: [${d.peer_low.toFixed(2)}–${d.peer_high.toFixed(2)}]`, "obs");
-                    attachTip(obsDots, d => `${tooltipHeader(d)}<br/>General support (observed): ${d.obs_mean.toFixed(2)} [${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`, "obs");
-                    attachTip(obsOutcomeSymbols, d => `${tooltipHeader(d)}${d.outcomeCount > 1 ? `<br/><span class="tooltip-note">One of two coded outcome families for this design.</span>` : ""}<br/>General support (observed): ${d.obs_mean.toFixed(2)} [${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`, "obs");
-                    obsErr.selectAll("line").call(attachTip, d => `${tooltipHeader(d)}<br/>Observed CI: [${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`, "obs");
-                    attachTip(stdDots, d => `${tooltipHeader(d)}<br/>General support (stated): ${d.std_mean.toFixed(2)} [${d.std_low.toFixed(2)}–${d.std_high.toFixed(2)}]`, "std");
-                    stdErr.selectAll("line").call(attachTip, d => `${tooltipHeader(d)}<br/>Stated CI: [${d.std_low.toFixed(2)}–${d.std_high.toFixed(2)}]`, "std");
+                    attachTip(selfDots, d => `${tooltipHeader(d, "obs")}<br/>Self: ${d.self_mean.toFixed(2)}`, "obs");
+                    attachTip(peerDots, d => `${tooltipHeader(d, "obs")}<br/>Peer: ${d.peer_mean.toFixed(2)} [${d.peer_low.toFixed(2)}–${d.peer_high.toFixed(2)}]`, "obs");
+                    peerErr.selectAll("line").call(attachTip, d => `${tooltipHeader(d, "obs")}<br/>Peer CI: [${d.peer_low.toFixed(2)}–${d.peer_high.toFixed(2)}]`, "obs");
+                    attachTip(obsDots, d => `${tooltipHeader(d, "obs")}<br/>General support (observed): ${d.obs_mean.toFixed(2)} [${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`, "obs");
+                    attachTip(obsOutcomeSymbols, d => `${tooltipHeader(d, "obs")}${d.outcomeCount > 1 ? `<br/><span class="tooltip-note">One of two coded outcome families for this design.</span>` : ""}<br/>General support (observed): ${d.obs_mean.toFixed(2)} [${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`, "obs");
+                    obsErr.selectAll("line").call(attachTip, d => `${tooltipHeader(d, "obs")}<br/>Observed CI: [${d.obs_low.toFixed(2)}–${d.obs_high.toFixed(2)}]`, "obs");
+                    attachTip(stdDots, d => `${tooltipHeader(d, "std")}<br/>General support (stated): ${d.std_mean.toFixed(2)} [${d.std_low.toFixed(2)}–${d.std_high.toFixed(2)}]`, "std");
+                    stdErr.selectAll("line").call(attachTip, d => `${tooltipHeader(d, "std")}<br/>Stated CI: [${d.std_low.toFixed(2)}–${d.std_high.toFixed(2)}]`, "std");
                     attachTip(connectors, d => {
                         const sig = d.obs_p_one_sided < 0.05 && d.std_p_one_sided < 0.05
                             ? "Both outcomes significant"
                             : (d.obs_p_one_sided < 0.05 || d.std_p_one_sided < 0.05)
                                 ? "One outcome significant"
                                 : "Neither outcome significant";
-                        return `${tooltipHeader(d)}<br/>${sig}<br/>Observed p: ${d.obs_p_one_sided.toFixed(3)}<br/>Stated p: ${d.std_p_one_sided.toFixed(3)}`;
+                        return `${tooltipHeader(d, "both")}<br/>${sig}<br/>Observed p: ${d.obs_p_one_sided.toFixed(3)}<br/>Stated p: ${d.std_p_one_sided.toFixed(3)}`;
                     }, "both");
 
                     [
