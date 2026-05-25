@@ -763,10 +763,10 @@
                 function updateButtons() {
                     if (obsDone) {
                         d3.select("#btn-outcomes").property("disabled", false);
+                        d3.select("#btn-categories").property("disabled", false);
                     }
                     if (obsDone && stdDone) {
                         d3.select("#btn-connectors").property("disabled", false);
-                        d3.select("#btn-categories").property("disabled", false);
                     }
                 }
 
