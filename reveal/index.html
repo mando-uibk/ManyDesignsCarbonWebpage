@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fifty-five Crowd-Sourced Designs — WCERE 2026</title>
+<link rel="stylesheet" href="lib/reset.css">
+<link rel="stylesheet" href="lib/reveal.css">
+<link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+  <!-- ============ 1 · TITLE ============ -->
+  <section data-no-chrome data-background-color="#FAF8F3">
+    <div class="title-slide">
+      <svg class="title-grid" id="titleGrid" aria-hidden="true"></svg>
+      <div class="title-body">
+        <div class="title-top">
+          <img id="logo-uibk" src="assets/logos/uibk.svg" alt="University of Innsbruck"
+               onerror="this.style.display='none';document.getElementById('uibk-fallback').style.display='block'">
+          <span id="uibk-fallback" class="uibk-txt" style="display:none">Universität<br>Innsbruck</span>
+          <span class="t-hashtag">#ManyDesignsCarbon</span>
+        </div>
+
+        <div class="title-main">
+          <div class="ey">Many-Designs Crowd Science · Metascience</div>
+          <h1>Fifty-five Crowd-Sourced Designs<br><span class="hl">Assessing Carbon Pricing Support</span></h1>
+
+          <div class="title-authors">
+            <span class="coords"><b>Armando Holzknecht</b><sup>*</sup> · <b>Rene Schwaiger</b><sup>*</sup> ·
+            <b>Esther Blanco</b> · <b>Jürgen Huber</b> · <b>Michael Kirchler</b></span><br>
+            <span class="muted" style="font-size:.86em">5 project coordinators &nbsp;·&nbsp; <b>108</b> co-authors &nbsp;·&nbsp; <b>55</b> research teams &nbsp;·&nbsp; University of Innsbruck</span>
+          </div>
+
+          <div class="title-meta">
+            <div class="mblock"><span class="mk">Date</span><span class="mv">01 July 2026</span></div>
+            <div class="mblock"><span class="mk">Venue</span><span class="mv">WCERE 2026</span></div>
+            <div class="mblock"><span class="mk">Project</span><span class="mv">manydesignscarbon.online</span></div>
+            <div class="title-logos">
+              <div class="fund">
+                <span class="fk">Funded by</span>
+                <img id="logo-fwf" src="assets/logos/fwf-new.svg" alt="Austrian Science Fund (FWF)"
+                     onerror="if(this.dataset.f!=='1'){this.dataset.f='1';this.src='assets/logos/fwf-classic.svg'}else{this.replaceWith(Object.assign(document.createElement('span'),{className:'uibk-txt',innerHTML:'FWF — Der Wissenschaftsfonds',style:'font-size:15px'}))}">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2 · WHY THIS MATTERS ============ -->
+  <section>
+    <div class="slidepad">
+      <span class="kicker"><span>Motivation</span><span class="num">02</span></span>
+      <h2>Effective carbon pricing, limited public support</h2>
+      <div class="cols solo" style="margin-top:.2em">
+        <ul class="blist">
+          <li class="fragment fade-up">A price on carbon is widely judged <b>effective and cost-efficient</b> <span class="cite">(Nordhaus 1992; Stechemesser et al. 2024)</span>, yet only <b>28%</b> of global emissions are priced — at ~<b>$19/t</b> against a social cost near <b>$120/t</b> <span class="cite">(World Bank 2025; EPA 2023)</span>.</li>
+          <li class="fragment fade-up">The binding constraint is <b>public and political support</b>, not the instrument itself.</li>
+          <li class="fragment fade-up alt">Prior evidence on the <b>effectiveness of nudges</b> in altering behavior raises concerns about <b>publication bias</b> and <b>backfiring</b> effects <span class="cite">(DellaVigna &amp; Linos 2022; Maier et al. 2022; Mertens et al. 2022)</span>.</li>
+          <li class="fragment fade-up alt">Most evidence focuses on <b>(pro-environmental) behavior</b> <span class="cite">(e.g., Allcott 2011; Tiefenbeck et al. 2019)</span>; support for <b>system-level policy</b>, measured with <b>real-world</b> outcomes, remains largely unexplored <span class="cite">(see Vlasceanue et al. 2024 and Dechezleprêtre et al. 2025 for stated support measures)</span>.</li>
+        </ul>
+        <div class="bandcard fragment scale-in" style="margin-top:.5em">
+          <div class="bc-main">
+            <div class="xs muted" style="letter-spacing:.12em;text-transform:uppercase;font-weight:700">The question</div>
+            <p style="font-family:'Montserrat',sans-serif;font-weight:600;font-size:.86em;color:var(--green-deep);line-height:1.28;margin:.25em 0 0;text-align:left">
+              “What is the impact of behavioral interventions on <span class="hl-amber">real-world support</span> for a price of carbon?”</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3 · MANY-DESIGNS IDEA + SETUP ============ -->
+  <section>
+    <div class="slidepad dense">
+      <span class="kicker"><span>The Many-Designs Approach</span><span class="num">03</span></span>
+      <h2>One question, many designs</h2>
+      <div class="cols solo">
+        <p class="lead mt0">Instead of <em>“one team, one design, one dataset,”</em> the whole field designs the same experiment — run all at once <span class="cite">(Huber et al. 2023)</span>.</p>
+        <ul class="blist tight">
+          <li class="fragment fade-up"><b>Diverse by design:</b> many teams, randomly drawn from a pool of applicants (economics, psychology, and the behavioral sciences broadly), each contribute an <b>independent RCT</b> answering the exact same research question.</li>
+          <li class="fragment fade-up"><b>Clean quantification of design heterogeneity:</b> a shared, simultaneously collected participant pool and one pre-registered analysis, so differences reflect the <b>designs</b>, not the sample or the statistics <span class="cite">(Holzmeister et al. 2024)</span>.</li>
+          <li class="fragment fade-up"><b>Open Science as a living principle:</b> protocols, code and outcomes of all designs are reported, regardless of the effect produced, mitigating <b>publication bias</b>.</li>
+          <li class="fragment fade-up"><b>Taken together:</b> highly-powered and field-capturing meta-scientific evidence.</li>
+        </ul>
+        <div style="display:flex;gap:26px;align-items:stretch;margin-top:.45em">
+          <div class="taskcard fragment fade-up" style="flex:1;min-width:0;align-self:center">
+            <div class="tc-head">Each team's task</div>
+            <div class="tc-body">Design an <b>intervention</b> and a <b>control</b> condition, and propose an <b>observed real-world</b> outcome that measures support for carbon pricing.</div>
+          </div>
+          <div class="statrow fragment scale-in" style="gap:30px;align-self:center;flex:0 0 auto">
+            <div class="stat"><span class="val countup" data-to="135">135</span><span class="lab">teams applied</span></div>
+            <div class="stat"><span class="val amber countup" data-to="55">55</span><span class="lab">designs run</span></div>
+            <div class="stat"><span class="val countup" data-to="19558" data-dur="1500">19,558</span><span class="lab">US participants</span></div>
+            <div class="stat"><span class="val countup" data-to="110">110</span><span class="lab">conditions (55×2)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4 · EXPERIMENTAL FLOW ============ -->
+  <section data-fig="flow">
+    <div class="slidepad">
+      <span class="kicker"><span>Experimental Procedure</span><span class="num">04</span></span>
+      <h2>Experimental protocol</h2>
+      <div class="figwrap"><div class="figmount"></div></div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <div class="fragment" data-figstep="4" style="display:none"></div>
+    <div class="fragment" data-figstep="5" style="display:none"></div>
+  </section>
+
+  <!-- ============ 5 · METHODOLOGY ============ -->
+  <section data-fig="method">
+    <div class="slidepad">
+      <span class="kicker"><span>From 55 studies to one estimate</span><span class="num">05</span></span>
+      <h2>Methodology: standardize, then meta-analyze</h2>
+      <div class="figwrap"><div class="figmount"></div></div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <div class="fragment" data-figstep="4" style="display:none"></div>
+  </section>
+
+  <!-- ============ 6 · FIGURE 1 ============ -->
+  <section data-fig="fig1">
+    <div class="slidepad">
+      <span class="kicker"><span>Figure 1 · What the teams built</span><span class="num">06</span></span>
+      <h2>The design space the crowd produced</h2>
+      <div class="figwrap"><div class="figmount"></div></div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none" data-title="Panel a — intervention features"></div>
+    <div class="fragment" data-figstep="2" style="display:none" data-title="The four intervention categories"></div>
+    <div class="fragment" data-figstep="3" style="display:none" data-title="…broken down into sub-types"></div>
+    <div class="fragment" data-figstep="4" style="display:none" data-title="Panel b — outcome features"></div>
+    <div class="fragment" data-figstep="5" style="display:none" data-title="The four outcome categories"></div>
+    <div class="fragment" data-figstep="6" style="display:none" data-title="…donation recipients &amp; sub-types"></div>
+  </section>
+
+  <!-- ============ 7 · FIGURE 3 · FOREST (centerpiece) ============ -->
+  <section data-fig="fig3">
+    <div class="slidepad fig-full">
+      <span class="kicker"><span>Figure 3 · The whole distribution of results</span><span class="num">07</span></span>
+      <h2 id="f3title">Expectations versus observed effects across 55 designs</h2>
+      <div class="figwrap"><div class="figmount"></div></div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none" data-title="Left panel — what teams expected (self + peer)"></div>
+    <div class="fragment" data-figstep="2" style="display:none" data-title="Left panel — the actual effects, most near zero"></div>
+    <div class="fragment" data-figstep="3" style="display:none" data-title="Left panel — pooled effect & prediction interval"></div>
+    <div class="fragment" data-figstep="4" style="display:none" data-title="Right panel (stated support) now appears"></div>
+    <div class="fragment" data-figstep="5" style="display:none" data-title="Right panel — pooled effect & prediction interval"></div>
+    <div class="fragment" data-figstep="6" style="display:none" data-title="Grey lines link each team across measures (r = 0.17)"></div>
+  </section>
+
+  <!-- ============ 7b · FIGURE S6 · VIOLIN (overconfidence) ============ -->
+  <section data-fig="violinS6">
+    <div class="slidepad">
+      <span class="kicker"><span>Figure S6 · Expectations vs reality</span><span class="num">08</span></span>
+      <h2>Observed effects versus researchers' expectations</h2>
+      <div class="figwrap"><div class="figmount"></div></div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none" data-title="Observed effects on real-world support (no controls / controls)"></div>
+    <div class="fragment" data-figstep="2" style="display:none" data-title="Teams' beliefs about their own design"></div>
+    <div class="fragment" data-figstep="3" style="display:none" data-title="Teams' beliefs about their peers' designs"></div>
+    <div class="fragment" data-figstep="4" style="display:none" data-title="Beliefs far exceed the observed effects (Mann-Whitney, r ≈ 0.67)"></div>
+  </section>
+
+  <!-- ============ 8 · FIGURE 2 · META EFFECTS ============ -->
+  <section data-fig="fig2">
+    <div class="slidepad">
+      <span class="kicker"><span>Figure 2 · Pooled effects</span><span class="num">09</span></span>
+      <h2>Very small, positive, and consistent across (primary) outcomes</h2>
+      <div class="figwrap"><div class="figmount"></div></div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+  </section>
+
+  <!-- ============ 9 · FIGURE 4 · MODERATORS ============ -->
+  <section data-fig="fig4">
+    <div class="slidepad">
+      <span class="kicker"><span>Figure 4 · What explains the variation?</span><span class="num">10</span></span>
+      <h2>Difficulties in explaining variation in effects</h2>
+      <div class="figwrap"><div class="figmount"></div></div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none"></div>
+    <div class="fragment" data-figstep="2" style="display:none"></div>
+    <div class="fragment" data-figstep="3" style="display:none"></div>
+    <div class="fragment" data-figstep="4" style="display:none"></div>
+  </section>
+
+  <!-- ============ 10 · ROBUSTNESS ============ -->
+  <section data-fig="robustness">
+    <div class="slidepad fig-full">
+      <span class="kicker"><span>Robustness</span><span class="num">11</span></span>
+      <h2>Robust across specifications, subsets, and single designs</h2>
+      <div class="figwrap"><div class="figmount"></div></div>
+    </div>
+    <div class="fragment" data-figstep="1" style="display:none" data-title="Multiverse — two pre-registered forks → 32 specifications per design"></div>
+    <div class="fragment" data-figstep="2" style="display:none" data-title="Ridge — each design's Cohen's d across all specifications (Figure S8)"></div>
+    <div class="fragment" data-figstep="3" style="display:none" data-title="Specification curve — effect, heterogeneity & choices per spec (Figure S7)"></div>
+    <div class="fragment" data-figstep="4" style="display:none" data-title="GOSH — meta-analyse a million random subsets of the designs"></div>
+    <div class="fragment" data-figstep="5" style="display:none" data-title="GOSH plot — pooled effect vs heterogeneity stays a tight cloud"></div>
+    <div class="fragment" data-figstep="6" style="display:none" data-title="Leave-one-out — omitting any single design barely moves the estimate"></div>
+  </section>
+
+  <!-- ============ 11 · IMPLICATIONS (consolidated) ============ -->
+  <section>
+    <div class="slidepad dense">
+      <span class="kicker"><span>Implications</span><span class="num">12</span></span>
+      <h2>Small and over-assessed effects?</h2>
+      <div class="cols solo">
+        <h3 class="mt0">What we find</h3>
+        <ul class="blist tight">
+          <li class="fragment fade-up" data-fragment-index="0">Small but statistically significant meta-effects (Cohen's <i>d</i> ≈ <b>0.04–0.08</b>; ~1–2.4 pp); at the study level most effects are <b>indistinguishable from zero</b>.</li>
+          <li class="fragment fade-up" data-fragment-index="1">Teams themselves and their peers were systematically <b>overconfident</b> about the effects <span class="cite">(see e.g., Menkveld et al. 2023; König-Kersting et al. 2025)</span>.</li>
+        </ul>
+        <h3 class="fragment fade-up" data-fragment-index="2">Why are effects smaller than reported in prior work?</h3>
+        <ul class="blist tight">
+          <li class="fragment fade-up" data-fragment-index="3">Preferences on carbon pricing may be <b>rigid</b> and not easily moved <span class="cite">(Mildenberger et al. 2022; Dechezleprêtre et al. 2025)</span>.</li>
+          <li class="fragment fade-up" data-fragment-index="4">Interventions may be <b>less effective for system-level policy</b> than for individual behaviour <span class="cite">(Bergquist et al. 2023; Sinclair et al. 2025)</span>.</li>
+          <li class="fragment fade-up alt" data-fragment-index="5">Prior estimates are likely <b>inflated by publication bias</b> — which may also <b>anchor researchers' miscalibrated beliefs</b> <span class="cite">(Scheel et al. 2021; Borjas &amp; Breznau 2026)</span>.</li>
+        </ul>
+        <div class="bandcard fragment scale-in" data-fragment-index="6" style="margin-top:.3em">
+          <div class="bc-aside statrow" style="gap:40px">
+            <div class="stat center-x"><span class="val countup" data-to="0.063" data-dec="3">0.063</span><span class="lab">full-sample <i style="text-transform:none">d</i></span></div>
+            <div class="stat center-x"><span class="val amber countup" data-to="0.26" data-dec="2">0.26</span><span class="lab">if only “sig.” reported</span></div>
+          </div>
+          <div class="vsep"></div>
+          <div class="bc-main"><p class="xs mt0" style="text-align:left;color:var(--ink-2)">Reporting only the significant studies would <b>inflate</b> the pooled estimate roughly <b>fourfold</b>.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 12 · LIMITATIONS ============ -->
+  <section>
+    <div class="slidepad">
+      <span class="kicker"><span>Limitations</span><span class="num">13</span></span>
+      <h2>Limitations</h2>
+      <ul class="blist">
+        <li class="fragment fade-up alt">Some real-world proxies may carry <b>mechanical</b> features; conservatively excluding 7 still leaves a detectable effect (d = <b>0.049</b>, k = 48).</li>
+        <li class="fragment fade-up alt">Inference rests on the <b>meta-effect</b> — individual studies are low-powered for effects this small.</li>
+        <li class="fragment fade-up alt"><b>55 of 135</b> teams were run, randomly selected to avoid selection bias.</li>
+        <li class="fragment fade-up alt"><b>US-only</b> sample — cross-cultural and cross-context generalization remains open.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 13 · TAKEAWAY ============ -->
+  <section data-no-chrome data-background-color="#0E3D24">
+    <div class="section-slide" style="background:linear-gradient(135deg,#0E3D24,#1B5E3A 60%,#2E7D52)">
+      <span class="kicker">Takeaway</span>
+      <div class="tk-grid">
+        <div class="tk-msg">
+          Behavioral interventions raise support for carbon pricing —
+          but only <span class="hl">very modestly</span>, and, importantly, by <span class="hl">less than researchers expect</span>.<br>
+          <span style="font-size:.62em;color:rgba(255,255,255,.82);font-family:'Montserrat',sans-serif;font-weight:400">
+          The many-designs approach aggregates independent studies into one collectively and transparently reported estimate (alongside the non-negligible heterogeneity of on-par designs).</span>
+        </div>
+        <div class="qr-card">
+          <img id="qr" src="assets/qr.svg" alt="manydesignscarbon.online"
+               style="width:180px;height:180px" onerror="this.style.display='none'">
+          <div class="qlab">manydesignscarbon.online<br><span style="font-weight:500;color:var(--muted)">interactive results &amp; all 55 designs</span></div>
+        </div>
+      </div>
+      <p style="margin-top:26px;color:rgba(255,255,255,.7);font-size:.6em">
+        Thank you · 108 co-authors across 55 research teams · University of Innsbruck ·
+        Funded by the Austrian Science Fund (FWF), SFB F63 (10.55776/F63)</p>
+    </div>
+  </section>
+
+  <!-- ============ 14 · CO-AUTHORS (the collaboration) ============ -->
+  <section data-fig="authors">
+    <div class="slidepad">
+      <span class="kicker"><span>The collaboration</span><span class="num">—</span></span>
+      <h2>55 research teams · 108 co-authors</h2>
+      <div class="figwrap"><div class="figmount"></div></div>
+    </div>
+  </section>
+
+  <!-- ============ 14 · REFERENCES (last page) ============ -->
+  <section>
+    <div class="slidepad">
+      <span class="kicker"><span>References</span><span class="num">—</span></span>
+      <h2>References</h2>
+      <div id="refsMount" class="refs-grid three"></div>
+    </div>
+  </section>
+
+  </div><!-- /.slides -->
+  <!-- single viewport-pinned footer (kept OUTSIDE .slides so position:fixed tracks the screen) -->
+  <div class="deck-footer">
+    <span class="ft-title">Fifty-five Crowd-Sourced Designs Assessing Carbon Pricing Support</span>
+    <span class="ft-page"></span>
+  </div>
+</div><!-- /.reveal -->
+
+<script src="js/data.js"></script>
+<script src="js/mdc-core.js"></script>
+<script src="js/figures/flow.js"></script>
+<script src="js/figures/method.js"></script>
+<script src="js/figures/fig1.js"></script>
+<script src="js/figures/fig3.js"></script>
+<script src="js/figures/fig2.js"></script>
+<script src="js/figures/fig4.js"></script>
+<script src="js/figures/figS8.js"></script>
+<script src="js/figures/robustness.js"></script>
+<script src="js/figures/violinS6.js"></script>
+<script src="js/figures/authors.js"></script>
+<script src="lib/reveal.js"></script>
+<script src="lib/plugin/notes/notes.js"></script>
+<script>
+  // decorative dotted grid on the title slide
+  (function(){
+    var s=document.getElementById('titleGrid'); if(!s) return;
+    var W=1280,H=720; s.setAttribute('viewBox','0 0 '+W+' '+H);
+    var ns='http://www.w3.org/2000/svg', step=46;
+    for(var y=40;y<H;y+=step) for(var x=40;x<W;x+=step){
+      var c=document.createElementNS(ns,'circle');
+      c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',1.4);
+      c.setAttribute('fill','#1B5E3A');c.setAttribute('opacity', (x>820&&y<260)?0.0:0.10);
+      s.appendChild(c);
+    }
+  })();
+
+  var deck = new Reveal({
+    width:1280, height:720, margin:0, minScale:0.2, maxScale:2.0,
+    hash:true, slideNumber:false, controls:true, progress:true,
+    transition:'slide', transitionSpeed:'default', backgroundTransition:'fade',
+    plugins:[ RevealNotes ]
+  });
+  window.deck = deck; // exposed for QA/testing
+  MDC.initDriver(deck);
+  var QA = (location.search.match(/qa=(\d+)/) || [])[1];
+  if (QA != null) MDC.qaStatic = true;   // deterministic, no-animation capture
+  function startDeck(){
+    deck.initialize().then(function(){
+      populateRefs(); populateCoauthors(); injectFooters();
+      if (QA != null) {
+        document.documentElement.classList.add('qa-static');
+        deck.slide(+QA, 0, 99);
+        deck.layout();
+      }
+    });
+  }
+  // Build figures only AFTER Montserrat is loaded: SVG <text> created before the webfont
+  // arrives renders in a wider fallback and (unlike HTML) won't re-layout, which overflowed
+  // the tight flow-chart boxes. Pre-loading the weights the figures use makes it deterministic.
+  if (document.fonts && document.fonts.load) {
+    // DOWNLOAD each weight the figures use before building, so SVG <text> is measured/laid out
+    // with real Montserrat metrics (not a fallback). load()'s promise waits for the file.
+    Promise.all([
+      document.fonts.load('400 16px Montserrat'),
+      document.fonts.load('500 16px Montserrat'),
+      document.fonts.load('600 16px Montserrat'),
+      document.fonts.load('700 16px Montserrat'),
+      document.fonts.load('800 16px Montserrat')
+    ]).then(startDeck, startDeck);
+  } else {
+    startDeck();
+  }
+
+  // Drive the single viewport-pinned footer: pin it to the screen bottom (so fullscreen has no
+  // letterbox gap below it), size it from the reveal scale, and inset it to line up with the
+  // slide content padding (70px design) at any aspect — accounting for horizontal letterboxing.
+  function injectFooters(){
+    var ff = document.querySelector('.reveal > .deck-footer');
+    if (!ff) return;
+    function size(){
+      var scale = (deck.getScale && deck.getScale()) || 1;
+      var hoff = Math.max(0, (window.innerWidth - 1280 * scale) / 2);   // horizontal letterbox
+      ff.style.height = (34 * scale) + 'px';
+      ff.style.paddingLeft = (hoff + 70 * scale) + 'px';
+      ff.style.paddingRight = (hoff + 70 * scale) + 'px';
+      ff.style.fontSize = (15 * scale) + 'px';
+    }
+    function update(){
+      var secs = document.querySelectorAll('.reveal > .slides > section');
+      var cur = deck.getCurrentSlide ? deck.getCurrentSlide() : null;
+      if (!cur || cur.hasAttribute('data-no-chrome')) { ff.classList.remove('show'); return; }
+      var idx = Array.prototype.indexOf.call(secs, cur);
+      ff.querySelector('.ft-page').textContent = (idx + 1) + ' / ' + secs.length;
+      ff.classList.add('show'); size();
+    }
+    deck.on('slidechanged', update);
+    deck.on('resize', size);
+    update();
+  }
+  function populateRefs(){
+    var m = document.getElementById('refsMount');
+    if (!m || !window.MDC || !MDC.references || m.childElementCount) return;
+    MDC.references.forEach(function(r){
+      var d = document.createElement('div'); d.className = 'ref';
+      d.innerHTML = '<span class="rn">' + r.n + '</span><span>' + r.full + '</span>';
+      m.appendChild(d);
+    });
+  }
+  // co-author wall on the closing thank-you slide
+  function populateCoauthors(){
+    var m = document.getElementById('coauthorWall');
+    if (!m || !window.MDC || !MDC.coauthors || m.childElementCount) return;
+    (MDC.coauthors.authors || []).forEach(function(name){
+      var d = document.createElement('div'); d.className = 'ca'; d.textContent = name;
+      m.appendChild(d);
+    });
+  }
+</script>
+</body>
+</html>
