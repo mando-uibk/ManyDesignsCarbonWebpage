@@ -112,6 +112,10 @@ sup.cite{font-size:.5em;vertical-align:super;margin-left:.15em;}
 /* OSF / open-science links */
 .osf-link{color:var(--green-deep);font-weight:700;text-decoration:none;border-bottom:1.5px solid rgba(27,94,58,.4);white-space:nowrap;transition:border-color .15s;}
 .osf-link:hover{border-bottom-color:var(--green-deep);}
+.nhb-badge{display:inline-block;padding:4px 13px;margin-right:16px;border-radius:999px;
+  background:rgba(217,138,43,.13);border:1.5px solid var(--amber);color:var(--green-deep);
+  font-weight:700;white-space:nowrap;vertical-align:baseline;}
+.nhb-badge .nhb-fc{font-weight:600;color:var(--amber);font-size:.92em;}
 
 /* ---------- stat chips / count-up ---------- */
 .statrow{display:flex;gap:26px;flex-wrap:wrap;margin:.15em 0;}
